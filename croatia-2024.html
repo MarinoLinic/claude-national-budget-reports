@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Croatia Government Budget 2023 — Detailed</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --paper:   #f7f3ee;
+  --white:   #ffffff;
+  --ink:     #18140f;
+  --muted:   #7c766e;
+  --rule:    #ddd7ce;
+  --red:     #b8291f;
+  --red-mid: #d94f3d;
+  --red-lt:  #f0d5d2;
+  --blue:    #1c3f6e;
+  --blue-mid:#2e5fa3;
+  --blue-lt: #ccd8ed;
+  --teal:    #1a5f5a;
+  --teal-lt: #c8e0de;
+  --gold:    #8a6800;
+  --gold-lt: #ede3c0;
+  --olive:   #5a6a1a;
+  --olive-lt:#dde3c0;
+  --grey:    #4a4640;
+  --grey-lt: #e2ddd8;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  background: var(--paper);
+  font-family: 'Barlow', sans-serif;
+  color: var(--ink);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* ── MASTHEAD ── */
+.masthead {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: stretch;
+  overflow: hidden;
+}
+.masthead-left {
+  padding: 44px 52px 40px;
+  border-right: 1px solid #333;
+}
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+.flag {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  flex-shrink: 0;
+}
+.flag span {
+  display: block;
+  width: 32px;
+  height: 8px;
+  border-radius: 1px;
+}
+.flag .r { background: #c8102e; }
+.flag .w { background: #e8e4de; }
+.flag .b { background: #003da5; }
+.eyebrow-text {
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #888;
+  font-weight: 500;
+}
+.masthead h1 {
+  font-family: 'Libre Baskerville', serif;
+  font-size: clamp(2rem, 3.5vw, 3.2rem);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  max-width: 560px;
+}
+.masthead h1 em {
+  font-style: italic;
+  color: #b0a898;
+}
+.masthead-sub {
+  margin-top: 12px;
+  font-size: 12px;
+  color: #777;
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.masthead-right {
+  padding: 44px 52px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 22px;
+  min-width: 240px;
+}
+.kpi { }
+.kpi-label {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #666;
+  font-weight: 500;
+  margin-bottom: 3px;
+}
+.kpi-value {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  line-height: 1;
+}
+.kpi-value.rec  { color: #5a9de0; }
+.kpi-value.def  { color: #e06050; }
+.kpi-value.out  { color: var(--paper); }
+.kpi-note {
+  font-size: 10px;
+  color: #666;
+  font-weight: 300;
+  margin-top: 2px;
+}
+
+/* ── COLOUR STRIPE ── */
+.stripe {
+  height: 5px;
+  background: linear-gradient(90deg,
+    var(--red) 0% 30%,
+    var(--gold) 30% 50%,
+    var(--blue-mid) 50% 72%,
+    var(--teal) 72% 88%,
+    var(--olive) 88% 100%);
+}
+
+/* ── SECTION LABEL ── */
+.section-label {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-weight: 600;
+  color: var(--muted);
+  padding: 28px 52px 0;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+}
+
+/* ── LAYOUT WRAPPERS ── */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  padding: 0 52px;
+}
+.col-divider {
+  border-left: 1px solid var(--rule);
+  padding-left: 40px;
+}
+.col-pad {
+  padding-right: 40px;
+}
+
+/* ── PANEL HEADING ── */
+.panel-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 20px 0 14px;
+  border-bottom: 2px solid var(--ink);
+  margin-bottom: 4px;
+}
+.panel-head h2 {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+.panel-head span {
+  font-size: 10px;
+  color: var(--muted);
+  font-weight: 400;
+}
+
+/* ── BAR ROWS ── */
+.bar-group {
+  margin-bottom: 2px;
+}
+.group-label {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  font-weight: 600;
+  margin: 16px 0 6px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--rule);
+}
+.bar-row {
+  display: grid;
+  grid-template-columns: 200px 1fr 52px;
+  align-items: center;
+  gap: 10px;
+  padding: 3px 0;
+  opacity: 0;
+  transform: translateX(-8px);
+  animation: slideIn 0.35s ease forwards;
+}
+.bar-row.right-anim {
+  transform: translateX(8px);
+}
+@keyframes slideIn {
+  to { opacity: 1; transform: translateX(0); }
+}
+.bar-label {
+  font-size: 12px;
+  color: var(--ink);
+  line-height: 1.3;
+  font-weight: 400;
+}
+.bar-label small {
+  display: block;
+  font-size: 10px;
+  color: var(--muted);
+  font-weight: 300;
+  margin-top: 1px;
+}
+.bar-track {
+  height: 18px;
+  background: var(--rule);
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+}
+.bar-fill {
+  height: 100%;
+  width: 0%;
+  border-radius: 2px;
+  transition: width 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+/* receipt colours */
+.c-vat     { background: var(--blue); }
+.c-soc     { background: var(--blue-mid); }
+.c-pit     { background: #3d75c0; }
+.c-exc     { background: #5590d4; }
+.c-eu      { background: var(--teal); }
+.c-corp    { background: var(--blue); opacity:0.7; }
+.c-other   { background: #7090b8; }
+.c-def     { background: var(--red); }
+/* outlay colours */
+.c-oldage  { background: var(--red); }
+.c-health  { background: #c04a3a; }
+.c-surv    { background: #c86050; }
+.c-dis     { background: #d07060; }
+.c-fam     { background: var(--gold); }
+.c-educ    { background: var(--gold); opacity:0.85; }
+.c-econ    { background: var(--olive); }
+.c-transp  { background: #7a8a2a; }
+.c-debt    { background: var(--grey); }
+.c-def2    { background: var(--grey); opacity:0.75; }
+.c-police  { background: #6a6460; }
+.c-admin   { background: #888078; }
+.c-unemp   { background: #9a9488; }
+.c-natdis  { background: #b0a898; }
+.c-excl    { background: #c0b8b0; }
+
+.bar-val {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--ink);
+  text-align: right;
+  white-space: nowrap;
+}
+.bar-val small {
+  display: block;
+  font-size: 9px;
+  color: var(--muted);
+  font-weight: 400;
+}
+
+/* ── DEFICIT BRIDGE ── */
+.deficit-row {
+  background: #fff8f7;
+  border: 1px solid #f0ccc8;
+  border-radius: 3px;
+  padding: 10px 14px;
+  margin: 10px 0 4px;
+  display: grid;
+  grid-template-columns: 200px 1fr 52px;
+  gap: 10px;
+  align-items: center;
+}
+.deficit-row .bar-label { color: var(--red); font-weight: 500; }
+.deficit-row .bar-fill { background: var(--red-mid); }
+.deficit-row .bar-val { color: var(--red); }
+
+/* ── CALLOUT BOXES ── */
+.callouts {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1px;
+  background: var(--rule);
+  margin: 0 52px;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.callout {
+  background: var(--white);
+  padding: 18px 20px;
+}
+.callout-icon {
+  font-size: 18px;
+  margin-bottom: 8px;
+  display: block;
+}
+.callout h3 {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.callout p {
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.6;
+  font-weight: 300;
+}
+.callout .tag {
+  display: inline-block;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: 2px;
+  margin-top: 8px;
+}
+.tag-red  { background: var(--red-lt);  color: var(--red);  }
+.tag-blue { background: var(--blue-lt); color: var(--blue); }
+.tag-gold { background: var(--gold-lt); color: var(--gold); }
+.tag-teal { background: var(--teal-lt); color: var(--teal); }
+
+/* ── FOOTNOTE ── */
+.footnote {
+  padding: 24px 52px 40px;
+  border-top: 1px solid var(--rule);
+  margin: 28px 0 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.footnote p {
+  font-size: 10px;
+  color: var(--muted);
+  line-height: 1.7;
+  font-weight: 300;
+}
+.footnote strong { font-weight: 600; color: var(--ink); }
+
+/* ── TOTAL ROW ── */
+.total-row {
+  display: grid;
+  grid-template-columns: 200px 1fr 52px;
+  gap: 10px;
+  align-items: center;
+  padding: 8px 0 4px;
+  border-top: 2px solid var(--ink);
+  margin-top: 6px;
+}
+.total-row .bar-label { font-weight: 600; font-size: 12px; }
+.total-row .bar-val   { font-weight: 700; font-size: 12px; }
+
+/* ── METHODOLOGY NOTE ── */
+.method-note {
+  background: var(--ink);
+  color: #ccc;
+  font-size: 10.5px;
+  line-height: 1.7;
+  padding: 14px 20px;
+  border-radius: 3px;
+  margin: 8px 0 0;
+  font-weight: 300;
+}
+.method-note strong { color: var(--paper); font-weight: 600; }
+
+@media (max-width: 900px) {
+  .two-col { grid-template-columns: 1fr; padding: 0 20px; }
+  .col-divider { border-left: none; border-top: 1px solid var(--rule); padding-left: 0; padding-top: 28px; margin-top: 28px; }
+  .col-pad { padding-right: 0; }
+  .masthead { grid-template-columns: 1fr; }
+  .masthead-right { border-top: 1px solid #333; padding-top: 24px; flex-direction: row; flex-wrap: wrap; gap: 24px; }
+  .masthead-left { padding: 32px 20px 28px; }
+  .section-label { padding: 20px 20px 0; }
+  .callouts { grid-template-columns: 1fr; margin: 0 20px; }
+  .footnote { grid-template-columns: 1fr; padding: 20px 20px 32px; }
+  .bar-row { grid-template-columns: 140px 1fr 48px; }
+  .deficit-row { grid-template-columns: 140px 1fr 48px; }
+  .total-row { grid-template-columns: 140px 1fr 48px; }
+}
+</style>
+</head>
+<body>
+
+<!-- MASTHEAD -->
+<div class="masthead">
+  <div class="masthead-left">
+    <div class="eyebrow">
+      <div class="flag">
+        <span class="r"></span>
+        <span class="w"></span>
+        <span class="b"></span>
+      </div>
+      <span class="eyebrow-text">Republic of Croatia · Republika Hrvatska</span>
+    </div>
+    <h1>Government Budget<br><em>Fiscal Year 2023–24</em></h1>
+    <div class="masthead-sub">Receipts, Outlays & Deficit · Verified against Croatian Bureau of Statistics (DZS) & Eurostat ESSPROS</div>
+  </div>
+  <div class="masthead-right">
+    <div class="kpi">
+      <div class="kpi-label">Total Receipts (2024 budget)</div>
+      <div class="kpi-value rec">€28.5B</div>
+      <div class="kpi-note">45.6% of GDP · +3% vs 2023</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Budget Deficit (2024)</div>
+      <div class="kpi-value def">€4.1B</div>
+      <div class="kpi-note">1.9% of GDP · financed by bonds & loans</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Total Outlays (2024 budget)</div>
+      <div class="kpi-value out">€32.6B</div>
+      <div class="kpi-note">48.0% of GDP · +11.2% vs 2023</div>
+    </div>
+  </div>
+</div>
+<div class="stripe"></div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!--  RECEIPTS + OUTLAYS TWO-COL                           -->
+<!-- ══════════════════════════════════════════════════════ -->
+<div class="section-label">Budget breakdown</div>
+
+<div class="two-col">
+
+  <!-- ── LEFT: RECEIPTS ── -->
+  <div class="col-pad">
+    <div class="panel-head">
+      <h2>Receipts by Source</h2>
+      <span>Max = €10.0B (VAT) · Total €28.5B</span>
+    </div>
+
+    <div id="rec"></div>
+
+    <!-- DEFICIT -->
+    <div class="deficit-row" id="def-row" style="opacity:0">
+      <div class="bar-label">Deficit Financing<small>Government bonds + loans</small></div>
+      <div class="bar-track">
+        <div class="bar-fill" data-pct="41" style="width:0%;background:var(--red-mid)"></div>
+      </div>
+      <div class="bar-val">€4.1B<small>1.9% GDP</small></div>
+    </div>
+
+    <div class="total-row">
+      <div class="bar-label">Total Resources Available</div>
+      <div class="bar-track" style="background:transparent"></div>
+      <div class="bar-val">€32.6B</div>
+    </div>
+
+    <div class="method-note" style="margin-top:16px">
+      <strong>Note on social contributions:</strong> Employees pay 20% of gross salary
+      (15% Pillar I PAYG pension + 5% Pillar II funded accounts). Employers separately pay 16.5% health insurance.
+      Unemployment benefits are funded from general revenues, not a dedicated unemployment contribution.
+    </div>
+  </div>
+
+  <!-- ── RIGHT: OUTLAYS ── -->
+  <div class="col-divider">
+    <div class="panel-head">
+      <h2>Outlays by Function</h2>
+      <span>Max = €5.7B (Healthcare) · Total €32.6B</span>
+    </div>
+
+    <div id="out"></div>
+
+    <div class="total-row">
+      <div class="bar-label">Total Expenditure</div>
+      <div class="bar-track" style="background:transparent"></div>
+      <div class="bar-val">€32.6B</div>
+    </div>
+
+    <div class="method-note" style="margin-top:16px">
+      <strong>Source split:</strong> Social protection figures (pensions, healthcare, disability etc.) from
+      Croatian Bureau of Statistics ESSPROS 2023 data — the same methodology used by the Eurostat pension map.
+      Other expenditure lines from Croatian Parliament 2024 adopted state budget. Numbers reconciled to
+      total €32.6B outlay.
+    </div>
+  </div>
+
+</div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!--  CALLOUT BOXES                                         -->
+<!-- ══════════════════════════════════════════════════════ -->
+<div class="section-label" style="margin-top:32px">Context & explanations</div>
+<div class="callouts" style="margin-top:16px">
+
+  <div class="callout">
+    <span class="callout-icon">🏛️</span>
+    <h3>Why the Pension Map Shows 6.1–6.9%</h3>
+    <p>The Eurostat map uses the ESSPROS definition of <em>old-age pensions only</em> — €5.4B or ~6.9% of GDP in 2023.
+    The Croatian Ministry of Finance's own budget documents label a combined €8.4B line as "pension system,"
+    which bundles old-age, disability, survivors, and war veterans' pensions together. These are different
+    definitions of the same spending.</p>
+    <span class="tag tag-red">Old age only: 6.9% GDP</span>
+  </div>
+
+  <div class="callout">
+    <span class="callout-icon">⚕️</span>
+    <h3>Healthcare Is Actually the Largest Function</h3>
+    <p>Under ESSPROS methodology, <em>Sickness & Healthcare</em> at €5.7B (7.3% of GDP) is Croatia's
+    single biggest social protection category — larger than old-age pensions. It's funded primarily
+    through the Croatian Health Insurance Fund (HZZO), which receives employer health contributions
+    (16.5% of payroll) plus state budget transfers. This is why it appears large on the revenue side too.</p>
+    <span class="tag tag-blue">Healthcare: 7.3% GDP</span>
+  </div>
+
+  <div class="callout">
+    <span class="callout-icon">⚔️</span>
+    <h3>Homeland War Veterans — A Unique Croatian Line</h3>
+    <p>Croatia has a substantial special pension and benefits scheme for ~185,000 veterans and families of
+    the 1991–95 Homeland War (Domovinski rat). These are non-contributory, merit-based pensions
+    at above-average rates, funded entirely by state budget transfers. They appear under
+    "Survivors" and "Disability" in ESSPROS but represent a distinct political commitment.</p>
+    <span class="tag tag-gold">~€104M · ~89,000 special pensioners</span>
+  </div>
+
+  <div class="callout">
+    <span class="callout-icon">💶</span>
+    <h3>VAT Dominates Revenue</h3>
+    <p>Croatia's 25% standard VAT rate — the joint-highest in the EU alongside Hungary and Denmark —
+    makes VAT by far the largest single revenue source at ~€10B. Reduced rates of 13% and 5%
+    apply to food, hotels, books, medicines. Tourism's large cash economy makes Croatia particularly
+    reliant on consumption taxes over income taxes.</p>
+    <span class="tag tag-teal">VAT: ~35% of all receipts</span>
+  </div>
+
+  <div class="callout">
+    <span class="callout-icon">🇪🇺</span>
+    <h3>EU: Net Recipient on Both Sides</h3>
+    <p>Croatia receives ~€2.2B in EU Structural, Cohesion and Recovery funds (inflow), while paying ~€0.8B
+    as its annual EU budget contribution (outflow). Net gain ~€1.4B. EU co-financing also inflates
+    several expenditure lines — much of transport, infrastructure, and regional development
+    spending is EU-funded capital investment that wouldn't otherwise appear in the budget.</p>
+    <span class="tag tag-blue">Net EU inflow: ~€1.4B</span>
+  </div>
+
+  <div class="callout">
+    <span class="callout-icon">📈</span>
+    <h3>Why the 2024 Deficit Jumped</h3>
+    <p>The 2024 deficit rose from near-zero in 2022 to €4.1B mainly due to: a €1.5B wage increase
+    for 219,000 public sector workers; €1.1B extra for pensioners (indexation + supplements);
+    and EU Recovery Facility project spending. GDP growth of 3.8% partially offset revenue shortfalls,
+    but spending grew faster. Croatia remains comfortably within the EU's 3% Maastricht threshold.</p>
+    <span class="tag tag-red">Deficit: 1.9% of GDP (below 3% limit)</span>
+  </div>
+
+</div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!--  FOOTNOTE                                              -->
+<!-- ══════════════════════════════════════════════════════ -->
+<div class="footnote">
+  <p>
+    <strong>Primary sources:</strong> Croatian Bureau of Statistics (DZS) — "Social Protection in Republic of Croatia 2023,
+    ESSPROS Methodology" (PSZ-2025-3-1, February 2025); Croatian Parliament (Sabor) — 2024 State Budget
+    (adopted December 2023); Croatian Ministry of Finance; European Commission Economic Forecast for Croatia
+    (Autumn 2025); NATO Defence Expenditure Data 2024; World Bank Note on Performance of Social Protection
+    Programs in Croatia.
+  </p>
+  <p>
+    <strong>Methodology:</strong> Social protection expenditure figures (pensions, healthcare, disability, family, unemployment,
+    survivors) use 2023 ESSPROS actuals from DZS/Eurostat — the same methodology as the Eurostat pension map shown.
+    Other budget lines (defence, debt interest, economy, transport, administration) use 2024 planned budget
+    figures from Sabor. Revenue figures are 2024 planned budget. All EUR figures. Croatia adopted the euro
+    on 1 January 2023 at HRK 7.5340 = €1. GDP reference: ~€77.9B (2023) / ~€84.4B (2024 estimate).
+  </p>
+</div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!--  DATA & RENDERING                                       -->
+<!-- ══════════════════════════════════════════════════════ -->
+<script>
+// MAX values for scaling
+const MAX_REC = 10.0;  // VAT
+const MAX_OUT = 5.68;  // Healthcare (ESSPROS largest)
+
+// ── RECEIPTS (2024 planned budget) ─────────────────────────────────────────
+const receipts = [
+  {
+    group: "Indirect Taxes",
+    items: [
+      { label: "VAT (PDV)",         sub: "25% standard · 13% / 5% reduced",  val: 10.0, gdp: 11.9, cls: "c-vat" },
+      { label: "Excise Duties",     sub: "Fuel, tobacco, alcohol, energy",    val:  2.8, gdp:  3.3, cls: "c-exc" },
+    ]
+  },
+  {
+    group: "Direct Taxes",
+    items: [
+      { label: "Personal Income Tax",  sub: "Porez na dohodak · 15–35.4% range",  val: 3.0, gdp: 3.6, cls: "c-pit" },
+      { label: "Corporate Tax",        sub: "10% (≤€1M profit) · 18% (>€1M)",     val: 1.6, gdp: 1.9, cls: "c-corp" },
+    ]
+  },
+  {
+    group: "Social Contributions",
+    items: [
+      { label: "Social Contributions", sub: "Employee 20% + Employer 16.5% of gross salary", val: 7.2, gdp: 8.5, cls: "c-soc" },
+    ]
+  },
+  {
+    group: "Other Receipts",
+    items: [
+      { label: "EU Funds & Grants",  sub: "ESI Funds + Recovery & Resilience Facility", val: 2.2, gdp: 2.6, cls: "c-eu" },
+      { label: "Other Revenues",     sub: "Fees, fines, property income, tourism levies", val: 1.7, gdp: 2.0, cls: "c-other" },
+    ]
+  },
+];
+
+// ── OUTLAYS (ESSPROS 2023 actuals for social protection; 2024 budget for rest) ──
+const outlays = [
+  {
+    group: "Social Protection (ESSPROS 2023 actuals)",
+    items: [
+      { label: "Healthcare & Sickness",  sub: "HZZO — hospitals, GPs, medicines, sick pay",      val: 5.68, gdp: 7.3, cls: "c-health" },
+      { label: "Old-Age Pensions",       sub: "Pillar I PAYG · 701,936 old-age + 211,666 early",  val: 5.42, gdp: 6.9, cls: "c-oldage" },
+      { label: "Survivors' Pensions",    sub: "212,148 beneficiaries · incl. war widows/orphans",  val: 1.29, gdp: 1.7, cls: "c-surv" },
+      { label: "Disability Benefits",    sub: "99,111 beneficiaries · cash & in-kind support",     val: 1.43, gdp: 1.8, cls: "c-dis" },
+      { label: "Family & Children",      sub: "Child allowances, maternity/parental pay",           val: 1.41, gdp: 1.8, cls: "c-fam" },
+      { label: "Unemployment Benefits",  sub: "60% of prior wage for up to 450 days",              val: 0.27, gdp: 0.4, cls: "c-unemp" },
+      { label: "Social Exclusion & Housing", sub: "Guaranteed min. income, housing allowances",    val: 0.28, gdp: 0.4, cls: "c-excl" },
+    ]
+  },
+  {
+    group: "Other Expenditure (2024 budget planned)",
+    items: [
+      { label: "Economy & Energy",       sub: "Subsidies, public companies, energy policy",        val: 3.20, gdp: 3.8, cls: "c-econ" },
+      { label: "Education & Research",   sub: "Teacher salaries +€1.5B wage supplement 2024",      val: 2.80, gdp: 3.3, cls: "c-educ" },
+      { label: "Debt Interest",          sub: "On ~€49.3B public debt · 1.5% avg rate",            val: 2.60, gdp: 3.1, cls: "c-debt" },
+      { label: "Transport & Infrastructure", sub: "Roads, rail, EU co-financed capital projects",   val: 2.20, gdp: 2.6, cls: "c-transp" },
+      { label: "EU Contribution & Admin", sub: "EU budget payment ~€0.8B + general administration", val: 2.00, gdp: 2.4, cls: "c-admin" },
+      { label: "Defence",                sub: "1.81% GDP · personnel, Rafale jets, armour",         val: 1.50, gdp: 1.8, cls: "c-def2" },
+      { label: "Public Order & Safety",  sub: "Police, courts, prisons, fire services",             val: 1.20, gdp: 1.4, cls: "c-police" },
+    ]
+  },
+];
+
+// ── BUILD BARS ──────────────────────────────────────────────────────────────
+function buildSection(data, containerId, maxVal, animClass, delay0) {
+  const container = document.getElementById(containerId);
+  let delay = delay0;
+  data.forEach(group => {
+    const glabel = document.createElement('div');
+    glabel.className = 'group-label';
+    glabel.textContent = group.group;
+    container.appendChild(glabel);
+
+    group.items.forEach(item => {
+      const pct = Math.min((item.val / maxVal) * 100, 100).toFixed(2);
+      const row = document.createElement('div');
+      row.className = `bar-row${animClass ? ' ' + animClass : ''}`;
+      row.style.animationDelay = delay + 'ms';
+      row.innerHTML = `
+        <div class="bar-label">${item.label}<small>${item.sub}</small></div>
+        <div class="bar-track">
+          <div class="bar-fill ${item.cls}" data-pct="${pct}" style="width:0%"></div>
+        </div>
+        <div class="bar-val">€${item.val.toFixed(2)}B<small>${item.gdp}% GDP</small></div>
+      `;
+      container.appendChild(row);
+      delay += 55;
+    });
+  });
+}
+
+buildSection(receipts, 'rec', MAX_REC, '',           80);
+buildSection(outlays,  'out', MAX_OUT, 'right-anim', 200);
+
+// animate deficit row
+setTimeout(() => {
+  const dr = document.getElementById('def-row');
+  dr.style.transition = 'opacity 0.4s ease 0.5s';
+  dr.style.opacity = '1';
+  dr.querySelector('.bar-fill').style.width = '41%';
+  dr.querySelector('.bar-fill').style.transition = 'width 0.9s cubic-bezier(0.16,1,0.3,1) 0.6s';
+}, 100);
+
+// animate all bars
+setTimeout(() => {
+  document.querySelectorAll('.bar-fill[data-pct]').forEach(el => {
+    el.style.width = el.dataset.pct + '%';
+  });
+}, 150);
+</script>
+</body>
+</html>

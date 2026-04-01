@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>United Kingdom Government Budget 2023–24</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --paper:    #f4f1ec;
+  --white:    #ffffff;
+  --ink:      #141210;
+  --muted:    #78726a;
+  --rule:     #dbd5cc;
+  --red:      #9e1c1c;
+  --red-mid:  #be3030;
+  --red-lt:   #eedcdc;
+  --blue:     #003082;
+  --blue-mid: #1a4aaa;
+  --blue-lt:  #c8d4ee;
+  --teal:     #0a5a50;
+  --teal-lt:  #bcddd8;
+  --gold:     #7a5800;
+  --gold-lt:  #eedcc8;
+  --plum:     #5a1060;
+  --plum-lt:  #e0c8e8;
+  --slate:    #3a5870;
+  --slate-lt: #c8d8e4;
+  --olive:    #4a5a18;
+  --olive-lt: #dce0c0;
+  --grey:     #484440;
+  --grey-lt:  #e0dbd5;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  background: var(--paper);
+  font-family: 'Barlow', sans-serif;
+  color: var(--ink);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* ── MASTHEAD ── */
+.masthead {
+  background: var(--ink);
+  color: var(--paper);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: stretch;
+  overflow: hidden;
+}
+.masthead-left { padding: 44px 52px 40px; border-right: 1px solid #282420; }
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+.union-jack {
+  width: 44px;
+  height: 28px;
+  position: relative;
+  border-radius: 2px;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: var(--blue);
+}
+.union-jack::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to bottom right, transparent 44%, var(--red) 44%, var(--red) 56%, transparent 56%),
+    linear-gradient(to bottom left, transparent 44%, var(--red) 44%, var(--red) 56%, transparent 56%),
+    linear-gradient(to bottom right, transparent 40%, white 40%, white 60%, transparent 60%),
+    linear-gradient(to bottom left, transparent 40%, white 40%, white 60%, transparent 60%);
+}
+.union-jack::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to bottom, transparent 40%, white 40%, white 60%, transparent 60%),
+    linear-gradient(to right, transparent 40%, white 40%, white 60%, transparent 60%),
+    linear-gradient(to bottom, transparent 42%, var(--red) 42%, var(--red) 58%, transparent 58%),
+    linear-gradient(to right, transparent 42%, var(--red) 42%, var(--red) 58%, transparent 58%);
+}
+.eyebrow-text {
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #888;
+  font-weight: 500;
+}
+.masthead h1 {
+  font-family: 'Libre Baskerville', serif;
+  font-size: clamp(2rem, 3.5vw, 3.1rem);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  max-width: 560px;
+}
+.masthead h1 em { font-style: italic; color: #b0a898; }
+.masthead-sub {
+  margin-top: 12px;
+  font-size: 12px;
+  color: #777;
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.masthead-right {
+  padding: 44px 52px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 20px;
+  min-width: 250px;
+}
+.kpi-label { font-size: 9px; text-transform: uppercase; letter-spacing: 0.14em; color: #666; font-weight: 500; margin-bottom: 3px; }
+.kpi-value { font-family: 'Libre Baskerville', serif; font-size: 2.1rem; font-weight: 700; line-height: 1; }
+.kpi-value.rec  { color: #5a9de0; }
+.kpi-value.def  { color: #e06050; }
+.kpi-value.out  { color: var(--paper); }
+.kpi-note { font-size: 10px; color: #666; font-weight: 300; margin-top: 2px; }
+
+/* ── STRIPE ── */
+.stripe {
+  height: 5px;
+  background: linear-gradient(90deg,
+    var(--blue) 0% 20%,
+    var(--red) 20% 35%,
+    var(--teal) 35% 52%,
+    var(--gold) 52% 68%,
+    var(--plum) 68% 82%,
+    var(--grey) 82% 100%);
+}
+
+/* ── SECTION LABEL ── */
+.section-label {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-weight: 600;
+  color: var(--muted);
+  padding: 28px 52px 0;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.section-label::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
+
+/* ── LAYOUT ── */
+.two-col { display: grid; grid-template-columns: 1fr 1fr; padding: 0 52px; }
+.col-pad  { padding-right: 40px; }
+.col-divider { border-left: 1px solid var(--rule); padding-left: 40px; }
+
+/* ── PANEL HEAD ── */
+.panel-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 20px 0 14px;
+  border-bottom: 2px solid var(--ink);
+  margin-bottom: 4px;
+}
+.panel-head h2 { font-family: 'Libre Baskerville', serif; font-size: 1rem; font-weight: 700; }
+.panel-head span { font-size: 10px; color: var(--muted); }
+
+/* ── BAR ROWS ── */
+.group-label {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  font-weight: 600;
+  margin: 16px 0 6px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--rule);
+}
+.bar-row {
+  display: grid;
+  grid-template-columns: 210px 1fr 56px;
+  align-items: center;
+  gap: 10px;
+  padding: 3px 0;
+  opacity: 0;
+  transform: translateX(-8px);
+  animation: slideIn 0.35s ease forwards;
+}
+.bar-row.right-anim { transform: translateX(8px); }
+@keyframes slideIn { to { opacity:1; transform:translateX(0); } }
+
+.bar-label { font-size: 12px; color: var(--ink); line-height: 1.3; font-weight: 400; }
+.bar-label small { display:block; font-size:10px; color:var(--muted); font-weight:300; margin-top:1px; }
+
+.bar-track { height: 18px; background: var(--rule); border-radius: 2px; overflow: hidden; }
+.bar-fill { height: 100%; width: 0%; border-radius: 2px; transition: width 0.95s cubic-bezier(0.16,1,0.3,1); }
+
+/* Receipt colours */
+.c-it    { background: var(--blue); }
+.c-nic   { background: var(--blue-mid); }
+.c-vat   { background: #2a5abe; }
+.c-ct    { background: var(--teal); }
+.c-fuel  { background: #1a7a68; }
+.c-council { background: var(--slate); }
+.c-biz   { background: #4a6888; }
+.c-sdlt  { background: #6a80a0; }
+.c-other { background: #8090b0; }
+
+/* Outlay colours */
+.c-nhs    { background: var(--red); }
+.c-pen    { background: #b02828; }
+.c-uc     { background: var(--gold); }
+.c-dis    { background: #9a7000; }
+.c-hben   { background: #b08000; }
+.c-edu    { background: var(--teal); }
+.c-int    { background: var(--grey); }
+.c-def    { background: var(--blue); }
+.c-lg     { background: var(--plum); }
+.c-tra    { background: #3a6858; }
+.c-other2 { background: #8a8278; }
+.c-child  { background: #c09020; }
+.c-cap    { background: #5a7860; }
+
+.bar-val { font-size: 11px; font-weight: 600; color: var(--ink); text-align: right; white-space: nowrap; }
+.bar-val small { display:block; font-size:9px; color:var(--muted); font-weight:400; }
+
+/* ── DEF & TOTAL ── */
+.deficit-row {
+  background: #fff6f6;
+  border: 1px solid #eec8c8;
+  border-radius: 3px;
+  padding: 10px 14px;
+  margin: 10px 0 4px;
+  display: grid;
+  grid-template-columns: 210px 1fr 56px;
+  gap: 10px;
+  align-items: center;
+}
+.deficit-row .bar-label { color: var(--red); font-weight: 500; }
+.deficit-row .bar-val   { color: var(--red); }
+
+.total-row {
+  display: grid;
+  grid-template-columns: 210px 1fr 56px;
+  gap: 10px;
+  align-items: center;
+  padding: 8px 0 4px;
+  border-top: 2px solid var(--ink);
+  margin-top: 6px;
+}
+.total-row .bar-label { font-weight: 600; font-size: 12px; }
+.total-row .bar-val   { font-weight: 700; font-size: 12px; }
+
+/* ── METHOD NOTE ── */
+.method-note {
+  background: var(--ink);
+  color: #ccc;
+  font-size: 10.5px;
+  line-height: 1.7;
+  padding: 14px 20px;
+  border-radius: 3px;
+  margin: 10px 0 0;
+  font-weight: 300;
+}
+.method-note strong { color: var(--paper); font-weight: 600; }
+
+/* ── CALLOUTS ── */
+.callouts {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1px;
+  background: var(--rule);
+  margin: 0 52px;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.callout { background: var(--white); padding: 18px 20px; }
+.callout-icon { font-size: 18px; margin-bottom: 8px; display: block; }
+.callout h3 { font-family: 'Libre Baskerville', serif; font-size: 0.85rem; font-weight: 700; margin-bottom: 6px; }
+.callout p { font-size: 11px; color: var(--muted); line-height: 1.6; font-weight: 300; }
+.callout .tag {
+  display: inline-block;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: 2px;
+  margin-top: 8px;
+}
+.tag-blue  { background: var(--blue-lt);  color: var(--blue); }
+.tag-red   { background: var(--red-lt);   color: var(--red); }
+.tag-teal  { background: var(--teal-lt);  color: var(--teal); }
+.tag-gold  { background: var(--gold-lt);  color: var(--gold); }
+.tag-grey  { background: var(--grey-lt);  color: var(--grey); }
+.tag-plum  { background: var(--plum-lt);  color: var(--plum); }
+
+/* ── FOOTNOTE ── */
+.footnote {
+  padding: 24px 52px 40px;
+  border-top: 1px solid var(--rule);
+  margin: 28px 0 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.footnote p { font-size: 10px; color: var(--muted); line-height: 1.7; font-weight: 300; }
+.footnote strong { font-weight: 600; color: var(--ink); }
+
+@media (max-width: 900px) {
+  .two-col { grid-template-columns: 1fr; padding: 0 20px; }
+  .col-divider { border-left: none; border-top: 1px solid var(--rule); padding-left: 0; padding-top: 28px; margin-top: 28px; }
+  .col-pad { padding-right: 0; }
+  .masthead { grid-template-columns: 1fr; }
+  .masthead-right { border-top: 1px solid #282420; padding-top: 24px; flex-direction: row; flex-wrap: wrap; gap: 20px; }
+  .masthead-left  { padding: 32px 20px 28px; }
+  .section-label  { padding: 20px 20px 0; }
+  .callouts  { grid-template-columns: 1fr; margin: 0 20px; }
+  .footnote  { grid-template-columns: 1fr; padding: 20px 20px 32px; }
+  .bar-row, .deficit-row, .total-row { grid-template-columns: 140px 1fr 50px; }
+}
+</style>
+</head>
+<body>
+
+<!-- MASTHEAD -->
+<div class="masthead">
+  <div class="masthead-left">
+    <div class="eyebrow">
+      <div class="union-jack"></div>
+      <span class="eyebrow-text">United Kingdom · HM Treasury · OBR</span>
+    </div>
+    <h1>Government Budget<br><em>Financial Year 2023–24</em></h1>
+    <div class="masthead-sub">Apr 2023 – Mar 2024 · All figures in £ Billion · PESA Outturn & HMRC Actuals</div>
+  </div>
+  <div class="masthead-right">
+    <div class="kpi">
+      <div class="kpi-label">Total Receipts</div>
+      <div class="kpi-value rec">£1,097B</div>
+      <div class="kpi-note">40.0% of GDP · record tax burden</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Budget Deficit (PSNB)</div>
+      <div class="kpi-value def">£92B</div>
+      <div class="kpi-note">3.3% of GDP · gilts & T-bills</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Total Managed Expenditure</div>
+      <div class="kpi-value out">£1,189B</div>
+      <div class="kpi-note">43.2% of GDP · PESA outturn</div>
+    </div>
+  </div>
+</div>
+<div class="stripe"></div>
+
+<!-- MAIN TWO-COL -->
+<div class="section-label">Budget breakdown</div>
+
+<div class="two-col">
+
+  <!-- LEFT: RECEIPTS -->
+  <div class="col-pad">
+    <div class="panel-head">
+      <h2>Receipts by Source</h2>
+      <span>Max = £279B (Income Tax) · Total £1,097B</span>
+    </div>
+    <div id="rec"></div>
+
+    <!-- DEFICIT -->
+    <div class="deficit-row" id="def-row" style="opacity:0">
+      <div class="bar-label">Deficit Financing (PSNB)<small>Gilt issuance + Treasury bills to bond markets</small></div>
+      <div class="bar-track">
+        <div class="bar-fill" data-pct="33.0" style="width:0%;background:var(--red-mid)"></div>
+      </div>
+      <div class="bar-val">£92B<small>3.3% GDP</small></div>
+    </div>
+
+    <div class="total-row">
+      <div class="bar-label">Total Resources Available</div>
+      <div class="bar-track" style="background:transparent"></div>
+      <div class="bar-val">£1,189B</div>
+    </div>
+
+    <div class="method-note">
+      <strong>Note on National Insurance:</strong> NICs are formally a social insurance contribution but in
+      the UK they flow directly into the Consolidated Fund and are <em>not</em> hypothecated — they do not
+      fund a dedicated pension or health pot. They are effectively an income tax on employment with a
+      different name and rate structure. Employee rate was cut from 12% to 10% in Jan 2024, reducing
+      NIC receipts, but fiscal drag from frozen thresholds partially offset this.
+    </div>
+  </div>
+
+  <!-- RIGHT: OUTLAYS -->
+  <div class="col-divider">
+    <div class="panel-head">
+      <h2>Outlays by Function</h2>
+      <span>Max = £185B (NHS/Health) · Total £1,189B</span>
+    </div>
+    <div id="out"></div>
+
+    <div class="total-row">
+      <div class="bar-label">Total Managed Expenditure</div>
+      <div class="bar-track" style="background:transparent"></div>
+      <div class="bar-val">£1,189B</div>
+    </div>
+
+    <div class="method-note">
+      <strong>DEL vs AME:</strong> UK spending is split into Departmental Expenditure Limits (DEL) — firm
+      multi-year departmental budgets — and Annually Managed Expenditure (AME), which is demand-driven
+      and less controllable: social security, debt interest, and devolved block grants. AME is ~£500B;
+      DEL is ~£600B. The NHS, education and defence sit in DEL; the State Pension, UC and debt interest
+      sit in AME.
+    </div>
+  </div>
+
+</div>
+
+<!-- CALLOUTS -->
+<div class="section-label" style="margin-top:32px">Context & explanations</div>
+<div class="callouts" style="margin-top:16px">
+
+  <div class="callout">
+    <span class="callout-icon">🏥</span>
+    <h3>The NHS: The Dominant Spending Item</h3>
+    <p>At ~£185B for health in total (NHS England ~£177B plus devolved nations' health budgets), healthcare
+    is by far the single largest expenditure function — around 1 in every 6 pounds of all public spending.
+    The NHS is free at the point of use, funded entirely from general taxation with no insurance premium.
+    This is a fundamental structural difference from the US system, where public health spending is split
+    between Medicare and Medicaid and covers far fewer people.</p>
+    <span class="tag tag-red">NHS: ~£177B for England alone</span>
+  </div>
+
+  <div class="callout">
+    <span class="callout-icon">👵</span>
+    <h3>State Pension: The Largest Single Benefit</h3>
+    <p>The State Pension cost £124B in 2023-24, making it the single largest welfare payment. The
+    "triple lock" guarantee (rises by whichever is highest: inflation, earnings, or 2.5%) has driven
+    sustained above-inflation increases. The full new State Pension is £221.20/week (from April 2024).
+    Unlike Croatia's two-pillar system or the US OASDI, the UK pension is flat-rate and entirely
+    PAYG — there is no funded second pillar in the mandatory public scheme.</p>
+    <span class="tag tag-gold">Triple lock · £124B · flat-rate PAYG</span>
+  </div>
+
+  <div class="callout">
+    <span class="callout-icon">📊</span>
+    <h3>Debt Interest: £110B After RPI-Linked Gilt Crisis</h3>
+    <p>Debt interest jumped from £43B in 2018-19 to ~£110B in 2023-24. The UK has a large proportion of
+    index-linked gilts (tied to RPI inflation), which became extremely expensive when inflation hit 11%.
+    The 2022 Kwarteng mini-budget also briefly spiked gilt yields. By 2023-24, debt interest had
+    stabilised but remained at ~10% of all spending — double its pre-pandemic share.</p>
+    <span class="tag tag-grey">£110B · 10% of spending · RPI-linked</span>
+  </div>
+
+  <div class="callout">
+    <span class="callout-icon">💼</span>
+    <h3>NICs: A Tax in All But Name</h3>
+    <p>National Insurance Contributions (£177.7B) are nominally a social insurance contribution but are
+    not hypothecated — they go into the same pot as income tax and fund general spending. The UK raises
+    relatively little from NICs as a share of GDP compared to continental Europe (Croatia: 8.5% of GDP;
+    UK: ~6.5% of GDP; France: ~16% of GDP). NICs create a "wedge" between employment and self-employment
+    that critics say distorts the labour market.</p>
+    <span class="tag tag-blue">£177.7B · not hypothecated · 6.5% GDP</span>
+  </div>
+
+  <div class="callout">
+    <span class="callout-icon">🏘️</span>
+    <h3>Universal Credit: One Benefit to Rule Them All</h3>
+    <p>Universal Credit (£51B of the £81B working-age welfare total) is replacing six legacy means-tested
+    benefits: income-based JSA, income-related ESA, Income Support, Child Tax Credit, Working Tax Credit,
+    and Housing Benefit. The rollout is now ~95% complete. UC was designed to make work pay by tapering
+    benefits at 55p for every £1 earned. Disability benefits (£35B) remain separate, as does Child
+    Benefit (£13B), which is universal.</p>
+    <span class="tag tag-teal">UC: £51B · 6 benefits merged into 1</span>
+  </div>
+
+  <div class="callout">
+    <span class="callout-icon">🗳️</span>
+    <h3>Devolved Spending & the Barnett Formula</h3>
+    <p>Scotland, Wales, and Northern Ireland receive block grants calculated by the Barnett Formula —
+    roughly a population-weighted share of changes in English departmental spending. The grants
+    (~£45B combined in 2023-24) are shown within education, health, and other functional categories,
+    not as a separate line. Scotland receives ~£14,400 per head vs ~£12,900 for England. The devolved
+    nations control how they spend their block grants within devolved competencies.</p>
+    <span class="tag tag-plum">Barnett Formula · ~£45B block grants</span>
+  </div>
+
+</div>
+
+<!-- FOOTNOTE -->
+<div class="footnote">
+  <p>
+    <strong>Primary sources:</strong> HMRC Tax Receipts and National Insurance Contributions for the UK, Annual Bulletin
+    (2023-24 outturn, GOV.UK); HM Treasury Public Expenditure Statistical Analyses (PESA 2024) — outturn data for 2023-24;
+    Office for Budget Responsibility (OBR) — Economic and Fiscal Outlook March 2024; Wikipedia: Government Spending in the
+    United Kingdom (citing PESA); Institute for Fiscal Studies — What Does the Government Spend Money On?;
+    OBR Welfare Spending: Universal Credit (2024).
+  </p>
+  <p>
+    <strong>Methodology:</strong> The UK financial year runs April to March. Receipts total (~£1,097B) is public sector
+    current receipts (PSCR) from ONS/OBR. Total Managed Expenditure (TME = £1,189B) is from PESA 2024 outturn.
+    Deficit is Public Sector Net Borrowing (PSNB ex public sector banks) ~£92B. GDP reference: ~£2,753B (2023-24, ONS).
+    NHS figure (£177B) covers NHS England budget; devolved health adds ~£8B. Debt interest (~£110B) is central
+    government debt interest per PESA; ONS national accounts measure may differ slightly. Education (~£115B) includes
+    schools, FE, HE, and skills spending across central and local government. Local government grants (~£65B) shown
+    separately from departmental spending. All figures are outturn actuals unless noted.
+  </p>
+</div>
+
+<script>
+const MAX_REC = 279;
+const MAX_OUT = 185;
+
+const receipts = [
+  {
+    group: "Direct Taxes on Income",
+    items: [
+      { label: "Income Tax",          sub: "PAYE + self-assessment; 20%/40%/45% bands",    val: 279, gdp: 10.1, cls: "c-it" },
+      { label: "National Insurance",  sub: "Employees 10–12% + employers 13.8% of wages",  val: 178, gdp:  6.5, cls: "c-nic" },
+      { label: "Corporation Tax",     sub: "25% main rate from Apr 2023 (up from 19%)",     val:  86, gdp:  3.1, cls: "c-ct" },
+    ]
+  },
+  {
+    group: "Taxes on Spending",
+    items: [
+      { label: "VAT",                 sub: "20% standard rate · 5% reduced · 0% zero",     val: 168, gdp:  6.1, cls: "c-vat" },
+      { label: "Fuel Duty",           sub: "Frozen at 52.95p/litre; 5p cut maintained",     val:  25, gdp:  0.9, cls: "c-fuel" },
+      { label: "Other Excise Duties", sub: "Alcohol, tobacco, air passenger duty, gaming",  val:  32, gdp:  1.2, cls: "c-other" },
+    ]
+  },
+  {
+    group: "Taxes on Property & Wealth",
+    items: [
+      { label: "Council Tax",         sub: "Set by local authorities; avg ~£2,000/year",    val:  40, gdp:  1.5, cls: "c-council" },
+      { label: "Business Rates",      sub: "Non-domestic rates on commercial property",     val:  26, gdp:  0.9, cls: "c-biz" },
+      { label: "Stamp Duty Land Tax", sub: "Property transactions; fell 24% on cooling mkt",val:  12, gdp:  0.4, cls: "c-sdlt" },
+      { label: "Other Taxes & Fees",  sub: "Inheritance tax, CGT, customs, misc. receipts", val:  51, gdp:  1.9, cls: "c-other" },
+    ]
+  },
+];
+
+const outlays = [
+  {
+    group: "Health",
+    items: [
+      { label: "NHS & Health",        sub: "NHS England (~£177B) + devolved health budgets", val: 185, gdp: 6.7, cls: "c-nhs" },
+    ]
+  },
+  {
+    group: "Social Security — Pensioners",
+    items: [
+      { label: "State Pension",       sub: "Triple lock · £221.20/week from Apr 2024",      val: 124, gdp: 4.5, cls: "c-pen" },
+      { label: "Pension Credit & Other Pensioner Benefits", sub: "Means-tested top-up + winter fuel payment", val: 12, gdp: 0.4, cls: "c-child" },
+    ]
+  },
+  {
+    group: "Social Security — Working Age & Children",
+    items: [
+      { label: "Universal Credit",    sub: "£51B UC + £30B legacy benefits in transition",  val:  81, gdp: 2.9, cls: "c-uc" },
+      { label: "Disability Benefits", sub: "PIP, DLA, attendance allowance",                val:  35, gdp: 1.3, cls: "c-dis" },
+      { label: "Housing Benefit",     sub: "Legacy HB for pensioners + some working age",   val:  20, gdp: 0.7, cls: "c-hben" },
+      { label: "Child Benefit & Tax Credits", sub: "Universal child benefit + remaining tax credits", val: 19, gdp: 0.7, cls: "c-child" },
+    ]
+  },
+  {
+    group: "Debt Service",
+    items: [
+      { label: "Debt Interest",       sub: "RPI-linked gilts esp. costly; peaked 2022-23",  val: 110, gdp: 4.0, cls: "c-int" },
+    ]
+  },
+  {
+    group: "Public Services (DEL)",
+    items: [
+      { label: "Education",           sub: "Schools, FE, HE, skills — central + local",     val: 115, gdp: 4.2, cls: "c-edu" },
+      { label: "Local Government",    sub: "Revenue support grants + ring-fenced grants",    val:  65, gdp: 2.4, cls: "c-lg" },
+      { label: "Defence",             sub: "Armed forces, equipment, nuclear deterrent",     val:  52, gdp: 1.9, cls: "c-def" },
+      { label: "Transport",           sub: "Highways, rail (incl. Network Rail debt), HS2",  val:  30, gdp: 1.1, cls: "c-tra" },
+      { label: "Home Office, Justice & Policing", sub: "Police, courts, prisons, immigration", val: 30, gdp: 1.1, cls: "c-other2" },
+      { label: "Capital Investment",  sub: "Public sector net investment: schools, roads, hospitals", val: 60, gdp: 2.2, cls: "c-cap" },
+      { label: "Other Departments",   sub: "DWP admin, FCDO, HMRC, DSIT, environment, culture", val: 51, gdp: 1.9, cls: "c-other2" },
+    ]
+  },
+];
+
+function buildSection(data, containerId, maxVal, animClass, delay0) {
+  const container = document.getElementById(containerId);
+  let delay = delay0;
+  data.forEach(group => {
+    const glbl = document.createElement('div');
+    glbl.className = 'group-label';
+    glbl.textContent = group.group;
+    container.appendChild(glbl);
+    group.items.forEach(item => {
+      const pct = Math.min((item.val / maxVal) * 100, 100).toFixed(2);
+      const row = document.createElement('div');
+      row.className = `bar-row${animClass ? ' ' + animClass : ''}`;
+      row.style.animationDelay = delay + 'ms';
+      row.innerHTML = `
+        <div class="bar-label">${item.label}<small>${item.sub}</small></div>
+        <div class="bar-track">
+          <div class="bar-fill ${item.cls}" data-pct="${pct}" style="width:0%"></div>
+        </div>
+        <div class="bar-val">£${item.val}B<small>${item.gdp}% GDP</small></div>
+      `;
+      container.appendChild(row);
+      delay += 50;
+    });
+  });
+}
+
+buildSection(receipts, 'rec', MAX_REC, '',           80);
+buildSection(outlays,  'out', MAX_OUT, 'right-anim', 200);
+
+// Animate deficit row
+setTimeout(() => {
+  const dr = document.getElementById('def-row');
+  dr.style.transition = 'opacity 0.4s ease 0.5s';
+  dr.style.opacity = '1';
+  const fill = dr.querySelector('.bar-fill');
+  fill.style.transition = 'width 0.95s cubic-bezier(0.16,1,0.3,1) 0.6s';
+  fill.style.width = fill.dataset.pct + '%';
+}, 100);
+
+// Animate all bars
+setTimeout(() => {
+  document.querySelectorAll('.bar-fill[data-pct]').forEach(el => {
+    el.style.width = el.dataset.pct + '%';
+  });
+}, 150);
+</script>
+</body>
+</html>

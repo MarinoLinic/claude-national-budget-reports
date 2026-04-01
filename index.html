@@ -1,0 +1,458 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Global Fiscal Observatory</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Barlow:wght@300;400;500;600&display=swap"
+			rel="stylesheet"
+		/>
+		<style>
+			:root {
+				--paper: #f6f2ed;
+				--white: #ffffff;
+				--ink: #14110d;
+				--muted: #7a7268;
+				--rule: #ddd7ce;
+
+				/* Shared Palette */
+				--navy: #1a3055;
+				--navy-lt: #c8d5e8;
+				--red: #b01c1c;
+				--red-lt: #f0d0d0;
+				--teal: #0a5a50;
+				--teal-lt: #bcddd8;
+				--gold: #8a6800;
+				--gold-lt: #ede3c0;
+				--blue: #003082;
+				--blue-lt: #c8d4ee;
+			}
+
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+
+			body {
+				background: var(--paper);
+				font-family: 'Barlow', sans-serif;
+				color: var(--ink);
+				font-size: 14px;
+				line-height: 1.5;
+				min-height: 100vh;
+				display: flex;
+				flex-direction: column;
+			}
+
+			/* ── MASTHEAD ── */
+			.masthead {
+				background: var(--ink);
+				color: var(--paper);
+				display: grid;
+				grid-template-columns: 1fr auto;
+				align-items: stretch;
+				overflow: hidden;
+			}
+			.masthead-left {
+				padding: 44px 52px 40px;
+				border-right: 1px solid #2a2620;
+			}
+			.eyebrow {
+				display: flex;
+				align-items: center;
+				gap: 12px;
+				margin-bottom: 18px;
+			}
+			.eyebrow-icon {
+				font-size: 20px;
+				line-height: 1;
+			}
+			.eyebrow-text {
+				font-size: 10px;
+				letter-spacing: 0.16em;
+				text-transform: uppercase;
+				color: #888;
+				font-weight: 500;
+			}
+			.masthead h1 {
+				font-family: 'Libre Baskerville', serif;
+				font-size: clamp(2rem, 3.5vw, 3.1rem);
+				font-weight: 400;
+				line-height: 1.08;
+				letter-spacing: -0.02em;
+				max-width: 600px;
+			}
+			.masthead h1 em {
+				font-style: italic;
+				color: #b0a898;
+			}
+			.masthead-sub {
+				margin-top: 12px;
+				font-size: 12px;
+				color: #777;
+				font-weight: 300;
+				letter-spacing: 0.04em;
+				text-transform: uppercase;
+			}
+			.masthead-right {
+				padding: 44px 52px 40px;
+				display: flex;
+				flex-direction: column;
+				justify-content: flex-end;
+				gap: 20px;
+				min-width: 250px;
+			}
+			.kpi-label {
+				font-size: 9px;
+				text-transform: uppercase;
+				letter-spacing: 0.14em;
+				color: #666;
+				font-weight: 500;
+				margin-bottom: 3px;
+			}
+			.kpi-value {
+				font-family: 'Libre Baskerville', serif;
+				font-size: 2.1rem;
+				font-weight: 700;
+				line-height: 1;
+				color: var(--paper);
+			}
+
+			/* ── STRIPE ── */
+			.stripe {
+				height: 5px;
+				background: linear-gradient(
+					90deg,
+					var(--navy) 0% 20%,
+					var(--blue) 20% 40%,
+					var(--red) 40% 60%,
+					var(--teal) 60% 80%,
+					var(--gold) 80% 100%
+				);
+			}
+
+			/* ── MAIN CONTENT ── */
+			main {
+				flex: 1;
+				padding-bottom: 60px;
+			}
+			.section-label {
+				font-size: 9px;
+				text-transform: uppercase;
+				letter-spacing: 0.18em;
+				font-weight: 600;
+				color: var(--muted);
+				padding: 32px 52px 0;
+				display: flex;
+				align-items: center;
+				gap: 16px;
+			}
+			.section-label::after {
+				content: '';
+				flex: 1;
+				height: 1px;
+				background: var(--rule);
+			}
+
+			/* ── CARD GRID ── */
+			.card-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+				gap: 20px;
+				padding: 24px 52px;
+			}
+
+			.report-card {
+				display: block;
+				text-decoration: none;
+				background: var(--white);
+				border: 1px solid var(--rule);
+				border-radius: 4px;
+				padding: 28px;
+				color: var(--ink);
+				transition: all 0.25s ease;
+				position: relative;
+				opacity: 0;
+				transform: translateY(15px);
+				animation: slideUp 0.5s ease forwards;
+			}
+
+			@keyframes slideUp {
+				to {
+					opacity: 1;
+					transform: translateY(0);
+				}
+			}
+
+			.report-card:hover {
+				border-color: var(--muted);
+				transform: translateY(-3px);
+				box-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.08);
+			}
+
+			.card-header {
+				display: flex;
+				justify-content: space-between;
+				align-items: flex-start;
+				margin-bottom: 16px;
+			}
+
+			.card-title h2 {
+				font-family: 'Libre Baskerville', serif;
+				font-size: 1.3rem;
+				font-weight: 700;
+				margin-bottom: 4px;
+			}
+
+			.card-title p {
+				font-size: 11px;
+				color: var(--muted);
+				letter-spacing: 0.04em;
+				text-transform: uppercase;
+			}
+
+			.card-desc {
+				font-size: 13px;
+				color: var(--muted);
+				line-height: 1.6;
+				margin-bottom: 24px;
+				font-weight: 300;
+			}
+
+			.card-tags {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 8px;
+				border-top: 1px solid var(--rule);
+				padding-top: 16px;
+			}
+			.tag {
+				display: inline-block;
+				font-size: 9px;
+				text-transform: uppercase;
+				letter-spacing: 0.1em;
+				font-weight: 600;
+				padding: 3px 8px;
+				border-radius: 2px;
+			}
+			.tag-red {
+				background: var(--red-lt);
+				color: var(--red);
+			}
+			.tag-navy {
+				background: var(--navy-lt);
+				color: var(--navy);
+			}
+			.tag-gold {
+				background: var(--gold-lt);
+				color: var(--gold);
+			}
+			.tag-teal {
+				background: var(--teal-lt);
+				color: var(--teal);
+			}
+
+			/* ── CSS FLAGS (Reused from your files) ── */
+			.flag-croatia {
+				display: flex;
+				flex-direction: column;
+				gap: 2px;
+			}
+			.flag-croatia span {
+				display: block;
+				width: 28px;
+				height: 7px;
+				border-radius: 1px;
+			}
+			.flag-croatia .r {
+				background: #c8102e;
+			}
+			.flag-croatia .w {
+				background: #e8e4de;
+				border: 1px solid #ddd;
+				height: 6px;
+			}
+			.flag-croatia .b {
+				background: #003da5;
+			}
+
+			.flag-uk {
+				width: 32px;
+				height: 20px;
+				position: relative;
+				border-radius: 2px;
+				overflow: hidden;
+				background: var(--blue);
+			}
+			.flag-uk::before {
+				content: '';
+				position: absolute;
+				inset: 0;
+				background:
+					linear-gradient(to bottom right, transparent 44%, var(--red) 44%, var(--red) 56%, transparent 56%),
+					linear-gradient(to bottom left, transparent 44%, var(--red) 44%, var(--red) 56%, transparent 56%),
+					linear-gradient(to bottom right, transparent 40%, white 40%, white 60%, transparent 60%),
+					linear-gradient(to bottom left, transparent 40%, white 40%, white 60%, transparent 60%);
+			}
+			.flag-uk::after {
+				content: '';
+				position: absolute;
+				inset: 0;
+				background:
+					linear-gradient(to bottom, transparent 40%, white 40%, white 60%, transparent 60%),
+					linear-gradient(to right, transparent 40%, white 40%, white 60%, transparent 60%),
+					linear-gradient(to bottom, transparent 42%, var(--red) 42%, var(--red) 58%, transparent 58%),
+					linear-gradient(to right, transparent 42%, var(--red) 42%, var(--red) 58%, transparent 58%);
+			}
+
+			.flag-usa {
+				font-size: 22px;
+				line-height: 1;
+			}
+
+			/* ── FOOTNOTE ── */
+			.footnote {
+				padding: 24px 52px 40px;
+				border-top: 1px solid var(--rule);
+				display: grid;
+				grid-template-columns: 1fr;
+			}
+			.footnote p {
+				font-size: 11px;
+				color: var(--muted);
+				line-height: 1.7;
+				font-weight: 300;
+			}
+			.footnote strong {
+				font-weight: 600;
+				color: var(--ink);
+			}
+
+			@media (max-width: 900px) {
+				.masthead {
+					grid-template-columns: 1fr;
+				}
+				.masthead-right {
+					border-top: 1px solid #2a2620;
+					padding-top: 24px;
+					flex-direction: row;
+					flex-wrap: wrap;
+					gap: 20px;
+				}
+				.masthead-left {
+					padding: 32px 20px 28px;
+				}
+				.section-label {
+					padding: 24px 20px 0;
+				}
+				.card-grid {
+					padding: 20px;
+					grid-template-columns: 1fr;
+				}
+				.footnote {
+					padding: 24px 20px;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<!-- MASTHEAD -->
+		<div class="masthead">
+			<div class="masthead-left">
+				<div class="eyebrow">
+					<div class="eyebrow-icon">🏛️</div>
+					<span class="eyebrow-text">Global Fiscal Observatory</span>
+				</div>
+				<h1>Interactive Budget Briefs<br /><em>Financial Year 2023–24</em></h1>
+				<div class="masthead-sub">Detailed breakdowns of receipts, outlays & deficit financing</div>
+			</div>
+			<div class="masthead-right">
+				<div class="kpi">
+					<div class="kpi-label">Tracked Economies</div>
+					<div class="kpi-value">3</div>
+				</div>
+				<div class="kpi">
+					<div class="kpi-label">Total Outlays Tracked</div>
+					<div class="kpi-value" style="color: #8a9bb0">~$8.3T</div>
+				</div>
+			</div>
+		</div>
+		<div class="stripe"></div>
+
+		<!-- MAIN CONTENT -->
+		<main>
+			<div class="section-label">Available Country Reports</div>
+
+			<div class="card-grid">
+				<!-- USA CARD -->
+				<a href="usa-2024.html" class="report-card" style="animation-delay: 0ms">
+					<div class="card-header">
+						<div class="card-title">
+							<h2>United States</h2>
+							<p>Fiscal Year 2024</p>
+						</div>
+						<div class="flag-usa">🦅</div>
+					</div>
+					<p class="card-desc">
+						Federal budget detailed by Mandatory and Discretionary spending. Features historical net interest milestone
+						and deep dive into social insurance funding.
+					</p>
+					<div class="card-tags">
+						<span class="tag tag-navy">Outlays: $6,751B</span>
+						<span class="tag tag-red">Deficit: 6.4% GDP</span>
+					</div>
+				</a>
+
+				<!-- UK CARD -->
+				<a href="uk-2024.html" class="report-card" style="animation-delay: 100ms">
+					<div class="card-header">
+						<div class="card-title">
+							<h2>United Kingdom</h2>
+							<p>Financial Year 2023–24</p>
+						</div>
+						<div class="flag-uk"></div>
+					</div>
+					<p class="card-desc">
+						Analysis of HM Treasury PESA outturn data. Highlights the dominance of NHS expenditure, State Pension
+						triple-lock, and post-crisis debt interest.
+					</p>
+					<div class="card-tags">
+						<span class="tag tag-navy">Outlays: £1,189B</span>
+						<span class="tag tag-red">Deficit: 3.3% GDP</span>
+					</div>
+				</a>
+
+				<!-- CROATIA CARD -->
+				<a href="croatia-2024.html" class="report-card" style="animation-delay: 200ms">
+					<div class="card-header">
+						<div class="card-title">
+							<h2>Croatia</h2>
+							<p>Fiscal Year 2024</p>
+						</div>
+						<div class="flag-croatia"><span class="r"></span><span class="w"></span><span class="b"></span></div>
+					</div>
+					<p class="card-desc">
+						Reconciling national budget data with Eurostat ESSPROS methodology. Covers heavy VAT reliance, Homeland War
+						pensions, and net EU funding inflows.
+					</p>
+					<div class="card-tags">
+						<span class="tag tag-teal">Outlays: €32.6B</span>
+						<span class="tag tag-red">Deficit: 1.9% GDP</span>
+					</div>
+				</a>
+			</div>
+		</main>
+
+		<!-- FOOTNOTE -->
+		<div class="footnote">
+			<p>
+				<strong>About this archive:</strong> These documents were generated as structural and analytical formatting
+				experiments. Data reflects verified actuals and adopted budgets from official sources (Treasury, DZS, OBR, CBO)
+				for the 2023–24 fiscal cycle.
+			</p>
+		</div>
+	</body>
+</html>

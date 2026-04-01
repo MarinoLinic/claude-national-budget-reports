@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>United States Federal Budget FY2024</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --paper:    #f6f2ed;
+  --white:    #ffffff;
+  --ink:      #14110d;
+  --muted:    #7a7268;
+  --rule:     #ddd7ce;
+  --navy:     #1a3055;
+  --navy-mid: #2a5090;
+  --navy-lt:  #c8d5e8;
+  --red:      #b01c1c;
+  --red-mid:  #cc3333;
+  --red-lt:   #f0d0d0;
+  --slate:    #3a5a7a;
+  --slate-lt: #c8d8e8;
+  --teal:     #1a5a50;
+  --teal-lt:  #c0ddd8;
+  --amber:    #8a5c00;
+  --amber-lt: #f0e0b8;
+  --olive:    #4a6015;
+  --olive-lt: #dce5c0;
+  --grey:     #484440;
+  --grey-lt:  #e0dbd5;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  background: var(--paper);
+  font-family: 'Barlow', sans-serif;
+  color: var(--ink);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* ── MASTHEAD ── */
+.masthead {
+  background: var(--ink);
+  color: var(--paper);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: stretch;
+  overflow: hidden;
+}
+.masthead-left { padding: 44px 52px 40px; border-right: 1px solid #2a2620; }
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+.seal {
+  font-size: 22px;
+  line-height: 1;
+}
+.eyebrow-text {
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #888;
+  font-weight: 500;
+}
+.masthead h1 {
+  font-family: 'Libre Baskerville', serif;
+  font-size: clamp(2rem, 3.5vw, 3.1rem);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  max-width: 560px;
+}
+.masthead h1 em { font-style: italic; color: #b0a898; }
+.masthead-sub {
+  margin-top: 12px;
+  font-size: 12px;
+  color: #777;
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.masthead-right {
+  padding: 44px 52px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 20px;
+  min-width: 250px;
+}
+.kpi-label {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #666;
+  font-weight: 500;
+  margin-bottom: 3px;
+}
+.kpi-value {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 2.1rem;
+  font-weight: 700;
+  line-height: 1;
+}
+.kpi-value.rec  { color: #5a9de0; }
+.kpi-value.def  { color: #e06050; }
+.kpi-value.out  { color: var(--paper); }
+.kpi-note { font-size: 10px; color: #666; font-weight: 300; margin-top: 2px; }
+
+/* ── STRIPE ── */
+.stripe {
+  height: 5px;
+  background: linear-gradient(90deg,
+    var(--navy) 0% 25%,
+    var(--red) 25% 40%,
+    var(--slate) 40% 58%,
+    var(--teal) 58% 74%,
+    var(--amber) 74% 87%,
+    var(--grey) 87% 100%);
+}
+
+/* ── SECTION LABEL ── */
+.section-label {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-weight: 600;
+  color: var(--muted);
+  padding: 28px 52px 0;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+}
+
+/* ── LAYOUT ── */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 0 52px;
+}
+.col-pad  { padding-right: 40px; }
+.col-divider { border-left: 1px solid var(--rule); padding-left: 40px; }
+
+/* ── PANEL HEAD ── */
+.panel-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 20px 0 14px;
+  border-bottom: 2px solid var(--ink);
+  margin-bottom: 4px;
+}
+.panel-head h2 {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 1rem;
+  font-weight: 700;
+}
+.panel-head span { font-size: 10px; color: var(--muted); }
+
+/* ── BAR ROWS ── */
+.group-label {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  font-weight: 600;
+  margin: 16px 0 6px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--rule);
+}
+.bar-row {
+  display: grid;
+  grid-template-columns: 210px 1fr 60px;
+  align-items: center;
+  gap: 10px;
+  padding: 3px 0;
+  opacity: 0;
+  transform: translateX(-8px);
+  animation: slideIn 0.35s ease forwards;
+}
+.bar-row.right-anim { transform: translateX(8px); }
+@keyframes slideIn { to { opacity:1; transform:translateX(0); } }
+
+.bar-label { font-size: 12px; color: var(--ink); line-height: 1.3; font-weight: 400; }
+.bar-label small { display:block; font-size:10px; color:var(--muted); font-weight:300; margin-top:1px; }
+
+.bar-track {
+  height: 18px;
+  background: var(--rule);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.bar-fill {
+  height: 100%;
+  width: 0%;
+  border-radius: 2px;
+  transition: width 0.95s cubic-bezier(0.16,1,0.3,1);
+}
+
+/* Receipt colours */
+.c-iit   { background: var(--navy); }
+.c-pay   { background: var(--navy-mid); }
+.c-corp  { background: var(--slate); }
+.c-exc   { background: #4a7aaa; }
+.c-cust  { background: var(--teal); }
+.c-est   { background: #3a8070; }
+.c-misc  { background: #6090a0; }
+.c-def2  { background: var(--red); }
+
+/* Outlay colours — mandatory */
+.c-ss    { background: var(--red); }
+.c-med   { background: #c03030; }
+.c-mcd   { background: #d04040; }
+.c-inc   { background: var(--amber); }
+.c-vet   { background: #9a7000; }
+/* Outlay colours — interest */
+.c-int   { background: var(--grey); }
+/* Outlay colours — discretionary */
+.c-def   { background: var(--navy); }
+.c-edu   { background: var(--teal); }
+.c-tra   { background: #2a7060; }
+.c-intl  { background: var(--olive); }
+.c-sci   { background: #5a8020; }
+.c-just  { background: #6a6050; }
+.c-nat   { background: #5a7040; }
+.c-agri  { background: #7a8040; }
+.c-misc2 { background: #8a8078; }
+
+.bar-val { font-size: 11px; font-weight: 600; color: var(--ink); text-align: right; white-space: nowrap; }
+.bar-val small { display:block; font-size:9px; color:var(--muted); font-weight:400; }
+
+/* ── DEFICIT & TOTAL ROWS ── */
+.deficit-row {
+  background: #fff7f7;
+  border: 1px solid #f0c8c8;
+  border-radius: 3px;
+  padding: 10px 14px;
+  margin: 10px 0 4px;
+  display: grid;
+  grid-template-columns: 210px 1fr 60px;
+  gap: 10px;
+  align-items: center;
+}
+.deficit-row .bar-label { color: var(--red); font-weight: 500; }
+.deficit-row .bar-val   { color: var(--red); }
+
+.total-row {
+  display: grid;
+  grid-template-columns: 210px 1fr 60px;
+  gap: 10px;
+  align-items: center;
+  padding: 8px 0 4px;
+  border-top: 2px solid var(--ink);
+  margin-top: 6px;
+}
+.total-row .bar-label { font-weight: 600; font-size: 12px; }
+.total-row .bar-val   { font-weight: 700; font-size: 12px; }
+
+/* ── METHOD NOTE ── */
+.method-note {
+  background: var(--ink);
+  color: #ccc;
+  font-size: 10.5px;
+  line-height: 1.7;
+  padding: 14px 20px;
+  border-radius: 3px;
+  margin: 10px 0 0;
+  font-weight: 300;
+}
+.method-note strong { color: var(--paper); font-weight: 600; }
+
+/* ── CALLOUTS ── */
+.callouts {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1px;
+  background: var(--rule);
+  margin: 0 52px;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.callout {
+  background: var(--white);
+  padding: 18px 20px;
+}
+.callout-icon { font-size: 18px; margin-bottom: 8px; display: block; }
+.callout h3 {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.callout p { font-size: 11px; color: var(--muted); line-height: 1.6; font-weight: 300; }
+.callout .tag {
+  display: inline-block;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: 2px;
+  margin-top: 8px;
+}
+.tag-navy  { background: var(--navy-lt);  color: var(--navy); }
+.tag-red   { background: var(--red-lt);   color: var(--red); }
+.tag-amber { background: var(--amber-lt); color: var(--amber); }
+.tag-teal  { background: var(--teal-lt);  color: var(--teal); }
+.tag-grey  { background: var(--grey-lt);  color: var(--grey); }
+
+/* ── FOOTNOTE ── */
+.footnote {
+  padding: 24px 52px 40px;
+  border-top: 1px solid var(--rule);
+  margin: 28px 0 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.footnote p { font-size: 10px; color: var(--muted); line-height: 1.7; font-weight: 300; }
+.footnote strong { font-weight: 600; color: var(--ink); }
+
+/* ── MANDATORY / DISCRETIONARY BADGE ── */
+.mand-badge {
+  display: inline-block;
+  font-size: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  padding: 1px 5px;
+  border-radius: 2px;
+  margin-left: 5px;
+  vertical-align: middle;
+}
+.m { background: var(--red-lt);   color: var(--red); }
+.d { background: var(--navy-lt);  color: var(--navy); }
+
+@media (max-width: 900px) {
+  .two-col { grid-template-columns: 1fr; padding: 0 20px; }
+  .col-divider { border-left: none; border-top: 1px solid var(--rule); padding-left: 0; padding-top: 28px; margin-top: 28px; }
+  .col-pad { padding-right: 0; }
+  .masthead { grid-template-columns: 1fr; }
+  .masthead-right { border-top: 1px solid #2a2620; padding-top: 24px; flex-direction: row; flex-wrap: wrap; gap: 20px; }
+  .masthead-left  { padding: 32px 20px 28px; }
+  .section-label  { padding: 20px 20px 0; }
+  .callouts  { grid-template-columns: 1fr; margin: 0 20px; }
+  .footnote  { grid-template-columns: 1fr; padding: 20px 20px 32px; }
+  .bar-row, .deficit-row, .total-row { grid-template-columns: 140px 1fr 52px; }
+}
+</style>
+</head>
+<body>
+
+<!-- MASTHEAD -->
+<div class="masthead">
+  <div class="masthead-left">
+    <div class="eyebrow">
+      <div class="seal">🦅</div>
+      <span class="eyebrow-text">United States of America · Federal Government</span>
+    </div>
+    <h1>Federal Budget<br><em>Fiscal Year 2024</em></h1>
+    <div class="masthead-sub">Oct 1, 2023 – Sep 30, 2024 · All figures in $ Billion (USD) · Source: U.S. Treasury & CBO Final Actuals</div>
+  </div>
+  <div class="masthead-right">
+    <div class="kpi">
+      <div class="kpi-label">Total Receipts</div>
+      <div class="kpi-value rec">$4,918B</div>
+      <div class="kpi-note">17.1% of GDP · +11% vs FY2023</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Budget Deficit</div>
+      <div class="kpi-value def">$1,833B</div>
+      <div class="kpi-note">6.4% of GDP · 3rd largest in history</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Total Outlays</div>
+      <div class="kpi-value out">$6,751B</div>
+      <div class="kpi-note">23.4% of GDP · +10% vs FY2023</div>
+    </div>
+  </div>
+</div>
+<div class="stripe"></div>
+
+<!-- MAIN TWO-COL -->
+<div class="section-label">Budget breakdown</div>
+
+<div class="two-col">
+
+  <!-- LEFT: RECEIPTS -->
+  <div class="col-pad">
+    <div class="panel-head">
+      <h2>Receipts by Source</h2>
+      <span>Max = $2,426B (Individual Income Tax) · Total $4,918B</span>
+    </div>
+    <div id="rec"></div>
+
+    <!-- DEFICIT -->
+    <div class="deficit-row" id="def-row" style="opacity:0">
+      <div class="bar-label">Deficit Financing<small>Treasury bonds, bills & notes issued to public</small></div>
+      <div class="bar-track">
+        <div class="bar-fill" data-pct="75.5" style="width:0%;background:var(--red-mid)"></div>
+      </div>
+      <div class="bar-val">$1,833B<small>6.4% GDP</small></div>
+    </div>
+
+    <div class="total-row">
+      <div class="bar-label">Total Resources Available</div>
+      <div class="bar-track" style="background:transparent"></div>
+      <div class="bar-val">$6,751B</div>
+    </div>
+
+    <div class="method-note">
+      <strong>Note on payroll taxes:</strong> Social Insurance & Retirement receipts ($1,708B) include
+      Social Security taxes (12.4% of wages up to $168,600, split 6.2%/6.2% employer/employee),
+      Medicare taxes (2.9% of all wages, no cap), and smaller railroad retirement &
+      unemployment insurance taxes. Unlike Croatia, the US has no general health insurance payroll tax —
+      Medicare is funded through a dedicated payroll tax plus general revenues and premiums.
+    </div>
+  </div>
+
+  <!-- RIGHT: OUTLAYS -->
+  <div class="col-divider">
+    <div class="panel-head">
+      <h2>Outlays by Function</h2>
+      <span>Max = $1,461B (Social Security) · Total $6,751B</span>
+    </div>
+    <div id="out"></div>
+
+    <div class="total-row">
+      <div class="bar-label">Total Expenditure</div>
+      <div class="bar-track" style="background:transparent"></div>
+      <div class="bar-val">$6,751B</div>
+    </div>
+
+    <div class="method-note">
+      <strong>Mandatory vs. Discretionary:</strong> <span style="background:var(--red-lt);color:var(--red);font-size:9px;padding:1px 5px;border-radius:2px;font-weight:600">M</span> = mandatory spending (set by law, not annual vote) = ~61% of outlays.
+      <span style="background:var(--navy-lt);color:var(--navy);font-size:9px;padding:1px 5px;border-radius:2px;font-weight:600">D</span> = discretionary (voted annually by Congress) = ~26%.
+      Net interest = ~13%. Social Security, Medicare, and Medicaid alone consume 48% of all federal spending.
+    </div>
+  </div>
+
+</div>
+
+<!-- CALLOUTS -->
+<div class="section-label" style="margin-top:32px">Context & explanations</div>
+<div class="callouts" style="margin-top:16px">
+
+  <div class="callout">
+    <span class="callout-icon">📈</span>
+    <h3>Net Interest Hit $881B — A Historic Milestone</h3>
+    <p>For the first time in US history, net interest payments on the federal debt exceeded $880B in FY2024,
+    surpassing both Medicare and national defense spending. This is purely the cost of servicing
+    ~$28 trillion in debt held by the public at an average interest rate that has risen sharply since 2022.
+    By 2051, CBO projects interest will become the single largest line item in the federal budget.</p>
+    <span class="tag tag-grey">Interest: 13% of all outlays</span>
+  </div>
+
+  <div class="callout">
+    <span class="callout-icon">👴</span>
+    <h3>Social Security + Medicare = $2.33 Trillion</h3>
+    <p>These two programs alone — Social Security ($1,461B) and Medicare ($874B) — account for 34.6%
+    of all federal spending. Both are funded through dedicated payroll taxes but increasingly rely on
+    general revenues as aging Baby Boomers strain trust fund balances. Social Security's trust fund
+    is projected to be depleted by ~2033 without legislative action, triggering automatic 21% benefit cuts.</p>
+    <span class="tag tag-red">34.6% of all federal spending</span>
+  </div>
+
+  <div class="callout">
+    <span class="callout-icon">⚕️</span>
+    <h3>Health Spending: $1.79 Trillion Total</h3>
+    <p>Adding Medicare ($874B) to the "Health" function (Medicaid, CHIP, ACA subsidies — $912B) gives
+    total federal health spending of $1.79 trillion, or 26.5% of all outlays. KFF calculates the full
+    federal health support at $1.9 trillion when including discretionary VA health care. The US spends
+    more on healthcare per capita than any other high-income country, yet lacks universal coverage.</p>
+    <span class="tag tag-red">Health + Medicare: 26.5% of outlays</span>
+  </div>
+
+  <div class="callout">
+    <span class="callout-icon">🛡️</span>
+    <h3>Defense: $874B — But True Security Cost Is Higher</h3>
+    <p>The National Defense function ($874B) covers DoD operations, personnel, procurement, and R&D.
+    Adding Veterans Benefits ($325B) and nuclear weapons (in Energy), intelligence, and homeland security
+    brings total "national security" expenditure to roughly $1.3 trillion. Defense is ~13% of outlays but
+    ~3% of GDP — far below Cold War peaks of 9–10% of GDP in the 1950s–60s.</p>
+    <span class="tag tag-navy">Defense: 13% of outlays · 3% of GDP</span>
+  </div>
+
+  <div class="callout">
+    <span class="callout-icon">💰</span>
+    <h3>Individual Income Tax Dominates Revenue</h3>
+    <p>At $2,426B, individual income taxes account for 49% of all federal receipts — nearly half the
+    entire revenue base. The US collects relatively little from consumption taxes (VAT = $0; excise
+    taxes only $101B), unlike most OECD countries. This makes US revenues highly sensitive to capital
+    gains realizations and high-earner income, creating boom-bust revenue cycles.</p>
+    <span class="tag tag-navy">Income tax: 49% of all receipts</span>
+  </div>
+
+  <div class="callout">
+    <span class="callout-icon">📚</span>
+    <h3>Education Figure Is Distorted by Student Loans</h3>
+    <p>The $305B Education function looks large but is heavily distorted. In FY2023 the Biden
+    administration reversed $330B in student loan cancellation accounting entries; in FY2024
+    this created a large paper increase. Actual cash spending on education programs (Pell grants,
+    K-12 Title I, etc.) is far smaller — roughly $80-90B. The rest is loan program accounting noise
+    under the Federal Credit Reform Act.</p>
+    <span class="tag tag-teal">Actual cash education: ~$80-90B</span>
+  </div>
+
+</div>
+
+<!-- FOOTNOTE -->
+<div class="footnote">
+  <p>
+    <strong>Primary sources:</strong> U.S. Treasury Bureau of the Fiscal Service — Combined Statement of Receipts, Outlays, and
+    Balances FY2024 (cs2024/outlay.pdf, cs2024/receipt.pdf); Congressional Budget Office — Monthly Budget Review:
+    Summary for Fiscal Year 2024 (pub. 60843); KFF — What Does the Federal Government Spend on Health Care? (Sep 2025);
+    Center on Budget and Policy Priorities — Where Do Our Federal Tax Dollars Go? (Jan 2025);
+    Committee for a Responsible Federal Budget — FY2024 Ends with $1.8 Trillion Deficit (Nov 2024).
+  </p>
+  <p>
+    <strong>Methodology:</strong> All figures are actual FY2024 outlays and receipts from official Treasury final accounts,
+    not estimates or projections. GDP reference: ~$28.68 trillion (BEA). The "Health" function ($912B) covers
+    Medicaid, CHIP, and ACA marketplace subsidies; Medicare is reported separately as its own budget function.
+    "Income Security" ($671B) includes SNAP, housing assistance, EITC, child tax credit outlays, SSI, and
+    federal employee/military retirement. Education figure is accounting-distorted by student loan program
+    entries; see callout. Net Interest ($881B) is net of interest income received by the government.
+    Undistributed offsetting receipts (−$147B) have been folded into "Other/Miscellaneous" for clarity.
+    Fiscal year runs October 1 – September 30.
+  </p>
+</div>
+
+<script>
+const MAX_REC = 2426;
+const MAX_OUT = 1461;
+
+const receipts = [
+  {
+    group: "Income Taxes",
+    items: [
+      { label: "Individual Income Tax",    sub: "Wages, capital gains, dividends, pass-throughs", val: 2426, gdp: 8.5, cls: "c-iit" },
+      { label: "Corporate Income Tax",     sub: "21% flat rate on corporate profits",             val:  530, gdp: 1.8, cls: "c-corp" },
+    ]
+  },
+  {
+    group: "Social Insurance Taxes (Payroll)",
+    items: [
+      { label: "Social Insurance & Retirement", sub: "Social Security 12.4% + Medicare 2.9% of wages", val: 1708, gdp: 6.0, cls: "c-pay" },
+    ]
+  },
+  {
+    group: "Excise & Other Taxes",
+    items: [
+      { label: "Excise Taxes",       sub: "Fuel, alcohol, tobacco, aviation, phone",         val: 101, gdp: 0.4, cls: "c-exc" },
+      { label: "Customs Duties",     sub: "Tariffs on imported goods",                        val:  77, gdp: 0.3, cls: "c-cust" },
+      { label: "Estate & Gift Taxes", sub: "Federal estate tax above $13.6M exemption",      val:  32, gdp: 0.1, cls: "c-est" },
+      { label: "Miscellaneous",      sub: "Federal Reserve remittances, fees, fines",         val:  44, gdp: 0.2, cls: "c-misc" },
+    ]
+  },
+];
+
+const outlays = [
+  {
+    group: "Mandatory — Social Insurance",
+    items: [
+      { label: "Social Security",    sub: "Retirement, disability & survivors · 71M beneficiaries", badge:"m", val: 1461, gdp: 5.1, cls: "c-ss"  },
+      { label: "Health (Medicaid, CHIP, ACA)", sub: "Federal share of Medicaid + CHIP + ACA subsidies", badge:"m", val: 912, gdp: 3.2, cls: "c-mcd" },
+      { label: "Medicare",           sub: "Hospital insurance (Part A) + medical (B) + drug (D)", badge:"m", val: 874, gdp: 3.0, cls: "c-med" },
+      { label: "Income Security",    sub: "SNAP, housing, EITC/CTC outlays, SSI, fed. retirement", badge:"m", val: 671, gdp: 2.3, cls: "c-inc" },
+      { label: "Veterans Benefits",  sub: "Disability pay, VA pensions, GI Bill, VA health",  badge:"m", val: 325, gdp: 1.1, cls: "c-vet" },
+    ]
+  },
+  {
+    group: "Debt Service",
+    items: [
+      { label: "Net Interest",       sub: "Interest on ~$28T public debt · surpassed defense", badge:"m", val: 881, gdp: 3.1, cls: "c-int" },
+    ]
+  },
+  {
+    group: "Discretionary — Defense",
+    items: [
+      { label: "National Defense",   sub: "DoD operations, personnel, procurement, R&D",      badge:"d", val: 874, gdp: 3.0, cls: "c-def" },
+    ]
+  },
+  {
+    group: "Discretionary — Non-Defense",
+    items: [
+      { label: "Education, Training & Social Svcs", sub: "Note: inflated by student loan accounting (~$80-90B real)", badge:"d", val: 305, gdp: 1.1, cls: "c-edu" },
+      { label: "Transportation",     sub: "Federal highways, transit, aviation, rail, maritime", badge:"d", val: 137, gdp: 0.5, cls: "c-tra" },
+      { label: "Administration of Justice", sub: "FBI, courts, federal prisons, border enforcement", badge:"d", val: 85,  gdp: 0.3, cls: "c-just" },
+      { label: "International Affairs", sub: "State Dept., foreign aid, international finance",  badge:"d", val: 72,  gdp: 0.3, cls: "c-intl" },
+      { label: "Natural Resources & Environment", sub: "EPA, Interior Dept., Army Corps of Engineers", badge:"d", val: 57, gdp: 0.2, cls: "c-nat" },
+      { label: "General Science, Space & Tech", sub: "NASA, NSF, other federal R&D agencies",  badge:"d", val: 42,  gdp: 0.1, cls: "c-sci" },
+      { label: "Agriculture",        sub: "Farm subsidies, crop insurance, rural development",   badge:"d", val: 35,  gdp: 0.1, cls: "c-agri" },
+      { label: "General Government & Other", sub: "Congress, courts, IRS, Treasury admin, energy, community dev.", badge:"d", val: 192, gdp: 0.7, cls: "c-misc2" },
+    ]
+  },
+];
+
+function buildSection(data, containerId, maxVal, animClass, delay0) {
+  const container = document.getElementById(containerId);
+  let delay = delay0;
+  data.forEach(group => {
+    const glbl = document.createElement('div');
+    glbl.className = 'group-label';
+    glbl.textContent = group.group;
+    container.appendChild(glbl);
+    group.items.forEach(item => {
+      const pct = Math.min((item.val / maxVal) * 100, 100).toFixed(2);
+      const row = document.createElement('div');
+      row.className = `bar-row${animClass ? ' ' + animClass : ''}`;
+      row.style.animationDelay = delay + 'ms';
+      const badge = item.badge
+        ? `<span class="mand-badge ${item.badge}">${item.badge === 'm' ? 'Mandatory' : 'Discretionary'}</span>`
+        : '';
+      row.innerHTML = `
+        <div class="bar-label">${item.label}${badge}<small>${item.sub}</small></div>
+        <div class="bar-track">
+          <div class="bar-fill ${item.cls}" data-pct="${pct}" style="width:0%"></div>
+        </div>
+        <div class="bar-val">$${item.val.toLocaleString()}B<small>${item.gdp}% GDP</small></div>
+      `;
+      container.appendChild(row);
+      delay += 50;
+    });
+  });
+}
+
+buildSection(receipts, 'rec', MAX_REC, '',           80);
+buildSection(outlays,  'out', MAX_OUT, 'right-anim', 200);
+
+// Animate deficit row
+setTimeout(() => {
+  const dr = document.getElementById('def-row');
+  dr.style.transition = 'opacity 0.4s ease 0.5s';
+  dr.style.opacity = '1';
+  const fill = dr.querySelector('.bar-fill');
+  fill.style.transition = 'width 0.95s cubic-bezier(0.16,1,0.3,1) 0.6s';
+  fill.style.width = fill.dataset.pct + '%';
+}, 100);
+
+// Animate all bars
+setTimeout(() => {
+  document.querySelectorAll('.bar-fill[data-pct]').forEach(el => {
+    el.style.width = el.dataset.pct + '%';
+  });
+}, 150);
+</script>
+</body>
+</html>

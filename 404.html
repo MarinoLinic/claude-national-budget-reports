@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>404 - Document Not Found</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Barlow:wght@300;400;500;600&display=swap"
+			rel="stylesheet"
+		/>
+		<style>
+			:root {
+				--paper: #f6f2ed;
+				--ink: #14110d;
+				--muted: #7a7268;
+				--rule: #ddd7ce;
+				--red: #b01c1c;
+			}
+
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+
+			body {
+				background: var(--paper);
+				font-family: 'Barlow', sans-serif;
+				color: var(--ink);
+				font-size: 14px;
+				line-height: 1.5;
+				height: 100vh;
+				display: flex;
+				flex-direction: column;
+			}
+
+			.masthead {
+				background: var(--ink);
+				color: var(--paper);
+				padding: 60px 52px;
+				flex: 1;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+			}
+
+			.eyebrow {
+				display: flex;
+				align-items: center;
+				gap: 12px;
+				margin-bottom: 24px;
+			}
+
+			.eyebrow-text {
+				font-size: 10px;
+				letter-spacing: 0.16em;
+				text-transform: uppercase;
+				color: #888;
+				font-weight: 500;
+			}
+
+			.masthead h1 {
+				font-family: 'Libre Baskerville', serif;
+				font-size: clamp(3rem, 5vw, 4.5rem);
+				font-weight: 400;
+				line-height: 1.08;
+				letter-spacing: -0.02em;
+				margin-bottom: 20px;
+				color: var(--red);
+			}
+
+			.masthead h1 em {
+				font-style: italic;
+				color: var(--paper);
+			}
+
+			.message {
+				font-size: 18px;
+				color: #aaa;
+				font-weight: 300;
+				max-width: 500px;
+				margin-bottom: 40px;
+				line-height: 1.6;
+			}
+
+			.back-link {
+				display: inline-flex;
+				align-items: center;
+				font-family: 'Barlow', sans-serif;
+				font-size: 12px;
+				text-transform: uppercase;
+				letter-spacing: 0.12em;
+				font-weight: 600;
+				color: var(--ink);
+				background: var(--paper);
+				padding: 14px 24px;
+				text-decoration: none;
+				border-radius: 3px;
+				transition:
+					transform 0.2s ease,
+					opacity 0.2s ease;
+				align-self: flex-start;
+			}
+
+			.back-link:hover {
+				transform: translateY(-2px);
+				opacity: 0.9;
+			}
+
+			.stripe {
+				height: 5px;
+				background: linear-gradient(90deg, #1a3055 0%, #b01c1c 50%, #8a6800 100%);
+			}
+
+			@media (max-width: 900px) {
+				.masthead {
+					padding: 40px 20px;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="stripe"></div>
+		<div class="masthead">
+			<div class="eyebrow">
+				<span class="eyebrow-text">Error 404 · Unallocated Expenditure</span>
+			</div>
+
+			<h1><em>File</em> Not Found</h1>
+
+			<p class="message">
+				The fiscal document you are looking for has been misplaced, redacted, or never existed in the current budget
+				cycle.
+			</p>
+
+			<a href="index.html" class="back-link">← Return to Observatory</a>
+		</div>
+	</body>
+</html>
