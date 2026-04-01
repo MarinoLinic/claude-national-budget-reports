@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>China General Public Budget 2024</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --paper:    #f6f2ed;
+  --white:    #ffffff;
+  --ink:      #14110d;
+  --muted:    #7a7268;
+  --rule:     #ddd7ce;
+  --red:      #b01c1c;
+  --red-mid:  #cc3333;
+  --red-lt:   #f0d0d0;
+  --crimson:  #8B0000;
+  --crimson-md: #b02020;
+  --crimson-lt: #f0d0d0;
+  --gold:     #b8860b;
+  --gold-lt:  #fef3c7;
+  --teal:     #1a5a50;
+  --teal-lt:  #c0ddd8;
+  --slate:    #3a5a7a;
+  --slate-lt: #c8d8e8;
+  --olive:    #4a6015;
+  --olive-lt: #dce5c0;
+  --amber:    #8a5c00;
+  --amber-lt: #f0e0b8;
+  --grey:     #484440;
+  --grey-lt:  #e0dbd5;
+  --plum:     #5a2060;
+  --plum-lt:  #e0c8e8;
+  --blue:     #1a3055;
+  --blue-lt:  #c8d5e8;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  background: var(--paper);
+  font-family: 'Barlow', sans-serif;
+  color: var(--ink);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* ── MASTHEAD ── */
+.masthead {
+  background: var(--ink);
+  color: var(--paper);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: stretch;
+  overflow: hidden;
+}
+.masthead-left { padding: 44px 52px 40px; border-right: 1px solid #2a2620; }
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+/* Chinese flag simplified — red field with one large star */
+.flag-cn {
+  width: 38px;
+  height: 26px;
+  background: #DE2910;
+  border-radius: 2px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 4px 5px;
+  font-size: 13px;
+  line-height: 1;
+  letter-spacing: -1px;
+}
+.flag-cn span { color: #FFDE00; font-size: 12px; }
+
+.eyebrow-text {
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #888;
+  font-weight: 500;
+}
+.masthead h1 {
+  font-family: 'Libre Baskerville', serif;
+  font-size: clamp(2rem, 3.5vw, 3.1rem);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  max-width: 560px;
+}
+.masthead h1 em { font-style: italic; color: #b0a898; }
+.masthead-sub {
+  margin-top: 12px;
+  font-size: 12px;
+  color: #777;
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.masthead-right {
+  padding: 44px 52px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 20px;
+  min-width: 270px;
+}
+.kpi-label {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #666;
+  font-weight: 500;
+  margin-bottom: 3px;
+}
+.kpi-value {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 2.1rem;
+  font-weight: 700;
+  line-height: 1;
+}
+.kpi-value.rec  { color: #5a9de0; }
+.kpi-value.def  { color: #e06050; }
+.kpi-value.out  { color: var(--paper); }
+.kpi-note { font-size: 10px; color: #666; font-weight: 300; margin-top: 2px; }
+
+/* ── STRIPE — Chinese red with gold accent ── */
+.stripe {
+  height: 5px;
+  background: linear-gradient(90deg,
+    #DE2910 0% 45%,
+    #FFDE00 45% 55%,
+    #DE2910 55% 80%,
+    #8B0000 80% 100%);
+}
+
+/* ── SECTION LABEL ── */
+.section-label {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-weight: 600;
+  color: var(--muted);
+  padding: 28px 52px 0;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+}
+
+/* ── LAYOUT ── */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 0 52px;
+}
+.col-pad  { padding-right: 40px; }
+.col-divider { border-left: 1px solid var(--rule); padding-left: 40px; }
+
+/* ── PANEL HEAD ── */
+.panel-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 20px 0 14px;
+  border-bottom: 2px solid var(--ink);
+  margin-bottom: 4px;
+}
+.panel-head h2 {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 1rem;
+  font-weight: 700;
+}
+.panel-head span { font-size: 10px; color: var(--muted); }
+
+/* ── BAR ROWS ── */
+.group-label {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  font-weight: 600;
+  margin: 16px 0 6px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--rule);
+}
+.bar-row {
+  display: grid;
+  grid-template-columns: 210px 1fr 68px;
+  align-items: center;
+  gap: 10px;
+  padding: 3px 0;
+  opacity: 0;
+  transform: translateX(-8px);
+  animation: slideIn 0.35s ease forwards;
+}
+.bar-row.right-anim { transform: translateX(8px); }
+@keyframes slideIn { to { opacity:1; transform:translateX(0); } }
+
+.bar-label { font-size: 12px; color: var(--ink); line-height: 1.3; font-weight: 400; }
+.bar-label small { display:block; font-size:10px; color:var(--muted); font-weight:300; margin-top:1px; }
+
+.bar-track {
+  height: 18px;
+  background: var(--rule);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.bar-fill {
+  height: 100%;
+  width: 0%;
+  border-radius: 2px;
+  transition: width 0.95s cubic-bezier(0.16,1,0.3,1);
+}
+
+/* Revenue colours */
+.c-vat   { background: #DE2910; }
+.c-cit   { background: #8B0000; }
+.c-con   { background: #b83030; }
+.c-pit   { background: #c84040; }
+.c-cust  { background: var(--slate); }
+.c-ntax  { background: var(--gold); }
+.c-otax  { background: #9a6020; }
+
+/* Outlay colours */
+.c-edu   { background: #DE2910; }
+.c-soc   { background: #8B0000; }
+.c-def   { background: var(--grey); }
+.c-urb   { background: var(--slate); }
+.c-agr   { background: var(--teal); }
+.c-hlth  { background: #2a7060; }
+.c-sci   { background: #3a5090; }
+.c-debt  { background: #606060; }
+.c-tra   { background: var(--amber); }
+.c-gen   { background: #8a8078; }
+
+.bar-val { font-size: 11px; font-weight: 600; color: var(--ink); text-align: right; white-space: nowrap; }
+.bar-val small { display:block; font-size:9px; color:var(--muted); font-weight:400; }
+
+/* ── DEFICIT & TOTAL ROWS ── */
+.deficit-row {
+  background: #fff7f7;
+  border: 1px solid #f0c8c8;
+  border-radius: 3px;
+  padding: 10px 14px;
+  margin: 10px 0 4px;
+  display: grid;
+  grid-template-columns: 210px 1fr 68px;
+  gap: 10px;
+  align-items: center;
+}
+.deficit-row .bar-label { color: var(--red); font-weight: 500; }
+.deficit-row .bar-val   { color: var(--red); }
+
+.total-row {
+  display: grid;
+  grid-template-columns: 210px 1fr 68px;
+  gap: 10px;
+  align-items: center;
+  padding: 8px 0 4px;
+  border-top: 2px solid var(--ink);
+  margin-top: 6px;
+}
+.total-row .bar-label { font-weight: 600; font-size: 12px; }
+.total-row .bar-val   { font-weight: 700; font-size: 12px; }
+
+/* ── METHOD NOTE ── */
+.method-note {
+  background: var(--ink);
+  color: #ccc;
+  font-size: 10.5px;
+  line-height: 1.7;
+  padding: 14px 20px;
+  border-radius: 3px;
+  margin: 10px 0 0;
+  font-weight: 300;
+}
+.method-note strong { color: var(--paper); font-weight: 600; }
+
+/* ── CALLOUTS ── */
+.callouts {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1px;
+  background: var(--rule);
+  margin: 0 52px;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.callout {
+  background: var(--white);
+  padding: 18px 20px;
+}
+.callout-icon { font-size: 18px; margin-bottom: 8px; display: block; }
+.callout h3 {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.callout p { font-size: 11px; color: var(--muted); line-height: 1.6; font-weight: 300; }
+.callout .tag {
+  display: inline-block;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: 2px;
+  margin-top: 8px;
+}
+.tag-red   { background: var(--crimson-lt); color: var(--crimson); }
+.tag-gold  { background: var(--gold-lt);    color: #7a5c00; }
+.tag-teal  { background: var(--teal-lt);    color: var(--teal); }
+.tag-slate { background: var(--slate-lt);   color: var(--slate); }
+.tag-grey  { background: var(--grey-lt);    color: var(--grey); }
+.tag-olive { background: var(--olive-lt);   color: var(--olive); }
+
+/* ── FOOTNOTE ── */
+.footnote {
+  padding: 24px 52px 40px;
+  border-top: 1px solid var(--rule);
+  margin: 28px 0 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.footnote p { font-size: 10px; color: var(--muted); line-height: 1.7; font-weight: 300; }
+.footnote strong { font-weight: 600; color: var(--ink); }
+
+@media (max-width: 900px) {
+  .two-col { grid-template-columns: 1fr; padding: 0 20px; }
+  .col-divider { border-left: none; border-top: 1px solid var(--rule); padding-left: 0; padding-top: 28px; margin-top: 28px; }
+  .col-pad { padding-right: 0; }
+  .masthead { grid-template-columns: 1fr; }
+  .masthead-right { border-top: 1px solid #2a2620; padding-top: 24px; flex-direction: row; flex-wrap: wrap; gap: 20px; }
+  .masthead-left  { padding: 32px 20px 28px; }
+  .section-label  { padding: 20px 20px 0; }
+  .callouts  { grid-template-columns: 1fr; margin: 0 20px; }
+  .footnote  { grid-template-columns: 1fr; padding: 20px 20px 32px; }
+  .bar-row, .deficit-row, .total-row { grid-template-columns: 130px 1fr 56px; }
+}
+</style>
+</head>
+<body>
+
+<!-- MASTHEAD -->
+<div class="masthead">
+  <div class="masthead-left">
+    <div class="eyebrow">
+      <div class="flag-cn"><span>★</span></div>
+      <span class="eyebrow-text">People's Republic of China · Ministry of Finance · NBS</span>
+    </div>
+    <h1>National General Public Budget<br><em>Fiscal Year 2024</em></h1>
+    <div class="masthead-sub">Jan 1 – Dec 31, 2024 · All figures in ¥ Trillion (CNY) · Sources: MoF Execution Report, NPC, Rosstat NBS</div>
+  </div>
+  <div class="masthead-right">
+    <div class="kpi">
+      <div class="kpi-label">Total Revenue (incl. transfers)</div>
+      <div class="kpi-value rec">¥24.5T</div>
+      <div class="kpi-note">17.6% of GDP · Tax ¥17.5T + Non-tax ¥4.5T + Supplementary ¥2.5T</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Official Budget Deficit</div>
+      <div class="kpi-value def">¥4.1T</div>
+      <div class="kpi-note">3.0% of GDP (official) · Broad deficit ~6.5% of GDP</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Total Expenditure</div>
+      <div class="kpi-value out">¥28.6T</div>
+      <div class="kpi-note">20.5% of GDP · +3.6% vs 2023 · ~$3.97T USD</div>
+    </div>
+  </div>
+</div>
+<div class="stripe"></div>
+
+<!-- MAIN TWO-COL -->
+<div class="section-label">Budget breakdown</div>
+
+<div class="two-col">
+
+  <!-- LEFT: REVENUES -->
+  <div class="col-pad">
+    <div class="panel-head">
+      <h2>Revenue by Source</h2>
+      <span>Max = ¥7.1T (VAT) · Total resources ¥24.5T</span>
+    </div>
+    <div id="rec"></div>
+
+    <!-- DEFICIT -->
+    <div class="deficit-row" id="def-row" style="opacity:0">
+      <div class="bar-label">Deficit Financing<small>Central treasury bonds + local special bonds + ¥1T ultra-long special bonds</small></div>
+      <div class="bar-track">
+        <div class="bar-fill" data-pct="57.7" style="width:0%;background:var(--red-mid)"></div>
+      </div>
+      <div class="bar-val">¥4.1T<small>3.0% GDP</small></div>
+    </div>
+
+    <div class="total-row">
+      <div class="bar-label">Total Resources Available</div>
+      <div class="bar-track" style="background:transparent"></div>
+      <div class="bar-val">¥28.6T</div>
+    </div>
+
+    <div class="method-note">
+      <strong>China's four-budget system:</strong> This report covers the National General Public Budget (GPB) only — the primary fiscal account. China operates three additional budgets: the Government-Managed Funds budget (dominated by land-sale revenue, ¥7.3T in 2024, down 10.5%); the State Capital Operations budget (SOE dividends); and the Social Insurance Funds budget (pension & healthcare contributions). The official 3% deficit applies only to the GPB. Economists at PIIE estimate the broad consolidated deficit including all budgets and off-budget financing at approximately 6.5% of GDP in 2024. Revenue shown includes ¥2.54T in "supplementary resources" drawn from budget stabilization funds and carryovers.
+    </div>
+  </div>
+
+  <!-- RIGHT: OUTLAYS -->
+  <div class="col-divider">
+    <div class="panel-head">
+      <h2>Expenditure by Function</h2>
+      <span>Max = ¥4.21T (Social Security) · Total ¥28.6T</span>
+    </div>
+    <div id="out"></div>
+
+    <div class="total-row">
+      <div class="bar-label">Total Expenditure</div>
+      <div class="bar-track" style="background:transparent"></div>
+      <div class="bar-val">¥28.6T</div>
+    </div>
+
+    <div class="method-note">
+      <strong>Central vs. local spending:</strong> Of the ¥28.6T in total national GPB expenditure, only ¥4.1T was direct central government spending; the remaining ¥24.4T was local government spending, partially funded through central transfer payments of ¥10.0T. This extreme fiscal decentralization — where local governments execute ~85% of spending — is a defining structural feature of China's public finance. Education, healthcare, and social security are predominantly delivered and funded at the local level. Figures shown are consolidated national totals.
+    </div>
+  </div>
+
+</div>
+
+<!-- CALLOUTS -->
+<div class="section-label" style="margin-top:32px">Context & explanations</div>
+<div class="callouts" style="margin-top:16px">
+
+  <div class="callout">
+    <span class="callout-icon">🎓</span>
+    <h3>Education: China's Largest Budget Line for a Decade</h3>
+    <p>For over a decade, education has been the single largest line item in China's general public budget, reflecting the Communist Party's priority of building human capital. The ¥4.17T allocation covers compulsory education, rural school construction, vocational training, universities, and scholarship programs. Since 2012, the government has maintained a legal commitment to spend at least 4% of GDP on education across all budget levels. The 2024 figure represents about 2.7% of the ¥137T nominal GDP via the GPB alone, with the remainder of the 4% mandate fulfilled through local government own-source spending and the broader education surcharge system.</p>
+    <span class="tag tag-red">Education: 14.6% of all GPB spending</span>
+  </div>
+
+  <div class="callout">
+    <span class="callout-icon">🌾</span>
+    <h3>Agriculture Spending Surged 12.7% — a Record High</h3>
+    <p>Spending on agriculture, forestry, and water conservancy jumped nearly 13% to ¥2.7T in 2024, the fastest growth of any major budget category and an all-time record. This surge reflected priority spending on rural revitalization programs, flood control after devastating summer floods in parts of northern China, irrigation upgrades, and food security investments. Beijing's food security anxiety has intensified: China's grain self-sufficiency strategy led to the world's largest state grain stockpiling program. The agricultural budget also funds rural road construction, clean water projects, and the ¥177B follow-up rural revitalization assistance fund targeting formerly impoverished counties.</p>
+    <span class="tag tag-teal">Agriculture: +12.7% · All-time record ¥2.70T</span>
+  </div>
+
+  <div class="callout">
+    <span class="callout-icon">💊</span>
+    <h3>Healthcare Fell 9% — but This Is a COVID Normalization</h3>
+    <p>Public health and sanitation expenditure fell sharply by over 9% to approximately ¥2.0T. This sounds alarming but is actually a statistical normalization: 2022 and 2023 saw massively elevated health spending due to COVID-19 testing, quarantine infrastructure, and vaccination campaigns. The 2024 figure of ¥2.0T closely mirrors pre-pandemic levels of ¥1.9T in 2020–2021. China's publicly funded healthcare is delivered through a layered system: the GPB funds public health programs and hospital subsidies, while a separate Social Insurance Funds budget (not shown here) covers the Basic Medical Insurance systems (Urban Employee BMI and Urban-Rural Resident BMI), which collectively cover over 1.3 billion people.</p>
+    <span class="tag tag-slate">Health: ¥2.0T · COVID normalization, not a real cut</span>
+  </div>
+
+  <div class="callout">
+    <span class="callout-icon">🛡️</span>
+    <h3>Defence: Official 1.3% of GDP — But Actual Is Debated</h3>
+    <p>China's official defence budget was ¥1.665T ($231B), a 7.2% increase for the ninth consecutive year of single-digit growth. The NPC budget report confirms 100% execution. At 1.3% of GDP, the official figure is below the global average. However, independent estimates diverge sharply. SIPRI estimates ~$309B for 2023 (the most recent year), while a 2024 RAND/Texas NSR study estimates 2024 actual defence spending at ~$471B (~27–33% above official figures), accounting for off-budget R&D, paramilitary (People's Armed Police), and other items. The US DoD's 2024 China Military Power Report suggests a 40–90% understatement. The true figure likely falls between $295B and $471B.</p>
+    <span class="tag tag-grey">Official: ¥1.67T · SIPRI/RAND est: $295–471B total</span>
+  </div>
+
+  <div class="callout">
+    <span class="callout-icon">💸</span>
+    <h3>The Hidden Deficit: Land Sales Collapse &amp; Broad Fiscal Pressure</h3>
+    <p>The official 3% deficit masks China's true fiscal strain. The Government-Managed Funds budget — which relies on land-sale revenue — saw receipts fall 10.5% to ¥7.3T in 2024 as the property crisis continued, creating a ¥1.3T shortfall in that sub-budget alone. Additionally, the ¥1T in ultra-long special treasury bonds issued in 2024 does not count toward the official deficit. When all budget layers and off-budget borrowing are included, PIIE estimates the broad deficit at ~6.5% of GDP. Meanwhile, local governments carried hidden off-balance-sheet debt estimated at ¥50–65 trillion, with a landmark ¥2T debt-swap package announced in late 2024 to convert hidden local debt into official bonds.</p>
+    <span class="tag tag-red">Broad deficit: ~6.5% GDP · Land revenue –10.5%</span>
+  </div>
+
+  <div class="callout">
+    <span class="callout-icon">🔬</span>
+    <h3>Science &amp; Technology: Strategic Priority with 6% Growth</h3>
+    <p>Government spending on science and technology grew 6% to approximately ¥1.0T in 2024, reflecting Xi Jinping's "self-reliance in science and technology" agenda. When combined with R&D spending across all sectors (including state enterprise and private investment), China's total R&D expenditure reached ¥3.613T — or 2.68% of GDP — placing China second globally in absolute R&D spending behind the US. The central government's science budget weighted toward basic research and strategic technologies: semiconductors, AI, quantum computing, aerospace, and biotech. The 2025 budget raised central science spending another 10% to ¥398B, signaling continued escalation of the technology competition with the United States.</p>
+    <span class="tag tag-olive">R&amp;D: ¥3.61T total · 2.68% of GDP · World No. 2</span>
+  </div>
+
+</div>
+
+<!-- FOOTNOTE -->
+<div class="footnote">
+  <p>
+    <strong>Primary sources:</strong> People's Republic of China Ministry of Finance — Report on the Execution of the Central and Local Budgets for 2024 and on the Draft Central and Local Budgets for 2025 (presented at the NPC, Mar 5, 2025; English translation via NPC Observer); National Bureau of Statistics of China — Statistical Communiqué of the PRC on the 2024 National Economic and Social Development (Feb 28, 2025); CEIC Data — Final Account: General Public Budget Expenditure by Category 2024 (Social Security ¥4.211T, Agriculture ¥2.705T, Urban & Rural Community ¥2.174T, confirmed actuals); ChinaPower Project / CSIS — Making Sense of China's Government Budget (Mar 2025, citing MoF actuals); PIIE — China's Official Deficit Is No Longer a Meaningful Measure (Aug 2024); Texas National Security Review — Estimating China's Defense Spending (Jun 2024); ChinaPower — What Does China Really Spend on Its Military? (CSIS, updated 2025); National Defense figures: NPC Budget Report 2025 (confirming 2024 actual national defence = ¥1.665T, 100% of budgeted figure).
+  </p>
+  <p>
+    <strong>Methodology &amp; caveats:</strong> GDP reference: ¥136.5T nominal 2024 (NBS, implied by 3% deficit = ¥4.06T). Exchange rate: avg ~7.19 CNY/USD in 2024. Revenue: ¥21.97T collected by MoF + ¥2.54T supplementary transfers = ¥24.51T total available for spending. Tax revenue of ¥17.50T (–3.4% y/y) reflects falling property-related taxes and VAT deflation, partly offset by strong non-tax revenue (¥4.47T, +25.4% due to a one-time central department proceeds transfer). VAT domestic ¥7.1T estimated by applying published +3% growth to 2023 ¥6.9T actual; corporate income tax ~¥4.0T, PIT ~¥1.55T, consumption tax ~¥1.6T from MoF sub-breakdowns. Expenditure line items: Social Security ¥4.21T, Agriculture ¥2.70T, Urban & Rural Community ¥2.17T from CEIC confirmed actuals; Education ~¥4.17T applying +3.6% national GPB growth to 2023 ~¥4.02T; Healthcare ~¥2.0T per ChinaPower (–9% from ~¥2.20T); Defence ¥1.665T per NPC report; Science ~¥1.0T per MoF (+6%); Transport ~¥0.88T (–1%); Debt service ~¥1.30T (+8.8%); residual General Government & Other. The broad deficit of 6.5% of GDP (PIIE) includes Government-Managed Funds, special bonds, and off-budget items not reflected in the official 3% figure.
+  </p>
+</div>
+
+<script>
+const MAX_REC = 7100; // VAT, in billions
+const MAX_OUT = 4211; // Social Security, in billions
+
+const receipts = [
+  {
+    group: "Value-Added & Goods Taxes",
+    items: [
+      { label: "Value-Added Tax (VAT)",         sub: "13% standard rate on goods, 9% on food/utilities, 6% on services",  val: 7100, gdp: 5.2, cls: "c-vat" },
+      { label: "Consumption Tax",               sub: "Excise on tobacco, alcohol, cars, fuel, jewellery at point of mfg", val: 1600, gdp: 1.2, cls: "c-con" },
+    ]
+  },
+  {
+    group: "Income Taxes",
+    items: [
+      { label: "Corporate Income Tax",          sub: "25% standard rate; 15% for high-tech & small enterprise breaks",     val: 4000, gdp: 2.9, cls: "c-cit" },
+      { label: "Personal Income Tax",           sub: "Progressive 3–45%; capital gains and dividends taxed separately",    val: 1550, gdp: 1.1, cls: "c-pit" },
+    ]
+  },
+  {
+    group: "Trade & Other Taxes",
+    items: [
+      { label: "Customs Duties",                sub: "Import tariffs; strategic reductions on some goods post-WTO commitments", val: 840,  gdp: 0.6, cls: "c-cust" },
+      { label: "Other Taxes",                   sub: "Stamp duty, land use, resource tax, urban construction & maintenance",  val: 2410, gdp: 1.8, cls: "c-otax" },
+    ]
+  },
+  {
+    group: "Non-Tax Revenue",
+    items: [
+      { label: "Non-Tax Revenue",               sub: "Central dept. special proceeds (one-off), admin fees, state dividends", val: 4470, gdp: 3.3, cls: "c-ntax" },
+    ]
+  },
+];
+
+const outlays = [
+  {
+    group: "Social Spending",
+    items: [
+      { label: "Social Security & Employment",  sub: "Pensions, unemployment insurance, employment subsidies — all-time high", val: 4211, gdp: 3.1, cls: "c-soc" },
+      { label: "Education",                     sub: "K-12, higher education, vocational, rural schools — largest line item",  val: 4170, gdp: 3.1, cls: "c-edu" },
+      { label: "Health & Sanitation",           sub: "Public health programs, hospital subsidies; –9% COVID normalization",    val: 2000, gdp: 1.5, cls: "c-hlth" },
+    ]
+  },
+  {
+    group: "Infrastructure & Development",
+    items: [
+      { label: "Urban & Rural Communities",     sub: "Urban infrastructure, utilities, rural revitalization programs",         val: 2174, gdp: 1.6, cls: "c-urb" },
+      { label: "Agriculture, Forestry & Water", sub: "Food security, flood control, irrigation — record +12.7% increase",     val: 2705, gdp: 2.0, cls: "c-agr" },
+      { label: "Transportation",                sub: "Highways, railways, airports, ports — slight –1% decline in 2024",      val:  880, gdp: 0.6, cls: "c-tra" },
+    ]
+  },
+  {
+    group: "Defence, Security & Science",
+    items: [
+      { label: "National Defence",              sub: "PLA: personnel, equipment, procurement, R&D; +7.2% for 9th year",       val: 1665, gdp: 1.2, cls: "c-def" },
+      { label: "Science & Technology",          sub: "Strategic R&D, basic research, semiconductor & AI programs; +6%",       val: 1000, gdp: 0.7, cls: "c-sci" },
+    ]
+  },
+  {
+    group: "Debt & Administration",
+    items: [
+      { label: "Debt Interest Payments",        sub: "Service on central government bonds; +8.8% as debt stock grows",        val: 1300, gdp: 1.0, cls: "c-debt" },
+      { label: "General Government & Other",    sub: "Administration, public security, housing, energy, environment, culture", val: 4495, gdp: 3.3, cls: "c-gen" },
+    ]
+  },
+];
+
+function buildSection(data, containerId, maxVal, animClass, delay0) {
+  const container = document.getElementById(containerId);
+  let delay = delay0;
+  data.forEach(group => {
+    const glbl = document.createElement('div');
+    glbl.className = 'group-label';
+    glbl.textContent = group.group;
+    container.appendChild(glbl);
+    group.items.forEach(item => {
+      const pct = Math.min((item.val / maxVal) * 100, 100).toFixed(2);
+      const row = document.createElement('div');
+      row.className = `bar-row${animClass ? ' ' + animClass : ''}`;
+      row.style.animationDelay = delay + 'ms';
+      row.innerHTML = `
+        <div class="bar-label">${item.label}<small>${item.sub}</small></div>
+        <div class="bar-track">
+          <div class="bar-fill ${item.cls}" data-pct="${pct}" style="width:0%"></div>
+        </div>
+        <div class="bar-val">¥${(item.val/1000).toFixed(2)}T<small>${item.gdp}% GDP</small></div>
+      `;
+      container.appendChild(row);
+      delay += 50;
+    });
+  });
+}
+
+buildSection(receipts, 'rec', MAX_REC, '',           80);
+buildSection(outlays,  'out', MAX_OUT, 'right-anim', 200);
+
+// Animate deficit row
+setTimeout(() => {
+  const dr = document.getElementById('def-row');
+  dr.style.transition = 'opacity 0.4s ease 0.5s';
+  dr.style.opacity = '1';
+  const fill = dr.querySelector('.bar-fill');
+  fill.style.transition = 'width 0.95s cubic-bezier(0.16,1,0.3,1) 0.6s';
+  fill.style.width = fill.dataset.pct + '%';
+}, 100);
+
+// Animate all bars
+setTimeout(() => {
+  document.querySelectorAll('.bar-fill[data-pct]').forEach(el => {
+    el.style.width = el.dataset.pct + '%';
+  });
+}, 150);
+</script>
+</body>
+</html>

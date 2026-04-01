@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Denmark Government Budget 2024</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --paper:    #f5f2ee;
+  --white:    #ffffff;
+  --ink:      #141210;
+  --muted:    #7a736b;
+  --rule:     #ddd8d0;
+  --red:      #c8102e;
+  --red-mid:  #e0304c;
+  --red-lt:   #f2d8dc;
+  --navy:     #002f6c;
+  --navy-mid: #1a4fa0;
+  --navy-lt:  #ccd8ee;
+  --teal:     #1a5f58;
+  --teal-lt:  #c0dcd8;
+  --gold:     #8a6800;
+  --gold-lt:  #f0e4c0;
+  --slate:    #3a5870;
+  --slate-lt: #c8d8e4;
+  --olive:    #4a6015;
+  --olive-lt: #dce4c0;
+  --grey:     #484440;
+  --grey-lt:  #e2ddd8;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  background: var(--paper);
+  font-family: 'Barlow', sans-serif;
+  color: var(--ink);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* ── MASTHEAD ── */
+.masthead {
+  background: var(--ink);
+  color: var(--paper);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: stretch;
+  overflow: hidden;
+}
+.masthead-left { padding: 44px 52px 40px; border-right: 1px solid #2a2620; }
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+/* Danish flag CSS */
+.flag-dk {
+  width: 44px;
+  height: 30px;
+  background: var(--red);
+  position: relative;
+  border-radius: 2px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.flag-dk::before {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  left: 14px; width: 6px;
+  background: white;
+}
+.flag-dk::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0;
+  top: 12px; height: 6px;
+  background: white;
+}
+.eyebrow-text {
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #888;
+  font-weight: 500;
+}
+.masthead h1 {
+  font-family: 'Libre Baskerville', serif;
+  font-size: clamp(2rem, 3.5vw, 3.1rem);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  max-width: 560px;
+}
+.masthead h1 em { font-style: italic; color: #b0a898; }
+.masthead-sub {
+  margin-top: 12px;
+  font-size: 12px;
+  color: #777;
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.masthead-right {
+  padding: 44px 52px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 20px;
+  min-width: 250px;
+}
+.kpi-label {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #666;
+  font-weight: 500;
+  margin-bottom: 3px;
+}
+.kpi-value {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 2.1rem;
+  font-weight: 700;
+  line-height: 1;
+}
+.kpi-value.rec  { color: #5a9de0; }
+.kpi-value.sur  { color: #5ab878; }
+.kpi-value.out  { color: var(--paper); }
+.kpi-note { font-size: 10px; color: #666; font-weight: 300; margin-top: 2px; }
+
+/* ── STRIPE ── */
+.stripe {
+  height: 5px;
+  background: linear-gradient(90deg,
+    var(--red) 0% 28%,
+    var(--navy) 28% 48%,
+    var(--teal) 48% 66%,
+    var(--gold) 66% 82%,
+    var(--slate) 82% 100%);
+}
+
+/* ── SECTION LABEL ── */
+.section-label {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-weight: 600;
+  color: var(--muted);
+  padding: 28px 52px 0;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+}
+
+/* ── LAYOUT ── */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 0 52px;
+}
+.col-pad  { padding-right: 40px; }
+.col-divider { border-left: 1px solid var(--rule); padding-left: 40px; }
+
+/* ── PANEL HEAD ── */
+.panel-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 20px 0 14px;
+  border-bottom: 2px solid var(--ink);
+  margin-bottom: 4px;
+}
+.panel-head h2 {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 1rem;
+  font-weight: 700;
+}
+.panel-head span { font-size: 10px; color: var(--muted); }
+
+/* ── BAR ROWS ── */
+.group-label {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  font-weight: 600;
+  margin: 16px 0 6px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--rule);
+}
+.bar-row {
+  display: grid;
+  grid-template-columns: 200px 1fr 58px;
+  align-items: center;
+  gap: 10px;
+  padding: 3px 0;
+  opacity: 0;
+  transform: translateX(-8px);
+  animation: slideIn 0.35s ease forwards;
+}
+.bar-row.right-anim { transform: translateX(8px); }
+@keyframes slideIn { to { opacity:1; transform:translateX(0); } }
+
+.bar-label { font-size: 12px; color: var(--ink); line-height: 1.3; font-weight: 400; }
+.bar-label small { display:block; font-size:10px; color:var(--muted); font-weight:300; margin-top:1px; }
+
+.bar-track {
+  height: 18px;
+  background: var(--rule);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.bar-fill {
+  height: 100%;
+  width: 0%;
+  border-radius: 2px;
+  transition: width 0.95s cubic-bezier(0.16,1,0.3,1);
+}
+.bar-val { font-size: 11px; color: var(--ink); font-weight: 500; text-align: right; }
+.bar-val small { display:block; font-size:9px; color:var(--muted); font-weight:300; }
+
+/* Bar fill colours — Revenue */
+.c-pit    { background: var(--navy); }
+.c-lmc    { background: var(--navy-mid); }
+.c-cit    { background: var(--slate); }
+.c-vat    { background: var(--red); }
+.c-exc    { background: #b04060; }
+.c-prop   { background: #6878a0; }
+.c-prt    { background: #9a5a80; }
+.c-other  { background: var(--grey); }
+
+/* Bar fill colours — Expenditure */
+.c-hlth   { background: var(--red); }
+.c-soc    { background: var(--navy); }
+.c-edu    { background: var(--navy-mid); }
+.c-eld    { background: #b02840; }
+.c-dis    { background: var(--slate); }
+.c-unemp  { background: var(--teal); }
+.c-fam    { background: #5a90c0; }
+.c-def    { background: var(--gold); }
+.c-gen    { background: var(--olive); }
+.c-trans  { background: #6a7a30; }
+.c-int    { background: #8a7060; }
+.c-env    { background: #3a8060; }
+.c-misc2  { background: var(--grey); }
+
+/* ── TOTAL ROW ── */
+.total-row {
+  display: grid;
+  grid-template-columns: 200px 1fr 58px;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0 4px;
+  border-top: 1.5px solid var(--ink);
+  margin-top: 10px;
+}
+.total-row .bar-label { font-weight: 600; font-size: 13px; }
+.total-row .bar-val   { font-weight: 700; font-size: 13px; }
+
+/* ── SURPLUS ROW ── */
+.surplus-row {
+  display: grid;
+  grid-template-columns: 200px 1fr 58px;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 0 16px;
+  opacity: 0;
+}
+.surplus-row .bar-label { font-size: 12px; font-style: italic; color: var(--muted); }
+.surplus-row .bar-val   { font-size: 11px; color: #3a9060; font-weight: 600; text-align: right; }
+.surplus-fill { background: #3a9060; }
+
+/* ── METHOD NOTE ── */
+.method-note {
+  font-size: 10px;
+  color: var(--muted);
+  line-height: 1.5;
+  border-top: 1px solid var(--rule);
+  padding-top: 10px;
+  margin-top: 10px;
+}
+
+/* ── CALLOUTS ── */
+.callouts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 16px 52px 32px;
+}
+.callout {
+  background: var(--white);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  padding: 20px 22px 18px;
+}
+.callout-icon { font-size: 1.4rem; display: block; margin-bottom: 8px; }
+.callout h3 {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 0.88rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+.callout p { font-size: 12px; color: #3a3630; line-height: 1.6; }
+.tag {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 2px;
+}
+.tag-red   { background: var(--red-lt);   color: var(--red); }
+.tag-navy  { background: var(--navy-lt);  color: var(--navy); }
+.tag-teal  { background: var(--teal-lt);  color: var(--teal); }
+.tag-gold  { background: var(--gold-lt);  color: var(--gold); }
+.tag-slate { background: var(--slate-lt); color: var(--slate); }
+.tag-grey  { background: var(--grey-lt);  color: var(--grey); }
+
+/* ── FOOTNOTE ── */
+.footnote {
+  padding: 20px 52px 36px;
+  border-top: 1px solid var(--rule);
+  font-size: 10px;
+  color: var(--muted);
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!--  MASTHEAD                                              -->
+<!-- ══════════════════════════════════════════════════════ -->
+<div class="masthead">
+  <div class="masthead-left">
+    <div class="eyebrow">
+      <div class="flag-dk"></div>
+      <div class="eyebrow-text">Kingdom of Denmark · Kongeriget Danmark</div>
+    </div>
+    <h1>General Government<br>Budget <em>2024</em></h1>
+    <div class="masthead-sub">Revenue, Expenditure &amp; Key Fiscal Aggregates · DKK Billions</div>
+  </div>
+  <div class="masthead-right">
+    <div>
+      <div class="kpi-label">Total Revenue</div>
+      <div class="kpi-value rec">DKK 1,524B</div>
+      <div class="kpi-note">~51.8% of GDP · incl. all gov. levels</div>
+    </div>
+    <div>
+      <div class="kpi-label">Total Expenditure</div>
+      <div class="kpi-value out">DKK 1,391B</div>
+      <div class="kpi-note">~47.3% of GDP · COFOG all functions</div>
+    </div>
+    <div>
+      <div class="kpi-label">Fiscal Surplus</div>
+      <div class="kpi-value sur">+4.5% GDP</div>
+      <div class="kpi-note">~DKK 133B · 4th consecutive year surplus</div>
+    </div>
+  </div>
+</div>
+
+<div class="stripe"></div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!--  MAIN BARS                                             -->
+<!-- ══════════════════════════════════════════════════════ -->
+<div class="section-label">Revenue &amp; Expenditure by Function</div>
+
+<div class="two-col">
+
+  <!-- ── LEFT: RECEIPTS ── -->
+  <div class="col-pad">
+    <div class="panel-head">
+      <h2>Revenue by Source</h2>
+      <span>Max = DKK 603B (Personal Income Tax) · Total DKK 1,524B</span>
+    </div>
+
+    <div id="rec"></div>
+
+    <div class="total-row">
+      <div class="bar-label">Total Revenue</div>
+      <div class="bar-track" style="background:transparent"></div>
+      <div class="bar-val">DKK 1,524B</div>
+    </div>
+
+    <div class="method-note" style="margin-top:14px">
+      Denmark funds its welfare state almost entirely through direct and indirect taxes. Unlike most OECD peers, Denmark collects <strong>zero revenue from social security contributions</strong> — the largest structural difference in its fiscal system. The Labour Market Contribution (AM-bidrag) is classified as an income tax, not a social security contribution. All figures are general government consolidated, including central government, municipalities, regions, and social funds.
+    </div>
+  </div>
+
+  <!-- ── RIGHT: OUTLAYS ── -->
+  <div class="col-divider">
+    <div class="panel-head">
+      <h2>Expenditure by Function (COFOG)</h2>
+      <span>Max = DKK 278B (Health) · Total DKK 1,391B</span>
+    </div>
+
+    <div id="out"></div>
+
+    <div class="total-row">
+      <div class="bar-label">Total Expenditure</div>
+      <div class="bar-track" style="background:transparent"></div>
+      <div class="bar-val">DKK 1,391B</div>
+    </div>
+
+    <div class="surplus-row" id="sur-row">
+      <div class="bar-label">General Government Surplus</div>
+      <div class="bar-track">
+        <div class="bar-fill surplus-fill" data-pct="48" style="width:0%"></div>
+      </div>
+      <div class="bar-val" style="color:#3a9060">+DKK 133B</div>
+    </div>
+
+    <div class="method-note">
+      Expenditure follows ESA2010/COFOG classification aggregated across all government levels. Healthcare is the largest single function reflecting Denmark's universal, largely free-at-point-of-use NHS-equivalent system funded through general taxation and operated by the five regions. Social protection includes public old-age pension (Folkepension), disability benefits, family allowances, and unemployment benefits.
+    </div>
+  </div>
+
+</div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!--  CALLOUT BOXES                                         -->
+<!-- ══════════════════════════════════════════════════════ -->
+<div class="section-label" style="margin-top:32px">Context &amp; explanations</div>
+<div class="callouts" style="margin-top:16px">
+
+  <div class="callout">
+    <span class="callout-icon">💊</span>
+    <h3>Novo Nordisk Effect: The Pharmaceutical Surge</h3>
+    <p>The 4.5% GDP surplus in 2024 — the fourth consecutive year in positive territory — was partly driven by the extraordinary success of the Danish pharmaceutical sector, dominated by Novo Nordisk (Ozempic/Wegovy). Denmark's export revenues surged, lifting GDP and corporate tax receipts well above expectations. Corporation tax and the PAL pension-return tax together came in significantly higher than forecast. Novo Nordisk alone accounted for roughly 70% of GDP growth in H1 2024, making Denmark an outlier among European economies.</p>
+    <span class="tag tag-teal">Corp. tax + PAL beat forecast by ~DKK 30B+</span>
+  </div>
+
+  <div class="callout">
+    <span class="callout-icon">🏥</span>
+    <h3>Healthcare: DKK 278B — Largest Budget Function</h3>
+    <p>Total Danish healthcare spending reached DKK 278 billion in 2024, a 4% rise from 2023 — the first increase since 2021. Nearly half (DKK 128B, or 46%) was allocated to hospital services, including psychiatric care. Denmark's five administrative regions are responsible for delivering almost all hospital care, paid for by block grants from the state and co-payments from municipalities. Total health spending equals roughly 9.5% of GDP. Out-of-pocket payments cover mainly dental care and outpatient medicines, accounting for about 13% of total health expenditure.</p>
+    <span class="tag tag-red">Healthcare: ~9.5% of GDP · DKK 278B total</span>
+  </div>
+
+  <div class="callout">
+    <span class="callout-icon">🎓</span>
+    <h3>No Social Security Contributions — A Nordic Anomaly</h3>
+    <p>Denmark is the only OECD country that raises zero revenue from social security contributions. The Danish welfare state — including healthcare, pensions, unemployment, and family benefits — is funded entirely from general income taxes and VAT. The 8% Labour Market Contribution (AM-bidrag) functions like a payroll tax but is legally classified as income tax. This makes Denmark's tax structure unusual: personal income tax (including AM-bidrag) accounts for well over 50% of total government revenue, far above the OECD average of ~25%.</p>
+    <span class="tag tag-navy">No social security contributions: unique in OECD</span>
+  </div>
+
+  <div class="callout">
+    <span class="callout-icon">💰</span>
+    <h3>VAT at 25%: Joint-Highest in Europe</h3>
+    <p>Denmark's 25% flat VAT rate (MOMS) is the joint-highest in the EU alongside Hungary and Croatia. Unlike most EU countries, Denmark applies virtually a single rate — there are no reduced rates on food, medicines, or children's clothing, only a zero rate for very limited categories (e.g. newspapers). This simplicity yields high compliance and revenue efficiency. VAT generated approximately DKK 280B in 2024, making it the largest single indirect tax. The absence of reduced rates means household consumption is taxed uniformly, which critics argue is regressive.</p>
+    <span class="tag tag-red">VAT 25% — no reduced rates · ~DKK 280B revenue</span>
+  </div>
+
+  <div class="callout">
+    <span class="callout-icon">🛡️</span>
+    <h3>Defence: Racing to Hit the 2% NATO Target</h3>
+    <p>Denmark's Ministry of Defence Finance Act appropriation was DKK 36.2 billion in 2024 — but the broader NATO-defined defence expenditure figure including civil defence and security-related items in other ministries reached approximately DKK 71B (2.4% of GDP). Denmark committed to meeting the 2% NATO threshold after years below it, and the government's Fiscal and Structural Policy Plan explicitly mandated that defence and security expenditures reach at least 2% of GDP. Additional Ukraine military support reserves were held outside the regular defence budget.</p>
+    <span class="tag tag-gold">NATO definition: ~2.4% GDP · DKK 71B+</span>
+  </div>
+
+  <div class="callout">
+    <span class="callout-icon">👴</span>
+    <h3>The Folkepension: A Universal, Tax-Funded State Pension</h3>
+    <p>Denmark's public old-age pension (Folkepension) is a universal, residence-based scheme funded from general taxation — not contributions. A single pensioner can receive up to ~DKK 13,853/month before tax (basic amount + supplement). The statutory pension age is 67 and rising toward 68 in 2030, indexed to life expectancy. Total public pension expenditure is around 7–8% of GDP. Crucially, Denmark also has large occupational (2nd pillar) and voluntary private pension savings — Danes' private pension assets exceed 200% of GDP, reducing long-term pressure on the public scheme.</p>
+    <span class="tag tag-navy">Folkepension: ~7–8% GDP · age 67 rising to 68</span>
+  </div>
+
+</div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!--  FOOTNOTE                                              -->
+<!-- ══════════════════════════════════════════════════════ -->
+<div class="footnote">
+  <p>
+    <strong>Primary sources:</strong> Danmarks Nationalbank — Central Government Borrowing and Debt 2024 (Report No. 1, February 2025); Statistics Denmark (DST) — Social Protection Expenditure Statistics (ESSPROS 2024); Statistics Denmark — Health Care Expenditure 2024 (Copenhagen Post, May 2025); OECD — Government at a Glance 2025, Denmark Country Note (June 2025); Danish Ministry of Defence — Danish Defence Expenditures 2024 (Finance Act DKK 36.2B); European Commission — Economic Forecast for Denmark (Autumn 2024/2025); Danish Ministry of Finance — Fiscal and Structural Policy Plan 2024 (Revised, October 2024); OECD — Taxing Wages 2025, Denmark Chapter.
+  </p>
+  <p>
+    <strong>Methodology:</strong> Revenue and expenditure figures represent general government consolidated accounts across all levels (central government, municipalities, regions, and social funds), following ESA2010 national accounts methodology. GDP reference: DKK 2,944 billion (Economic Survey, December 2024, Danmarks Nationalbank). Revenue as % of GDP: ~51.8%; Expenditure as % of GDP: ~47.3% (Eurostat/Trading Economics); General government fiscal surplus: 4.5% of GDP (OECD, Government at a Glance 2025). Tax revenue breakdown uses OECD Revenue Statistics 2024 structure for Denmark, scaled to 2024 GDP. Healthcare figure (DKK 278B total system cost) from Statistics Denmark 2024; government-funded portion ~DKK 240B. Pension expenditure from ESSPROS methodology and Ageing Report Country Fiche 2024. Defence: Finance Act appropriation DKK 36.2B; NATO-definition figure ~DKK 71B (~2.4% GDP). Denmark has no social security contributions — welfare is general-tax funded. The Labour Market Contribution (AM-bidrag, 8% of gross wage) is classified as personal income tax, not a social contribution. Currency: Danish Krone (DKK). Denmark is an EU member but retains the krone, pegged to the euro at ~7.46 DKK/EUR.
+  </p>
+</div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!--  DATA & RENDERING                                       -->
+<!-- ══════════════════════════════════════════════════════ -->
+<script>
+// MAX values for bar scaling
+const MAX_REC = 603;   // Personal Income Tax (incl. AM-bidrag, municipal, state)
+const MAX_OUT = 278;   // Healthcare
+
+// ── RECEIPTS ────────────────────────────────────────────────────
+const receipts = [
+  {
+    group: "Personal Income Taxes",
+    items: [
+      {
+        label: "Personal Income Tax (total)",
+        sub: "State bottom/top tax + municipal avg 25% + church tax — paid by individuals",
+        val: 503, gdp: 17.1, cls: "c-pit"
+      },
+      {
+        label: "Labour Market Contribution (AM-bidrag)",
+        sub: "8% flat on all gross earned income — classified as income tax, not social security",
+        val: 100, gdp: 3.4, cls: "c-lmc"
+      },
+    ]
+  },
+  {
+    group: "Indirect Taxes",
+    items: [
+      {
+        label: "VAT (MOMS — merværdiafgift)",
+        sub: "25% flat rate · one of the highest in the EU · very limited zero-rating",
+        val: 280, gdp: 9.5, cls: "c-vat"
+      },
+      {
+        label: "Excise &amp; Environmental Duties",
+        sub: "Fuel, tobacco, alcohol, energy, vehicles, CO₂ (new from Jan 2025), packaging",
+        val: 100, gdp: 3.4, cls: "c-exc"
+      },
+    ]
+  },
+  {
+    group: "Corporate &amp; Capital Taxes",
+    items: [
+      {
+        label: "Corporate Income Tax (selskabsskat)",
+        sub: "22% flat rate — boosted by Novo Nordisk / pharma profit surge in 2024",
+        val: 130, gdp: 4.4, cls: "c-cit"
+      },
+      {
+        label: "Pension Return Tax (PAL-skat)",
+        sub: "15.3% on annual yield of funded pension assets — volatile, large base",
+        val: 80, gdp: 2.7, cls: "c-prt"
+      },
+      {
+        label: "Property &amp; Land Value Taxes",
+        sub: "Municipal grundskyld (land value tax 1.6–3.4%) + property value tax",
+        val: 45, gdp: 1.5, cls: "c-prop"
+      },
+    ]
+  },
+  {
+    group: "Other Receipts",
+    items: [
+      {
+        label: "Customs, Fees &amp; Non-Tax Revenue",
+        sub: "EU customs duties, public fees, fines, state enterprise surpluses, interest income",
+        val: 286, gdp: 9.7, cls: "c-other"
+      },
+    ]
+  },
+];
+
+// ── OUTLAYS (COFOG) ─────────────────────────────────────────────
+const outlays = [
+  {
+    group: "Social Protection",
+    items: [
+      {
+        label: "Social Protection (total)",
+        sub: "Old-age/disability pensions, family benefits, unemployment, housing · excl. health",
+        val: 215, gdp: 7.3, cls: "c-soc"
+      },
+      {
+        label: "  └ Old-Age Pension (Folkepension)",
+        sub: "Universal, tax-funded · ~1.1M recipients · basic + income-tested supplement",
+        val: 120, gdp: 4.1, cls: "c-eld"
+      },
+      {
+        label: "  └ Disability &amp; Early Pensions",
+        sub: "Førtidspension, senior disability pension, førtidspension reform cases",
+        val: 40, gdp: 1.4, cls: "c-dis"
+      },
+      {
+        label: "  └ Unemployment &amp; Activation",
+        sub: "Dagpenge (up to 90% of wages), kontanthjælp, flexjobs, activation programmes",
+        val: 30, gdp: 1.0, cls: "c-unemp"
+      },
+      {
+        label: "  └ Family &amp; Children Benefits",
+        sub: "Børnetilskud, barselsdagpenge (parental leave), børnepenge quarterly payments",
+        val: 25, gdp: 0.8, cls: "c-fam"
+      },
+    ]
+  },
+  {
+    group: "Health",
+    items: [
+      {
+        label: "Healthcare (Sundhedsvæsenet)",
+        sub: "Total system cost · hospitals 46% · GPs/specialists · pharmaceuticals · psychiatry",
+        val: 278, gdp: 9.5, cls: "c-hlth"
+      },
+    ]
+  },
+  {
+    group: "Education",
+    items: [
+      {
+        label: "Education (Uddannelse)",
+        sub: "Folkeskole (public school), universities, vocational training · all tuition-free",
+        val: 175, gdp: 5.9, cls: "c-edu"
+      },
+    ]
+  },
+  {
+    group: "General Public Services &amp; Administration",
+    items: [
+      {
+        label: "General Public Services",
+        sub: "Government administration, tax authority (SKAT), courts, police, fire",
+        val: 175, gdp: 5.9, cls: "c-gen"
+      },
+    ]
+  },
+  {
+    group: "Defence &amp; Security",
+    items: [
+      {
+        label: "Defence (Forsvar)",
+        sub: "Finance Act: DKK 36.2B · NATO definition ~DKK 71B incl. civil defence/security",
+        val: 71, gdp: 2.4, cls: "c-def"
+      },
+    ]
+  },
+  {
+    group: "Economic Affairs &amp; Infrastructure",
+    items: [
+      {
+        label: "Transport &amp; Infrastructure",
+        sub: "Roads, rail, DSB subsidies, cycling infrastructure, regional airports, ports",
+        val: 50, gdp: 1.7, cls: "c-trans"
+      },
+      {
+        label: "Economic Affairs &amp; Energy",
+        sub: "Business subsidies, green transition support, energy policy, agriculture",
+        val: 65, gdp: 2.2, cls: "c-misc2"
+      },
+      {
+        label: "Environment &amp; Housing",
+        sub: "Climate, wastewater, nature, social housing (almene boliger) subsidies",
+        val: 30, gdp: 1.0, cls: "c-env"
+      },
+    ]
+  },
+  {
+    group: "Debt Interest",
+    items: [
+      {
+        label: "Net Interest on Government Debt",
+        sub: "Central gov. net interest: −DKK 0.3B (net income) · incl. regions &amp; municipalities",
+        val: 15, gdp: 0.5, cls: "c-int"
+      },
+    ]
+  },
+];
+
+// ── BUILD BARS ──────────────────────────────────────────────────
+function buildSection(data, containerId, maxVal, animClass, delay0) {
+  const container = document.getElementById(containerId);
+  let delay = delay0;
+  data.forEach(group => {
+    const glbl = document.createElement('div');
+    glbl.className = 'group-label';
+    glbl.textContent = group.group;
+    container.appendChild(glbl);
+    group.items.forEach(item => {
+      const pct = Math.min((item.val / maxVal) * 100, 100).toFixed(2);
+      const row = document.createElement('div');
+      row.className = `bar-row${animClass ? ' ' + animClass : ''}`;
+      row.style.animationDelay = delay + 'ms';
+      row.innerHTML = `
+        <div class="bar-label">${item.label}<small>${item.sub}</small></div>
+        <div class="bar-track">
+          <div class="bar-fill ${item.cls}" data-pct="${pct}" style="width:0%"></div>
+        </div>
+        <div class="bar-val">DKK ${item.val}B<small>${item.gdp}% GDP</small></div>
+      `;
+      container.appendChild(row);
+      delay += 55;
+    });
+  });
+}
+
+buildSection(receipts, 'rec', MAX_REC, '',           80);
+buildSection(outlays,  'out', MAX_OUT, 'right-anim', 200);
+
+// Animate surplus row
+setTimeout(() => {
+  const sr = document.getElementById('sur-row');
+  sr.style.transition = 'opacity 0.4s ease 0.5s';
+  sr.style.opacity = '1';
+  const fill = sr.querySelector('.bar-fill');
+  fill.style.transition = 'width 0.95s cubic-bezier(0.16,1,0.3,1) 0.6s';
+  fill.style.width = fill.dataset.pct + '%';
+}, 100);
+
+// Animate all bars
+setTimeout(() => {
+  document.querySelectorAll('.bar-fill[data-pct]').forEach(el => {
+    el.style.width = el.dataset.pct + '%';
+  });
+}, 150);
+</script>
+</body>
+</html>

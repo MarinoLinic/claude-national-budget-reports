@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Greece Government Budget 2024</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --paper:    #f5f2ed;
+  --white:    #ffffff;
+  --ink:      #141210;
+  --muted:    #7a736b;
+  --rule:     #ddd8d0;
+  --blue:     #003189;
+  --blue-mid: #1a4aaa;
+  --blue-lt:  #ccd8f0;
+  --white2:   #e8ecf6;
+  --teal:     #1a6060;
+  --teal-lt:  #c0dcdc;
+  --gold:     #8a6800;
+  --gold-lt:  #f0e4c0;
+  --slate:    #3a5870;
+  --slate-lt: #c8d8e4;
+  --olive:    #4a6015;
+  --olive-lt: #dce4c0;
+  --red:      #9e1818;
+  --red-lt:   #ecdcdc;
+  --grey:     #484440;
+  --grey-lt:  #e2ddd8;
+  --azure:    #2a6ab8;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  background: var(--paper);
+  font-family: 'Barlow', sans-serif;
+  color: var(--ink);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* ── MASTHEAD ── */
+.masthead {
+  background: var(--ink);
+  color: var(--paper);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: stretch;
+  overflow: hidden;
+}
+.masthead-left { padding: 44px 52px 40px; border-right: 1px solid #2a2620; }
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+/* Greek flag: blue & white stripes with blue canton */
+.flag-gr {
+  width: 50px;
+  height: 30px;
+  border-radius: 2px;
+  overflow: hidden;
+  flex-shrink: 0;
+  position: relative;
+  background: var(--blue);
+}
+.flag-gr .stripes {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+}
+.flag-gr .stripe-b { background: var(--blue); flex: 1; }
+.flag-gr .stripe-w { background: #e0e6f8; flex: 1; }
+.flag-gr .canton {
+  position: absolute;
+  top: 0; left: 0;
+  width: 20px; height: 18px;
+  background: var(--blue);
+}
+.flag-gr .cross-h {
+  position: absolute;
+  top: 7px; left: 0; width: 20px; height: 4px;
+  background: #e0e6f8;
+}
+.flag-gr .cross-v {
+  position: absolute;
+  top: 0; left: 8px; width: 4px; height: 18px;
+  background: #e0e6f8;
+}
+.eyebrow-text {
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #888;
+  font-weight: 500;
+}
+.masthead h1 {
+  font-family: 'Libre Baskerville', serif;
+  font-size: clamp(2rem, 3.5vw, 3.1rem);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  max-width: 560px;
+}
+.masthead h1 em { font-style: italic; color: #b0a898; }
+.masthead-sub {
+  margin-top: 12px;
+  font-size: 12px;
+  color: #777;
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.masthead-right {
+  padding: 44px 52px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 20px;
+  min-width: 260px;
+}
+.kpi-label {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #666;
+  font-weight: 500;
+  margin-bottom: 3px;
+}
+.kpi-value {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 2.1rem;
+  font-weight: 700;
+  line-height: 1;
+}
+.kpi-value.rec  { color: #5a9de0; }
+.kpi-value.sur  { color: #5ab878; }
+.kpi-value.out  { color: var(--paper); }
+.kpi-value.dbt  { color: #e07050; }
+.kpi-note { font-size: 10px; color: #666; font-weight: 300; margin-top: 2px; }
+
+/* ── STRIPE (blue + white Greek colours) ── */
+.stripe {
+  height: 5px;
+  background: linear-gradient(90deg,
+    var(--blue) 0% 11%,
+    #c8d8f0 11% 22%,
+    var(--blue) 22% 33%,
+    #c8d8f0 33% 44%,
+    var(--blue) 44% 55%,
+    #c8d8f0 55% 66%,
+    var(--blue) 66% 77%,
+    #c8d8f0 77% 88%,
+    var(--blue) 88% 100%);
+}
+
+/* ── SECTION LABEL ── */
+.section-label {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-weight: 600;
+  color: var(--muted);
+  padding: 28px 52px 0;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+}
+
+/* ── LAYOUT ── */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 0 52px;
+}
+.col-pad  { padding-right: 40px; }
+.col-divider { border-left: 1px solid var(--rule); padding-left: 40px; }
+
+/* ── PANEL HEAD ── */
+.panel-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 20px 0 14px;
+  border-bottom: 2px solid var(--ink);
+  margin-bottom: 4px;
+}
+.panel-head h2 {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 1rem;
+  font-weight: 700;
+}
+.panel-head span { font-size: 10px; color: var(--muted); }
+
+/* ── BAR ROWS ── */
+.group-label {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  font-weight: 600;
+  margin: 16px 0 6px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--rule);
+}
+.bar-row {
+  display: grid;
+  grid-template-columns: 200px 1fr 58px;
+  align-items: center;
+  gap: 10px;
+  padding: 3px 0;
+  opacity: 0;
+  transform: translateX(-8px);
+  animation: slideIn 0.35s ease forwards;
+}
+.bar-row.right-anim { transform: translateX(8px); }
+@keyframes slideIn { to { opacity:1; transform:translateX(0); } }
+.bar-label { font-size: 12px; color: var(--ink); line-height: 1.3; font-weight: 400; }
+.bar-label small { display:block; font-size:10px; color:var(--muted); font-weight:300; margin-top:1px; }
+.bar-track {
+  height: 18px;
+  background: var(--rule);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.bar-fill {
+  height: 100%;
+  width: 0%;
+  border-radius: 2px;
+  transition: width 0.95s cubic-bezier(0.16,1,0.3,1);
+}
+.bar-val { font-size: 11px; color: var(--ink); font-weight: 500; text-align: right; }
+.bar-val small { display:block; font-size:9px; color:var(--muted); font-weight:300; }
+
+/* Revenue bar colours */
+.c-ssc    { background: var(--blue); }
+.c-vat    { background: #a04020; }
+.c-pit    { background: var(--azure); }
+.c-cit    { background: var(--slate); }
+.c-exc    { background: #8a5030; }
+.c-prop   { background: var(--teal); }
+.c-eu     { background: var(--olive); }
+.c-other  { background: var(--grey); }
+
+/* Expenditure bar colours */
+.c-pens   { background: var(--blue); }
+.c-hlth   { background: #b82020; }
+.c-int    { background: #8a3800; }
+.c-def    { background: var(--gold); }
+.c-edu    { background: var(--azure); }
+.c-gen    { background: var(--slate); }
+.c-soc    { background: #5a7ab8; }
+.c-trans  { background: var(--olive); }
+.c-pub    { background: var(--teal); }
+.c-env    { background: #3a8060; }
+.c-misc2  { background: var(--grey); }
+
+/* ── TOTALS & SURPLUS ROW ── */
+.total-row {
+  display: grid;
+  grid-template-columns: 200px 1fr 58px;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0 4px;
+  border-top: 1.5px solid var(--ink);
+  margin-top: 10px;
+}
+.total-row .bar-label { font-weight: 600; font-size: 13px; }
+.total-row .bar-val   { font-weight: 700; font-size: 13px; }
+
+.surplus-row {
+  display: grid;
+  grid-template-columns: 200px 1fr 58px;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 0 16px;
+  opacity: 0;
+}
+.surplus-row .bar-label { font-size: 12px; font-style: italic; color: var(--muted); }
+.surplus-row .bar-val   { font-size: 11px; color: #3a9060; font-weight: 600; text-align: right; }
+.surplus-fill { background: #3a9060; }
+
+.method-note {
+  font-size: 10px;
+  color: var(--muted);
+  line-height: 1.5;
+  border-top: 1px solid var(--rule);
+  padding-top: 10px;
+  margin-top: 10px;
+}
+
+/* ── CALLOUTS ── */
+.callouts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 16px 52px 32px;
+}
+.callout {
+  background: var(--white);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  padding: 20px 22px 18px;
+}
+.callout-icon { font-size: 1.4rem; display: block; margin-bottom: 8px; }
+.callout h3 {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 0.88rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+.callout p { font-size: 12px; color: #3a3630; line-height: 1.6; }
+.tag {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 2px;
+}
+.tag-blue   { background: var(--blue-lt);  color: var(--blue); }
+.tag-red    { background: var(--red-lt);   color: var(--red); }
+.tag-teal   { background: var(--teal-lt);  color: var(--teal); }
+.tag-gold   { background: var(--gold-lt);  color: var(--gold); }
+.tag-slate  { background: var(--slate-lt); color: var(--slate); }
+.tag-grey   { background: var(--grey-lt);  color: var(--grey); }
+.tag-olive  { background: var(--olive-lt); color: var(--olive); }
+
+/* ── FOOTNOTE ── */
+.footnote {
+  padding: 20px 52px 36px;
+  border-top: 1px solid var(--rule);
+  font-size: 10px;
+  color: var(--muted);
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!--  MASTHEAD                                              -->
+<!-- ══════════════════════════════════════════════════════ -->
+<div class="masthead">
+  <div class="masthead-left">
+    <div class="eyebrow">
+      <div class="flag-gr">
+        <div class="stripes">
+          <div class="stripe-b"></div><div class="stripe-w"></div>
+          <div class="stripe-b"></div><div class="stripe-w"></div>
+          <div class="stripe-b"></div><div class="stripe-w"></div>
+          <div class="stripe-b"></div><div class="stripe-w"></div>
+          <div class="stripe-b"></div>
+        </div>
+        <div class="canton"></div>
+        <div class="cross-h"></div>
+        <div class="cross-v"></div>
+      </div>
+      <div class="eyebrow-text">Hellenic Republic · Ελληνική Δημοκρατία</div>
+    </div>
+    <h1>General Government<br>Budget <em>2024</em></h1>
+    <div class="masthead-sub">Revenue, Expenditure &amp; Key Fiscal Aggregates · Euros (€)</div>
+  </div>
+  <div class="masthead-right">
+    <div>
+      <div class="kpi-label">Total Revenue</div>
+      <div class="kpi-value rec">€117.1B</div>
+      <div class="kpi-note">49.5% of GDP · first surplus since 2007</div>
+    </div>
+    <div>
+      <div class="kpi-label">Total Expenditure</div>
+      <div class="kpi-value out">€114.2B</div>
+      <div class="kpi-note">48.2% of GDP · COFOG all functions</div>
+    </div>
+    <div>
+      <div class="kpi-label">Headline Surplus</div>
+      <div class="kpi-value sur">+1.2% GDP</div>
+      <div class="kpi-note">€2.9B surplus · primary surplus 4.7%</div>
+    </div>
+    <div>
+      <div class="kpi-label">Public Debt</div>
+      <div class="kpi-value dbt">154.2%</div>
+      <div class="kpi-note">€364.9B — highest in EU, down from 197% in 2021</div>
+    </div>
+  </div>
+</div>
+
+<div class="stripe"></div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!--  MAIN BARS                                             -->
+<!-- ══════════════════════════════════════════════════════ -->
+<div class="section-label">Revenue &amp; Expenditure by Function</div>
+
+<div class="two-col">
+
+  <!-- ── LEFT: RECEIPTS ── -->
+  <div class="col-pad">
+    <div class="panel-head">
+      <h2>Revenue by Source</h2>
+      <span>Max = €33.5B (Social Security Contributions) · Total €117.1B</span>
+    </div>
+    <div id="rec"></div>
+    <div class="total-row">
+      <div class="bar-label">Total Revenue</div>
+      <div class="bar-track" style="background:transparent"></div>
+      <div class="bar-val">€117.1B</div>
+    </div>
+    <div class="method-note" style="margin-top:14px">
+      Greece's revenue structure is unusual within the EU: <strong>social security contributions</strong> are the single largest source, reflecting very high employer/employee rates (22.29% + 13.87% of salary). VAT at 24% is the second pillar. Personal income tax yields comparatively less due to the large informal economy — OECD estimates Greece's shadow economy at roughly 20% of GDP. Revenue overperformed expectations in 2024 largely due to improved compliance via the AADE digital-invoice (myDATA) system and higher tourism receipts.
+    </div>
+  </div>
+
+  <!-- ── RIGHT: OUTLAYS ── -->
+  <div class="col-divider">
+    <div class="panel-head">
+      <h2>Expenditure by Function (COFOG)</h2>
+      <span>Max = €32.5B (Social Protection / Pensions) · Total €114.2B</span>
+    </div>
+    <div id="out"></div>
+    <div class="total-row">
+      <div class="bar-label">Total Expenditure</div>
+      <div class="bar-track" style="background:transparent"></div>
+      <div class="bar-val">€114.2B</div>
+    </div>
+    <div class="surplus-row" id="sur-row">
+      <div class="bar-label">General Government Surplus</div>
+      <div class="bar-track">
+        <div class="bar-fill surplus-fill" data-pct="8.9" style="width:0%"></div>
+      </div>
+      <div class="bar-val" style="color:#3a9060">+€2.9B</div>
+    </div>
+    <div class="method-note">
+      Pensions dominate Greek expenditure — at over 13% of GDP, one of the highest pension burdens in the OECD. Interest payments on the €364.9B public debt consume €8.2B per year (3.5% of GDP) despite favourable fixed-rate terms from EU bailout creditors. Defence at ~2.4% of GDP is among NATO's highest relative spends. Healthcare has lagged the EU average despite a 2024 budget increase to €12.8B.
+    </div>
+  </div>
+
+</div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!--  CALLOUT BOXES                                         -->
+<!-- ══════════════════════════════════════════════════════ -->
+<div class="section-label" style="margin-top:32px">Context &amp; explanations</div>
+<div class="callouts" style="margin-top:16px">
+
+  <div class="callout">
+    <span class="callout-icon">🏛️</span>
+    <h3>Historic Surplus: First Since 2007</h3>
+    <p>Greece recorded a general government surplus of €2.91 billion (1.2% of GDP) in 2024 — the first headline surplus since 2007, before the global financial crisis triggered the worst sovereign debt collapse in European history. The primary surplus (excluding interest) was even stronger at €11.1 billion (4.7% of GDP), far exceeding the 2.2% target set by creditors. This turnaround from a deficit of 15% of GDP in 2009 reflects fifteen years of painful fiscal consolidation, structural reforms, pension cuts, and three international bailout programmes totalling over €280 billion in loans.</p>
+    <span class="tag tag-blue">Surplus 1.2% GDP · primary 4.7% · first surplus since 2007</span>
+  </div>
+
+  <div class="callout">
+    <span class="callout-icon">💰</span>
+    <h3>Debt: €364.9B — Still Europe's Highest at 154% of GDP</h3>
+    <p>Despite the surplus, Greece carries the EU's highest debt-to-GDP ratio at 154.2%, down from a 2020 peak of 213% but still more than double the Maastricht 60% ceiling. The structure of the debt is what makes it manageable: around 76% is owed to official European creditors (EFSF, ESM, bilateral eurozone loans) at very low fixed interest rates, with maturities extending to 2070. Net interest payments are €8.2B (3.5% of GDP) — high in absolute terms but relatively affordable due to concessional rates averaging roughly 1.5%.</p>
+    <span class="tag tag-red">Debt: 154.2% GDP · €364.9B · EU's highest ratio</span>
+  </div>
+
+  <div class="callout">
+    <span class="callout-icon">👴</span>
+    <h3>Pensions: A Structural Burden at ~13–14% of GDP</h3>
+    <p>Greece spends more on pensions relative to GDP than any other EU country. Old-age and survivor pensions together account for over 13% of GDP, driven by an ageing population (23.3% of citizens are over 65 as of 2024) and a historically over-generous pension system built up before the crisis. The 2010–2016 reforms cut pension benefits sharply — by up to 40% for some recipients — and raised the statutory retirement age to 67. The ESA-funded pension fund (EFKA) is the largest social security fund, collecting mandatory contributions and disbursing to over 2.5 million pensioners.</p>
+    <span class="tag tag-blue">Pensions: ~13–14% GDP · over 2.5 million recipients</span>
+  </div>
+
+  <div class="callout">
+    <span class="callout-icon">🛡️</span>
+    <h3>Defence: 2.4% of GDP — NATO's 3rd Highest Spender</h3>
+    <p>Greece consistently ranks among NATO's top spenders by GDP share (alongside the US and Poland), reflecting its geopolitical position vis-à-vis Turkey. The 2024 state budget allocated €6.1 billion to the Ministry of National Defence, of which approximately €2.6 billion covered equipment procurement programmes — including Rafale fighter jets from France, Belharra frigates, and armoured vehicle upgrades. Greece's defence spending far exceeds the NATO 2% target and will continue rising as the country expands its F-35 purchase programme.</p>
+    <span class="tag tag-gold">Defence: 2.4% GDP · €6.1B · NATO's 3rd highest share</span>
+  </div>
+
+  <div class="callout">
+    <span class="callout-icon">📊</span>
+    <h3>Tax Evasion: Greece's Chronic Revenue Drain</h3>
+    <p>Despite the record 2024 surplus, Greece loses an estimated €20–25 billion annually to tax evasion and the shadow economy — roughly 8–10% of GDP. The informal economy is estimated at around 20% of GDP by the OECD, one of the largest in the eurozone. The independent tax authority AADE has made significant progress through mandatory e-invoicing (myDATA), POS-receipt requirements, and digital-labour-card tracking in hospitality and construction sectors. VAT compliance improved markedly in 2024, with the VAT gap narrowing compared to prior years.</p>
+    <span class="tag tag-grey">Shadow economy ~20% GDP · AADE digital enforcement accelerating</span>
+  </div>
+
+  <div class="callout">
+    <span class="callout-icon">🌊</span>
+    <h3>Tourism: The Revenue Engine Behind the Surplus</h3>
+    <p>Tourism directly accounts for roughly 25–30% of Greek GDP and is the primary driver behind the 2024 fiscal overperformance. Greece welcomed a record ~33 million international arrivals in 2024, generating over €20 billion in tourism receipts. This boosts VAT, hospitality taxes, income tax from the sector, and social contributions — while also pulling in GDP numbers that reduce debt ratios. Tourism remains concentrated (May–October), creating seasonal fiscal volatility. The climate resilience fee on accommodation was raised in 2024 (€0.50–€5.00/night) to fund disaster response after 2023's catastrophic wildfires and floods.</p>
+    <span class="tag tag-teal">~33M arrivals · €20B+ receipts · 25–30% of GDP</span>
+  </div>
+
+</div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!--  FOOTNOTE                                              -->
+<!-- ══════════════════════════════════════════════════════ -->
+<div class="footnote">
+  <p>
+    <strong>Primary sources:</strong> Hellenic Statistical Authority (ELSTAT) — Fiscal Data for 2021–2024, ESA2010, Second EDP Notification 2025 (October 2025); European Commission — Economic Forecast for Greece (Autumn 2025); European Commission — General Government Surplus 2024, 1.2% GDP; Greek Ministry of Economy &amp; Finance — State Budget 2024 Execution Reports (Jan–Sept 2024); OECD — Revenue Statistics 2024: Greece; KPMG — Thinking Beyond Borders: Greece 2024; ENA Institute — Financing by the Greek State (February 2024); Eurostat — Government Finance Statistics (2024); NATO — Defence Expenditure Data 2024.
+  </p>
+  <p>
+    <strong>Methodology:</strong> All headline fiscal figures (total revenue €117.1B, total expenditure €114.2B, surplus €2.9B, primary surplus €11.1B, debt €364.9B) are official ELSTAT ESA2010 general government consolidated data as reported in the October 2025 EDP notification to Eurostat. GDP: €236,736M (ELSTAT, 2024). Revenue and expenditure breakdowns use OECD Revenue Statistics 2024 structure and Eurostat COFOG proportions for Greece, scaled to 2024 actuals; individual line items are approximations derived from percentage-of-GDP ratios for Greece in Eurostat data and official budget documents. Social security contributions (employer 22.29% + employee 13.87% of gross salary, capped at €7,373/month salary) are the largest revenue source — a key structural difference from Nordic peers. VAT: standard 24%, reduced 13% (hotels, food) and 6% (pharma, electricity, books). Defence: Ministry of National Defence appropriation €6.1B (state budget 2024); NATO-reported figure ~2.4% of GDP. Interest: €8,233M (ELSTAT), 3.5% of GDP; reflects concessional eurozone bailout loan terms. Currency: Euro (€). All figures are calendar year 2024.
+  </p>
+</div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!--  DATA & RENDERING                                       -->
+<!-- ══════════════════════════════════════════════════════ -->
+<script>
+const MAX_REC = 33.5;  // Social Security Contributions — largest revenue source
+const MAX_OUT = 32.5;  // Social Protection / Pensions — largest expenditure
+
+// ── RECEIPTS ────────────────────────────────────────────────────
+// Total: €117.1B = 49.5% of GDP (€236.7B)
+const receipts = [
+  {
+    group: "Social Contributions",
+    items: [
+      {
+        label: "Social Security Contributions",
+        sub: "Employer 22.29% + Employee 13.87% of salary · cap €7,373/month · EFKA, EOPYY",
+        val: 33.5, gdp: 14.1, cls: "c-ssc"
+      },
+    ]
+  },
+  {
+    group: "Indirect Taxes",
+    items: [
+      {
+        label: "Value Added Tax (ΦΠΑ)",
+        sub: "Standard 24% · reduced 13% (food, hotels) · 6% (pharma, elec, books)",
+        val: 25.0, gdp: 10.6, cls: "c-vat"
+      },
+      {
+        label: "Excise &amp; Consumption Duties",
+        sub: "Fuel, tobacco, alcohol, energy — high relative to EU average",
+        val: 8.5, gdp: 3.6, cls: "c-exc"
+      },
+    ]
+  },
+  {
+    group: "Direct Taxes",
+    items: [
+      {
+        label: "Personal Income Tax (ΦΕ φυσικών)",
+        sub: "Progressive 9–44% · freelancer deemed income · solidarity surcharge abolished 2023",
+        val: 16.5, gdp: 7.0, cls: "c-pit"
+      },
+      {
+        label: "Corporate Income Tax (ΦΕ νομικών)",
+        sub: "22% flat rate · boosted by digital compliance &amp; myDATA invoicing gains",
+        val: 8.5, gdp: 3.6, cls: "c-cit"
+      },
+      {
+        label: "Property Tax (ENFIA &amp; other)",
+        sub: "ENFIA annual property levy · transfer tax · stamp duty · capital gains (susp. 2024)",
+        val: 4.5, gdp: 1.9, cls: "c-prop"
+      },
+    ]
+  },
+  {
+    group: "Other Receipts",
+    items: [
+      {
+        label: "EU Funds &amp; Other Non-Tax Revenue",
+        sub: "RRF (Greece 2.0) grants, ESIF, fees, fines, dividends from public enterprises",
+        val: 20.6, gdp: 8.7, cls: "c-eu"
+      },
+    ]
+  },
+];
+
+// ── OUTLAYS (COFOG) ─────────────────────────────────────────────
+// Total: €114.2B = 48.2% of GDP
+const outlays = [
+  {
+    group: "Social Protection",
+    items: [
+      {
+        label: "Old-Age &amp; Survivors' Pensions",
+        sub: "EFKA main pensions · ~2.6M recipients · among highest pension spend/GDP in OECD",
+        val: 32.5, gdp: 13.7, cls: "c-pens"
+      },
+      {
+        label: "Other Social Protection",
+        sub: "Disability, unemployment (DYPA), family, housing, social exclusion benefits",
+        val: 8.5, gdp: 3.6, cls: "c-soc"
+      },
+    ]
+  },
+  {
+    group: "Health",
+    items: [
+      {
+        label: "Healthcare (EOPYY &amp; hospitals)",
+        sub: "State health budget €12.8B · NHS hospitals, EOPYY insurer, medicines, psychiatry",
+        val: 14.5, gdp: 6.1, cls: "c-hlth"
+      },
+    ]
+  },
+  {
+    group: "Debt Service",
+    items: [
+      {
+        label: "Interest on Public Debt",
+        sub: "€8.2B on €364.9B debt · ~1.5% avg rate on concessional EU bailout loans",
+        val: 8.2, gdp: 3.5, cls: "c-int"
+      },
+    ]
+  },
+  {
+    group: "Defence &amp; Security",
+    items: [
+      {
+        label: "National Defence (ΥΠ.ΕΘ.Α.)",
+        sub: "€6.1B state budget · €2.6B equipment: Rafale jets, Belharra frigates, armour",
+        val: 5.7, gdp: 2.4, cls: "c-def"
+      },
+      {
+        label: "Public Order &amp; Safety",
+        sub: "Hellenic Police, fire brigade, coast guard, courts, prisons",
+        val: 4.0, gdp: 1.7, cls: "c-pub"
+      },
+    ]
+  },
+  {
+    group: "General Public Services",
+    items: [
+      {
+        label: "General Public Services &amp; Admin",
+        sub: "Parliament, presidency, ministries, AADE tax authority, public administration",
+        val: 13.5, gdp: 5.7, cls: "c-gen"
+      },
+    ]
+  },
+  {
+    group: "Education",
+    items: [
+      {
+        label: "Education (Παιδεία)",
+        sub: "Public schools, universities, vocational training — below EU avg at ~3.6% GDP",
+        val: 8.5, gdp: 3.6, cls: "c-edu"
+      },
+    ]
+  },
+  {
+    group: "Economic Affairs &amp; Infrastructure",
+    items: [
+      {
+        label: "Transport &amp; Infrastructure",
+        sub: "Roads, rail, ports, airports · co-financed by EU structural and RRF funds",
+        val: 6.5, gdp: 2.7, cls: "c-trans"
+      },
+      {
+        label: "Economic Affairs &amp; Energy",
+        sub: "Subsidies, energy support, agriculture, tourism development, state enterprises",
+        val: 7.3, gdp: 3.1, cls: "c-misc2"
+      },
+      {
+        label: "Environment &amp; Housing",
+        sub: "Waste, water, nature, wildfire recovery, flood resilience, social housing",
+        val: 5.0, gdp: 2.1, cls: "c-env"
+      },
+    ]
+  },
+];
+
+// ── BUILD BARS ──────────────────────────────────────────────────
+function buildSection(data, containerId, maxVal, animClass, delay0) {
+  const container = document.getElementById(containerId);
+  let delay = delay0;
+  data.forEach(group => {
+    const glbl = document.createElement('div');
+    glbl.className = 'group-label';
+    glbl.textContent = group.group;
+    container.appendChild(glbl);
+    group.items.forEach(item => {
+      const pct = Math.min((item.val / maxVal) * 100, 100).toFixed(2);
+      const row = document.createElement('div');
+      row.className = `bar-row${animClass ? ' ' + animClass : ''}`;
+      row.style.animationDelay = delay + 'ms';
+      row.innerHTML = `
+        <div class="bar-label">${item.label}<small>${item.sub}</small></div>
+        <div class="bar-track">
+          <div class="bar-fill ${item.cls}" data-pct="${pct}" style="width:0%"></div>
+        </div>
+        <div class="bar-val">€${item.val.toFixed(1)}B<small>${item.gdp}% GDP</small></div>
+      `;
+      container.appendChild(row);
+      delay += 55;
+    });
+  });
+}
+
+buildSection(receipts, 'rec', MAX_REC, '',           80);
+buildSection(outlays,  'out', MAX_OUT, 'right-anim', 200);
+
+// Animate surplus row
+setTimeout(() => {
+  const sr = document.getElementById('sur-row');
+  sr.style.transition = 'opacity 0.4s ease 0.5s';
+  sr.style.opacity = '1';
+  const fill = sr.querySelector('.bar-fill');
+  fill.style.transition = 'width 0.95s cubic-bezier(0.16,1,0.3,1) 0.6s';
+  fill.style.width = fill.dataset.pct + '%';
+}, 100);
+
+// Animate all bars
+setTimeout(() => {
+  document.querySelectorAll('.bar-fill[data-pct]').forEach(el => {
+    el.style.width = el.dataset.pct + '%';
+  });
+}, 150);
+</script>
+</body>
+</html>

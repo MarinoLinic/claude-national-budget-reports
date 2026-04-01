@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Japan General Account Budget FY2024</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --paper:    #f6f2ed;
+  --white:    #ffffff;
+  --ink:      #14110d;
+  --muted:    #7a7268;
+  --rule:     #ddd7ce;
+  --red:      #b01c1c;
+  --red-mid:  #cc3333;
+  --red-lt:   #f0d0d0;
+  --crimson:  #9b1c1c;
+  --scarlet:  #c0392b;
+  --navy:     #1a3055;
+  --navy-mid: #2a5090;
+  --navy-lt:  #c8d5e8;
+  --slate:    #3a5a7a;
+  --slate-lt: #c8d8e8;
+  --teal:     #1a5a50;
+  --teal-lt:  #c0ddd8;
+  --amber:    #8a5c00;
+  --amber-lt: #f0e0b8;
+  --olive:    #4a6015;
+  --olive-lt: #dce5c0;
+  --grey:     #484440;
+  --grey-lt:  #e0dbd5;
+  --plum:     #5a2a60;
+  --plum-lt:  #e4d0e8;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  background: var(--paper);
+  font-family: 'Barlow', sans-serif;
+  color: var(--ink);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* ── MASTHEAD ── */
+.masthead {
+  background: var(--ink);
+  color: var(--paper);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: stretch;
+  overflow: hidden;
+}
+.masthead-left { padding: 44px 52px 40px; border-right: 1px solid #2a2620; }
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+/* Japanese flag: white rectangle with red circle */
+.flag-jp {
+  width: 40px;
+  height: 27px;
+  background: #f0ece8;
+  border-radius: 2px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #c8c4c0;
+}
+.flag-jp .disc {
+  width: 14px;
+  height: 14px;
+  background: #BC002D;
+  border-radius: 50%;
+}
+
+.eyebrow-text {
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #888;
+  font-weight: 500;
+}
+.masthead h1 {
+  font-family: 'Libre Baskerville', serif;
+  font-size: clamp(2rem, 3.5vw, 3.1rem);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  max-width: 560px;
+}
+.masthead h1 em { font-style: italic; color: #b0a898; }
+.masthead-sub {
+  margin-top: 12px;
+  font-size: 12px;
+  color: #777;
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.masthead-right {
+  padding: 44px 52px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 20px;
+  min-width: 270px;
+}
+.kpi-label {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #666;
+  font-weight: 500;
+  margin-bottom: 3px;
+}
+.kpi-value {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 2.1rem;
+  font-weight: 700;
+  line-height: 1;
+}
+.kpi-value.rec  { color: #5a9de0; }
+.kpi-value.def  { color: #e06050; }
+.kpi-value.out  { color: var(--paper); }
+.kpi-note { font-size: 10px; color: #666; font-weight: 300; margin-top: 2px; }
+
+/* ── STRIPE — Japanese hi-no-maru red ── */
+.stripe {
+  height: 5px;
+  background: linear-gradient(90deg,
+    #BC002D 0% 30%,
+    #e0e0e0 30% 50%,
+    #BC002D 50% 70%,
+    #e0e0e0 70% 85%,
+    #BC002D 85% 100%);
+}
+
+/* ── SECTION LABEL ── */
+.section-label {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-weight: 600;
+  color: var(--muted);
+  padding: 28px 52px 0;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+}
+
+/* ── LAYOUT ── */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 0 52px;
+}
+.col-pad  { padding-right: 40px; }
+.col-divider { border-left: 1px solid var(--rule); padding-left: 40px; }
+
+/* ── PANEL HEAD ── */
+.panel-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 20px 0 14px;
+  border-bottom: 2px solid var(--ink);
+  margin-bottom: 4px;
+}
+.panel-head h2 {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 1rem;
+  font-weight: 700;
+}
+.panel-head span { font-size: 10px; color: var(--muted); }
+
+/* ── BAR ROWS ── */
+.group-label {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  font-weight: 600;
+  margin: 16px 0 6px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--rule);
+}
+.bar-row {
+  display: grid;
+  grid-template-columns: 210px 1fr 68px;
+  align-items: center;
+  gap: 10px;
+  padding: 3px 0;
+  opacity: 0;
+  transform: translateX(-8px);
+  animation: slideIn 0.35s ease forwards;
+}
+.bar-row.right-anim { transform: translateX(8px); }
+@keyframes slideIn { to { opacity:1; transform:translateX(0); } }
+
+.bar-label { font-size: 12px; color: var(--ink); line-height: 1.3; font-weight: 400; }
+.bar-label small { display:block; font-size:10px; color:var(--muted); font-weight:300; margin-top:1px; }
+
+.bar-track {
+  height: 18px;
+  background: var(--rule);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.bar-fill {
+  height: 100%;
+  width: 0%;
+  border-radius: 2px;
+  transition: width 0.95s cubic-bezier(0.16,1,0.3,1);
+}
+
+/* Revenue colours */
+.c-con  { background: #BC002D; }
+.c-inc  { background: #8B0020; }
+.c-corp { background: var(--navy); }
+.c-inh  { background: #4a6090; }
+.c-oth  { background: var(--slate); }
+.c-ntax { background: var(--teal); }
+
+/* Outlay colours */
+.c-soc  { background: #BC002D; }
+.c-debt { background: var(--grey); }
+.c-dlat { background: #686460; }  /* LAT grants */
+.c-def  { background: var(--navy); }
+.c-pub  { background: var(--teal); }
+.c-edu  { background: #2a7060; }
+.c-chd  { background: #b05010; }
+.c-oth2 { background: #8a8078; }
+
+.bar-val { font-size: 11px; font-weight: 600; color: var(--ink); text-align: right; white-space: nowrap; }
+.bar-val small { display:block; font-size:9px; color:var(--muted); font-weight:400; }
+
+/* ── DEFICIT & TOTAL ROWS ── */
+.deficit-row {
+  background: #fff7f7;
+  border: 1px solid #f0c8c8;
+  border-radius: 3px;
+  padding: 10px 14px;
+  margin: 10px 0 4px;
+  display: grid;
+  grid-template-columns: 210px 1fr 68px;
+  gap: 10px;
+  align-items: center;
+}
+.deficit-row .bar-label { color: var(--red); font-weight: 500; }
+.deficit-row .bar-val   { color: var(--red); }
+
+.total-row {
+  display: grid;
+  grid-template-columns: 210px 1fr 68px;
+  gap: 10px;
+  align-items: center;
+  padding: 8px 0 4px;
+  border-top: 2px solid var(--ink);
+  margin-top: 6px;
+}
+.total-row .bar-label { font-weight: 600; font-size: 12px; }
+.total-row .bar-val   { font-weight: 700; font-size: 12px; }
+
+/* ── METHOD NOTE ── */
+.method-note {
+  background: var(--ink);
+  color: #ccc;
+  font-size: 10.5px;
+  line-height: 1.7;
+  padding: 14px 20px;
+  border-radius: 3px;
+  margin: 10px 0 0;
+  font-weight: 300;
+}
+.method-note strong { color: var(--paper); font-weight: 600; }
+
+/* ── CALLOUTS ── */
+.callouts {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1px;
+  background: var(--rule);
+  margin: 0 52px;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.callout {
+  background: var(--white);
+  padding: 18px 20px;
+}
+.callout-icon { font-size: 18px; margin-bottom: 8px; display: block; }
+.callout h3 {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.callout p { font-size: 11px; color: var(--muted); line-height: 1.6; font-weight: 300; }
+.callout .tag {
+  display: inline-block;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: 2px;
+  margin-top: 8px;
+}
+.tag-red   { background: var(--red-lt);    color: var(--crimson); }
+.tag-navy  { background: var(--navy-lt);   color: var(--navy); }
+.tag-teal  { background: var(--teal-lt);   color: var(--teal); }
+.tag-grey  { background: var(--grey-lt);   color: var(--grey); }
+.tag-amber { background: var(--amber-lt);  color: var(--amber); }
+.tag-plum  { background: var(--plum-lt);   color: var(--plum); }
+
+/* ── FOOTNOTE ── */
+.footnote {
+  padding: 24px 52px 40px;
+  border-top: 1px solid var(--rule);
+  margin: 28px 0 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.footnote p { font-size: 10px; color: var(--muted); line-height: 1.7; font-weight: 300; }
+.footnote strong { font-weight: 600; color: var(--ink); }
+
+/* ── INT/RED badge ── */
+.type-badge {
+  display: inline-block;
+  font-size: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  padding: 1px 5px;
+  border-radius: 2px;
+  margin-left: 5px;
+  vertical-align: middle;
+}
+.b-int { background: var(--grey-lt);   color: var(--grey); }
+.b-red { background: var(--red-lt);    color: var(--crimson); }
+
+@media (max-width: 900px) {
+  .two-col { grid-template-columns: 1fr; padding: 0 20px; }
+  .col-divider { border-left: none; border-top: 1px solid var(--rule); padding-left: 0; padding-top: 28px; margin-top: 28px; }
+  .col-pad { padding-right: 0; }
+  .masthead { grid-template-columns: 1fr; }
+  .masthead-right { border-top: 1px solid #2a2620; padding-top: 24px; flex-direction: row; flex-wrap: wrap; gap: 20px; }
+  .masthead-left  { padding: 32px 20px 28px; }
+  .section-label  { padding: 20px 20px 0; }
+  .callouts  { grid-template-columns: 1fr; margin: 0 20px; }
+  .footnote  { grid-template-columns: 1fr; padding: 20px 20px 32px; }
+  .bar-row, .deficit-row, .total-row { grid-template-columns: 130px 1fr 56px; }
+}
+</style>
+</head>
+<body>
+
+<!-- MASTHEAD -->
+<div class="masthead">
+  <div class="masthead-left">
+    <div class="eyebrow">
+      <div class="flag-jp"><div class="disc"></div></div>
+      <span class="eyebrow-text">Japan · Ministry of Finance · General Account</span>
+    </div>
+    <h1>General Account Budget<br><em>Fiscal Year 2024</em></h1>
+    <div class="masthead-sub">Apr 1, 2024 – Mar 31, 2025 · All figures in ¥ Trillion (JPY) · Sources: MoF Initial Budget & Supplementary Budget</div>
+  </div>
+  <div class="masthead-right">
+    <div class="kpi">
+      <div class="kpi-label">Tax & Other Revenues</div>
+      <div class="kpi-value rec">¥77.1T</div>
+      <div class="kpi-note">~¥69.6T tax + ¥7.5T other · ~13.0% of GDP</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">New Bond Issuance (Deficit)</div>
+      <div class="kpi-value def">¥35.4T</div>
+      <div class="kpi-note">31.5% bond dependency ratio · ~6.0% of GDP</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Total Expenditure</div>
+      <div class="kpi-value out">¥112.6T</div>
+      <div class="kpi-note">~19.0% of GDP · 2nd highest on record · ~$744B USD</div>
+    </div>
+  </div>
+</div>
+<div class="stripe"></div>
+
+<!-- MAIN TWO-COL -->
+<div class="section-label">Budget breakdown</div>
+
+<div class="two-col">
+
+  <!-- LEFT: REVENUES -->
+  <div class="col-pad">
+    <div class="panel-head">
+      <h2>Revenue by Source</h2>
+      <span>Max = ¥23.8T (Consumption Tax) · Total ¥77.1T</span>
+    </div>
+    <div id="rec"></div>
+
+    <!-- DEFICIT -->
+    <div class="deficit-row" id="def-row" style="opacity:0">
+      <div class="bar-label">New Bond Issuance<small>¥6.6T construction bonds + ¥28.6T special deficit-financing bonds + ¥0.2T child bonds</small></div>
+      <div class="bar-track">
+        <div class="bar-fill" data-pct="100" style="width:0%;background:var(--red-mid)"></div>
+      </div>
+      <div class="bar-val">¥35.4T<small>31.5% of outlay</small></div>
+    </div>
+
+    <div class="total-row">
+      <div class="bar-label">Total Resources Available</div>
+      <div class="bar-track" style="background:transparent"></div>
+      <div class="bar-val">¥112.6T</div>
+    </div>
+
+    <div class="method-note">
+      <strong>Japan's fiscal year:</strong> FY2024 runs April 1, 2024 – March 31, 2025 — unlike most countries' calendar-year budgets. Figures shown are the MoF initial budget (passed by the Diet on March 28, 2024), supplemented where available by the FY2024 supplementary budget (December 2024). Tax revenue of ~¥69.6T was the initial estimate; MoF's April 2025 fact sheet indicates the FY2024 supplementary budget basis puts the total at a similar level, with actual settled accounts to be published mid-2025. Consumption tax revenue is split between the national budget and local governments; the ¥23.8T figure shown is the national general account share (local earmarks are excluded).
+    </div>
+  </div>
+
+  <!-- RIGHT: OUTLAYS -->
+  <div class="col-divider">
+    <div class="panel-head">
+      <h2>Expenditure by Function</h2>
+      <span>Max = ¥37.7T (Social Security) · Total ¥112.6T</span>
+    </div>
+    <div id="out"></div>
+
+    <div class="total-row">
+      <div class="bar-label">Total Expenditure</div>
+      <div class="bar-track" style="background:transparent"></div>
+      <div class="bar-val">¥112.6T</div>
+    </div>
+
+    <div class="method-note">
+      <strong>National debt service structure:</strong> The ¥27.0T national debt service line comprises two very different components: approximately ¥9.6T in interest payments on Japan Government Bonds (JGBs) and ¥17.4T in principal redemptions (refunding of maturing bonds). Only the interest portion is a direct economic cost; principal redemptions simply roll over existing obligations. Japan's historically near-zero interest rates kept the interest burden low for decades, but as the Bank of Japan began normalising rates from 2024, the interest cost is rising. <span class="type-badge b-int">Interest</span> = ¥9.6T cost; <span class="type-badge b-red">Redemption</span> = ¥17.4T rollover.
+    </div>
+  </div>
+
+</div>
+
+<!-- CALLOUTS -->
+<div class="section-label" style="margin-top:32px">Context & explanations</div>
+<div class="callouts" style="margin-top:16px">
+
+  <div class="callout">
+    <span class="callout-icon">👴</span>
+    <h3>Social Security: 33.5% of All Spending, Rising Every Year</h3>
+    <p>Social security at ¥37.72T is by far Japan's largest budget line, accounting for a third of all general account expenditure. It rose 2.3% to a record high in FY2024, driven by Japan's rapidly aging population — the oldest in the world, with over 29% aged 65 or more. The category covers pension payments (the largest sub-item), national health insurance subsidies, long-term care insurance, child and family benefits, and employment insurance. Japan's National Health Insurance and Employees' Health Insurance systems are funded through a separate Social Insurance Special Account, meaning the general account figure reflects only the national subsidy top-up, not total healthcare spending. Without structural reform, MoF projects social security will crowd out virtually all other spending within two decades.</p>
+    <span class="tag tag-red">Social security: 33.5% of all spending · Record high</span>
+  </div>
+
+  <div class="callout">
+    <span class="callout-icon">⚠️</span>
+    <h3>Bond Dependency at 31.5%: Three Decades of Structural Deficits</h3>
+    <p>Japan has run a general account deficit in every fiscal year since 1975, apart from a brief surplus in FY1990. New bond issuance of ¥35.4T in FY2024 means more than three yen out of every ten spent is borrowed. Japan's outstanding government bond balance reached an estimated ¥1.06 quadrillion (¥1,061T) at the end of FY2024 — roughly 178% of GDP. Paradoxically, Japan has managed this without a debt crisis because roughly 90% of JGBs are held domestically (mainly by banks, insurance companies, and the Bank of Japan), keeping yields near zero for most of the past three decades. However, as the BoJ raises rates toward normalization, servicing this mountain of debt is becoming rapidly more expensive.</p>
+    <span class="tag tag-grey">Bond dependency: 31.5% · JGB balance ≈ ¥1,061T</span>
+  </div>
+
+  <div class="callout">
+    <span class="callout-icon">🛡️</span>
+    <h3>Defence: Surge to ¥7.9T — Japan's Biggest Rearmament Since WWII</h3>
+    <p>Japan's defence budget surged 16.6% to ¥7.92T in FY2024 (vs ¥6.79T in FY2023), marking the sharpest annual increase since World War II. This is part of a five-year plan adopted in late 2022 to nearly double defence spending to approximately 2% of GDP by FY2027 — from a decades-long self-imposed cap of roughly 1%. The increase funds new missile capabilities, a Tomahawk cruise missile purchase from the US, expanded F-35 fleet, improved cyber and electronic warfare, expanded ammunition stockpiles, and enhanced interoperability with US forces. An additional ¥4.4T of prior-year carry-over funds were deposited into the Defence Buildup Fund to smooth spending over the five-year plan period.</p>
+    <span class="tag tag-navy">Defence: +16.6% · Five-year doubling plan in progress</span>
+  </div>
+
+  <div class="callout">
+    <span class="callout-icon">🏙️</span>
+    <h3>Local Allocation Tax Grants: Japan's Fiscal Equalisation System</h3>
+    <p>Local Allocation Tax (LAT) grants of ¥17.79T are transfers from the national government to prefectures and municipalities to ensure every local government can provide a baseline of public services regardless of its own tax base. Unlike the US or UK, Japan's local governments have very limited independent revenue-raising powers, making them heavily dependent on central transfers. The LAT system is funded by a fixed legal share of five major national taxes — income tax (33.1%), corporation tax (50%), consumption tax (19.5%), liquor tax (50%), and tobacco tax. In years where these shares fall short, the national government tops up with its own funds, which is counted as general account expenditure. A further ¥3.4T in local transfer taxes (earmarked revenues) flows to localities outside this framework.</p>
+    <span class="tag tag-teal">LAT grants: ¥17.8T · 15.8% of all spending · Fiscal equalisation</span>
+  </div>
+
+  <div class="callout">
+    <span class="callout-icon">📈</span>
+    <h3>Interest Rates Rising: The Coming Debt-Service Shock</h3>
+    <p>Japan's debt interest payments of ~¥9.6T in FY2024 were kept low by nearly three decades of near-zero interest rates maintained by the Bank of Japan. However, in March 2024 the BoJ abandoned negative interest rates, and in July 2024 raised its policy rate to 0.25%, signalling a return toward normalisation. MoF estimates show that each 1 percentage point rise in interest rates adds approximately ¥3.7T to annual interest spending with a 3-year lag, as maturing bonds are rolled over at higher rates. The FY2025 budget already shows a ¥0.6T increase to ¥10.5T in interest. By FY2026, interest hit ¥13T — a 35% jump in two years. With ¥1.06 quadrillion in outstanding bonds, even modest rate rises translate into enormous additional cost.</p>
+    <span class="tag tag-amber">Interest now rising: ¥9.6T → ¥13T by FY2026</span>
+  </div>
+
+  <div class="callout">
+    <span class="callout-icon">👶</span>
+    <h3>Children & Birthrate: Record Spending on a Crisis Problem</h3>
+    <p>Japan's total fertility rate reached a record low of 1.20 in 2023, among the lowest in the developed world. In response, the FY2024 budget included ¥5.3T for the Children and Families Agency (up from ¥4.8T in FY2023), covering childcare subsidies, expanded child allowances, parental leave improvements, and fertility treatment support — a 10% year-on-year increase. The government's "Children's Future Strategy" commits to raising combined central and local spending by ¥3.6T over three years. An additional ¥0.2T was raised through the new "Child Special Bond" (子ども特例公債), a novel financing instrument which drew criticism for passing child-rearing costs on to future generations. Japan created a new ¥500B/year dedicated fund for children's policies, financed partly by a small social insurance surcharge.</p>
+    <span class="tag tag-plum">Children's budget: ¥5.3T · +10% · Fertility crisis response</span>
+  </div>
+
+</div>
+
+<!-- FOOTNOTE -->
+<div class="footnote">
+  <p>
+    <strong>Primary sources:</strong> Ministry of Finance Japan — Highlights of the FY2024 Draft Budget (Dec 22, 2023; revised Jan 16, 2024); Japanese Public Finance Fact Sheet April 2024 (MoF); Speech on Fiscal Policy by Minister of Finance Suzuki at the 213th Session of the National Diet (Mar 6, 2024); Japanese Public Finance Fact Sheet April 2025 (MoF, confirming FY2024 supplementary budget basis); Highlights of the FY2025 Draft Budget (Dec 2024, which cites FY2024 figures for comparison); Nippon.com — Japan's Fiscal 2024 Budget Second Highest on Record (Jan 2024) and Japan's Fiscal 2025 Budget Reaches Record High (Jan 2026, citing FY2024 actuals by comparison); Xinhua — Japan approves 112.57-trln-yen budget for fiscal 2024 (Mar 28, 2024); Japan Center for Economic Research — How Consumption Tax Has Evolved in Japan (citing effective rate calculation for FY2024).
+  </p>
+  <p>
+    <strong>Methodology &amp; caveats:</strong> Japan's fiscal year runs April 1–March 31; FY2024 = Apr 2024–Mar 2025. All figures are from the MoF initial budget (passed March 2024) supplemented where noted by the December 2024 supplementary budget. Final settled accounts are published approximately six months after fiscal year-end. GDP reference: ~¥591T nominal (Cabinet Office Economic Outlook for FY2024). USD conversion: avg ~¥151/$ in FY2024. Revenue: consumption tax ¥23.8T is national general account share (the local earmarked portion of 19.5% of total consumption tax revenue is netted out); income tax ¥21.0T reflects initial estimate net of the ¥30,000 per-person flat-rate income tax reduction implemented in 2024. National debt service ¥27.0T comprises ¥9.6T interest + ¥17.4T principal redemptions; only the interest portion is an economic cost. Defence ¥7.92T is the general account total; an additional ~¥4.4T carry-over from FY2023 was deposited into the Defence Buildup Fund (separate special account) for future years' use. Social security ¥37.72T covers only the general account social security subsidy; total public social security benefits in Japan (across all budget accounts) were approximately ¥136T in FY2024.
+  </p>
+</div>
+
+<script>
+const MAX_REC = 23800; // Consumption Tax, in billions
+const MAX_OUT = 37720; // Social Security, in billions
+
+const receipts = [
+  {
+    group: "Consumption & Indirect Taxes",
+    items: [
+      { label: "Consumption Tax",        sub: "10% standard rate (8% reduced on food); national share after local earmarks", val: 23800, gdp: 4.0, cls: "c-con" },
+    ]
+  },
+  {
+    group: "Income & Corporate Taxes",
+    items: [
+      { label: "Income Tax",             sub: "5–45% progressive; FY2024 flat-rate ¥30k reduction reduced yield",           val: 21000, gdp: 3.6, cls: "c-inc" },
+      { label: "Corporation Tax",        sub: "23.2% standard rate on company profits; strong FY2024 corporate earnings",    val: 17000, gdp: 2.9, cls: "c-corp" },
+    ]
+  },
+  {
+    group: "Other Taxes",
+    items: [
+      { label: "Inheritance & Gift Tax", sub: "Progressive 10–55%; rising as Baby Boomers pass wealth to next generation",   val:  2800, gdp: 0.5, cls: "c-inh" },
+      { label: "Other National Taxes",   sub: "Stamp duty, customs, alcohol, tobacco, securities transaction, gasoline",    val:  5000, gdp: 0.8, cls: "c-oth" },
+    ]
+  },
+  {
+    group: "Non-Tax Revenue",
+    items: [
+      { label: "Non-Tax Revenue",        sub: "BoJ surplus transfers, state asset sales, fees, fines, surplus carryover",   val:  7510, gdp: 1.3, cls: "c-ntax" },
+    ]
+  },
+];
+
+const outlays = [
+  {
+    group: "Social Protection",
+    items: [
+      { label: "Social Security",        sub: "Pensions, health insurance subsidy, long-term care, child & family support",  val: 37720, gdp: 6.4, cls: "c-soc" },
+    ]
+  },
+  {
+    group: "National Debt Service",
+    items: [
+      { label: "Interest Payments",      sub: "Interest on ~¥1,061T of outstanding JGBs; rising as BoJ normalises rates",   badge: "b-int", val: 9600, gdp: 1.6, cls: "c-debt" },
+      { label: "Bond Redemptions",       sub: "Refinancing of maturing bonds — rollover cost, not new borrowing",           badge: "b-red", val: 17400, gdp: 2.9, cls: "c-dlat" },
+    ]
+  },
+  {
+    group: "Intergovernmental Transfers",
+    items: [
+      { label: "Local Allocation Tax",   sub: "Fiscal equalisation grants to prefectures & municipalities; 5-tax formula",  val: 17790, gdp: 3.0, cls: "c-dlat" },
+    ]
+  },
+  {
+    group: "Policy Spending",
+    items: [
+      { label: "National Defence",       sub: "SDF personnel, equipment, Tomahawk purchase, Aegis destroyers; +16.6%",      val:  7920, gdp: 1.3, cls: "c-def" },
+      { label: "Public Works",           sub: "Roads, bridges, flood control, ports, seismic retrofitting; flat year",      val:  6060, gdp: 1.0, cls: "c-pub" },
+      { label: "Education & Science",    sub: "Compulsory education subsidies, universities, MEXT R&D, JAXA, RIKEN",        val:  5380, gdp: 0.9, cls: "c-edu" },
+      { label: "Children & Families",    sub: "Children & Families Agency ¥5.3T; child allowances, childcare, fertility",   val:  5300, gdp: 0.9, cls: "c-chd" },
+      { label: "Economy & Other",        sub: "SME support, energy subsidies, Noto earthquake fund, overseas aid, admin",   val:  5430, gdp: 0.9, cls: "c-oth2" },
+    ]
+  },
+];
+
+function buildSection(data, containerId, maxVal, animClass, delay0) {
+  const container = document.getElementById(containerId);
+  let delay = delay0;
+  data.forEach(group => {
+    const glbl = document.createElement('div');
+    glbl.className = 'group-label';
+    glbl.textContent = group.group;
+    container.appendChild(glbl);
+    group.items.forEach(item => {
+      const pct = Math.min((item.val / maxVal) * 100, 100).toFixed(2);
+      const row = document.createElement('div');
+      row.className = `bar-row${animClass ? ' ' + animClass : ''}`;
+      row.style.animationDelay = delay + 'ms';
+      const badge = item.badge
+        ? `<span class="type-badge ${item.badge}">${item.badge === 'b-int' ? 'Interest' : 'Redemption'}</span>`
+        : '';
+      row.innerHTML = `
+        <div class="bar-label">${item.label}${badge}<small>${item.sub}</small></div>
+        <div class="bar-track">
+          <div class="bar-fill ${item.cls}" data-pct="${pct}" style="width:0%"></div>
+        </div>
+        <div class="bar-val">¥${(item.val/1000).toFixed(1)}T<small>${item.gdp}% GDP</small></div>
+      `;
+      container.appendChild(row);
+      delay += 50;
+    });
+  });
+}
+
+buildSection(receipts, 'rec', MAX_REC, '',           80);
+buildSection(outlays,  'out', MAX_OUT, 'right-anim', 200);
+
+// Animate deficit row
+setTimeout(() => {
+  const dr = document.getElementById('def-row');
+  dr.style.transition = 'opacity 0.4s ease 0.5s';
+  dr.style.opacity = '1';
+  const fill = dr.querySelector('.bar-fill');
+  fill.style.transition = 'width 0.95s cubic-bezier(0.16,1,0.3,1) 0.6s';
+  fill.style.width = fill.dataset.pct + '%';
+}, 100);
+
+// Animate all bars
+setTimeout(() => {
+  document.querySelectorAll('.bar-fill[data-pct]').forEach(el => {
+    el.style.width = el.dataset.pct + '%';
+  });
+}, 150);
+</script>
+</body>
+</html>

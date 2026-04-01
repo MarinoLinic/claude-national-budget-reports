@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Russia Federal Budget 2024</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --paper:    #f6f2ed;
+  --white:    #ffffff;
+  --ink:      #14110d;
+  --muted:    #7a7268;
+  --rule:     #ddd7ce;
+  --red:      #b01c1c;
+  --red-mid:  #cc3333;
+  --red-lt:   #f0d0d0;
+  --blue:     #1a3055;
+  --blue-mid: #2a5090;
+  --blue-lt:  #c8d5e8;
+  --slate:    #3a5a7a;
+  --slate-lt: #c8d8e8;
+  --teal:     #1a5a50;
+  --teal-lt:  #c0ddd8;
+  --amber:    #8a5c00;
+  --amber-lt: #f0e0b8;
+  --olive:    #4a6015;
+  --olive-lt: #dce5c0;
+  --grey:     #484440;
+  --grey-lt:  #e0dbd5;
+  --gold:     #7a5c00;
+  --gold-lt:  #ede3c0;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  background: var(--paper);
+  font-family: 'Barlow', sans-serif;
+  color: var(--ink);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* ── MASTHEAD ── */
+.masthead {
+  background: var(--ink);
+  color: var(--paper);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: stretch;
+  overflow: hidden;
+}
+.masthead-left { padding: 44px 52px 40px; border-right: 1px solid #2a2620; }
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+/* Russian tricolor flag */
+.flag-ru {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex-shrink: 0;
+}
+.flag-ru span {
+  display: block;
+  width: 36px;
+  height: 8px;
+  border-radius: 1px;
+}
+.flag-ru .w { background: #e8e8e8; }
+.flag-ru .b { background: #003da5; }
+.flag-ru .r { background: #c8102e; }
+
+.eyebrow-text {
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #888;
+  font-weight: 500;
+}
+.masthead h1 {
+  font-family: 'Libre Baskerville', serif;
+  font-size: clamp(2rem, 3.5vw, 3.1rem);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  max-width: 560px;
+}
+.masthead h1 em { font-style: italic; color: #b0a898; }
+.masthead-sub {
+  margin-top: 12px;
+  font-size: 12px;
+  color: #777;
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.masthead-right {
+  padding: 44px 52px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 20px;
+  min-width: 260px;
+}
+.kpi-label {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #666;
+  font-weight: 500;
+  margin-bottom: 3px;
+}
+.kpi-value {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 2.1rem;
+  font-weight: 700;
+  line-height: 1;
+}
+.kpi-value.rec  { color: #5a9de0; }
+.kpi-value.def  { color: #e06050; }
+.kpi-value.out  { color: var(--paper); }
+.kpi-note { font-size: 10px; color: #666; font-weight: 300; margin-top: 2px; }
+
+/* ── STRIPE — Russian tricolor ── */
+.stripe {
+  height: 5px;
+  background: linear-gradient(90deg,
+    #e8e8e8 0% 33%,
+    #003da5 33% 66%,
+    #c8102e 66% 100%);
+}
+
+/* ── SECTION LABEL ── */
+.section-label {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-weight: 600;
+  color: var(--muted);
+  padding: 28px 52px 0;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+}
+
+/* ── LAYOUT ── */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 0 52px;
+}
+.col-pad  { padding-right: 40px; }
+.col-divider { border-left: 1px solid var(--rule); padding-left: 40px; }
+
+/* ── PANEL HEAD ── */
+.panel-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 20px 0 14px;
+  border-bottom: 2px solid var(--ink);
+  margin-bottom: 4px;
+}
+.panel-head h2 {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 1rem;
+  font-weight: 700;
+}
+.panel-head span { font-size: 10px; color: var(--muted); }
+
+/* ── BAR ROWS ── */
+.group-label {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  font-weight: 600;
+  margin: 16px 0 6px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--rule);
+}
+.bar-row {
+  display: grid;
+  grid-template-columns: 210px 1fr 70px;
+  align-items: center;
+  gap: 10px;
+  padding: 3px 0;
+  opacity: 0;
+  transform: translateX(-8px);
+  animation: slideIn 0.35s ease forwards;
+}
+.bar-row.right-anim { transform: translateX(8px); }
+@keyframes slideIn { to { opacity:1; transform:translateX(0); } }
+
+.bar-label { font-size: 12px; color: var(--ink); line-height: 1.3; font-weight: 400; }
+.bar-label small { display:block; font-size:10px; color:var(--muted); font-weight:300; margin-top:1px; }
+
+.bar-track {
+  height: 18px;
+  background: var(--rule);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.bar-fill {
+  height: 100%;
+  width: 0%;
+  border-radius: 2px;
+  transition: width 0.95s cubic-bezier(0.16,1,0.3,1);
+}
+
+/* Revenue colours */
+.c-vat   { background: #003da5; }
+.c-og    { background: #c8102e; }
+.c-corp  { background: var(--slate); }
+.c-cust  { background: var(--teal); }
+.c-exc   { background: #3a8070; }
+.c-pit   { background: #5a7aaa; }
+.c-nontax { background: #6a6870; }
+
+/* Outlay colours */
+.c-def   { background: #c8102e; }
+.c-soc   { background: #003da5; }
+.c-nsec  { background: #8a1010; }
+.c-econ  { background: var(--amber); }
+.c-debt  { background: var(--grey); }
+.c-hlth  { background: var(--teal); }
+.c-edu   { background: #2a7060; }
+.c-admin { background: var(--slate); }
+.c-other { background: #8a8078; }
+
+.bar-val { font-size: 11px; font-weight: 600; color: var(--ink); text-align: right; white-space: nowrap; }
+.bar-val small { display:block; font-size:9px; color:var(--muted); font-weight:400; }
+
+/* ── DEFICIT & TOTAL ROWS ── */
+.deficit-row {
+  background: #fff7f7;
+  border: 1px solid #f0c8c8;
+  border-radius: 3px;
+  padding: 10px 14px;
+  margin: 10px 0 4px;
+  display: grid;
+  grid-template-columns: 210px 1fr 70px;
+  gap: 10px;
+  align-items: center;
+}
+.deficit-row .bar-label { color: var(--red); font-weight: 500; }
+.deficit-row .bar-val   { color: var(--red); }
+
+.total-row {
+  display: grid;
+  grid-template-columns: 210px 1fr 70px;
+  gap: 10px;
+  align-items: center;
+  padding: 8px 0 4px;
+  border-top: 2px solid var(--ink);
+  margin-top: 6px;
+}
+.total-row .bar-label { font-weight: 600; font-size: 12px; }
+.total-row .bar-val   { font-weight: 700; font-size: 12px; }
+
+/* ── METHOD NOTE ── */
+.method-note {
+  background: var(--ink);
+  color: #ccc;
+  font-size: 10.5px;
+  line-height: 1.7;
+  padding: 14px 20px;
+  border-radius: 3px;
+  margin: 10px 0 0;
+  font-weight: 300;
+}
+.method-note strong { color: var(--paper); font-weight: 600; }
+
+/* ── CALLOUTS ── */
+.callouts {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1px;
+  background: var(--rule);
+  margin: 0 52px;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.callout {
+  background: var(--white);
+  padding: 18px 20px;
+}
+.callout-icon { font-size: 18px; margin-bottom: 8px; display: block; }
+.callout h3 {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.callout p { font-size: 11px; color: var(--muted); line-height: 1.6; font-weight: 300; }
+.callout .tag {
+  display: inline-block;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: 2px;
+  margin-top: 8px;
+}
+.tag-blue  { background: var(--blue-lt);  color: var(--blue); }
+.tag-red   { background: var(--red-lt);   color: var(--red); }
+.tag-amber { background: var(--amber-lt); color: var(--amber); }
+.tag-teal  { background: var(--teal-lt);  color: var(--teal); }
+.tag-grey  { background: var(--grey-lt);  color: var(--grey); }
+.tag-gold  { background: var(--gold-lt);  color: var(--gold); }
+
+/* ── FOOTNOTE ── */
+.footnote {
+  padding: 24px 52px 40px;
+  border-top: 1px solid var(--rule);
+  margin: 28px 0 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.footnote p { font-size: 10px; color: var(--muted); line-height: 1.7; font-weight: 300; }
+.footnote strong { font-weight: 600; color: var(--ink); }
+
+/* ── CLASSIFIED BADGE ── */
+.class-badge {
+  display: inline-block;
+  font-size: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  padding: 1px 5px;
+  border-radius: 2px;
+  margin-left: 5px;
+  vertical-align: middle;
+}
+.cl  { background: #f0d0d0; color: var(--red); }
+
+@media (max-width: 900px) {
+  .two-col { grid-template-columns: 1fr; padding: 0 20px; }
+  .col-divider { border-left: none; border-top: 1px solid var(--rule); padding-left: 0; padding-top: 28px; margin-top: 28px; }
+  .col-pad { padding-right: 0; }
+  .masthead { grid-template-columns: 1fr; }
+  .masthead-right { border-top: 1px solid #2a2620; padding-top: 24px; flex-direction: row; flex-wrap: wrap; gap: 20px; }
+  .masthead-left  { padding: 32px 20px 28px; }
+  .section-label  { padding: 20px 20px 0; }
+  .callouts  { grid-template-columns: 1fr; margin: 0 20px; }
+  .footnote  { grid-template-columns: 1fr; padding: 20px 20px 32px; }
+  .bar-row, .deficit-row, .total-row { grid-template-columns: 130px 1fr 60px; }
+}
+</style>
+</head>
+<body>
+
+<!-- MASTHEAD -->
+<div class="masthead">
+  <div class="masthead-left">
+    <div class="eyebrow">
+      <div class="flag-ru">
+        <span class="w"></span>
+        <span class="b"></span>
+        <span class="r"></span>
+      </div>
+      <span class="eyebrow-text">Russian Federation · Ministry of Finance · Federal Treasury</span>
+    </div>
+    <h1>Federal Budget<br><em>Fiscal Year 2024</em></h1>
+    <div class="masthead-sub">Jan 1 – Dec 31, 2024 · All figures in ₽ Trillion (RUB) · Sources: MinFin, Kremlin Budget Execution Law, Rosstat</div>
+  </div>
+  <div class="masthead-right">
+    <div class="kpi">
+      <div class="kpi-label">Total Revenues</div>
+      <div class="kpi-value rec">₽36.7T</div>
+      <div class="kpi-note">18.4% of GDP · +26% vs 2023 · ~$397B USD</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Budget Deficit</div>
+      <div class="kpi-value def">₽3.5T</div>
+      <div class="kpi-note">1.7% of GDP · Doubled vs initial plan · ~$37.7B USD</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Total Expenditure</div>
+      <div class="kpi-value out">₽40.2T</div>
+      <div class="kpi-note">20.1% of GDP · +24% vs 2023 · ~$434B USD</div>
+    </div>
+  </div>
+</div>
+<div class="stripe"></div>
+
+<!-- MAIN TWO-COL -->
+<div class="section-label">Budget breakdown</div>
+
+<div class="two-col">
+
+  <!-- LEFT: REVENUES -->
+  <div class="col-pad">
+    <div class="panel-head">
+      <h2>Revenues by Source</h2>
+      <span>Max = ₽13.5T (VAT) · Total ₽36.7T</span>
+    </div>
+    <div id="rec"></div>
+
+    <!-- DEFICIT -->
+    <div class="deficit-row" id="def-row" style="opacity:0">
+      <div class="bar-label">Deficit Financing<small>OFZ domestic bonds + NWF drawdown (~₽1.3T)</small></div>
+      <div class="bar-track">
+        <div class="bar-fill" data-pct="25.9" style="width:0%;background:var(--red-mid)"></div>
+      </div>
+      <div class="bar-val">₽3.5T<small>1.7% GDP</small></div>
+    </div>
+
+    <div class="total-row">
+      <div class="bar-label">Total Resources Available</div>
+      <div class="bar-track" style="background:transparent"></div>
+      <div class="bar-val">₽40.2T</div>
+    </div>
+
+    <div class="method-note">
+      <strong>Russia's revenue structure:</strong> Unlike most G20 economies, Russia still derives 30% of federal revenues from oil &amp; gas (Mineral Extraction Tax + export duties). VAT, having overtaken oil &amp; gas as the single largest line item in 2024 at ₽13.5T (+16% y/y), reflects a more diversified economy than a decade ago when hydrocarbons accounted for nearly 50% of revenues. Personal income tax (13–15% flat rate) flows mainly to regional governments; the federal share shown here reflects only the federal portion. The average USD/RUB rate in 2024 was 92.5 rubles per dollar, depreciating to above 100 at year-end.
+    </div>
+  </div>
+
+  <!-- RIGHT: OUTLAYS -->
+  <div class="col-divider">
+    <div class="panel-head">
+      <h2>Expenditure by Function</h2>
+      <span>Max = ₽13.2T (National Defence) · Total ₽40.2T</span>
+    </div>
+    <div id="out"></div>
+
+    <div class="total-row">
+      <div class="bar-label">Total Expenditure</div>
+      <div class="bar-track" style="background:transparent"></div>
+      <div class="bar-val">₽40.2T</div>
+    </div>
+
+    <div class="method-note">
+      <strong>Transparency caveat:</strong> Russia stopped publishing disaggregated actual military spending figures starting with the 2024 budget cycle. The ₽13.2T defence figure is derived from Defence Minister Belousov's statement that defence was 32.5% of ₽40.6T total spending as of year-end. Since 2022, a growing share of the budget is classified — estimated at ~22% in 2024 rising to ~30% in 2025. Some war-related spending is embedded across other chapters (social policy for wounded soldiers' families, national economy for defence contractors, occupied territory reconstruction).
+      <span class="class-badge cl">Classified</span> = spending concealed from public budget documents.
+    </div>
+  </div>
+
+</div>
+
+<!-- CALLOUTS -->
+<div class="section-label" style="margin-top:32px">Context & explanations</div>
+<div class="callouts" style="margin-top:16px">
+
+  <div class="callout">
+    <span class="callout-icon">🪖</span>
+    <h3>Defence Spending: A Post-Soviet Record at ~6.6% of GDP</h3>
+    <p>National Defence consumed an estimated ₽13.2 trillion in 2024 — roughly 32.5% of all federal spending and the single largest budget item, surpassing social policy for the first time in post-Soviet history. This represents an almost 70% increase from the planned 2023 level in nominal terms. SIPRI estimates total Russian military expenditure including classified items at around 7.1% of GDP in 2024, compared to 3–4% pre-invasion. Nearly 85% of defence chapter spending is classified, making precise verification impossible. Actual spending exceeded the originally approved ₽10.8T by some ₽2.4T, a pattern seen each year since 2022.</p>
+    <span class="tag tag-red">Defence: ~32.5% of all federal spending</span>
+  </div>
+
+  <div class="callout">
+    <span class="callout-icon">🏦</span>
+    <h3>VAT Overtakes Oil &amp; Gas as Top Revenue Source</h3>
+    <p>For the first time, value-added tax (₽13.5T, +16% year-on-year) eclipsed oil and gas revenues (₽11.1T) as the federal budget's largest income line. This reflects both the wartime expansion of the domestic economy (GDP grew 4.1% in real terms) and the ruble's depreciation boosting nominal ruble values of all transactions. Oil and gas still accounted for 30.3% of total revenues — well above the EU average for comparable economies, but historically low for Russia. Baseline oil revenues assumed a $60/bbl Urals price; actual Urals averaged ~$68–70/bbl in 2024, yielding ₽1.3T in additional windfall revenues above baseline.</p>
+    <span class="tag tag-blue">Non-oil revenues: 70% of total · First in post-Soviet history</span>
+  </div>
+
+  <div class="callout">
+    <span class="callout-icon">📉</span>
+    <h3>Deficit Tripled vs Plan: December Surge</h3>
+    <p>The initial 2024 budget law targeted a deficit of ₽1.6T (0.9% of GDP). The actual deficit of ₽3.5T (1.7% of GDP) was more than double. The overshoot was almost entirely explained by a ₽3.1–3.4T December spending surge — the Finance Ministry pre-paid 2025 obligations using windfall oil revenues, providing budgetary flexibility for 2025. Through the first 11 months of 2024, the deficit was only ₽0.4T. The deficit was financed through OFZ domestic bond issuance (~₽4.1T planned, expensive at 16–21% interest rates) and drawdowns from the National Wealth Fund (~₽1.3T). Russia's total public debt remains modest at around 18–19% of GDP.</p>
+    <span class="tag tag-red">Deficit: ₽3.5T · 1.7% of GDP · 2.2× initial plan</span>
+  </div>
+
+  <div class="callout">
+    <span class="callout-icon">💊</span>
+    <h3>Healthcare &amp; Education: Real-Term Cuts Despite Nominal Stability</h3>
+    <p>While healthcare (₽1.6T) and education (₽1.5T) held roughly steady in nominal terms compared to 2023, their shares of total budget fell — from ~5.2% to ~4.4% for healthcare, and ~4.8% to ~4.2% for education. With CPI inflation reaching close to 10% by end-2024 and the budget growing by 24%, this amounts to a significant real-term reduction in civilian social investment. Both functions are predominantly funded by regional governments and extra-budgetary healthcare funds (OMC system), so federal figures understate total public health and education spending, which is closer to 4–5% of GDP when all tiers are included.</p>
+    <span class="tag tag-teal">Healthcare + Education: 7.7% of federal outlays combined</span>
+  </div>
+
+  <div class="callout">
+    <span class="callout-icon">💸</span>
+    <h3>Debt Service Costs Surging at 21% Key Rate</h3>
+    <p>Debt service consumed approximately ₽2.3T in 2024 (5.8% of all outlays), nearly double its 2019 share. Russia's central bank raised its key rate to a historic 21% in October 2024 in an attempt to curb inflation that approached 10% year-on-year. Around 50% of Russia's domestic OFZ bonds carry floating interest rates tied to the key rate, meaning the cost of servicing existing debt rises with every rate hike. The Finance Ministry estimated debt service would rise to 7.7% of outlays in 2025. Unlike pre-invasion years, Russia can no longer access international bond markets due to sanctions, making the domestic bond market — dominated by state-controlled banks — the only borrowing channel.</p>
+    <span class="tag tag-grey">Debt service: 5.8% of outlays · Doubling by 2025</span>
+  </div>
+
+  <div class="callout">
+    <span class="callout-icon">🏗️</span>
+    <h3>National Economy: Crowded Out by War Spending</h3>
+    <p>Spending on the national economy (infrastructure, industry support, agriculture, national projects) fell from ~14% of total outlays in 2023 to around 11% in 2024 — approximately ₽4.4T. This chapter funds roads, railways, digital infrastructure, special economic zones, import-substitution programs, and state development bank capitalizations. The decline reflects the explicit trade-off Putin's government made: with total spending constrained by fiscal rules, the defence buildup squeezed out civilian infrastructure investment. Russia's GDP still grew 4.1% in 2024 largely due to wartime industrial demand rather than productivity-enhancing investment.</p>
+    <span class="tag tag-amber">National economy: fell from 14% → 11% of total outlays</span>
+  </div>
+
+</div>
+
+<!-- FOOTNOTE -->
+<div class="footnote">
+  <p>
+    <strong>Primary sources:</strong> Kremlin.ru — Federal Law on the Execution of the Federal Budget for 2024 (signed Jul 2025; revenues ₽36.7086T, expenditures ₽40.1805T, deficit ₽3.4719T); Interfax — Russia closes 2024 with budget deficit of 3.485 trillion rubles or 1.7% of GDP (Jan 21, 2025), citing Finance Ministry preliminary brief; Rosstat — GDP first estimate for 2024: ₽200.04T nominal, +4.1% real growth (Feb 7, 2025); Oxford Institute for Energy Studies — Fiscal Flex: Russia's Oil and Gas Revenues in 2024 (Feb 2025); SIPRI Insights — Military Expenditure in Russia's Federal Budget for 2024 (Dec 2023) and Military Spending in Russia's Budget for 2025 (Apr 2025); CEPA — Russia's Year of Truth: The Runaway Military Budget (Jan 2025); Carnegie Endowment for International Peace — Russia's 2024 Budget Shows It's Planning for a Long War (Sep 2023); OSW Centre for Eastern Studies — Russia's budget for 2025: war above all (Nov 2024); RAND Corporation — The Russian Federal Budget 2025–2027 (2025).
+  </p>
+  <p>
+    <strong>Methodology &amp; caveats:</strong> GDP reference: ₽200.04T (Rosstat 2024 nominal). Average exchange rate: 92.5 ₽/$ (Oxford Energy). Revenue breakdown: VAT ₽13.5T and oil &amp; gas ₽11.1T are confirmed actuals from the Finance Ministry brief. Corporate profit tax (~₽4.5T), customs duties (~₽0.9T), excise taxes (~₽1.2T), PIT federal portion (~₽1.4T), and non-tax revenues (~₽4.0T) are derived from the 22-26% non-oil growth figures applied to 2023 actuals. Expenditure by chapter: National Defence ₽13.2T is derived from Defence Minister Belousov's Dec 2024 statement (32.5% × ₽40.6T). Social Policy ₽7.7T, National Security ₽3.5T from Carnegie and Meduza citing MinFin budget-for-citizens documents. Healthcare (4.4%) and Education (4.2%) percentage shares from SIPRI; applied to ₽40.2T total. Debt service 5.8% from OSW. National Economy 11% from SIPRI. Because Russia classifies a substantial and growing share of its budget, all expenditure sub-totals carry inherent uncertainty and should be treated as best estimates consistent with published sources. Fiscal year is calendar year Jan 1–Dec 31.
+  </p>
+</div>
+
+<script>
+const MAX_REC = 13523; // VAT, in billions
+const MAX_OUT = 13200; // National Defence, in billions
+
+const receipts = [
+  {
+    group: "Domestic Taxes",
+    items: [
+      { label: "Value-Added Tax (VAT)",      sub: "20% standard rate on goods & services — federal budget only",  val: 13523, gdp: 6.8, cls: "c-vat" },
+      { label: "Corporate Profit Tax",        sub: "20% rate (25% from 2025); growing as wartime profits surge",   val: 4500,  gdp: 2.3, cls: "c-corp" },
+      { label: "Personal Income Tax",         sub: "Federal portion only; 13–15% flat rate, bulk goes to regions", val: 1400,  gdp: 0.7, cls: "c-pit" },
+      { label: "Excise Taxes",                sub: "Fuel, alcohol, tobacco, and other excisable goods",            val: 1200,  gdp: 0.6, cls: "c-exc" },
+    ]
+  },
+  {
+    group: "Oil & Gas Revenues",
+    items: [
+      { label: "Oil & Gas MET + Export Duties", sub: "Mineral extraction tax (oil/gas/condensate) + export duties; 30% of total revenues",  val: 11131, gdp: 5.6, cls: "c-og" },
+    ]
+  },
+  {
+    group: "Trade & Other",
+    items: [
+      { label: "Non-Energy Customs Duties",   sub: "Tariffs on imported goods; compressed by sanctions & rerouting", val: 900, gdp: 0.5, cls: "c-cust" },
+      { label: "Non-Tax & Other Revenues",    sub: "State asset income, fines, federal property rents, dividends",  val: 3953, gdp: 2.0, cls: "c-nontax" },
+    ]
+  },
+];
+
+const outlays = [
+  {
+    group: "Defence & Security",
+    items: [
+      { label: "National Defence",          sub: "MoD, armed forces, weapons procurement, mil. R&D — est. actual", badge:"cl", val: 13200, gdp: 6.6, cls: "c-def" },
+      { label: "National Security & Law",   sub: "FSB, National Guard (Rosgvardiya), police, prisons, borders",    val:  3500, gdp: 1.7, cls: "c-nsec" },
+    ]
+  },
+  {
+    group: "Social Spending",
+    items: [
+      { label: "Social Policy",             sub: "Pensions (non-PFR), disability, families of killed/wounded soldiers", val: 7700, gdp: 3.9, cls: "c-soc" },
+      { label: "Healthcare",                sub: "Federal health spending; bulk of health funded via OMC insurance fund", val: 1770, gdp: 0.9, cls: "c-hlth" },
+      { label: "Education",                 sub: "Federal higher education, R&D universities; bulk via regional budgets", val: 1690, gdp: 0.8, cls: "c-edu" },
+    ]
+  },
+  {
+    group: "Economy & Infrastructure",
+    items: [
+      { label: "National Economy",          sub: "Roads, railways, industry support, import substitution, agri, SEZs",  val: 4420, gdp: 2.2, cls: "c-econ" },
+    ]
+  },
+  {
+    group: "Debt Service",
+    items: [
+      { label: "Public Debt Servicing",     sub: "Interest on OFZ bonds; near-doubled as key rate hit 21%",           val: 2330, gdp: 1.2, cls: "c-debt" },
+    ]
+  },
+  {
+    group: "Government & Other",
+    items: [
+      { label: "General Government",        sub: "Presidential admin., government apparatus, international affairs",   val: 2520, gdp: 1.3, cls: "c-admin" },
+      { label: "Housing, Culture & Other",  sub: "Housing & utilities, culture, sports, environment, transfers to regions", val: 3060, gdp: 1.5, cls: "c-other" },
+    ]
+  },
+];
+
+function buildSection(data, containerId, maxVal, animClass, delay0) {
+  const container = document.getElementById(containerId);
+  let delay = delay0;
+  data.forEach(group => {
+    const glbl = document.createElement('div');
+    glbl.className = 'group-label';
+    glbl.textContent = group.group;
+    container.appendChild(glbl);
+    group.items.forEach(item => {
+      const pct = Math.min((item.val / maxVal) * 100, 100).toFixed(2);
+      const row = document.createElement('div');
+      row.className = `bar-row${animClass ? ' ' + animClass : ''}`;
+      row.style.animationDelay = delay + 'ms';
+      const badge = item.badge
+        ? `<span class="class-badge cl">Classified</span>`
+        : '';
+      row.innerHTML = `
+        <div class="bar-label">${item.label}${badge}<small>${item.sub}</small></div>
+        <div class="bar-track">
+          <div class="bar-fill ${item.cls}" data-pct="${pct}" style="width:0%"></div>
+        </div>
+        <div class="bar-val">₽${(item.val/1000).toFixed(1)}T<small>${item.gdp}% GDP</small></div>
+      `;
+      container.appendChild(row);
+      delay += 50;
+    });
+  });
+}
+
+buildSection(receipts, 'rec', MAX_REC, '',           80);
+buildSection(outlays,  'out', MAX_OUT, 'right-anim', 200);
+
+// Animate deficit row
+setTimeout(() => {
+  const dr = document.getElementById('def-row');
+  dr.style.transition = 'opacity 0.4s ease 0.5s';
+  dr.style.opacity = '1';
+  const fill = dr.querySelector('.bar-fill');
+  fill.style.transition = 'width 0.95s cubic-bezier(0.16,1,0.3,1) 0.6s';
+  fill.style.width = fill.dataset.pct + '%';
+}, 100);
+
+// Animate all bars
+setTimeout(() => {
+  document.querySelectorAll('.bar-fill[data-pct]').forEach(el => {
+    el.style.width = el.dataset.pct + '%';
+  });
+}, 150);
+</script>
+</body>
+</html>
