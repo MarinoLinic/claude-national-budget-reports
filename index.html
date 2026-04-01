@@ -32,6 +32,8 @@
 				--gold-lt: #ede3c0;
 				--blue: #003082;
 				--blue-lt: #c8d4ee;
+				--green: #206030;
+				--green-lt: #d0e8d8;
 				--grey-lt: #e0dbd5;
 			}
 
@@ -165,7 +167,7 @@
 			/* ── CARD GRID ── */
 			.card-grid {
 				display: grid;
-				grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+				grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 				gap: 20px;
 				padding: 24px 52px 40px;
 			}
@@ -224,25 +226,43 @@
 				font-size: 12.5px;
 				color: var(--muted);
 				line-height: 1.6;
-				margin-bottom: 24px;
+				margin-bottom: 20px;
 				font-weight: 300;
 				flex-grow: 1;
 			}
 
 			.card-tags {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 8px;
 				border-top: 1px solid var(--rule);
 				padding-top: 16px;
+				align-items: center;
 			}
 			.tag {
 				display: inline-block;
-				font-size: 11px;
-				letter-spacing: 0.06em;
+				font-size: 9px;
+				text-transform: uppercase;
+				letter-spacing: 0.1em;
 				font-weight: 600;
+				padding: 3px 7px;
+				border-radius: 2px;
+			}
+			.tag-red {
+				background: var(--red-lt);
+				color: var(--red);
+			}
+			.tag-navy {
+				background: var(--navy-lt);
 				color: var(--navy);
-				background: var(--paper);
-				padding: 4px 10px;
-				border-radius: 3px;
-				border: 1px solid var(--rule);
+			}
+			.tag-teal {
+				background: var(--teal-lt);
+				color: var(--teal);
+			}
+			.tag-green {
+				background: var(--green-lt);
+				color: var(--green);
 			}
 
 			/* ── CSS FLAGS ── */
@@ -577,7 +597,8 @@
 						and deep dive into social insurance funding.
 					</p>
 					<div class="card-tags">
-						<span class="tag">[ 23.4% GDP ]</span>
+						<span class="tag tag-navy">Outlays: $6,751B (23.4% GDP)</span>
+						<span class="tag tag-red">Deficit: 6.4%</span>
 					</div>
 				</a>
 
@@ -595,7 +616,8 @@
 						triple-lock, and post-crisis debt interest.
 					</p>
 					<div class="card-tags">
-						<span class="tag">[ 43.2% GDP ]</span>
+						<span class="tag tag-navy">Outlays: £1,189B (43.2% GDP)</span>
+						<span class="tag tag-red">Deficit: 3.3%</span>
 					</div>
 				</a>
 
@@ -613,7 +635,8 @@
 						spending, and the real underlying deficit.
 					</p>
 					<div class="card-tags">
-						<span class="tag">[ 20.5% GDP ]</span>
+						<span class="tag tag-navy">Outlays: ¥28.6T (20.5% GDP)</span>
+						<span class="tag tag-red">Deficit: 3.0%</span>
 					</div>
 				</a>
 
@@ -631,7 +654,8 @@
 						looming shock of rising debt interest.
 					</p>
 					<div class="card-tags">
-						<span class="tag">[ 19.0% GDP ]</span>
+						<span class="tag tag-navy">Outlays: ¥112.6T (19.0% GDP)</span>
+						<span class="tag tag-red">Deficit: ¥35.4T</span>
 					</div>
 				</a>
 
@@ -649,7 +673,8 @@
 						by corporate tax and the pharmaceutical boom.
 					</p>
 					<div class="card-tags">
-						<span class="tag">[ 47.3% GDP ]</span>
+						<span class="tag tag-navy">Outlays: DKK 1,391B (47.3% GDP)</span>
+						<span class="tag tag-green">Surplus: 4.5%</span>
 					</div>
 				</a>
 
@@ -678,7 +703,8 @@
 						spending, and tourism revenue surge.
 					</p>
 					<div class="card-tags">
-						<span class="tag">[ 48.2% GDP ]</span>
+						<span class="tag tag-navy">Outlays: €114.2B (48.2% GDP)</span>
+						<span class="tag tag-green">Surplus: 1.2%</span>
 					</div>
 				</a>
 
@@ -696,7 +722,8 @@
 						pensions, and net EU funding inflows.
 					</p>
 					<div class="card-tags">
-						<span class="tag">[ 48.0% GDP ]</span>
+						<span class="tag tag-navy">Outlays: €32.6B (48.0% GDP)</span>
+						<span class="tag tag-red">Deficit: 1.9%</span>
 					</div>
 				</a>
 
@@ -714,7 +741,8 @@
 						surging debt costs under 21% interest rates.
 					</p>
 					<div class="card-tags">
-						<span class="tag">[ 20.1% GDP ]</span>
+						<span class="tag tag-navy">Outlays: ₽40.2T (20.1% GDP)</span>
+						<span class="tag tag-red">Deficit: 1.7%</span>
 					</div>
 				</a>
 			</div>
