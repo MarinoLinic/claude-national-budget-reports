@@ -9,6 +9,10 @@
 			href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Barlow:wght@300;400;500;600&display=swap"
 			rel="stylesheet"
 		/>
+		<!-- D3.js and TopoJSON for the interactive map -->
+		<script src="https://d3js.org/d3.v7.min.js"></script>
+		<script src="https://unpkg.com/topojson-client@3"></script>
+
 		<style>
 			:root {
 				--paper: #f6f2ed;
@@ -28,6 +32,7 @@
 				--gold-lt: #ede3c0;
 				--blue: #003082;
 				--blue-lt: #c8d4ee;
+				--grey-lt: #e0dbd5;
 			}
 
 			* {
@@ -137,7 +142,7 @@
 			/* ── MAIN CONTENT ── */
 			main {
 				flex: 1;
-				padding-bottom: 60px;
+				padding-bottom: 40px;
 			}
 			.section-label {
 				font-size: 9px;
@@ -160,18 +165,19 @@
 			/* ── CARD GRID ── */
 			.card-grid {
 				display: grid;
-				grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+				grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 				gap: 20px;
-				padding: 24px 52px;
+				padding: 24px 52px 40px;
 			}
 
 			.report-card {
-				display: block;
+				display: flex;
+				flex-direction: column;
 				text-decoration: none;
 				background: var(--white);
 				border: 1px solid var(--rule);
 				border-radius: 4px;
-				padding: 28px;
+				padding: 24px;
 				color: var(--ink);
 				transition: all 0.25s ease;
 				position: relative;
@@ -202,7 +208,7 @@
 
 			.card-title h2 {
 				font-family: 'Libre Baskerville', serif;
-				font-size: 1.3rem;
+				font-size: 1.25rem;
 				font-weight: 700;
 				margin-bottom: 4px;
 			}
@@ -215,68 +221,34 @@
 			}
 
 			.card-desc {
-				font-size: 13px;
+				font-size: 12.5px;
 				color: var(--muted);
 				line-height: 1.6;
 				margin-bottom: 24px;
 				font-weight: 300;
+				flex-grow: 1;
 			}
 
 			.card-tags {
-				display: flex;
-				flex-wrap: wrap;
-				gap: 8px;
 				border-top: 1px solid var(--rule);
 				padding-top: 16px;
 			}
 			.tag {
 				display: inline-block;
-				font-size: 9px;
-				text-transform: uppercase;
-				letter-spacing: 0.1em;
+				font-size: 11px;
+				letter-spacing: 0.06em;
 				font-weight: 600;
-				padding: 3px 8px;
-				border-radius: 2px;
-			}
-			.tag-red {
-				background: var(--red-lt);
-				color: var(--red);
-			}
-			.tag-navy {
-				background: var(--navy-lt);
 				color: var(--navy);
-			}
-			.tag-gold {
-				background: var(--gold-lt);
-				color: var(--gold);
-			}
-			.tag-teal {
-				background: var(--teal-lt);
-				color: var(--teal);
+				background: var(--paper);
+				padding: 4px 10px;
+				border-radius: 3px;
+				border: 1px solid var(--rule);
 			}
 
-			/* ── CSS FLAGS (Reused from your files) ── */
-			.flag-croatia {
-				display: flex;
-				flex-direction: column;
-				gap: 2px;
-			}
-			.flag-croatia span {
-				display: block;
-				width: 28px;
-				height: 7px;
-				border-radius: 1px;
-			}
-			.flag-croatia .r {
-				background: #c8102e;
-			}
-			.flag-croatia .w {
-				background: #e8e4de;
-				border: 1px solid #ddd;
-				height: 6px;
-			}
-			.flag-croatia .b {
-				background: #003da5;
+			/* ── CSS FLAGS ── */
+			.flag-usa {
+				font-size: 22px;
+				line-height: 1;
 			}
 
 			.flag-uk {
@@ -286,6 +258,7 @@
 				border-radius: 2px;
 				overflow: hidden;
 				background: var(--blue);
+				flex-shrink: 0;
 			}
 			.flag-uk::before {
 				content: '';
@@ -308,9 +281,208 @@
 					linear-gradient(to right, transparent 42%, var(--red) 42%, var(--red) 58%, transparent 58%);
 			}
 
-			.flag-usa {
-				font-size: 22px;
+			.flag-croatia {
+				display: flex;
+				flex-direction: column;
+				gap: 2px;
+				flex-shrink: 0;
+			}
+			.flag-croatia span {
+				display: block;
+				width: 28px;
+				height: 6px;
+				border-radius: 1px;
+			}
+			.flag-croatia .r {
+				background: #c8102e;
+			}
+			.flag-croatia .w {
+				background: #e8e4de;
+				border: 1px solid #ddd;
+				height: 5px;
+			}
+			.flag-croatia .b {
+				background: #003da5;
+			}
+
+			.flag-cn {
+				width: 34px;
+				height: 22px;
+				background: #de2910;
+				border-radius: 2px;
+				flex-shrink: 0;
+				display: flex;
+				align-items: flex-start;
+				justify-content: flex-start;
+				padding: 2px 4px;
+				font-size: 11px;
 				line-height: 1;
+				letter-spacing: -1px;
+				color: #ffde00;
+			}
+
+			.flag-dk {
+				width: 32px;
+				height: 22px;
+				background: #c8102e;
+				position: relative;
+				border-radius: 2px;
+				overflow: hidden;
+				flex-shrink: 0;
+			}
+			.flag-dk::before {
+				content: '';
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 10px;
+				width: 4px;
+				background: white;
+			}
+			.flag-dk::after {
+				content: '';
+				position: absolute;
+				left: 0;
+				right: 0;
+				top: 9px;
+				height: 4px;
+				background: white;
+			}
+
+			.flag-gr {
+				width: 34px;
+				height: 22px;
+				border-radius: 2px;
+				overflow: hidden;
+				flex-shrink: 0;
+				position: relative;
+				background: #003189;
+			}
+			.flag-gr .stripes {
+				position: absolute;
+				inset: 0;
+				display: flex;
+				flex-direction: column;
+			}
+			.flag-gr .stripe-b {
+				background: #003189;
+				flex: 1;
+			}
+			.flag-gr .stripe-w {
+				background: #e0e6f8;
+				flex: 1;
+			}
+			.flag-gr .canton {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 14px;
+				height: 12px;
+				background: #003189;
+			}
+			.flag-gr .cross-h {
+				position: absolute;
+				top: 4px;
+				left: 0;
+				width: 14px;
+				height: 3px;
+				background: #e0e6f8;
+			}
+			.flag-gr .cross-v {
+				position: absolute;
+				top: 0;
+				left: 5px;
+				width: 3px;
+				height: 12px;
+				background: #e0e6f8;
+			}
+
+			.flag-ru {
+				display: flex;
+				flex-direction: column;
+				gap: 2px;
+				flex-shrink: 0;
+			}
+			.flag-ru span {
+				display: block;
+				width: 32px;
+				height: 6px;
+				border-radius: 1px;
+			}
+			.flag-ru .w {
+				background: #e8e8e8;
+				border: 1px solid #ddd;
+				height: 5px;
+			}
+			.flag-ru .b {
+				background: #003da5;
+			}
+			.flag-ru .r {
+				background: #c8102e;
+			}
+
+			.flag-jp {
+				width: 32px;
+				height: 22px;
+				background: #f0ece8;
+				border-radius: 2px;
+				flex-shrink: 0;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				border: 1px solid #c8c4c0;
+			}
+			.flag-jp .disc {
+				width: 12px;
+				height: 12px;
+				background: #bc002d;
+				border-radius: 50%;
+			}
+
+			/* ── INTERACTIVE MAP ── */
+			.map-wrapper {
+				margin: 0 52px 40px;
+				background: var(--white);
+				border: 1px solid var(--rule);
+				border-radius: 4px;
+				padding: 20px;
+				position: relative;
+				overflow: hidden;
+			}
+			#map {
+				width: 100%;
+				max-width: 900px;
+				margin: 0 auto;
+				display: block;
+			}
+			.map-country {
+				fill: var(--grey-lt);
+				stroke: var(--white);
+				stroke-width: 0.5;
+				transition: fill 0.2s ease;
+			}
+			.map-country.active {
+				fill: var(--navy);
+				cursor: pointer;
+			}
+			.map-country.active:hover {
+				fill: var(--red);
+			}
+			.map-tooltip {
+				position: absolute;
+				background: var(--ink);
+				color: var(--white);
+				padding: 6px 12px;
+				border-radius: 4px;
+				font-size: 11px;
+				font-weight: 500;
+				pointer-events: none;
+				opacity: 0;
+				transition: opacity 0.1s ease;
+				transform: translate(-50%, -100%);
+				margin-top: -10px;
+				z-index: 10;
+				letter-spacing: 0.05em;
 			}
 
 			/* ── FOOTNOTE ── */
@@ -352,6 +524,10 @@
 					padding: 20px;
 					grid-template-columns: 1fr;
 				}
+				.map-wrapper {
+					margin: 0 20px 40px;
+					padding: 10px;
+				}
 				.footnote {
 					padding: 24px 20px;
 				}
@@ -372,11 +548,11 @@
 			<div class="masthead-right">
 				<div class="kpi">
 					<div class="kpi-label">Tracked Economies</div>
-					<div class="kpi-value">3</div>
+					<div class="kpi-value">8</div>
 				</div>
 				<div class="kpi">
 					<div class="kpi-label">Total Outlays Tracked</div>
-					<div class="kpi-value" style="color: #8a9bb0">~$8.3T</div>
+					<div class="kpi-value" style="color: #8a9bb0">~$13.7T</div>
 				</div>
 			</div>
 		</div>
@@ -401,13 +577,12 @@
 						and deep dive into social insurance funding.
 					</p>
 					<div class="card-tags">
-						<span class="tag tag-navy">Outlays: $6,751B</span>
-						<span class="tag tag-red">Deficit: 6.4% GDP</span>
+						<span class="tag">[ 23.4% GDP ]</span>
 					</div>
 				</a>
 
 				<!-- UK CARD -->
-				<a href="uk-2024.html" class="report-card" style="animation-delay: 100ms">
+				<a href="uk-2024.html" class="report-card" style="animation-delay: 50ms">
 					<div class="card-header">
 						<div class="card-title">
 							<h2>United Kingdom</h2>
@@ -420,13 +595,95 @@
 						triple-lock, and post-crisis debt interest.
 					</p>
 					<div class="card-tags">
-						<span class="tag tag-navy">Outlays: £1,189B</span>
-						<span class="tag tag-red">Deficit: 3.3% GDP</span>
+						<span class="tag">[ 43.2% GDP ]</span>
+					</div>
+				</a>
+
+				<!-- CHINA CARD -->
+				<a href="china-2024.html" class="report-card" style="animation-delay: 100ms">
+					<div class="card-header">
+						<div class="card-title">
+							<h2>China</h2>
+							<p>Fiscal Year 2024</p>
+						</div>
+						<div class="flag-cn"><span>★</span></div>
+					</div>
+					<p class="card-desc">
+						National General Public Budget overview. Explores heavy central-local fiscal transfers, record agricultural
+						spending, and the real underlying deficit.
+					</p>
+					<div class="card-tags">
+						<span class="tag">[ 20.5% GDP ]</span>
+					</div>
+				</a>
+
+				<!-- JAPAN CARD -->
+				<a href="japan-2024.html" class="report-card" style="animation-delay: 150ms">
+					<div class="card-header">
+						<div class="card-title">
+							<h2>Japan</h2>
+							<p>Fiscal Year 2024</p>
+						</div>
+						<div class="flag-jp"><div class="disc"></div></div>
+					</div>
+					<p class="card-desc">
+						General Account breakdown covering the dramatic defence buildup, response to the fertility crisis, and the
+						looming shock of rising debt interest.
+					</p>
+					<div class="card-tags">
+						<span class="tag">[ 19.0% GDP ]</span>
+					</div>
+				</a>
+
+				<!-- DENMARK CARD -->
+				<a href="denmark-2024.html" class="report-card" style="animation-delay: 200ms">
+					<div class="card-header">
+						<div class="card-title">
+							<h2>Denmark</h2>
+							<p>Fiscal Year 2024</p>
+						</div>
+						<div class="flag-dk"></div>
+					</div>
+					<p class="card-desc">
+						An outlier in the OECD with zero social security contributions. Explores the robust fiscal surplus powered
+						by corporate tax and the pharmaceutical boom.
+					</p>
+					<div class="card-tags">
+						<span class="tag">[ 47.3% GDP ]</span>
+					</div>
+				</a>
+
+				<!-- GREECE CARD -->
+				<a href="greece-2024.html" class="report-card" style="animation-delay: 250ms">
+					<div class="card-header">
+						<div class="card-title">
+							<h2>Greece</h2>
+							<p>Fiscal Year 2024</p>
+						</div>
+						<div class="flag-gr">
+							<div class="stripes">
+								<div class="stripe-b"></div>
+								<div class="stripe-w"></div>
+								<div class="stripe-b"></div>
+								<div class="stripe-w"></div>
+								<div class="stripe-b"></div>
+							</div>
+							<div class="canton"></div>
+							<div class="cross-h"></div>
+							<div class="cross-v"></div>
+						</div>
+					</div>
+					<p class="card-desc">
+						The remarkable turnaround to a headline fiscal surplus. Covers the heavy pension burden, elevated defence
+						spending, and tourism revenue surge.
+					</p>
+					<div class="card-tags">
+						<span class="tag">[ 48.2% GDP ]</span>
 					</div>
 				</a>
 
 				<!-- CROATIA CARD -->
-				<a href="croatia-2024.html" class="report-card" style="animation-delay: 200ms">
+				<a href="croatia-2024.html" class="report-card" style="animation-delay: 300ms">
 					<div class="card-header">
 						<div class="card-title">
 							<h2>Croatia</h2>
@@ -439,10 +696,33 @@
 						pensions, and net EU funding inflows.
 					</p>
 					<div class="card-tags">
-						<span class="tag tag-teal">Outlays: €32.6B</span>
-						<span class="tag tag-red">Deficit: 1.9% GDP</span>
+						<span class="tag">[ 48.0% GDP ]</span>
 					</div>
 				</a>
+
+				<!-- RUSSIA CARD -->
+				<a href="russia-2024.html" class="report-card" style="animation-delay: 350ms">
+					<div class="card-header">
+						<div class="card-title">
+							<h2>Russia</h2>
+							<p>Fiscal Year 2024</p>
+						</div>
+						<div class="flag-ru"><span class="w"></span><span class="b"></span><span class="r"></span></div>
+					</div>
+					<p class="card-desc">
+						Analysis of the wartime federal budget. Details how VAT overtook oil revenues, the 32% defence share, and
+						surging debt costs under 21% interest rates.
+					</p>
+					<div class="card-tags">
+						<span class="tag">[ 20.1% GDP ]</span>
+					</div>
+				</a>
+			</div>
+
+			<div class="section-label">Global Fiscal Map</div>
+			<div class="map-wrapper">
+				<div id="map"></div>
+				<div class="map-tooltip" id="tooltip"></div>
 			</div>
 		</main>
 
@@ -450,9 +730,78 @@
 		<div class="footnote">
 			<p>
 				<strong>About this archive:</strong> These documents were generated as structural and analytical formatting
-				experiments. Data reflects verified actuals and adopted budgets from official sources (Treasury, DZS, OBR, CBO)
-				for the 2023–24 fiscal cycle.
+				experiments. Data reflects verified actuals and adopted budgets from official sources (Treasury, MoF, DZS, OBR,
+				CBO, Eurostat) for the 2023–24 fiscal cycle.
 			</p>
 		</div>
+
+		<!-- MAP SCRIPT -->
+		<script>
+			// Target countries config mapping ISO-3166-1 numeric IDs to local URLs and names
+			const highlightedCountries = {
+				840: { name: 'United States', url: 'usa-2024.html' },
+				826: { name: 'United Kingdom', url: 'uk-2024.html' },
+				156: { name: 'China', url: 'china-2024.html' },
+				392: { name: 'Japan', url: 'japan-2024.html' },
+				208: { name: 'Denmark', url: 'denmark-2024.html' },
+				300: { name: 'Greece', url: 'greece-2024.html' },
+				191: { name: 'Croatia', url: 'croatia-2024.html' },
+				643: { name: 'Russia', url: 'russia-2024.html' },
+			}
+
+			const width = 960
+			const height = 500
+
+			const svg = d3
+				.select('#map')
+				.append('svg')
+				.attr('viewBox', `0 0 ${width} ${height}`)
+				.attr('preserveAspectRatio', 'xMidYMid meet')
+
+			const projection = d3
+				.geoNaturalEarth1()
+				.scale(160)
+				.translate([width / 2, height / 1.8])
+
+			const path = d3.geoPath().projection(projection)
+			const tooltip = document.getElementById('tooltip')
+
+			// Fetch low-res topology from unpkg CDN
+			d3.json('https://unpkg.com/world-atlas@2.0.2/countries-110m.json').then((world) => {
+				const countries = topojson.feature(world, world.objects.countries).features
+
+				svg
+					.selectAll('path')
+					.data(countries)
+					.enter()
+					.append('path')
+					.attr('d', path)
+					.attr('class', (d) => {
+						return highlightedCountries[d.id] ? 'map-country active' : 'map-country'
+					})
+					.on('mouseover', function (event, d) {
+						if (highlightedCountries[d.id]) {
+							tooltip.style.opacity = 1
+							tooltip.innerText = highlightedCountries[d.id].name
+						}
+					})
+					.on('mousemove', function (event, d) {
+						if (highlightedCountries[d.id]) {
+							const mapRect = document.getElementById('map').getBoundingClientRect()
+							// Position relative to map wrapper
+							tooltip.style.left = event.clientX - mapRect.left + 20 + 'px'
+							tooltip.style.top = event.clientY - mapRect.top - 10 + 'px'
+						}
+					})
+					.on('mouseout', function () {
+						tooltip.style.opacity = 0
+					})
+					.on('click', function (event, d) {
+						if (highlightedCountries[d.id]) {
+							window.location.href = highlightedCountries[d.id].url
+						}
+					})
+			})
+		</script>
 	</body>
 </html>
