@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Poland Government Budget 2024</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --paper:    #f5f2ed;
+  --white:    #ffffff;
+  --ink:      #14110d;
+  --muted:    #7a736b;
+  --rule:     #ddd8d0;
+  --red:      #c0101e;
+  --red-mid:  #d83030;
+  --red-lt:   #f0d0d4;
+  --white2:   #e8e4de;
+  --white-lt: #f4f2ee;
+  --navy:     #00235a;
+  --navy-mid: #1a3e90;
+  --navy-lt:  #ccd4ec;
+  --teal:     #0a5a50;
+  --teal-lt:  #beddd8;
+  --gold:     #8a5c00;
+  --gold-lt:  #f0e0b8;
+  --olive:    #4a6015;
+  --olive-lt: #dce4c0;
+  --slate:    #3a5870;
+  --slate-lt: #c8d8e4;
+  --purple:   #5a1878;
+  --purple-lt:#e0cce8;
+  --grey:     #484440;
+  --grey-lt:  #e2ddd8;
+  --amber:    #8a4000;
+  --amber-lt: #f0dcc0;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  background: var(--paper);
+  font-family: 'Barlow', sans-serif;
+  color: var(--ink);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* ── MASTHEAD ── */
+.masthead {
+  background: var(--ink);
+  color: var(--paper);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: stretch;
+  overflow: hidden;
+}
+.masthead-left { padding: 44px 52px 40px; border-right: 1px solid #2a2620; }
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+/* Polish flag — white over red */
+.flag-pl {
+  width: 48px;
+  height: 30px;
+  border-radius: 2px;
+  overflow: hidden;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+}
+.flag-pl .top { background: #f0ece6; flex: 1; }
+.flag-pl .bot { background: #c0101e; flex: 1; }
+.eyebrow-text {
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #888;
+  font-weight: 500;
+}
+.masthead h1 {
+  font-family: 'Libre Baskerville', serif;
+  font-size: clamp(2rem, 3.5vw, 3.1rem);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  max-width: 560px;
+}
+.masthead h1 em { font-style: italic; color: #b0a898; }
+.masthead-sub {
+  margin-top: 12px;
+  font-size: 12px;
+  color: #777;
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.masthead-right {
+  padding: 44px 52px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 20px;
+  min-width: 270px;
+}
+.kpi-label {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #666;
+  font-weight: 500;
+  margin-bottom: 3px;
+}
+.kpi-value {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 2.1rem;
+  font-weight: 700;
+  line-height: 1;
+}
+.kpi-value.rec  { color: #5a9de0; }
+.kpi-value.def  { color: #e06050; }
+.kpi-value.out  { color: var(--paper); }
+.kpi-value.dbt  { color: #d0a050; }
+.kpi-note { font-size: 10px; color: #666; font-weight: 300; margin-top: 2px; }
+
+/* ── STRIPE — Polish red & white ── */
+.stripe {
+  height: 5px;
+  background: linear-gradient(90deg,
+    #c0101e 0% 20%,
+    #e8e4de 20% 40%,
+    #c0101e 40% 60%,
+    #e8e4de 60% 80%,
+    #c0101e 80% 100%);
+}
+
+/* ── SECTION LABEL ── */
+.section-label {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-weight: 600;
+  color: var(--muted);
+  padding: 28px 52px 0;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+}
+
+/* ── LAYOUT ── */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 0 52px;
+}
+.col-pad  { padding-right: 40px; }
+.col-divider { border-left: 1px solid var(--rule); padding-left: 40px; }
+
+/* ── PANEL HEAD ── */
+.panel-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 20px 0 14px;
+  border-bottom: 2px solid var(--ink);
+  margin-bottom: 4px;
+}
+.panel-head h2 {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 1rem;
+  font-weight: 700;
+}
+.panel-head span { font-size: 10px; color: var(--muted); }
+
+/* ── BAR ROWS ── */
+.group-label {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  font-weight: 600;
+  margin: 16px 0 6px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--rule);
+}
+.bar-row {
+  display: grid;
+  grid-template-columns: 200px 1fr 66px;
+  align-items: center;
+  gap: 10px;
+  padding: 3px 0;
+  opacity: 0;
+  transform: translateX(-8px);
+  animation: slideIn 0.35s ease forwards;
+}
+.bar-row.right-anim { transform: translateX(8px); }
+@keyframes slideIn { to { opacity:1; transform:translateX(0); } }
+.bar-label { font-size: 12px; color: var(--ink); line-height: 1.3; font-weight: 400; }
+.bar-label small { display:block; font-size:10px; color:var(--muted); font-weight:300; margin-top:1px; }
+.bar-track {
+  height: 18px;
+  background: var(--rule);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.bar-fill {
+  height: 100%;
+  width: 0%;
+  border-radius: 2px;
+  transition: width 0.95s cubic-bezier(0.16,1,0.3,1);
+}
+.bar-val { font-size: 11px; color: var(--ink); font-weight: 500; text-align: right; }
+.bar-val small { display:block; font-size:9px; color:var(--muted); font-weight:300; }
+
+/* Revenue colours */
+.c-vat   { background: var(--red); }
+.c-pit   { background: var(--navy); }
+.c-ssc   { background: var(--slate); }
+.c-cit   { background: var(--teal); }
+.c-exc   { background: var(--amber); }
+.c-eu    { background: var(--olive); }
+.c-other { background: var(--grey); }
+
+/* Expenditure colours */
+.c-soc   { background: var(--navy); }
+.c-pens  { background: #1a3e90; }
+.c-def   { background: var(--red); }
+.c-hlth  { background: var(--teal); }
+.c-edu   { background: var(--slate); }
+.c-gen   { background: #4a6080; }
+.c-trans { background: var(--olive); }
+.c-int   { background: var(--amber); }
+.c-fam   { background: var(--purple); }
+.c-misc2 { background: var(--grey); }
+
+/* ── TOTAL / DEFICIT ROW ── */
+.total-row {
+  display: grid;
+  grid-template-columns: 200px 1fr 66px;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0 4px;
+  border-top: 1.5px solid var(--ink);
+  margin-top: 10px;
+}
+.total-row .bar-label { font-weight: 600; font-size: 13px; }
+.total-row .bar-val   { font-weight: 700; font-size: 13px; }
+
+.deficit-row {
+  display: grid;
+  grid-template-columns: 200px 1fr 66px;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 0 16px;
+  opacity: 0;
+}
+.deficit-row .bar-label { font-size: 12px; font-style: italic; color: var(--muted); }
+.deficit-row .bar-val   { font-size: 11px; color: #c02828; font-weight: 600; text-align: right; }
+.deficit-fill { background: #c02828; }
+
+.method-note {
+  font-size: 10px;
+  color: var(--muted);
+  line-height: 1.5;
+  border-top: 1px solid var(--rule);
+  padding-top: 10px;
+  margin-top: 10px;
+}
+
+/* ── CALLOUTS ── */
+.callouts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 16px 52px 32px;
+}
+.callout {
+  background: var(--white);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  padding: 20px 22px 18px;
+}
+.callout-icon { font-size: 1.4rem; display: block; margin-bottom: 8px; }
+.callout h3 {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 0.88rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+.callout p { font-size: 12px; color: #3a3630; line-height: 1.6; }
+.tag {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 2px;
+}
+.tag-red    { background: var(--red-lt);    color: var(--red); }
+.tag-navy   { background: var(--navy-lt);   color: var(--navy); }
+.tag-teal   { background: var(--teal-lt);   color: var(--teal); }
+.tag-gold   { background: var(--gold-lt);   color: var(--gold); }
+.tag-slate  { background: var(--slate-lt);  color: var(--slate); }
+.tag-grey   { background: var(--grey-lt);   color: var(--grey); }
+.tag-olive  { background: var(--olive-lt);  color: var(--olive); }
+.tag-purple { background: var(--purple-lt); color: var(--purple); }
+.tag-amber  { background: var(--amber-lt);  color: var(--amber); }
+
+/* ── FOOTNOTE ── */
+.footnote {
+  padding: 20px 52px 36px;
+  border-top: 1px solid var(--rule);
+  font-size: 10px;
+  color: var(--muted);
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!--  MASTHEAD                                              -->
+<!-- ══════════════════════════════════════════════════════ -->
+<div class="masthead">
+  <div class="masthead-left">
+    <div class="eyebrow">
+      <div class="flag-pl">
+        <div class="top"></div>
+        <div class="bot"></div>
+      </div>
+      <div class="eyebrow-text">Republic of Poland · Rzeczpospolita Polska</div>
+    </div>
+    <h1>General Government<br>Budget <em>2024</em></h1>
+    <div class="masthead-sub">Revenue, Expenditure &amp; Key Fiscal Aggregates · Polish Złoty (PLN)</div>
+  </div>
+  <div class="masthead-right">
+    <div>
+      <div class="kpi-label">Total Revenue</div>
+      <div class="kpi-value rec">PLN 1,564B</div>
+      <div class="kpi-note">43.0% of GDP · strong wage &amp; employment growth</div>
+    </div>
+    <div>
+      <div class="kpi-label">Total Expenditure</div>
+      <div class="kpi-value out">PLN 1,796B</div>
+      <div class="kpi-note">49.4% of GDP · defence, social &amp; investment surge</div>
+    </div>
+    <div>
+      <div class="kpi-label">Deficit</div>
+      <div class="kpi-value def">−6.5% GDP</div>
+      <div class="kpi-note">−PLN 236.6B · EU's 2nd highest deficit (after Romania)</div>
+    </div>
+    <div>
+      <div class="kpi-label">Public Debt</div>
+      <div class="kpi-value dbt">55.1%</div>
+      <div class="kpi-note">PLN 2,013B · rising fast; below EU avg of 81%</div>
+    </div>
+  </div>
+</div>
+
+<div class="stripe"></div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!--  MAIN BARS                                             -->
+<!-- ══════════════════════════════════════════════════════ -->
+<div class="section-label">Revenue &amp; Expenditure by Function</div>
+
+<div class="two-col">
+
+  <!-- ── LEFT: RECEIPTS ── -->
+  <div class="col-pad">
+    <div class="panel-head">
+      <h2>Revenue by Source</h2>
+      <span>Max = PLN 380B (VAT) · Total PLN 1,564B</span>
+    </div>
+    <div id="rec"></div>
+    <div class="total-row">
+      <div class="bar-label">Total Revenue</div>
+      <div class="bar-track" style="background:transparent"></div>
+      <div class="bar-val">PLN 1,564B</div>
+    </div>
+    <div class="method-note" style="margin-top:14px">
+      Poland's revenue base grew strongly in 2024 on the back of high nominal wage growth (+12% in H1 2024) and near-record employment. Despite this, revenues fell short of budget targets — notably VAT (down PLN 23B), CIT (down PLN 11B) and CO₂ permit sales — forcing a mid-year budget amendment. VAT is the largest single source. <strong>No dedicated social contributions fund healthcare</strong>: health is financed by the NFZ (National Health Fund), whose revenue is classified separately from ZUS pension/disability contributions. Poland retains the złoty (PLN) outside the eurozone.
+    </div>
+  </div>
+
+  <!-- ── RIGHT: OUTLAYS ── -->
+  <div class="col-divider">
+    <div class="panel-head">
+      <h2>Expenditure by Function (COFOG)</h2>
+      <span>Max = PLN 450B (Social Protection incl. pensions) · Total PLN 1,796B</span>
+    </div>
+    <div id="out"></div>
+    <div class="total-row">
+      <div class="bar-label">Total Expenditure</div>
+      <div class="bar-track" style="background:transparent"></div>
+      <div class="bar-val">PLN 1,796B</div>
+    </div>
+    <div class="deficit-row" id="def-row">
+      <div class="bar-label">General Government Deficit</div>
+      <div class="bar-track">
+        <div class="bar-fill deficit-fill" data-pct="52.6" style="width:0%"></div>
+      </div>
+      <div class="bar-val" style="color:#c02828">−PLN 236B</div>
+    </div>
+    <div class="method-note">
+      Defence is Poland's second-largest expenditure function at ~4.1% of GDP — the highest share of any NATO member. A large portion (~PLN 62B) flows through the off-budget Armed Forces Support Fund (FWSZ), creating transparency concerns flagged by Poland's Supreme Audit Office (NIK). Social protection (pensions, family, disability) dominates. The EU Excessive Deficit Procedure was triggered in July 2024, requiring Poland to reduce the deficit below 3% by 2028–30.
+    </div>
+  </div>
+
+</div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!--  CALLOUT BOXES                                         -->
+<!-- ══════════════════════════════════════════════════════ -->
+<div class="section-label" style="margin-top:32px">Context &amp; explanations</div>
+<div class="callouts" style="margin-top:16px">
+
+  <div class="callout">
+    <span class="callout-icon">🛡️</span>
+    <h3>Defence: 4.1% of GDP — NATO's #1 Spender</h3>
+    <p>Poland spent approximately PLN 151 billion on defence in 2024 (4.12% of GDP), making it the top NATO member by defence-spending share — surpassing even the United States (3.2%). The surge is a direct response to Russia's full-scale invasion of Ukraine in 2022. Defence spending tripled in absolute terms between 2021 and 2024. Procurements include South Korean K2 main battle tanks, FA-50 fighter jets, HIMARS rocket systems, F-35 fighters, and HK417 rifles. About PLN 62 billion flows through the off-budget Armed Forces Support Fund (FWSZ) via Bank Gospodarstwa Krajowego bonds — a practice criticised by Poland's Supreme Audit Office (NIK) for reducing transparency and understating the headline budget deficit.</p>
+    <span class="tag tag-red">Defence: 4.12% GDP · PLN 151B · NATO #1 by GDP share</span>
+  </div>
+
+  <div class="callout">
+    <span class="callout-icon">👶</span>
+    <h3>Family Benefits: 800+, Active Parent &amp; Child Bonus</h3>
+    <p>Poland operates one of the most generous family benefit systems in the EU. The flagship 800+ programme (raised from 500+ in February 2024) pays PLN 800/month per child unconditionally — up from PLN 500 since 2016. The new "Active Parent" (Aktywny Rodzic) programme, launched in October 2024, pays PLN 1,500/month to working parents of children aged 12–35 months. Together, these programmes cost roughly PLN 60–70 billion annually (~1.7% of GDP) and are a major driver of the fiscal deficit. They are also credited with reversing Poland's fertility decline and boosting female labour force participation.</p>
+    <span class="tag tag-purple">800+ benefit: PLN 800/child/month · universal · ~PLN 60–70B/year</span>
+  </div>
+
+  <div class="callout">
+    <span class="callout-icon">📉</span>
+    <h3>EU's 2nd Highest Deficit — EDP Triggered</h3>
+    <p>Poland's 6.5% general government deficit in 2024 was the second highest in the EU, behind only Romania (9.3%). The EU launched the Excessive Deficit Procedure (EDP) against Poland in July 2024. The deficit results from a combination of record defence spending, large social transfers, 13th and 14th pension payments, a public sector wage increase, and below-target tax revenues. Poland has committed to reducing the deficit below 3% of GDP by 2028–30. The Supreme Audit Office (NIK) noted that the "true" deficit is even larger when off-budget BGK/FWSZ financing is included, reaching close to PLN 240B or 6.6% of GDP under EU methodology.</p>
+    <span class="tag tag-red">Deficit: −6.5% GDP · EU's 2nd highest · EDP since July 2024</span>
+  </div>
+
+  <div class="callout">
+    <span class="callout-icon">💰</span>
+    <h3>VAT Shortfall: The 2024 Budget Crisis</h3>
+    <p>VAT is Poland's largest single revenue source, but 2024 collections fell significantly short of budget targets. A near-30% year-on-year increase had been assumed in the original budget — an assumption described as "overly optimistic" by ING analysts. The actual shortfall was PLN 23 billion in VAT alone, alongside PLN 11 billion less in CIT (driven by weak export-oriented firm profits) and PLN 6 billion less from the National Bank's profit transfer. A formal budget amendment in October 2024 raised the state deficit ceiling by PLN 56 billion to PLN 240 billion. Poland is now implementing mandatory e-invoicing (KSeF) from 2026 to close compliance gaps.</p>
+    <span class="tag tag-amber">VAT shortfall: PLN 23B · CIT miss: PLN 11B · amended Oct 2024</span>
+  </div>
+
+  <div class="callout">
+    <span class="callout-icon">🏥</span>
+    <h3>Healthcare: Chronically Underfunded Despite Reform</h3>
+    <p>Poland spends roughly 6.5% of GDP on healthcare — below the EU average of ~8%. The National Health Fund (NFZ) is financed primarily through a 9% health contribution on gross income, but spending has lagged population needs, resulting in long waiting times for specialist care and elective procedures. The 2024 budget included a PLN 25 billion increase in healthcare funding as part of a medium-term plan to raise health spending to 7% of GDP. Poland's universal public healthcare system is free at the point of use but chronically underfunded, with a dual-tier reality where private insurance and direct payments fill significant gaps.</p>
+    <span class="tag tag-teal">Healthcare: ~6.5% GDP · NFZ-funded · below EU avg · PLN +25B in 2024</span>
+  </div>
+
+  <div class="callout">
+    <span class="callout-icon">🏗️</span>
+    <h3>Off-Budget Funds: Poland's Transparency Problem</h3>
+    <p>A defining feature of Poland's public finances is the large scale of spending channelled outside the official state budget through the Bank Gospodarstwa Krajowego (BGK). In 2024, over PLN 135 billion of public tasks were financed through BGK-managed funds — equivalent to 16% of state budget expenditure. These funds include the Armed Forces Support Fund, National Road Fund, COVID-19 Prevention Fund, and others. The BGK-related debt alone exceeded PLN 350 billion. NIK (Supreme Audit Office) has criticised this structure for violating budget transparency principles and limiting parliamentary oversight. The Tusk government has pledged to restore budget transparency.</p>
+    <span class="tag tag-grey">Off-budget BGK funds: >PLN 135B (2024) · ~3.7% GDP · NIK critical</span>
+  </div>
+
+</div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!--  FOOTNOTE                                              -->
+<!-- ══════════════════════════════════════════════════════ -->
+<div class="footnote">
+  <p>
+    <strong>Primary sources:</strong> Statistics Poland (GUS) — General Government Deficit and Debt in 2024, October EDP Notification 2025 (October 2025); Poland Insight — "Poland's Fiscal Deficit Climbs to PLN 236.6 Billion in 2024" (citing GUS/CEO.com.pl, October 2025); Notes from Poland — "Poland's public debt tops 2 trillion zloty for first time" (April 2025); NIK (Supreme Audit Office) — Analysis of the State Budget Execution in 2024 (2025); ING Think — "Poland faces tougher borrowing as 2024 deficit rises" (October 2024); European Parliament Think Tank — "EU Member States' defence budgets" (May 2025); European Commission — Economic Forecast for Poland (Autumn 2025); Polish Ministry of Defence — 2024 Defence Budget (February 2024); OECD — Taxing Wages 2025, Poland Chapter.
+  </p>
+  <p>
+    <strong>Methodology:</strong> All headline fiscal aggregates (revenue PLN 1,564B/43.0% GDP, expenditure PLN 1,796B/49.4% GDP, deficit −PLN 236.6B/−6.5% GDP, debt PLN 2,012.6B/55.1% GDP) are official GUS ESA2010 general government consolidated data from the October 2025 EDP notification, as confirmed by Poland Insight and Eurostat. GDP: PLN 3,638 billion (GUS, 2024; confirmed by Notes from Poland "PLN 3.64 trillion"). Revenue breakdown uses OECD Revenue Statistics 2024 structure for Poland (VAT ~10.5% GDP, PIT ~6.2% GDP, social contributions ~12% GDP, CIT ~2.8% GDP, excise ~3.5% GDP) scaled to 2024 actuals. <strong>Pension expenditure: ~PLN 243B (~6.7% of GDP, ESSPROS)</strong> — consistent with the Eurostat pension map showing Poland at 6.7%. This covers ZUS old-age, KRUS (farmers), and uniformed services pensions but excludes disability and survivors. Defence: PLN 151B (4.12% GDP) per European Parliament Think Tank, including PLN 62B from the off-budget Armed Forces Support Fund (FWSZ). The standard NATO definition, which includes military pensions, yields a slightly different figure. Currency: Polish złoty (PLN). Poland is an EU member outside the eurozone; average 2024 rate: ~PLN 4.29/EUR.
+  </p>
+</div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!--  DATA & RENDERING                                       -->
+<!-- ══════════════════════════════════════════════════════ -->
+<script>
+const MAX_REC = 380;   // VAT — largest single revenue source
+const MAX_OUT = 450;   // Social protection (pensions + family + disability + unemployment)
+
+// ── RECEIPTS ──────────────────────────────────────────────────────
+// Total: PLN 1,564B = 43.0% of GDP (PLN 3,638B)
+const receipts = [
+  {
+    group: "Indirect Taxes",
+    items: [
+      {
+        label: "VAT (Podatek od Towarów i Usług)",
+        sub: "Standard 23% · reduced 8% (food processing, services) · 5% (basic food) · missed 2024 target by PLN 23B",
+        val: 380, gdp: 10.5, cls: "c-vat"
+      },
+      {
+        label: "Excise Duties (Akcyza)",
+        sub: "Fuel, tobacco, alcohol, electricity, gambling · also vehicle registration tax",
+        val: 127, gdp: 3.5, cls: "c-exc"
+      },
+    ]
+  },
+  {
+    group: "Social Contributions",
+    items: [
+      {
+        label: "Social Contributions (ZUS &amp; NFZ)",
+        sub: "ZUS pension 19.52% + disability 8% + sickness 2.45% + accident; NFZ health 9% of income",
+        val: 436, gdp: 12.0, cls: "c-ssc"
+      },
+    ]
+  },
+  {
+    group: "Direct Taxes",
+    items: [
+      {
+        label: "PIT (Podatek dochodowy od osób fizycznych)",
+        sub: "12% (≤PLN 120,000) · 32% (>PLN 120,000) · PLN 30,000 tax-free threshold · PIT-0 for under-26s",
+        val: 225, gdp: 6.2, cls: "c-pit"
+      },
+      {
+        label: "CIT (Podatek dochodowy od osób prawnych)",
+        sub: "19% standard · 9% for small taxpayers (sales ≤EUR 2M) · missed target by PLN 11B in 2024",
+        val: 102, gdp: 2.8, cls: "c-cit"
+      },
+    ]
+  },
+  {
+    group: "EU Funds &amp; Other Revenue",
+    items: [
+      {
+        label: "EU Structural Funds &amp; RRF (KPO)",
+        sub: "ESIF cohesion, agricultural subsidies, Recovery &amp; Resilience Facility (KPO) disbursements",
+        val: 120, gdp: 3.3, cls: "c-eu"
+      },
+      {
+        label: "Other Non-Tax Revenue",
+        sub: "Fees, fines, dividends, NBP profit transfer (PLN 6B miss), CO₂ permits, property income",
+        val: 174, gdp: 4.8, cls: "c-other"
+      },
+    ]
+  },
+];
+
+// ── OUTLAYS (COFOG) ───────────────────────────────────────────────
+// Total: PLN 1,796B = 49.4% of GDP
+const outlays = [
+  {
+    group: "Social Protection",
+    items: [
+      {
+        label: "Pensions — all schemes (ESSPROS)",
+        sub: "ZUS old-age + KRUS (farmers) + uniformed services · 6.7% GDP per Eurostat pension map",
+        val: 243, gdp: 6.7, cls: "c-pens"
+      },
+      {
+        label: "Family Benefits (800+, Active Parent)",
+        sub: "800+/child/month (from PLN 500 raised Feb 2024) · Active Parent PLN 1,500/month from Oct 2024",
+        val: 105, gdp: 2.9, cls: "c-fam"
+      },
+      {
+        label: "Disability, Sickness &amp; Other Social",
+        sub: "Disability pensions, sickness allowances, unemployment (zasiłki), housing benefits",
+        val: 102, gdp: 2.8, cls: "c-soc"
+      },
+    ]
+  },
+  {
+    group: "Defence",
+    items: [
+      {
+        label: "National Defence (Obrona Narodowa)",
+        sub: "PLN 151B total incl. off-budget FWSZ (PLN 62B via BGK) · K2 tanks, FA-50, F-35, HIMARS",
+        val: 149, gdp: 4.1, cls: "c-def"
+      },
+    ]
+  },
+  {
+    group: "Health",
+    items: [
+      {
+        label: "Healthcare (NFZ &amp; public hospitals)",
+        sub: "National Health Fund (NFZ) · universal free-at-use coverage · ~6.5% GDP · PLN +25B boost in 2024",
+        val: 236, gdp: 6.5, cls: "c-hlth"
+      },
+    ]
+  },
+  {
+    group: "General Public Services",
+    items: [
+      {
+        label: "General Public Services &amp; Admin",
+        sub: "Parliament, presidency, ministries, KAS tax authority, courts · debt service excluded",
+        val: 230, gdp: 6.3, cls: "c-gen"
+      },
+    ]
+  },
+  {
+    group: "Debt Service",
+    items: [
+      {
+        label: "Interest on Public Debt",
+        sub: "Rising sharply as PLN 350B+ BGK bonds mature · debt service ~PLN 66B in state budget alone",
+        val: 73, gdp: 2.0, cls: "c-int"
+      },
+    ]
+  },
+  {
+    group: "Education",
+    items: [
+      {
+        label: "Education (Edukacja)",
+        sub: "Free public schools &amp; universities · no tuition fees · teacher pay rises · ~5.2% GDP",
+        val: 189, gdp: 5.2, cls: "c-edu"
+      },
+    ]
+  },
+  {
+    group: "Economic Affairs &amp; Infrastructure",
+    items: [
+      {
+        label: "Transport &amp; Infrastructure",
+        sub: "GDDKiA roads, PKP rail, EU co-financed motorways, National Road Fund (off-budget BGK)",
+        val: 150, gdp: 4.1, cls: "c-trans"
+      },
+      {
+        label: "Economic Affairs, Energy &amp; Other",
+        sub: "Energy subsidies, agriculture (ARiMR), R&amp;D, environment, public order, housing",
+        val: 319, gdp: 8.8, cls: "c-misc2"
+      },
+    ]
+  },
+];
+
+// ── BUILD BARS ──────────────────────────────────────────────────────
+function buildSection(data, containerId, maxVal, animClass, delay0) {
+  const container = document.getElementById(containerId);
+  let delay = delay0;
+  data.forEach(group => {
+    const glbl = document.createElement('div');
+    glbl.className = 'group-label';
+    glbl.textContent = group.group;
+    container.appendChild(glbl);
+    group.items.forEach(item => {
+      const pct = Math.min((item.val / maxVal) * 100, 100).toFixed(2);
+      const row = document.createElement('div');
+      row.className = `bar-row${animClass ? ' ' + animClass : ''}`;
+      row.style.animationDelay = delay + 'ms';
+      row.innerHTML = `
+        <div class="bar-label">${item.label}<small>${item.sub}</small></div>
+        <div class="bar-track">
+          <div class="bar-fill ${item.cls}" data-pct="${pct}" style="width:0%"></div>
+        </div>
+        <div class="bar-val">PLN ${item.val}B<small>${item.gdp}% GDP</small></div>
+      `;
+      container.appendChild(row);
+      delay += 55;
+    });
+  });
+}
+
+buildSection(receipts, 'rec', MAX_REC, '',           80);
+buildSection(outlays,  'out', MAX_OUT, 'right-anim', 200);
+
+// Animate deficit row
+setTimeout(() => {
+  const dr = document.getElementById('def-row');
+  dr.style.transition = 'opacity 0.4s ease 0.5s';
+  dr.style.opacity = '1';
+  const fill = dr.querySelector('.bar-fill');
+  fill.style.transition = 'width 0.95s cubic-bezier(0.16,1,0.3,1) 0.6s';
+  fill.style.width = fill.dataset.pct + '%';
+}, 100);
+
+// Animate all bars
+setTimeout(() => {
+  document.querySelectorAll('.bar-fill[data-pct]').forEach(el => {
+    el.style.width = el.dataset.pct + '%';
+  });
+}, 150);
+</script>
+</body>
+</html>

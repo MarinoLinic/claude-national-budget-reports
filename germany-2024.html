@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Germany Government Budget 2024 — Detailed</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --paper:   #f7f3ee;
+  --white:   #ffffff;
+  --ink:     #18140f;
+  --muted:   #7c766e;
+  --rule:    #ddd7ce;
+  --red:     #b8291f;
+  --red-mid: #d94f3d;
+  --red-lt:  #f0d5d2;
+  --blue:    #1c3f6e;
+  --blue-mid:#2e5fa3;
+  --blue-lt: #ccd8ed;
+  --teal:    #1a5f5a;
+  --teal-lt: #c8e0de;
+  --gold:    #8a6800;
+  --gold-lt: #ede3c0;
+  --olive:   #5a6a1a;
+  --olive-lt:#dde3c0;
+  --grey:    #4a4640;
+  --grey-lt: #e2ddd8;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  background: var(--paper);
+  font-family: 'Barlow', sans-serif;
+  color: var(--ink);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* ── MASTHEAD ── */
+.masthead {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: stretch;
+  overflow: hidden;
+}
+.masthead-left {
+  padding: 44px 52px 40px;
+  border-right: 1px solid #333;
+}
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+/* German flag: three horizontal stripes */
+.flag {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  flex-shrink: 0;
+  width: 36px;
+  height: 22px;
+  border-radius: 2px;
+  overflow: hidden;
+}
+.flag span {
+  display: block;
+  width: 36px;
+  flex: 1;
+}
+.flag .blk { background: #000000; }
+.flag .red { background: #DD0000; }
+.flag .gld { background: #FFCE00; }
+.eyebrow-text {
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #888;
+  font-weight: 500;
+}
+.masthead h1 {
+  font-family: 'Libre Baskerville', serif;
+  font-size: clamp(2rem, 3.5vw, 3.2rem);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  max-width: 560px;
+}
+.masthead h1 em {
+  font-style: italic;
+  color: #b0a898;
+}
+.masthead-sub {
+  margin-top: 12px;
+  font-size: 12px;
+  color: #777;
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.masthead-right {
+  padding: 44px 52px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 22px;
+  min-width: 240px;
+}
+.kpi-label {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #666;
+  font-weight: 500;
+  margin-bottom: 3px;
+}
+.kpi-value {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  line-height: 1;
+}
+.kpi-value.rec  { color: #5a9de0; }
+.kpi-value.def  { color: #e06050; }
+.kpi-value.out  { color: var(--paper); }
+.kpi-note {
+  font-size: 10px;
+  color: #666;
+  font-weight: 300;
+  margin-top: 2px;
+}
+
+/* ── COLOUR STRIPE — German flag colours ── */
+.stripe {
+  height: 5px;
+  background: linear-gradient(90deg,
+    #000000 0% 25%,
+    #DD0000 25% 55%,
+    #FFCE00 55% 75%,
+    var(--blue) 75% 88%,
+    var(--grey) 88% 100%);
+}
+
+/* ── SECTION LABEL ── */
+.section-label {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-weight: 600;
+  color: var(--muted);
+  padding: 28px 52px 0;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+}
+
+/* ── LAYOUT WRAPPERS ── */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  padding: 0 52px;
+}
+.col-divider {
+  border-left: 1px solid var(--rule);
+  padding-left: 40px;
+}
+.col-pad {
+  padding-right: 40px;
+}
+
+/* ── PANEL HEADING ── */
+.panel-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 20px 0 14px;
+  border-bottom: 2px solid var(--ink);
+  margin-bottom: 4px;
+}
+.panel-head h2 {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+.panel-head span {
+  font-size: 10px;
+  color: var(--muted);
+  font-weight: 400;
+}
+
+/* ── BAR ROWS ── */
+.group-label {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  font-weight: 600;
+  margin: 16px 0 6px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--rule);
+}
+.bar-row {
+  display: grid;
+  grid-template-columns: 200px 1fr 60px;
+  align-items: center;
+  gap: 10px;
+  padding: 3px 0;
+  opacity: 0;
+  transform: translateX(-8px);
+  animation: slideIn 0.35s ease forwards;
+}
+.bar-row.right-anim {
+  transform: translateX(8px);
+}
+@keyframes slideIn {
+  to { opacity: 1; transform: translateX(0); }
+}
+.bar-label {
+  font-size: 12px;
+  color: var(--ink);
+  line-height: 1.3;
+  font-weight: 400;
+}
+.bar-label small {
+  display: block;
+  font-size: 10px;
+  color: var(--muted);
+  font-weight: 300;
+  margin-top: 1px;
+}
+.bar-track {
+  height: 18px;
+  background: var(--rule);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.bar-fill {
+  height: 100%;
+  width: 0%;
+  border-radius: 2px;
+  transition: width 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+/* receipt colours */
+.c-wage    { background: var(--blue); }
+.c-assess  { background: #3d75c0; }
+.c-corp    { background: #5590d4; }
+.c-cap     { background: #6a9ece; }
+.c-vat     { background: var(--teal); }
+.c-energy  { background: #2a8a84; }
+.c-excise  { background: #3aaa9e; }
+.c-trade   { background: var(--olive); }
+.c-soc     { background: var(--gold); }
+.c-other   { background: #7090b8; }
+/* outlay colours */
+.c-grv     { background: var(--red); }
+.c-gkv     { background: #c04a3a; }
+.c-gpv     { background: #c86050; }
+.c-gav     { background: #d07060; }
+.c-civil   { background: #d88070; }
+.c-buerg   { background: var(--gold); }
+.c-fam     { background: #a07a00; }
+.c-educ    { background: var(--olive); }
+.c-def     { background: var(--grey); }
+.c-admin   { background: #888078; }
+.c-infra   { background: #6a6460; }
+.c-debt    { background: #555050; }
+.c-other2  { background: #9a9488; }
+
+.bar-val {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--ink);
+  text-align: right;
+  white-space: nowrap;
+}
+.bar-val small {
+  display: block;
+  font-size: 9px;
+  color: var(--muted);
+  font-weight: 400;
+}
+
+/* ── DEFICIT BRIDGE ── */
+.deficit-row {
+  background: #fff8f7;
+  border: 1px solid #f0ccc8;
+  border-radius: 3px;
+  padding: 10px 14px;
+  margin: 10px 0 4px;
+  display: grid;
+  grid-template-columns: 200px 1fr 60px;
+  gap: 10px;
+  align-items: center;
+}
+.deficit-row .bar-label { color: var(--red); font-weight: 500; }
+.deficit-row .bar-fill  { background: var(--red-mid); }
+.deficit-row .bar-val   { color: var(--red); }
+
+/* ── CALLOUT BOXES ── */
+.callouts {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1px;
+  background: var(--rule);
+  margin: 0 52px;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.callout {
+  background: var(--white);
+  padding: 18px 20px;
+}
+.callout-icon { font-size: 18px; margin-bottom: 8px; display: block; }
+.callout h3 {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.callout p {
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.6;
+  font-weight: 300;
+}
+.callout .tag {
+  display: inline-block;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: 2px;
+  margin-top: 8px;
+}
+.tag-red   { background: var(--red-lt);   color: var(--red);  }
+.tag-blue  { background: var(--blue-lt);  color: var(--blue); }
+.tag-gold  { background: var(--gold-lt);  color: var(--gold); }
+.tag-teal  { background: var(--teal-lt);  color: var(--teal); }
+.tag-olive { background: var(--olive-lt); color: var(--olive);}
+.tag-grey  { background: var(--grey-lt);  color: var(--grey); }
+
+/* ── FOOTNOTE ── */
+.footnote {
+  padding: 24px 52px 40px;
+  border-top: 1px solid var(--rule);
+  margin: 28px 0 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.footnote p { font-size: 10px; color: var(--muted); line-height: 1.7; font-weight: 300; }
+.footnote strong { font-weight: 600; color: var(--ink); }
+
+/* ── TOTAL ROW ── */
+.total-row {
+  display: grid;
+  grid-template-columns: 200px 1fr 60px;
+  gap: 10px;
+  align-items: center;
+  padding: 8px 0 4px;
+  border-top: 2px solid var(--ink);
+  margin-top: 6px;
+}
+.total-row .bar-label { font-weight: 600; font-size: 12px; }
+.total-row .bar-val   { font-weight: 700; font-size: 12px; }
+
+/* ── METHODOLOGY NOTE ── */
+.method-note {
+  background: var(--ink);
+  color: #ccc;
+  font-size: 10.5px;
+  line-height: 1.7;
+  padding: 14px 20px;
+  border-radius: 3px;
+  margin: 8px 0 0;
+  font-weight: 300;
+}
+.method-note strong { color: var(--paper); font-weight: 600; }
+
+@media (max-width: 900px) {
+  .two-col { grid-template-columns: 1fr; padding: 0 20px; }
+  .col-divider { border-left: none; border-top: 1px solid var(--rule); padding-left: 0; padding-top: 28px; margin-top: 28px; }
+  .col-pad { padding-right: 0; }
+  .masthead { grid-template-columns: 1fr; }
+  .masthead-right { border-top: 1px solid #333; padding-top: 24px; flex-direction: row; flex-wrap: wrap; gap: 24px; }
+  .masthead-left { padding: 32px 20px 28px; }
+  .section-label { padding: 20px 20px 0; }
+  .callouts { grid-template-columns: 1fr; margin: 0 20px; }
+  .footnote { grid-template-columns: 1fr; padding: 20px 20px 32px; }
+  .bar-row { grid-template-columns: 140px 1fr 52px; }
+  .deficit-row { grid-template-columns: 140px 1fr 52px; }
+  .total-row { grid-template-columns: 140px 1fr 52px; }
+}
+</style>
+</head>
+<body>
+
+<!-- MASTHEAD -->
+<div class="masthead">
+  <div class="masthead-left">
+    <div class="eyebrow">
+      <div class="flag">
+        <span class="blk"></span>
+        <span class="red"></span>
+        <span class="gld"></span>
+      </div>
+      <span class="eyebrow-text">Federal Republic of Germany · Bundesrepublik Deutschland</span>
+    </div>
+    <h1>Government Budget<br><em>Fiscal Year 2024</em></h1>
+    <div class="masthead-sub">Receipts, Outlays & Deficit · General Government (Gesamtstaat) · Sources: Destatis, BMF, Bundesbank</div>
+  </div>
+  <div class="masthead-right">
+    <div class="kpi">
+      <div class="kpi-label">Total General Gov't Revenue (2024)</div>
+      <div class="kpi-value rec">€2,013B</div>
+      <div class="kpi-note">~47.4% of GDP · tax €948B + social contributions ~€620B</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">General Government Deficit (2024)</div>
+      <div class="kpi-value def">€118.8B</div>
+      <div class="kpi-note">2.8% of GDP · below EU Maastricht 3% ceiling</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Total General Gov't Expenditure (2024)</div>
+      <div class="kpi-value out">€2,132B</div>
+      <div class="kpi-note">~50.2% of GDP · social spending dominates</div>
+    </div>
+  </div>
+</div>
+<div class="stripe"></div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!--  RECEIPTS + OUTLAYS TWO-COL                           -->
+<!-- ══════════════════════════════════════════════════════ -->
+<div class="section-label">Budget breakdown</div>
+
+<div class="two-col">
+
+  <!-- ── LEFT: RECEIPTS ── -->
+  <div class="col-pad">
+    <div class="panel-head">
+      <h2>Receipts by Source</h2>
+      <span>Max = €303B (VAT incl. import VAT) · Total €2,013B</span>
+    </div>
+
+    <div id="rec"></div>
+
+    <!-- DEFICIT -->
+    <div class="deficit-row" id="def-row" style="opacity:0">
+      <div class="bar-label">Deficit Financing<small>Federal & Länder bonds (Bundesanleihen)</small></div>
+      <div class="bar-track">
+        <div class="bar-fill" data-pct="39" style="width:0%;background:var(--red-mid)"></div>
+      </div>
+      <div class="bar-val">€118.8B<small>2.8% GDP</small></div>
+    </div>
+
+    <div class="total-row">
+      <div class="bar-label">Total Resources Available</div>
+      <div class="bar-track" style="background:transparent"></div>
+      <div class="bar-val">€2,132B</div>
+    </div>
+
+    <div class="method-note" style="margin-top:16px">
+      <strong>Note on social contributions:</strong> Germany's four statutory social insurance funds — pension (GRV 18.6%), health (GKV ~16.3% avg), long-term care (GPV 3.4%), unemployment (GAV 2.6%) — are funded by equal employer-employee contributions and treated as separate parafiscal entities. They appear both as revenue and expenditure items of general government. Federal budget transfers to GRV (~€100B) bridge the structural shortfall between contributions and pension payouts.
+    </div>
+  </div>
+
+  <!-- ── RIGHT: OUTLAYS ── -->
+  <div class="col-divider">
+    <div class="panel-head">
+      <h2>Outlays by Function</h2>
+      <span>Max = €390B (Statutory pensions GRV) · Total €2,132B</span>
+    </div>
+
+    <div id="out"></div>
+
+    <div class="total-row">
+      <div class="bar-label">Total Expenditure</div>
+      <div class="bar-track" style="background:transparent"></div>
+      <div class="bar-val">€2,132B</div>
+    </div>
+
+    <div class="method-note" style="margin-top:16px">
+      <strong>Note on Gesamtstaat vs. Bundeshaushalt:</strong> The Federal budget (Bundeshaushalt) for 2024 was ~€477B. General government (Gesamtstaat) totalling €2,132B additionally includes Länder budgets (~€450B), municipal budgets (~€350B), and the four statutory social insurance funds (~€850B). The social funds are the largest single component. This document uses the ESA 2010 consolidated general government basis reported to Eurostat.
+    </div>
+  </div>
+
+</div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!--  CALLOUT BOXES                                         -->
+<!-- ══════════════════════════════════════════════════════ -->
+<div class="section-label" style="margin-top:32px">Context & explanations</div>
+<div class="callouts" style="margin-top:16px">
+
+  <div class="callout">
+    <span class="callout-icon">🔒</span>
+    <h3>The Schuldenbremse — Germany's Debt Brake</h3>
+    <p>Since 2009, Germany's Basic Law (Grundgesetz) restricts the federal structural deficit to 0.35% of GDP (the <em>Schuldenbremse</em>). Länder are held to zero structural deficits. After suspension during 2020–23 (pandemic + energy crisis), the brake was reinstated for 2024. A landmark Federal Constitutional Court ruling in November 2023 struck down a €60B fund transfer, forcing painful mid-year cuts. The Bundesverfassungsgericht ruling effectively ended the Scholz coalition and triggered early elections in early 2025.</p>
+    <span class="tag tag-grey">Structural deficit limit: 0.35% GDP</span>
+  </div>
+
+  <div class="callout">
+    <span class="callout-icon">👴</span>
+    <h3>Statutory Pension Insurance (GRV) — The Largest Line</h3>
+    <p>Germany's <em>Gesetzliche Rentenversicherung</em> paid ~€390B to approximately 21 million pensioners in 2024 — the single biggest expenditure in the general government budget at ~9.2% of GDP. The contribution rate is 18.6% of gross wages (split 50/50 employer/employee). Federal budget transfers of ~€100B per year bridge the structural shortfall. Pension indexation follows gross wage growth, and the pension level is protected at a minimum 48% replacement rate under Scholz-era legislation.</p>
+    <span class="tag tag-red">GRV pension spending: ~9.2% GDP</span>
+  </div>
+
+  <div class="callout">
+    <span class="callout-icon">🏥</span>
+    <h3>Statutory Health Insurance (GKV) — Universal Coverage</h3>
+    <p>Germany's <em>Gesetzliche Krankenversicherung</em> covers ~90% of the population (the rest use private insurance, PKV). Health spending reached ~€310B in 2024, rising 8% as hospital costs, medication and nursing care expenditure increased sharply. The GKV is financed by a base contribution of 14.6% of wages (employee/employer split), plus individual additional rates set by each Krankenkasse (averaging ~1.7% in 2024). Long-term care insurance (GPV) added a further ~€65B in 2024.</p>
+    <span class="tag tag-blue">GKV + GPV: ~8.8% GDP</span>
+  </div>
+
+  <div class="callout">
+    <span class="callout-icon">🛡️</span>
+    <h3>Defence: Racing to Meet the NATO 2% Target</h3>
+    <p>Germany's 2024 defence spending — combining the core Bundeswehr budget (~€51.8B) with the €100B <em>Sondervermögen</em> special fund (allocated over several years) — reached approximately €90B, or ~2.1% of GDP. This was Germany's first sustained commitment to the NATO 2% target since reunification. Russia's war in Ukraine transformed German defence policy (<em>Zeitenwende</em>). The special fund, created in 2022, is expected to be fully disbursed by ~2027, after which baseline spending will need to remain above 2% via the regular budget.</p>
+    <span class="tag tag-grey">Defence: ~2.1% GDP (NATO target met)</span>
+  </div>
+
+  <div class="callout">
+    <span class="callout-icon">💶</span>
+    <h3>VAT at 19% — Lower Than EU Peers</h3>
+    <p>Germany's standard VAT rate of 19% (reduced: 7% for food, books, public transport) generated €302B in 2024 — the largest single tax line. Despite being Europe's largest economy, Germany's VAT revenues as a share of GDP are <em>below</em> the OECD median, partly due to the generous reduced-rate system. The IMF has repeatedly flagged this gap. Income and social contribution revenues, by contrast, significantly exceed peer-country averages, reflecting Germany's high-wage, high-social-contribution employment model.</p>
+    <span class="tag tag-teal">VAT revenue: €302B · 7.1% GDP</span>
+  </div>
+
+  <div class="callout">
+    <span class="callout-icon">🌍</span>
+    <h3>Bürgergeld & Migration — A Contested Budget Line</h3>
+    <p>The <em>Bürgergeld</em> (citizens' benefit, replacing Hartz IV) provides means-tested income support and covered ~5.5 million recipients in 2024 at a cost of ~€45B, up €2.4B year-on-year. A significant share of recipients are migrants and asylum seekers, making it a lightning-rod political issue that helped fuel the CDU/CSU election campaign. Integration costs — language courses, youth welfare, housing assistance, integration allowances — added a further ~€30B. The Ampel coalition's collapse was partly driven by FDP demands to cut Bürgergeld as a condition of the 2025 budget agreement.</p>
+    <span class="tag tag-gold">Bürgergeld: ~€45B · ~1.1% GDP</span>
+  </div>
+
+</div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!--  FOOTNOTE                                              -->
+<!-- ══════════════════════════════════════════════════════ -->
+<div class="footnote">
+  <p>
+    <strong>Primary sources:</strong> Statistisches Bundesamt (Destatis) — "General government deficit increased to 118.8 billion euros in 2024" (Feb 2025, PE25_070_813); Destatis — "Tax revenues in cash terms amounted to a total of 948 billion euros in 2024" (Apr 2025); Bundesministerium der Finanzen (BMF) — Federal Budget Monthly Reports 2024; Deutsche Rentenversicherung Bund — Annual Report 2024; GKV-Spitzenverband — Statutory health insurance financials 2024; NATO Defence Expenditure Data 2024; IMF Article IV Germany 2024 (Country Report 24/230); European Commission Draft Budgetary Plan Germany 2025.
+  </p>
+  <p>
+    <strong>Methodology:</strong> All figures use the ESA 2010 general government (Gesamtstaat) definition consolidated across: federal (Bund), Länder, municipalities (Gemeinden) and social insurance funds (Sozialversicherungen). This is the basis for EU Maastricht deficit reporting. It differs from the federal Bundeshaushalt (~€477B) which excludes Länder, municipal and social fund budgets. Tax figures are from Destatis cash statistics (€947.7B total before redistribution). Social contributions (~€620B) are from Bundesbank financial accounts. GDP reference: ~€4,247B (2024 estimate). Exchange rate: figures in EUR; €1 ≈ $1.08 USD (2024 average).
+  </p>
+</div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!--  DATA & RENDERING                                       -->
+<!-- ══════════════════════════════════════════════════════ -->
+<script>
+// MAX values for bar scaling (€ billions)
+const MAX_REC = 303;  // VAT (largest single tax line)
+const MAX_OUT = 390;  // GRV statutory pension (largest spending line)
+
+// ── RECEIPTS (2024 general government, € billions) ─────────────────────────
+const receipts = [
+  {
+    group: "Taxes on Income & Profit",
+    items: [
+      { label: "Wage Tax (Lohnsteuer)",       sub: "14–45% progressive · largest income-tax stream",        val: 249, gdp: 5.9, cls: "c-wage" },
+      { label: "Assessed Income Tax (ESt)",   sub: "Self-employed, capital income, after Lohnsteuer offset", val: 73,  gdp: 1.7, cls: "c-assess" },
+      { label: "Corporate Tax (KSt)",         sub: "15% + 5.5% solidarity surcharge + trade tax (~30% eff.)", val: 92,  gdp: 2.2, cls: "c-corp" },
+      { label: "Capital Gains (KapESt)",      sub: "25% Abgeltungsteuer on dividends, interest, gains",     val: 35,  gdp: 0.8, cls: "c-cap" },
+    ]
+  },
+  {
+    group: "Taxes on Consumption & Production",
+    items: [
+      { label: "VAT / Turnover Tax (USt)",    sub: "19% standard · 7% reduced · incl. import VAT",          val: 303, gdp: 7.1, cls: "c-vat" },
+      { label: "Energy Tax (Energiesteuer)",  sub: "Fuel excise on petrol, diesel, heating oil",             val: 35,  gdp: 0.8, cls: "c-energy" },
+      { label: "Other Excise & Levies",       sub: "Tobacco, alcohol, insurance, aviation, electricity",     val: 36,  gdp: 0.8, cls: "c-excise" },
+      { label: "Trade Tax (Gewerbesteuer)",   sub: "Municipal business tax ~14%; shared with Bund & Länder", val: 75,  gdp: 1.8, cls: "c-trade" },
+    ]
+  },
+  {
+    group: "Social Security Contributions",
+    items: [
+      { label: "Social Contributions (total)", sub: "GRV 18.6% + GKV ~16.3% + GPV 3.4% + GAV 2.6% of wage", val: 620, gdp: 14.6, cls: "c-soc" },
+    ]
+  },
+  {
+    group: "Other Revenue",
+    items: [
+      { label: "Other taxes & non-tax revenue", sub: "Real estate tax, inheritance, fees, Bundesbank profit",  val: 50,  gdp: 1.2, cls: "c-other" },
+    ]
+  },
+];
+
+// ── OUTLAYS (2024 general government, € billions) ──────────────────────────
+const outlays = [
+  {
+    group: "Social Insurance Funds",
+    items: [
+      { label: "Statutory Pensions (GRV)",     sub: "~21M pensioners · PAYG · fed. subsidy ~€100B/yr",       val: 390, gdp: 9.2, cls: "c-grv" },
+      { label: "Statutory Health (GKV)",       sub: "~74M insured · hospitals, GPs, medication",              val: 310, gdp: 7.3, cls: "c-gkv" },
+      { label: "Long-term Care (GPV)",         sub: "Pflegeversicherung · nursing homes, home care",          val: 65,  gdp: 1.5, cls: "c-gpv" },
+      { label: "Unemployment Insurance (GAV)", sub: "Arbeitslosenversicherung · ~60% of prev. wage, 12 mo.",  val: 38,  gdp: 0.9, cls: "c-gav" },
+      { label: "Civil Servant Pensions",       sub: "Beamtenpensionen — non-contributory, from tax revenue", val: 65,  gdp: 1.5, cls: "c-civil" },
+    ]
+  },
+  {
+    group: "Social Transfers & Services",
+    items: [
+      { label: "Bürgergeld & Social Aid",      sub: "Basic income support (formerly Hartz IV) + housing",     val: 75,  gdp: 1.8, cls: "c-buerg" },
+      { label: "Family & Child Benefits",      sub: "Kindergeld €250/month · Elterngeld parental pay",        val: 65,  gdp: 1.5, cls: "c-fam" },
+    ]
+  },
+  {
+    group: "Core Public Services",
+    items: [
+      { label: "Education (all levels)",       sub: "Schools (Länder) + universities + Bafög student grants",  val: 200, gdp: 4.7, cls: "c-educ" },
+      { label: "Defence (Bundeswehr)",         sub: "Core budget €51.8B + Sondervermögen drawdown ~€19B",      val: 90,  gdp: 2.1, cls: "c-def" },
+      { label: "General Administration",       sub: "Federal, Länder & municipal personnel & operations",      val: 130, gdp: 3.1, cls: "c-admin" },
+      { label: "Infrastructure & Investment",  sub: "Federal roads, rail (DB), digital infrastructure, PAC",   val: 60,  gdp: 1.4, cls: "c-infra" },
+      { label: "Interest on Public Debt",      sub: "On ~€2.7T gross debt · rising Bund yields",               val: 65,  gdp: 1.5, cls: "c-debt" },
+      { label: "Other Expenditure",            sub: "Agriculture, environment, science, development aid, EU",   val: 179, gdp: 4.2, cls: "c-other2" },
+    ]
+  },
+];
+
+// ── BUILD BARS ──────────────────────────────────────────────────────────────
+function buildSection(data, containerId, maxVal, animClass, delay0) {
+  const container = document.getElementById(containerId);
+  let delay = delay0;
+  data.forEach(group => {
+    const glabel = document.createElement('div');
+    glabel.className = 'group-label';
+    glabel.textContent = group.group;
+    container.appendChild(glabel);
+
+    group.items.forEach(item => {
+      const pct = Math.min((item.val / maxVal) * 100, 100).toFixed(2);
+      const row = document.createElement('div');
+      row.className = `bar-row${animClass ? ' ' + animClass : ''}`;
+      row.style.animationDelay = delay + 'ms';
+      row.innerHTML = `
+        <div class="bar-label">${item.label}<small>${item.sub}</small></div>
+        <div class="bar-track">
+          <div class="bar-fill ${item.cls}" data-pct="${pct}" style="width:0%"></div>
+        </div>
+        <div class="bar-val">€${item.val}B<small>${item.gdp}% GDP</small></div>
+      `;
+      container.appendChild(row);
+      delay += 55;
+    });
+  });
+}
+
+buildSection(receipts, 'rec', MAX_REC, '',           80);
+buildSection(outlays,  'out', MAX_OUT, 'right-anim', 200);
+
+// animate deficit row
+setTimeout(() => {
+  const dr = document.getElementById('def-row');
+  dr.style.transition = 'opacity 0.4s ease 0.5s';
+  dr.style.opacity = '1';
+  dr.querySelector('.bar-fill').style.width = '39%';
+  dr.querySelector('.bar-fill').style.transition = 'width 0.9s cubic-bezier(0.16,1,0.3,1) 0.6s';
+}, 100);
+
+// animate all bars
+setTimeout(() => {
+  document.querySelectorAll('.bar-fill[data-pct]').forEach(el => {
+    el.style.width = el.dataset.pct + '%';
+  });
+}, 150);
+</script>
+</body>
+</html>

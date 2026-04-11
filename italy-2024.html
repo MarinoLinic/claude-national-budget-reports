@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Italy Government Budget 2024</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --paper:    #f5f1ec;
+  --white:    #ffffff;
+  --ink:      #14110d;
+  --muted:    #7a736b;
+  --rule:     #ddd8d0;
+  --green:    #007140;
+  --green-mid:#009050;
+  --green-lt: #c0ddd0;
+  --white2:   #f0f0f0;
+  --red:      #c00018;
+  --red-mid:  #d83030;
+  --red-lt:   #f0d0d4;
+  --teal:     #1a6060;
+  --teal-lt:  #c0dcdc;
+  --gold:     #8a6000;
+  --gold-lt:  #f0e0b8;
+  --slate:    #3a5870;
+  --slate-lt: #c8d8e4;
+  --olive:    #4a6015;
+  --olive-lt: #dce4c0;
+  --purple:   #5a2880;
+  --purple-lt:#dcd0ec;
+  --grey:     #484440;
+  --grey-lt:  #e2ddd8;
+  --amber:    #8a4400;
+  --amber-lt: #f0dcc0;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  background: var(--paper);
+  font-family: 'Barlow', sans-serif;
+  color: var(--ink);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* ── MASTHEAD ── */
+.masthead {
+  background: var(--ink);
+  color: var(--paper);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: stretch;
+  overflow: hidden;
+}
+.masthead-left { padding: 44px 52px 40px; border-right: 1px solid #2a2620; }
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+/* Italian tricolore flag */
+.flag-it {
+  width: 48px;
+  height: 30px;
+  border-radius: 2px;
+  overflow: hidden;
+  flex-shrink: 0;
+  display: flex;
+}
+.flag-it .g { background: #009246; flex: 1; }
+.flag-it .w { background: #f0f0f0; flex: 1; }
+.flag-it .r { background: #ce2b37; flex: 1; }
+.eyebrow-text {
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #888;
+  font-weight: 500;
+}
+.masthead h1 {
+  font-family: 'Libre Baskerville', serif;
+  font-size: clamp(2rem, 3.5vw, 3.1rem);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  max-width: 560px;
+}
+.masthead h1 em { font-style: italic; color: #b0a898; }
+.masthead-sub {
+  margin-top: 12px;
+  font-size: 12px;
+  color: #777;
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.masthead-right {
+  padding: 44px 52px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 20px;
+  min-width: 270px;
+}
+.kpi-label {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #666;
+  font-weight: 500;
+  margin-bottom: 3px;
+}
+.kpi-value {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 2.1rem;
+  font-weight: 700;
+  line-height: 1;
+}
+.kpi-value.rec  { color: #5a9de0; }
+.kpi-value.def  { color: #e06050; }
+.kpi-value.out  { color: var(--paper); }
+.kpi-value.dbt  { color: #e07050; }
+.kpi-note { font-size: 10px; color: #666; font-weight: 300; margin-top: 2px; }
+
+/* ── STRIPE — Italian tricolore ── */
+.stripe {
+  height: 5px;
+  background: linear-gradient(90deg,
+    #009246 0% 33%,
+    #e8e8e0 33% 67%,
+    #ce2b37 67% 100%);
+}
+
+/* ── SECTION LABEL ── */
+.section-label {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-weight: 600;
+  color: var(--muted);
+  padding: 28px 52px 0;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+}
+
+/* ── LAYOUT ── */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 0 52px;
+}
+.col-pad  { padding-right: 40px; }
+.col-divider { border-left: 1px solid var(--rule); padding-left: 40px; }
+
+/* ── PANEL HEAD ── */
+.panel-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 20px 0 14px;
+  border-bottom: 2px solid var(--ink);
+  margin-bottom: 4px;
+}
+.panel-head h2 {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 1rem;
+  font-weight: 700;
+}
+.panel-head span { font-size: 10px; color: var(--muted); }
+
+/* ── BAR ROWS ── */
+.group-label {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  font-weight: 600;
+  margin: 16px 0 6px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--rule);
+}
+.bar-row {
+  display: grid;
+  grid-template-columns: 200px 1fr 62px;
+  align-items: center;
+  gap: 10px;
+  padding: 3px 0;
+  opacity: 0;
+  transform: translateX(-8px);
+  animation: slideIn 0.35s ease forwards;
+}
+.bar-row.right-anim { transform: translateX(8px); }
+@keyframes slideIn { to { opacity:1; transform:translateX(0); } }
+.bar-label { font-size: 12px; color: var(--ink); line-height: 1.3; font-weight: 400; }
+.bar-label small { display:block; font-size:10px; color:var(--muted); font-weight:300; margin-top:1px; }
+.bar-track {
+  height: 18px;
+  background: var(--rule);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.bar-fill {
+  height: 100%;
+  width: 0%;
+  border-radius: 2px;
+  transition: width 0.95s cubic-bezier(0.16,1,0.3,1);
+}
+.bar-val { font-size: 11px; color: var(--ink); font-weight: 500; text-align: right; }
+.bar-val small { display:block; font-size:9px; color:var(--muted); font-weight:300; }
+
+/* Revenue colours */
+.c-ssc   { background: var(--slate); }
+.c-irpef { background: #2a5898; }
+.c-iva   { background: var(--red); }
+.c-ires  { background: var(--teal); }
+.c-irap  { background: #3a7860; }
+.c-exc   { background: var(--amber); }
+.c-prop  { background: var(--gold); }
+.c-other { background: var(--grey); }
+
+/* Expenditure colours */
+.c-pens  { background: var(--slate); }
+.c-int   { background: #8a2820; }
+.c-hlth  { background: var(--green); }
+.c-gen   { background: #3a5870; }
+.c-edu   { background: #2a5898; }
+.c-soc   { background: #5a7ab8; }
+.c-def   { background: var(--gold); }
+.c-trans { background: var(--olive); }
+.c-env   { background: var(--teal); }
+.c-misc2 { background: var(--grey); }
+
+/* ── TOTAL / DEFICIT ROW ── */
+.total-row {
+  display: grid;
+  grid-template-columns: 200px 1fr 62px;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0 4px;
+  border-top: 1.5px solid var(--ink);
+  margin-top: 10px;
+}
+.total-row .bar-label { font-weight: 600; font-size: 13px; }
+.total-row .bar-val   { font-weight: 700; font-size: 13px; }
+
+.deficit-row {
+  display: grid;
+  grid-template-columns: 200px 1fr 62px;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 0 16px;
+  opacity: 0;
+}
+.deficit-row .bar-label { font-size: 12px; font-style: italic; color: var(--muted); }
+.deficit-row .bar-val   { font-size: 11px; color: #c02828; font-weight: 600; text-align: right; }
+.deficit-fill { background: #c02828; }
+
+.method-note {
+  font-size: 10px;
+  color: var(--muted);
+  line-height: 1.5;
+  border-top: 1px solid var(--rule);
+  padding-top: 10px;
+  margin-top: 10px;
+}
+
+/* ── CALLOUTS ── */
+.callouts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 16px 52px 32px;
+}
+.callout {
+  background: var(--white);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  padding: 20px 22px 18px;
+}
+.callout-icon { font-size: 1.4rem; display: block; margin-bottom: 8px; }
+.callout h3 {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 0.88rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+.callout p { font-size: 12px; color: #3a3630; line-height: 1.6; }
+.tag {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 2px;
+}
+.tag-red    { background: var(--red-lt);    color: var(--red); }
+.tag-green  { background: var(--green-lt);  color: var(--green); }
+.tag-teal   { background: var(--teal-lt);   color: var(--teal); }
+.tag-gold   { background: var(--gold-lt);   color: var(--gold); }
+.tag-slate  { background: var(--slate-lt);  color: var(--slate); }
+.tag-grey   { background: var(--grey-lt);   color: var(--grey); }
+.tag-purple { background: var(--purple-lt); color: var(--purple); }
+.tag-olive  { background: var(--olive-lt);  color: var(--olive); }
+
+/* ── FOOTNOTE ── */
+.footnote {
+  padding: 20px 52px 36px;
+  border-top: 1px solid var(--rule);
+  font-size: 10px;
+  color: var(--muted);
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!--  MASTHEAD                                              -->
+<!-- ══════════════════════════════════════════════════════ -->
+<div class="masthead">
+  <div class="masthead-left">
+    <div class="eyebrow">
+      <div class="flag-it">
+        <div class="g"></div>
+        <div class="w"></div>
+        <div class="r"></div>
+      </div>
+      <div class="eyebrow-text">Italian Republic · Repubblica Italiana</div>
+    </div>
+    <h1>General Government<br>Budget <em>2024</em></h1>
+    <div class="masthead-sub">Revenue, Expenditure &amp; Key Fiscal Aggregates · Euros (€)</div>
+  </div>
+  <div class="masthead-right">
+    <div>
+      <div class="kpi-label">Total Revenue</div>
+      <div class="kpi-value rec">€1,109B</div>
+      <div class="kpi-note">50.4% of GDP · incl. all gov. levels</div>
+    </div>
+    <div>
+      <div class="kpi-label">Total Expenditure</div>
+      <div class="kpi-value out">€1,183B</div>
+      <div class="kpi-note">53.8% of GDP · down from 56.7% in 2021</div>
+    </div>
+    <div>
+      <div class="kpi-label">Deficit</div>
+      <div class="kpi-value def">−3.4% GDP</div>
+      <div class="kpi-note">−€73.9B · primary surplus +0.5% GDP</div>
+    </div>
+    <div>
+      <div class="kpi-label">Public Debt</div>
+      <div class="kpi-value dbt">134.9%</div>
+      <div class="kpi-note">€2,967B · 2nd highest in eurozone after Greece</div>
+    </div>
+  </div>
+</div>
+
+<div class="stripe"></div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!--  MAIN BARS                                             -->
+<!-- ══════════════════════════════════════════════════════ -->
+<div class="section-label">Revenue &amp; Expenditure by Function</div>
+
+<div class="two-col">
+
+  <!-- ── LEFT: RECEIPTS ── -->
+  <div class="col-pad">
+    <div class="panel-head">
+      <h2>Revenue by Source</h2>
+      <span>Max = €286B (Social Contributions) · Total €1,109B</span>
+    </div>
+    <div id="rec"></div>
+    <div class="total-row">
+      <div class="bar-label">Total Revenue</div>
+      <div class="bar-track" style="background:transparent"></div>
+      <div class="bar-val">€1,109B</div>
+    </div>
+    <div class="method-note" style="margin-top:14px">
+      Italy's revenue structure is characterised by very high <strong>social security contributions</strong> — mandatory payments to INPS (pensions), INAIL (workplace injury) and sector-specific funds — which are the single largest source. IRPEF personal income tax is the second pillar. The shadow economy (estimated at ~11–12% of GDP by ISTAT) suppresses tax collection relative to rates on paper. All figures are general government consolidated, including central government, regions, municipalities, and social security funds.
+    </div>
+  </div>
+
+  <!-- ── RIGHT: OUTLAYS ── -->
+  <div class="col-divider">
+    <div class="panel-head">
+      <h2>Expenditure by Function (COFOG)</h2>
+      <span>Max = €352B (Pensions, ESSPROS) · Total €1,183B</span>
+    </div>
+    <div id="out"></div>
+    <div class="total-row">
+      <div class="bar-label">Total Expenditure</div>
+      <div class="bar-track" style="background:transparent"></div>
+      <div class="bar-val">€1,183B</div>
+    </div>
+    <div class="deficit-row" id="def-row">
+      <div class="bar-label">General Government Deficit</div>
+      <div class="bar-track">
+        <div class="bar-fill deficit-fill" data-pct="21" style="width:0%"></div>
+      </div>
+      <div class="bar-val" style="color:#c02828">−€73.9B</div>
+    </div>
+    <div class="method-note">
+      Pensions dominate at ~16% of GDP (ESSPROS), the second highest in the OECD after Greece, per the Eurostat pension map. Interest on the nearly €3 trillion public debt (3.9% of GDP) is the third largest line. Healthcare is systematically underfunded relative to European peers despite a nominally universal National Health Service (SSN). The Superbonus housing credit created a major off-book liability that is still unwinding through 2024 expenditure.
+    </div>
+  </div>
+
+</div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!--  CALLOUT BOXES                                         -->
+<!-- ══════════════════════════════════════════════════════ -->
+<div class="section-label" style="margin-top:32px">Context &amp; explanations</div>
+<div class="callouts" style="margin-top:16px">
+
+  <div class="callout">
+    <span class="callout-icon">👴</span>
+    <h3>Pensions: ~16% of GDP — The Eurozone's Heaviest Burden</h3>
+    <p>Italy spends approximately 16% of GDP on public pensions (ESSPROS definition, consistent with the Eurostat pension map showing 11.8% for old-age only), making it the second-highest pension spender in the OECD after Greece. Over 16 million people receive a pension from INPS, including old-age, disability, and survivors' benefits. The 1995 Dini reform introduced a notional defined contribution (NDC) system, but its slow phase-in means mixed-system pensions will persist until the 2040s. At least one quarter of pension spending is not covered by contributions, requiring general-tax top-up. Italy's pension age is linked to life expectancy — currently 67 — but generous "Quota" early-retirement schemes (Quota 103 in 2024) allow retirement as early as 62 with 41 years of contributions.</p>
+    <span class="tag tag-slate">~16% GDP ESSPROS · 11.8% GDP old-age only (Eurostat map) · 16M+ recipients</span>
+  </div>
+
+  <div class="callout">
+    <span class="callout-icon">🏠</span>
+    <h3>Superbonus: A Fiscal Time Bomb Still Unwinding</h3>
+    <p>The Superbonus 110% scheme — a building renovation tax credit introduced in 2020 that allowed homeowners to claim 110% of costs as transferable tax credits — created a structural distortion in Italy's public finances. By 2024, accumulated credits recognised in national accounts exceeded €220 billion, driving Italy's deficit to 7.2% of GDP in 2023 despite ostensibly strong tax revenues. The fiscal drag from Superbonus unwinding contributed to an unusually high 7.2% deficit in 2023 and continued to affect 2024 accounts. ISTAT's recording of these deferred credits as government expenditure in the year they were granted (2020–2022) rather than when redeemed created sudden large deficit spikes, now gradually correcting.</p>
+    <span class="tag tag-red">Superbonus credits: >€220B · deficit spike 7.2% GDP (2023)</span>
+  </div>
+
+  <div class="callout">
+    <span class="callout-icon">💸</span>
+    <h3>Debt: €2,967B — A Near-€3 Trillion Mountain</h3>
+    <p>Italy's gross public debt reached €2,967 billion (134.9% of GDP) at end-2024 — the second largest nominal debt pile in the eurozone after Germany's, but far more problematic relative to GDP. Interest payments cost €85.6 billion (3.9% of GDP), consuming more of the budget than education, defence, and most social programmes combined. The average cost of debt is rising as cheap pre-2022 issuances mature and are refinanced at higher rates. Despite a positive primary balance in 2024 (+0.5% GDP), the debt-to-GDP ratio edged up slightly, because the primary surplus was not enough to outpace nominal interest costs, debt issuance costs, and stock-flow adjustments.</p>
+    <span class="tag tag-red">Debt: €2,967B · 134.9% GDP · interest €85.6B (3.9% GDP)</span>
+  </div>
+
+  <div class="callout">
+    <span class="callout-icon">📉</span>
+    <h3>Deficit Halved: From −7.2% to −3.4% in One Year</h3>
+    <p>Italy's headline deficit fell sharply from 7.2% of GDP in 2023 to 3.4% in 2024 — an improvement of nearly 4 percentage points, the largest single-year correction in decades. The primary balance swung from −3.5% to +0.5% of GDP. The improvement was mainly mechanical: most of the 2023 deficit was driven by deferred Superbonus accounting entries that did not recur in 2024, rather than genuine fiscal consolidation. Italy remains in the EU's Excessive Deficit Procedure and has committed to reducing the deficit below 3% of GDP by 2026. The Meloni government's fiscal path relies on expenditure restraint, RRF investment grants, and continued revenue growth from employment and wages.</p>
+    <span class="tag tag-gold">Deficit: −3.4% GDP · improvement of 3.8 pps from 2023</span>
+  </div>
+
+  <div class="callout">
+    <span class="callout-icon">⚕️</span>
+    <h3>Healthcare: Underfunded at ~6.8% of GDP</h3>
+    <p>Italy's Servizio Sanitario Nazionale (SSN) is a nominally universal public health service, but per-capita health spending is among the lowest in Western Europe at ~€2,700/year. At ~6.8% of GDP, it lags France (11.2%), Germany (12.7%), and the EU average of ~8%. The COVID pandemic exposed severe capacity shortfalls — Italy had one of the worst ICU-to-population ratios in the OECD. Post-pandemic, the 2024 state budget increased health appropriations modestly, but regional disparities remain stark: the North-South divide in healthcare quality is one of Italy's most persistent inequalities. Private health spending fills gaps, especially in diagnostics and specialist care in the South.</p>
+    <span class="tag tag-green">Healthcare: ~6.8% GDP · SSN universal but underfunded vs EU peers</span>
+  </div>
+
+  <div class="callout">
+    <span class="callout-icon">🌑</span>
+    <h3>The Shadow Economy: Italy's Structural Revenue Drag</h3>
+    <p>Italy's shadow economy is estimated at approximately 11–12% of GDP by ISTAT, generating an annual tax gap of roughly €80–100 billion. This is reflected in Italy's tax wedge — one of the highest in the OECD — which incentivises informal work and undeclared income. Enforcement has improved through mandatory e-invoicing (Fattura Elettronica, introduced 2019 and extended to all suppliers), real-time transaction reporting, and digital payment incentives. VAT compliance has meaningfully improved since 2019. Italy's 42.8% tax-to-GDP ratio in 2024 (Wikipedia/Taxation in Italy) is high in absolute terms but would be even higher if informality were eliminated.</p>
+    <span class="tag tag-grey">Shadow economy ~11–12% GDP · tax gap ~€80–100B annually</span>
+  </div>
+
+</div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!--  FOOTNOTE                                              -->
+<!-- ══════════════════════════════════════════════════════ -->
+<div class="footnote">
+  <p>
+    <strong>Primary sources:</strong> ISTAT — Notification of General Government Deficit and Debt, Years 2021–2024, ESA2010, Second EDP Notification 2025 (October 2025); ISTAT — GDP and General Government Net Borrowing 2022–2024 (March 2025); European Commission — Economic Forecast for Italy (Autumn 2025); OECD — Pensions at a Glance 2025, Italy Country Note (November 2025); Eurostat — Government Finance Statistics 2024 (October 2025); Wikipedia — Taxation in Italy (total tax revenue 42.8% GDP, 2024); OECD — Revenue Statistics 2024; OECD — Taxing Wages 2025, Italy Chapter; Bank of Italy — Public Finances: Borrowing Requirement and Debt (October 2025).
+  </p>
+  <p>
+    <strong>Methodology:</strong> All headline fiscal aggregates (revenue €1,109B/50.4% GDP, expenditure €1,183B/53.8% GDP, deficit −€73.9B/−3.4% GDP, primary surplus +€11.7B/+0.5% GDP, interest €85.6B/3.9% GDP, debt €2,967B/134.9% GDP) are official ISTAT ESA2010 general government consolidated data from the October 2025 EDP notification. GDP: €2,199,619M (ISTAT, 2024). Revenue and expenditure sub-line figures are derived from OECD Revenue Statistics 2024 structure for Italy (social contributions ~13% GDP, IRPEF ~11% GDP, IVA ~7.2% GDP, IRES+IRAP ~3.7% GDP, excise ~3.2% GDP) scaled to 2024 actuals. <strong>Pension expenditure: ~€352B (~16.0% of GDP)</strong> — ESSPROS full definition (old-age, survivors', disability, early retirement) consistent with Eurostat pension map, which shows Italy at 11.8% for old-age pensions only; the higher figure includes survivors', disability and early retirement. Per OECD Pensions at a Glance 2025 Italy note: "Public pension expenditure at about 16% of GDP, second only to Greece in the OECD." Healthcare ~6.8% GDP per Eurostat COFOG; defence ~1.5% GDP per NATO/MEF; education ~4.1% GDP per Eurostat. Currency: Euro (€). All figures are calendar year 2024. Italy is subject to the EU Excessive Deficit Procedure.
+  </p>
+</div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!--  DATA & RENDERING                                       -->
+<!-- ══════════════════════════════════════════════════════ -->
+<script>
+const MAX_REC = 286;  // Social contributions — largest revenue source
+const MAX_OUT = 352;  // Pensions (ESSPROS) — largest expenditure
+
+// ── RECEIPTS ───────────────────────────────────────────────────────
+// Total: €1,109B = 50.4% of GDP (€2,199.6B)
+// Tax revenue: 42.8% GDP = €941B; non-tax = ~7.6% GDP = ~€168B
+const receipts = [
+  {
+    group: "Social Contributions",
+    items: [
+      {
+        label: "Social Security Contributions",
+        sub: "INPS (pensions, unemployment) · INAIL (workplace) · sector funds · ~employer 23% + employee 10%",
+        val: 286, gdp: 13.0, cls: "c-ssc"
+      },
+    ]
+  },
+  {
+    group: "Direct Taxes — Individuals",
+    items: [
+      {
+        label: "IRPEF (Personal Income Tax)",
+        sub: "Progressive 23–43% (3 brackets from 2024) · incl. regional &amp; municipal surcharges",
+        val: 241, gdp: 11.0, cls: "c-irpef"
+      },
+    ]
+  },
+  {
+    group: "Indirect Taxes",
+    items: [
+      {
+        label: "IVA (Value Added Tax)",
+        sub: "Standard 22% · reduced 10% (food, hospitality) · super-reduced 4% (food staples)",
+        val: 158, gdp: 7.2, cls: "c-iva"
+      },
+      {
+        label: "Excise &amp; Other Indirect Taxes",
+        sub: "Fuel, tobacco, alcohol, electricity · accise · bollo (stamp duty) · registro",
+        val: 70, gdp: 3.2, cls: "c-exc"
+      },
+    ]
+  },
+  {
+    group: "Direct Taxes — Corporate",
+    items: [
+      {
+        label: "IRES (Corporate Income Tax)",
+        sub: "24% flat rate · reduced to 20% for reinvesting firms from 2025 · IRES Premiale",
+        val: 54, gdp: 2.5, cls: "c-ires"
+      },
+      {
+        label: "IRAP (Regional Production Tax)",
+        sub: "3.9% standard on value of production · devolved to regions · sector variations",
+        val: 27, gdp: 1.2, cls: "c-irap"
+      },
+      {
+        label: "Property &amp; Other Taxes",
+        sub: "IMU municipal property tax · TARI waste · capital gains · inheritance &amp; gift",
+        val: 45, gdp: 2.0, cls: "c-prop"
+      },
+    ]
+  },
+  {
+    group: "Non-Tax Revenue",
+    items: [
+      {
+        label: "Fees, EU Funds &amp; Other Revenue",
+        sub: "RRF/PNRR grants, ESIF, public enterprise income, fees, fines, property income",
+        val: 228, gdp: 10.4, cls: "c-other"
+      },
+    ]
+  },
+];
+
+// ── OUTLAYS (COFOG) ────────────────────────────────────────────────
+// Total: €1,183B = 53.8% of GDP
+const outlays = [
+  {
+    group: "Pensions (ESSPROS — all public schemes)",
+    items: [
+      {
+        label: "Public Pensions (ESSPROS total)",
+        sub: "Old-age, disability, survivors', early retirement · INPS · ~16% GDP · 16M+ recipients",
+        val: 352, gdp: 16.0, cls: "c-pens"
+      },
+    ]
+  },
+  {
+    group: "Debt Service",
+    items: [
+      {
+        label: "Interest on Public Debt",
+        sub: "€85.6B on €2,967B debt · rising avg cost as cheap-era bonds mature and roll over",
+        val: 85.6, gdp: 3.9, cls: "c-int"
+      },
+    ]
+  },
+  {
+    group: "Health",
+    items: [
+      {
+        label: "Healthcare (SSN — Servizio Sanitario)",
+        sub: "Universal NHS · hospital &amp; GP network · underfunded vs EU avg · stark North-South divide",
+        val: 149, gdp: 6.8, cls: "c-hlth"
+      },
+    ]
+  },
+  {
+    group: "General Public Services",
+    items: [
+      {
+        label: "General Public Services &amp; Admin",
+        sub: "Parliament, presidency, ministries, Agenzia Entrate, courts · excl. debt service",
+        val: 155, gdp: 7.0, cls: "c-gen"
+      },
+    ]
+  },
+  {
+    group: "Education",
+    items: [
+      {
+        label: "Education (Istruzione)",
+        sub: "Scuola, università, ricerca · free state schools &amp; universities · below EU avg spending",
+        val: 90, gdp: 4.1, cls: "c-edu"
+      },
+    ]
+  },
+  {
+    group: "Social Protection (excl. pensions)",
+    items: [
+      {
+        label: "Other Social Protection",
+        sub: "Disability, unemployment (NASpI), family (Assegno Unico), housing, social exclusion",
+        val: 120, gdp: 5.5, cls: "c-soc"
+      },
+    ]
+  },
+  {
+    group: "Defence &amp; Security",
+    items: [
+      {
+        label: "National Defence (Difesa)",
+        sub: "~1.5% GDP · below NATO 2% target · rising from 1.38%; F-35 &amp; naval programmes",
+        val: 33, gdp: 1.5, cls: "c-def"
+      },
+      {
+        label: "Public Order &amp; Safety",
+        sub: "Carabinieri, Polizia, Guardia di Finanza, courts, prisons · ~1.8% GDP",
+        val: 40, gdp: 1.8, cls: "c-misc2"
+      },
+    ]
+  },
+  {
+    group: "Economic Affairs &amp; Infrastructure",
+    items: [
+      {
+        label: "Transport &amp; Infrastructure",
+        sub: "Roads, rail (RFI/Trenitalia subsidies), ports, airports · PNRR-boosted investment",
+        val: 55, gdp: 2.5, cls: "c-trans"
+      },
+      {
+        label: "Economic Affairs &amp; Energy",
+        sub: "Business subsidies, energy policy, agriculture (PAC), industry transition support",
+        val: 60, gdp: 2.7, cls: "c-gen"
+      },
+      {
+        label: "Environment, Housing &amp; Other",
+        sub: "Environmental protection, social housing, R&amp;D, culture, recreation, miscellaneous",
+        val: 44, gdp: 2.0, cls: "c-env"
+      },
+    ]
+  },
+];
+
+// ── BUILD BARS ─────────────────────────────────────────────────────
+function buildSection(data, containerId, maxVal, animClass, delay0) {
+  const container = document.getElementById(containerId);
+  let delay = delay0;
+  data.forEach(group => {
+    const glbl = document.createElement('div');
+    glbl.className = 'group-label';
+    glbl.textContent = group.group;
+    container.appendChild(glbl);
+    group.items.forEach(item => {
+      const pct = Math.min((item.val / maxVal) * 100, 100).toFixed(2);
+      const row = document.createElement('div');
+      row.className = `bar-row${animClass ? ' ' + animClass : ''}`;
+      row.style.animationDelay = delay + 'ms';
+      row.innerHTML = `
+        <div class="bar-label">${item.label}<small>${item.sub}</small></div>
+        <div class="bar-track">
+          <div class="bar-fill ${item.cls}" data-pct="${pct}" style="width:0%"></div>
+        </div>
+        <div class="bar-val">€${item.val.toLocaleString('en-US', {maximumFractionDigits:1})}B<small>${item.gdp}% GDP</small></div>
+      `;
+      container.appendChild(row);
+      delay += 55;
+    });
+  });
+}
+
+buildSection(receipts, 'rec', MAX_REC, '',           80);
+buildSection(outlays,  'out', MAX_OUT, 'right-anim', 200);
+
+// Animate deficit row
+setTimeout(() => {
+  const dr = document.getElementById('def-row');
+  dr.style.transition = 'opacity 0.4s ease 0.5s';
+  dr.style.opacity = '1';
+  const fill = dr.querySelector('.bar-fill');
+  fill.style.transition = 'width 0.95s cubic-bezier(0.16,1,0.3,1) 0.6s';
+  fill.style.width = fill.dataset.pct + '%';
+}, 100);
+
+// Animate all bars
+setTimeout(() => {
+  document.querySelectorAll('.bar-fill[data-pct]').forEach(el => {
+    el.style.width = el.dataset.pct + '%';
+  });
+}, 150);
+</script>
+</body>
+</html>

@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>South Africa National Budget 2024/25</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --paper:     #f6f2ed;
+  --white:     #ffffff;
+  --ink:       #14110d;
+  --muted:     #7a7268;
+  --rule:      #ddd7ce;
+  --green:     #007A4D;
+  --green-lt:  #c0e4d8;
+  --gold:      #FFB612;
+  --gold-lt:   #fff0c0;
+  --black:     #000000;
+  --red:       #b01c1c;
+  --red-mid:   #cc3333;
+  --red-lt:    #f0d0d0;
+  --navy:      #1a3055;
+  --navy-lt:   #c8d5e8;
+  --teal:      #1a5a50;
+  --teal-lt:   #c0ddd8;
+  --slate:     #3a5a7a;
+  --slate-lt:  #c8d8e8;
+  --amber:     #8a5c00;
+  --amber-lt:  #f0e0b8;
+  --grey:      #484440;
+  --grey-lt:   #e0dbd5;
+  --maroon:    #6a0020;
+  --maroon-lt: #f0d0d8;
+  --plum:      #5a2060;
+  --plum-lt:   #e4d0e8;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  background: var(--paper);
+  font-family: 'Barlow', sans-serif;
+  color: var(--ink);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* ── MASTHEAD ── */
+.masthead {
+  background: var(--ink);
+  color: var(--paper);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: stretch;
+  overflow: hidden;
+}
+.masthead-left { padding: 44px 52px 40px; border-right: 1px solid #2a2620; }
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+/* SA flag simplified: horizontal bands with Y-shape suggestion */
+.flag-za {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex-shrink: 0;
+}
+.flag-za span {
+  display: block;
+  width: 38px;
+  border-radius: 1px;
+}
+.flag-za .r { background: #007A4D; height: 8px; }
+.flag-za .g { background: #FFB612; height: 4px; }
+.flag-za .b { background: #002395; height: 8px; }
+
+.eyebrow-text {
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #888;
+  font-weight: 500;
+}
+.masthead h1 {
+  font-family: 'Libre Baskerville', serif;
+  font-size: clamp(2rem, 3.5vw, 3.1rem);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  max-width: 560px;
+}
+.masthead h1 em { font-style: italic; color: #b0a898; }
+.masthead-sub {
+  margin-top: 12px;
+  font-size: 12px;
+  color: #777;
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.masthead-right {
+  padding: 44px 52px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 20px;
+  min-width: 280px;
+}
+.kpi-label {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #666;
+  font-weight: 500;
+  margin-bottom: 3px;
+}
+.kpi-value {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 2.1rem;
+  font-weight: 700;
+  line-height: 1;
+}
+.kpi-value.rec  { color: #5a9de0; }
+.kpi-value.def  { color: #e06050; }
+.kpi-value.out  { color: var(--paper); }
+.kpi-note { font-size: 10px; color: #666; font-weight: 300; margin-top: 2px; }
+
+/* ── STRIPE — SA flag colours ── */
+.stripe {
+  height: 5px;
+  background: linear-gradient(90deg,
+    #007A4D 0% 30%,
+    #FFB612 30% 50%,
+    #000000 50% 60%,
+    #002395 60% 80%,
+    #DE3831 80% 100%);
+}
+
+/* ── SECTION LABEL ── */
+.section-label {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-weight: 600;
+  color: var(--muted);
+  padding: 28px 52px 0;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+}
+
+/* ── LAYOUT ── */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 0 52px;
+}
+.col-pad  { padding-right: 40px; }
+.col-divider { border-left: 1px solid var(--rule); padding-left: 40px; }
+
+/* ── PANEL HEAD ── */
+.panel-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 20px 0 14px;
+  border-bottom: 2px solid var(--ink);
+  margin-bottom: 4px;
+}
+.panel-head h2 {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 1rem;
+  font-weight: 700;
+}
+.panel-head span { font-size: 10px; color: var(--muted); }
+
+/* ── BAR ROWS ── */
+.group-label {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  font-weight: 600;
+  margin: 16px 0 6px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--rule);
+}
+.bar-row {
+  display: grid;
+  grid-template-columns: 210px 1fr 70px;
+  align-items: center;
+  gap: 10px;
+  padding: 3px 0;
+  opacity: 0;
+  transform: translateX(-8px);
+  animation: slideIn 0.35s ease forwards;
+}
+.bar-row.right-anim { transform: translateX(8px); }
+@keyframes slideIn { to { opacity:1; transform:translateX(0); } }
+
+.bar-label { font-size: 12px; color: var(--ink); line-height: 1.3; font-weight: 400; }
+.bar-label small { display:block; font-size:10px; color:var(--muted); font-weight:300; margin-top:1px; }
+
+.bar-track {
+  height: 18px;
+  background: var(--rule);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.bar-fill {
+  height: 100%;
+  width: 0%;
+  border-radius: 2px;
+  transition: width 0.95s cubic-bezier(0.16,1,0.3,1);
+}
+
+/* Revenue colours */
+.c-pit   { background: #007A4D; }
+.c-vat   { background: #FFB612; }
+.c-cit   { background: #002395; }
+.c-fuel  { background: #DE3831; }
+.c-cust  { background: var(--teal); }
+.c-exc   { background: #3a8060; }
+.c-other { background: var(--grey); }
+
+/* Outlay colours */
+.c-edu   { background: #007A4D; }
+.c-debt  { background: #DE3831; }
+.c-soc   { background: #FFB612; }
+.c-hlth  { background: #002395; }
+.c-sec   { background: #333; }
+.c-com   { background: var(--teal); }
+.c-econ  { background: #3a8060; }
+.c-gen   { background: var(--slate); }
+.c-oth2  { background: var(--grey); }
+
+.bar-val { font-size: 11px; font-weight: 600; color: var(--ink); text-align: right; white-space: nowrap; }
+.bar-val small { display:block; font-size:9px; color:var(--muted); font-weight:400; }
+
+/* ── DEFICIT & TOTAL ROWS ── */
+.deficit-row {
+  background: #fff7f7;
+  border: 1px solid #f0c8c8;
+  border-radius: 3px;
+  padding: 10px 14px;
+  margin: 10px 0 4px;
+  display: grid;
+  grid-template-columns: 210px 1fr 70px;
+  gap: 10px;
+  align-items: center;
+}
+.deficit-row .bar-label { color: var(--red); font-weight: 500; }
+.deficit-row .bar-val   { color: var(--red); }
+
+.total-row {
+  display: grid;
+  grid-template-columns: 210px 1fr 70px;
+  gap: 10px;
+  align-items: center;
+  padding: 8px 0 4px;
+  border-top: 2px solid var(--ink);
+  margin-top: 6px;
+}
+.total-row .bar-label { font-weight: 600; font-size: 12px; }
+.total-row .bar-val   { font-weight: 700; font-size: 12px; }
+
+/* ── METHOD NOTE ── */
+.method-note {
+  background: var(--ink);
+  color: #ccc;
+  font-size: 10.5px;
+  line-height: 1.7;
+  padding: 14px 20px;
+  border-radius: 3px;
+  margin: 10px 0 0;
+  font-weight: 300;
+}
+.method-note strong { color: var(--paper); font-weight: 600; }
+
+/* ── CALLOUTS ── */
+.callouts {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1px;
+  background: var(--rule);
+  margin: 0 52px;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.callout {
+  background: var(--white);
+  padding: 18px 20px;
+}
+.callout-icon { font-size: 18px; margin-bottom: 8px; display: block; }
+.callout h3 {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.callout p { font-size: 11px; color: var(--muted); line-height: 1.6; font-weight: 300; }
+.callout .tag {
+  display: inline-block;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: 2px;
+  margin-top: 8px;
+}
+.tag-green  { background: var(--green-lt);   color: #004f30; }
+.tag-gold   { background: var(--gold-lt);    color: #7a5c00; }
+.tag-red    { background: var(--red-lt);     color: var(--maroon); }
+.tag-navy   { background: var(--navy-lt);    color: var(--navy); }
+.tag-teal   { background: var(--teal-lt);    color: var(--teal); }
+.tag-grey   { background: var(--grey-lt);    color: var(--grey); }
+
+/* ── FOOTNOTE ── */
+.footnote {
+  padding: 24px 52px 40px;
+  border-top: 1px solid var(--rule);
+  margin: 28px 0 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.footnote p { font-size: 10px; color: var(--muted); line-height: 1.7; font-weight: 300; }
+.footnote strong { font-weight: 600; color: var(--ink); }
+
+@media (max-width: 900px) {
+  .two-col { grid-template-columns: 1fr; padding: 0 20px; }
+  .col-divider { border-left: none; border-top: 1px solid var(--rule); padding-left: 0; padding-top: 28px; margin-top: 28px; }
+  .col-pad { padding-right: 0; }
+  .masthead { grid-template-columns: 1fr; }
+  .masthead-right { border-top: 1px solid #2a2620; padding-top: 24px; flex-direction: row; flex-wrap: wrap; gap: 20px; }
+  .masthead-left  { padding: 32px 20px 28px; }
+  .section-label  { padding: 20px 20px 0; }
+  .callouts  { grid-template-columns: 1fr; margin: 0 20px; }
+  .footnote  { grid-template-columns: 1fr; padding: 20px 20px 32px; }
+  .bar-row, .deficit-row, .total-row { grid-template-columns: 130px 1fr 58px; }
+}
+</style>
+</head>
+<body>
+
+<!-- MASTHEAD -->
+<div class="masthead">
+  <div class="masthead-left">
+    <div class="eyebrow">
+      <div class="flag-za">
+        <span class="r"></span>
+        <span class="g"></span>
+        <span class="b"></span>
+      </div>
+      <span class="eyebrow-text">Republic of South Africa · National Treasury · SARS</span>
+    </div>
+    <h1>National Budget<br><em>Fiscal Year 2024/25</em></h1>
+    <div class="masthead-sub">Apr 1, 2024 – Mar 31, 2025 · All figures in R Billion (ZAR) · Sources: National Treasury, SARS Tax Statistics 2025</div>
+  </div>
+  <div class="masthead-right">
+    <div class="kpi">
+      <div class="kpi-label">Net Tax Revenue (SARS Actual)</div>
+      <div class="kpi-value rec">R1,855B</div>
+      <div class="kpi-note">25.1% of GDP · +6.6% vs 2023/24 · Beat revised estimate by R8.8B</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Consolidated Budget Deficit</div>
+      <div class="kpi-value def">R370B</div>
+      <div class="kpi-note">~5.0% of GDP · First primary surplus since 2008/09</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Consolidated Expenditure</div>
+      <div class="kpi-value out">R2,370B</div>
+      <div class="kpi-note">32.0% of GDP · Social wage = 60.2% of non-interest spend</div>
+    </div>
+  </div>
+</div>
+<div class="stripe"></div>
+
+<!-- MAIN TWO-COL -->
+<div class="section-label">Budget breakdown</div>
+
+<div class="two-col">
+
+  <!-- LEFT: REVENUES -->
+  <div class="col-pad">
+    <div class="panel-head">
+      <h2>Revenue by Source</h2>
+      <span>Max = R733B (Personal Income Tax) · Net total R1,855B</span>
+    </div>
+    <div id="rec"></div>
+
+    <!-- DEFICIT -->
+    <div class="deficit-row" id="def-row" style="opacity:0">
+      <div class="bar-label">Borrowings (Budget Deficit)<small>Domestic government bonds + foreign loans + NRF drawdowns</small></div>
+      <div class="bar-track">
+        <div class="bar-fill" data-pct="50.5" style="width:0%;background:var(--red-mid)"></div>
+      </div>
+      <div class="bar-val">~R370B<small>~5.0% GDP</small></div>
+    </div>
+
+    <div class="total-row">
+      <div class="bar-label">Total Resources Available</div>
+      <div class="bar-track" style="background:transparent"></div>
+      <div class="bar-val">~R2,370B</div>
+    </div>
+
+    <div class="method-note">
+      <strong>Revenue note — SARS actuals:</strong> Revenue figures are SARS's confirmed actual net collections for FY2024/25 (April 2024–March 2025), released April 2025. Gross tax of R2.303T less refunds of R447.7B = net R1.855T. The SARS figures are slightly different from National Treasury's consolidated revenue account due to timing, SACU receipts, and non-tax revenue items (royalties, fees, RIC dividends). South Africa's fiscal year runs April 1–March 31. The R/$ average in FY2024/25 was approximately R18.3/$.
+    </div>
+  </div>
+
+  <!-- RIGHT: OUTLAYS -->
+  <div class="col-divider">
+    <div class="panel-head">
+      <h2>Consolidated Expenditure by Function</h2>
+      <span>Max = R465B (Education) · Total ~R2,370B</span>
+    </div>
+    <div id="out"></div>
+
+    <div class="total-row">
+      <div class="bar-label">Total Consolidated Expenditure</div>
+      <div class="bar-track" style="background:transparent"></div>
+      <div class="bar-val">~R2,370B</div>
+    </div>
+
+    <div class="method-note">
+      <strong>Consolidated vs. main budget:</strong> South Africa's "consolidated budget" includes national government, provincial governments, social security funds (UIF, Compensation Fund), and select public entities — but not state-owned enterprises (Eskom, Transnet, etc.). Provincial governments execute ~57% of total spending, primarily on education and health, funded through the provincial equitable share and conditional grants from the national budget. This is why education and health appear so large — they include full national + provincial consolidated spending. National-only main budget expenditure was ~R2.17T in 2024/25.
+    </div>
+  </div>
+
+</div>
+
+<!-- CALLOUTS -->
+<div class="section-label" style="margin-top:32px">Context & explanations</div>
+<div class="callouts" style="margin-top:16px">
+
+  <div class="callout">
+    <span class="callout-icon">🎓</span>
+    <h3>Education: R465B — Largest Consolidated Function</h3>
+    <p>Education receives R465.1B, the single largest functional allocation in the consolidated budget at roughly 20% of all spending. This covers basic education (the largest sub-component, including teacher salaries, school nutrition, and infrastructure), higher education and training (universities and TVET colleges), and skills development. Salaries alone consume 76 cents of every provincial education rand, leaving just 24 cents for everything else — school infrastructure, textbooks, meals. South Africa has consistently struggled with educational outcomes despite high spending: PIRLS and TIMSS international assessments rank SA among the lowest-performing nations. The Funza Lushaka bursary programme funds new teachers, while NSFAS provides means-tested university funding to over 1 million students.</p>
+    <span class="tag tag-green">Education: R465B · 20% of total spend · Largest function</span>
+  </div>
+
+  <div class="callout">
+    <span class="callout-icon">💸</span>
+    <h3>Debt Service: R389.6B — 22 Cents of Every Revenue Rand</h3>
+    <p>As Finance Minister Godongwana stated plainly: "Debt service costs amount to R389.6B — 22 cents of every rand we raise in revenue. It is more than what we spend on health, the police and basic education." Gross public debt is heading toward 76% of GDP, the result of fiscal deficits run every year since 2008/09. The good news: FY2024/25 is the first year since 2008/09 that South Africa achieved a primary budget surplus (revenue exceeding non-interest spending), a milestone that should gradually slow debt accumulation. South Africa's debt is overwhelmingly rand-denominated and held domestically, reducing exchange-rate risk but keeping borrowing costs elevated. The National Treasury drew down R150B from the Gold and Foreign Exchange Contingency Reserve Account (GFECRA) to reduce new bond issuance.</p>
+    <span class="tag tag-red">Debt service: R389.6B · 22c per revenue rand · Exceeds health + police</span>
+  </div>
+
+  <div class="callout">
+    <span class="callout-icon">🤲</span>
+    <h3>Social Grants: 28 Million Beneficiaries — World's Largest Safety Net per Capita</h3>
+    <p>South Africa's social grant system reaches nearly 28 million people — almost half the population — making it proportionally the largest social safety net among emerging economies. The R296.9B covers the Child Support Grant (18M+ children, R530/month), Old Age Grant (3.9M, R2,180/month), Disability Grant (1.1M, R2,180/month), the SRD Covid-19 Social Relief of Distress Grant (extended at R350/month to ~8M unemployed adults), and various other grants. The SRD grant remains controversial — critics say it's too small to live on and lacks a pathway to employment, while fiscal hawks argue it's unaffordable at scale. With unemployment above 32% and youth unemployment above 60%, the grants have become a structural feature of South African social policy rather than a temporary pandemic measure.</p>
+    <span class="tag tag-gold">Social grants: R297B · 28M beneficiaries · ~half the population</span>
+  </div>
+
+  <div class="callout">
+    <span class="callout-icon">📈</span>
+    <h3>PIT Dominates Revenue — and the Narrow Tax Base Problem</h3>
+    <p>Personal Income Tax at R733B is South Africa's largest revenue source, contributing 39.5% of total tax revenue. Yet the tax base is extremely narrow: fewer than 7 million individual taxpayers file returns. Only 1.2% of individuals earn above R1.5M yet contribute 30% of all PIT. South Africa's top marginal rate is 45% (above R1.8M), one of the world's highest. The concentration of taxpayers means revenue is fragile — economic or employment shocks in financial services (which accounts for 45% of PAYE) quickly ripple into fiscal shortfalls. The Two-Pot retirement reform (allowing early pension fund access) provided a R7.9B windfall beyond estimates in FY2024/25, but this is a once-off structural effect. The 2024 Budget froze bracket adjustments (a "bracket creep" tax increase) to raise R16.3B.</p>
+    <span class="tag tag-green">PIT: R733B · 39.5% of revenue · Fewer than 7M filers</span>
+  </div>
+
+  <div class="callout">
+    <span class="callout-icon">⚡</span>
+    <h3>The Fuel Levy Shock: Loadshedding Ends, Revenue Falls</h3>
+    <p>One of the most striking revenue stories of FY2024/25 is the fuel levy's sharp 6.3% decline to R85.8B — R15.2B below the original budget estimate. The culprit was an unexpected success: South Africa made significant progress in ending "loadshedding" (rolling electricity blackouts). As Eskom's generation improved through 2024, households and businesses that had been running diesel generators switched back to grid power, cutting diesel consumption dramatically. Fuel consumption fell from 24 billion litres to 21 billion litres year-on-year. This perversely punished Treasury, since fuel levies include a general fuel levy (R3.77/L petrol) and Road Accident Fund levy (R2.18/L) — fixed per-litre charges, not ad-valorem taxes. A structural transition to electric vehicles in coming years will further erode this revenue base.</p>
+    <span class="tag tag-teal">Fuel levy: R85.8B · Down R15.2B · Loadshedding end = less diesel</span>
+  </div>
+
+  <div class="callout">
+    <span class="callout-icon">🏥</span>
+    <h3>Health: R260.7B — National Health Insurance on the Horizon</h3>
+    <p>Health receives R260.7B in consolidated spending, funding a dual-tier system: a large public sector serving roughly 84% of the population with an under-resourced system (poor facilities, staff shortages, equipment failures), alongside a private sector serving the 16% with medical aid insurance and consuming nearly half of total health spend. The National Health Insurance (NHI) Act was signed into law in 2024 — a landmark policy committing South Africa to universal health coverage over an undefined transition period. Implementation faces massive practical challenges: funding the NHI fully would require approximately R200B in additional annual spending at system maturity. The 2024 Budget allocated R1.4B toward NHI groundwork over the medium term — a far cry from what full implementation would cost, suggesting a decades-long transition.</p>
+    <span class="tag tag-navy">Health: R260.7B · NHI Act signed 2024 · Dual-tier system</span>
+  </div>
+
+</div>
+
+<!-- FOOTNOTE -->
+<div class="footnote">
+  <p>
+    <strong>Primary sources:</strong> South African Revenue Service (SARS) — 18th Annual Tax Statistics Bulletin 2024/25 (joint release with National Treasury, December 2025): confirmed net tax R1,855.3B; SARS Media Release — "SARS is committed to serving South Africans" (April 1, 2025, preliminary FY2024/25 outturn); SARS — "SARS accepts the Revenue Estimate Set for the 2024/25 Fiscal Year" (March 12, 2025); Mail & Guardian — "Sars collects R1.855 trillion in revenue, driven by personal income tax" (April 2025); National Treasury — 2024 Budget Review (February 21, 2024), Chapter 4 (Revenue) and Chapter 5 (Expenditure); National Treasury — Estimates of National Expenditure 2024 (function group allocations); Finance Minister Godongwana 2025 Budget Speech (March 12, 2025, citing FY2024/25 debt service R389.6B); SAnews — "Government expenditure to reach R2.59 trillion in 2025/26" (March 2025, with FY2024/25 actuals); Parliament of South Africa — Budget 2024: Social Grant Beneficiaries (February 2024); HEI Budget Summary — South Africa Budget 2024/25 functional breakdown.
+  </p>
+  <p>
+    <strong>Methodology &amp; caveats:</strong> South Africa's fiscal year runs April 1–March 31; FY2024/25 = Apr 2024–Mar 2025. Revenue figures are SARS confirmed actuals. Expenditure figures are from the 2024 Budget (National Treasury February 2024) which set the consolidated framework for FY2024/25; actual outturn may differ modestly from estimates. GDP reference: approximately R7.4T nominal for FY2024/25 implied by 25.1% tax-to-GDP at R1,855B net tax. Exchange rate: avg R18.3/$ in FY2024/25. Revenue breakdown: PIT R733B (SARS), VAT net R458B (24.7% of total; domestic VAT R562B minus net refunds), CIT R323B (17.4%), fuel levy R85.8B (SARS actual), customs/SACU share ~R76B (4.1%), excise/other ~R180B. Expenditure consolidated function allocations from ENE 2024: Education R465.1B, Social protection R296.9B, Health R260.7B, Community development R240.6B; debt service R389.6B from FM speech (confirmed); peace & security ~R250B (police R133B + defence R61B + corrections ~R56B from HEI data); economic development R175.7B; general government R66.5B; remaining in "other." Consolidation perimeter: national, provincial, social security funds (UIF, CF) — excludes SOEs, local governments below the equitable share transfer. Primary surplus: first time since 2008/09 at ~0.5% of GDP.
+  </p>
+</div>
+
+<script>
+const MAX_REC = 733; // PIT, in R billions
+const MAX_OUT = 465; // Education, in R billions
+
+const receipts = [
+  {
+    group: "Direct Taxes",
+    items: [
+      { label: "Personal Income Tax (PIT)", sub: "PAYE + provisional tax; 45% top rate; boosted by Two-Pot pension withdrawals", val: 733, gdp: 9.9, cls: "c-pit" },
+      { label: "Corporate Income Tax (CIT)", sub: "27% rate; finance sector strong; mining sector weak on lower commodity prices",  val: 323, gdp: 4.4, cls: "c-cit" },
+    ]
+  },
+  {
+    group: "Value-Added Tax",
+    items: [
+      { label: "VAT (Net, 15%)",           sub: "Domestic VAT R562B + Import VAT; less refunds R366B; boosted by lower rates",   val: 458, gdp: 6.2, cls: "c-vat" },
+    ]
+  },
+  {
+    group: "Fuel & Trade Levies",
+    items: [
+      { label: "Fuel Levy",                sub: "General levy R3.77/L + RAF R2.18/L; fell 6.3% as diesel use collapsed post-loadshedding", val: 86, gdp: 1.2, cls: "c-fuel" },
+      { label: "Customs Duties (SACU share)", sub: "South Africa's 47.5% share of Southern African Customs Union revenue pool",    val:  76, gdp: 1.0, cls: "c-cust" },
+    ]
+  },
+  {
+    group: "Excise & Other Taxes",
+    items: [
+      { label: "Excise Duties & Other",    sub: "Alcohol, tobacco, STT, transfer duty, mineral royalties, dividends tax, CGT",   val: 180, gdp: 2.4, cls: "c-other" },
+    ]
+  },
+];
+
+const outlays = [
+  {
+    group: "Social Spending",
+    items: [
+      { label: "Education",               sub: "Basic + higher + TVET; national + provincial consolidated; largest function",      val: 465, gdp: 6.3, cls: "c-edu" },
+      { label: "Social Protection",       sub: "28M social grant beneficiaries: child support, old age, disability, SRD grant",   val: 297, gdp: 4.0, cls: "c-soc" },
+      { label: "Health",                  sub: "NHI Act signed 2024; public + provincial hospitals; primary care; NHI groundwork", val: 261, gdp: 3.5, cls: "c-hlth" },
+      { label: "Community Development",   sub: "Housing (PMAY-style), water, sanitation, local government equitable share",       val: 241, gdp: 3.3, cls: "c-com" },
+    ]
+  },
+  {
+    group: "Debt Service",
+    items: [
+      { label: "Debt-Service Costs",      sub: "R389.6B confirmed by FM; interest + debt management on R5.2T gross debt",        val: 390, gdp: 5.3, cls: "c-debt" },
+    ]
+  },
+  {
+    group: "Peace & Security",
+    items: [
+      { label: "Peace & Security",        sub: "SAPS R133B + SANDF R61B + Correctional Services R56B + courts + state security",  val: 250, gdp: 3.4, cls: "c-sec" },
+    ]
+  },
+  {
+    group: "Economic & Other",
+    items: [
+      { label: "Economic Development",    sub: "Transport, trade, energy, agriculture, tourism, public employment (EPWP)",        val: 176, gdp: 2.4, cls: "c-econ" },
+      { label: "General Government",      sub: "Executive (Presidency), Parliament, SARS, National Treasury, Statistics SA",      val:  67, gdp: 0.9, cls: "c-gen" },
+      { label: "Other & Contingency",     sub: "Contingency reserves, post-provision for wage agreements, unallocated",           val: 224, gdp: 3.0, cls: "c-oth2" },
+    ]
+  },
+];
+
+function buildSection(data, containerId, maxVal, animClass, delay0) {
+  const container = document.getElementById(containerId);
+  let delay = delay0;
+  data.forEach(group => {
+    const glbl = document.createElement('div');
+    glbl.className = 'group-label';
+    glbl.textContent = group.group;
+    container.appendChild(glbl);
+    group.items.forEach(item => {
+      const pct = Math.min((item.val / maxVal) * 100, 100).toFixed(2);
+      const row = document.createElement('div');
+      row.className = `bar-row${animClass ? ' ' + animClass : ''}`;
+      row.style.animationDelay = delay + 'ms';
+      row.innerHTML = `
+        <div class="bar-label">${item.label}<small>${item.sub}</small></div>
+        <div class="bar-track">
+          <div class="bar-fill ${item.cls}" data-pct="${pct}" style="width:0%"></div>
+        </div>
+        <div class="bar-val">R${item.val}B<small>${item.gdp}% GDP</small></div>
+      `;
+      container.appendChild(row);
+      delay += 50;
+    });
+  });
+}
+
+buildSection(receipts, 'rec', MAX_REC, '',           80);
+buildSection(outlays,  'out', MAX_OUT, 'right-anim', 200);
+
+// Animate deficit row
+setTimeout(() => {
+  const dr = document.getElementById('def-row');
+  dr.style.transition = 'opacity 0.4s ease 0.5s';
+  dr.style.opacity = '1';
+  const fill = dr.querySelector('.bar-fill');
+  fill.style.transition = 'width 0.95s cubic-bezier(0.16,1,0.3,1) 0.6s';
+  fill.style.width = fill.dataset.pct + '%';
+}, 100);
+
+// Animate all bars
+setTimeout(() => {
+  document.querySelectorAll('.bar-fill[data-pct]').forEach(el => {
+    el.style.width = el.dataset.pct + '%';
+  });
+}, 150);
+</script>
+</body>
+</html>

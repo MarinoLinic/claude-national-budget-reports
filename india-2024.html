@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>India Union Budget 2024-25</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --paper:     #f6f2ed;
+  --white:     #ffffff;
+  --ink:       #14110d;
+  --muted:     #7a7268;
+  --rule:      #ddd7ce;
+  --saffron:   #FF9933;
+  --saffron-lt:#ffe8cc;
+  --indigo:    #000080;
+  --indigo-lt: #d0d0f8;
+  --green:     #138808;
+  --green-lt:  #c8e8c8;
+  --navy:      #1a3055;
+  --navy-mid:  #2a5090;
+  --navy-lt:   #c8d5e8;
+  --red:       #b01c1c;
+  --red-mid:   #cc3333;
+  --red-lt:    #f0d0d0;
+  --teal:      #1a5a50;
+  --teal-lt:   #c0ddd8;
+  --slate:     #3a5a7a;
+  --slate-lt:  #c8d8e8;
+  --amber:     #8a5c00;
+  --amber-lt:  #f0e0b8;
+  --olive:     #4a6015;
+  --olive-lt:  #dce5c0;
+  --grey:      #484440;
+  --grey-lt:   #e0dbd5;
+  --plum:      #5a2060;
+  --plum-lt:   #e4d0e8;
+  --maroon:    #800000;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  background: var(--paper);
+  font-family: 'Barlow', sans-serif;
+  color: var(--ink);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* ── MASTHEAD ── */
+.masthead {
+  background: var(--ink);
+  color: var(--paper);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: stretch;
+  overflow: hidden;
+}
+.masthead-left { padding: 44px 52px 40px; border-right: 1px solid #2a2620; }
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+/* Indian tricolour flag */
+.flag-in {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex-shrink: 0;
+}
+.flag-in span {
+  display: block;
+  width: 38px;
+  height: 8px;
+  border-radius: 1px;
+}
+.flag-in .s { background: #FF9933; }
+.flag-in .w { background: #f4f0ea; border: 1px solid #ccc; }
+.flag-in .g { background: #138808; }
+
+.eyebrow-text {
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #888;
+  font-weight: 500;
+}
+.masthead h1 {
+  font-family: 'Libre Baskerville', serif;
+  font-size: clamp(2rem, 3.5vw, 3.1rem);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  max-width: 560px;
+}
+.masthead h1 em { font-style: italic; color: #b0a898; }
+.masthead-sub {
+  margin-top: 12px;
+  font-size: 12px;
+  color: #777;
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.masthead-right {
+  padding: 44px 52px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 20px;
+  min-width: 280px;
+}
+.kpi-label {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #666;
+  font-weight: 500;
+  margin-bottom: 3px;
+}
+.kpi-value {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 2.1rem;
+  font-weight: 700;
+  line-height: 1;
+}
+.kpi-value.rec  { color: #5a9de0; }
+.kpi-value.def  { color: #e06050; }
+.kpi-value.out  { color: var(--paper); }
+.kpi-note { font-size: 10px; color: #666; font-weight: 300; margin-top: 2px; }
+
+/* ── STRIPE — Indian tricolour ── */
+.stripe {
+  height: 5px;
+  background: linear-gradient(90deg,
+    #FF9933 0% 33%,
+    #f4f0ea 33% 66%,
+    #138808 66% 100%);
+}
+
+/* ── SECTION LABEL ── */
+.section-label {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-weight: 600;
+  color: var(--muted);
+  padding: 28px 52px 0;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+}
+
+/* ── LAYOUT ── */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 0 52px;
+}
+.col-pad  { padding-right: 40px; }
+.col-divider { border-left: 1px solid var(--rule); padding-left: 40px; }
+
+/* ── PANEL HEAD ── */
+.panel-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 20px 0 14px;
+  border-bottom: 2px solid var(--ink);
+  margin-bottom: 4px;
+}
+.panel-head h2 {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 1rem;
+  font-weight: 700;
+}
+.panel-head span { font-size: 10px; color: var(--muted); }
+
+/* ── BAR ROWS ── */
+.group-label {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  font-weight: 600;
+  margin: 16px 0 6px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--rule);
+}
+.bar-row {
+  display: grid;
+  grid-template-columns: 210px 1fr 80px;
+  align-items: center;
+  gap: 10px;
+  padding: 3px 0;
+  opacity: 0;
+  transform: translateX(-8px);
+  animation: slideIn 0.35s ease forwards;
+}
+.bar-row.right-anim { transform: translateX(8px); }
+@keyframes slideIn { to { opacity:1; transform:translateX(0); } }
+
+.bar-label { font-size: 12px; color: var(--ink); line-height: 1.3; font-weight: 400; }
+.bar-label small { display:block; font-size:10px; color:var(--muted); font-weight:300; margin-top:1px; }
+
+.bar-track {
+  height: 18px;
+  background: var(--rule);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.bar-fill {
+  height: 100%;
+  width: 0%;
+  border-radius: 2px;
+  transition: width 0.95s cubic-bezier(0.16,1,0.3,1);
+}
+
+/* Revenue colours */
+.c-pit   { background: #000080; }
+.c-corp  { background: #2a50b0; }
+.c-gst   { background: #FF9933; }
+.c-cust  { background: #138808; }
+.c-exc   { background: #2a7050; }
+.c-ntax  { background: #6a6880; }
+
+/* Outlay colours */
+.c-int   { background: #800000; }
+.c-def   { background: #000080; }
+.c-road  { background: #FF9933; }
+.c-rail  { background: #cc7000; }
+.c-sub   { background: #138808; }
+.c-rur   { background: #2a7050; }
+.c-agr   { background: #4a7010; }
+.c-edu   { background: var(--slate); }
+.c-hlth  { background: #3a8070; }
+.c-pen   { background: var(--grey); }
+.c-oth   { background: #8a8078; }
+
+.bar-val { font-size: 11px; font-weight: 600; color: var(--ink); text-align: right; white-space: nowrap; }
+.bar-val small { display:block; font-size:9px; color:var(--muted); font-weight:400; }
+
+/* ── DEFICIT & TOTAL ROWS ── */
+.deficit-row {
+  background: #fff7f7;
+  border: 1px solid #f0c8c8;
+  border-radius: 3px;
+  padding: 10px 14px;
+  margin: 10px 0 4px;
+  display: grid;
+  grid-template-columns: 210px 1fr 80px;
+  gap: 10px;
+  align-items: center;
+}
+.deficit-row .bar-label { color: var(--red); font-weight: 500; }
+.deficit-row .bar-val   { color: var(--red); }
+
+.total-row {
+  display: grid;
+  grid-template-columns: 210px 1fr 80px;
+  gap: 10px;
+  align-items: center;
+  padding: 8px 0 4px;
+  border-top: 2px solid var(--ink);
+  margin-top: 6px;
+}
+.total-row .bar-label { font-weight: 600; font-size: 12px; }
+.total-row .bar-val   { font-weight: 700; font-size: 12px; }
+
+/* ── METHOD NOTE ── */
+.method-note {
+  background: var(--ink);
+  color: #ccc;
+  font-size: 10.5px;
+  line-height: 1.7;
+  padding: 14px 20px;
+  border-radius: 3px;
+  margin: 10px 0 0;
+  font-weight: 300;
+}
+.method-note strong { color: var(--paper); font-weight: 600; }
+
+/* ── CALLOUTS ── */
+.callouts {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1px;
+  background: var(--rule);
+  margin: 0 52px;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.callout {
+  background: var(--white);
+  padding: 18px 20px;
+}
+.callout-icon { font-size: 18px; margin-bottom: 8px; display: block; }
+.callout h3 {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.callout p { font-size: 11px; color: var(--muted); line-height: 1.6; font-weight: 300; }
+.callout .tag {
+  display: inline-block;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: 2px;
+  margin-top: 8px;
+}
+.tag-saffron { background: var(--saffron-lt);  color: #8a4800; }
+.tag-indigo  { background: var(--indigo-lt);   color: var(--indigo); }
+.tag-green   { background: var(--green-lt);    color: #0a5c05; }
+.tag-red     { background: var(--red-lt);      color: var(--maroon); }
+.tag-grey    { background: var(--grey-lt);     color: var(--grey); }
+.tag-amber   { background: var(--amber-lt);    color: var(--amber); }
+
+/* ── FOOTNOTE ── */
+.footnote {
+  padding: 24px 52px 40px;
+  border-top: 1px solid var(--rule);
+  margin: 28px 0 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.footnote p { font-size: 10px; color: var(--muted); line-height: 1.7; font-weight: 300; }
+.footnote strong { font-weight: 600; color: var(--ink); }
+
+@media (max-width: 900px) {
+  .two-col { grid-template-columns: 1fr; padding: 0 20px; }
+  .col-divider { border-left: none; border-top: 1px solid var(--rule); padding-left: 0; padding-top: 28px; margin-top: 28px; }
+  .col-pad { padding-right: 0; }
+  .masthead { grid-template-columns: 1fr; }
+  .masthead-right { border-top: 1px solid #2a2620; padding-top: 24px; flex-direction: row; flex-wrap: wrap; gap: 20px; }
+  .masthead-left  { padding: 32px 20px 28px; }
+  .section-label  { padding: 20px 20px 0; }
+  .callouts  { grid-template-columns: 1fr; margin: 0 20px; }
+  .footnote  { grid-template-columns: 1fr; padding: 20px 20px 32px; }
+  .bar-row, .deficit-row, .total-row { grid-template-columns: 130px 1fr 68px; }
+}
+</style>
+</head>
+<body>
+
+<!-- MASTHEAD -->
+<div class="masthead">
+  <div class="masthead-left">
+    <div class="eyebrow">
+      <div class="flag-in">
+        <span class="s"></span>
+        <span class="w"></span>
+        <span class="g"></span>
+      </div>
+      <span class="eyebrow-text">Republic of India · Ministry of Finance · Union Budget</span>
+    </div>
+    <h1>Union Budget<br><em>FY 2024–25</em></h1>
+    <div class="masthead-sub">Apr 1, 2024 – Mar 31, 2025 · All figures in ₹ Lakh Crore (L cr) · Sources: MoF Budget Documents, PRS India, CGA</div>
+  </div>
+  <div class="masthead-right">
+    <div class="kpi">
+      <div class="kpi-label">Total Receipts (excl. borrowings)</div>
+      <div class="kpi-value rec">₹32.07L cr</div>
+      <div class="kpi-note">Net tax ₹25.83L cr + Non-tax ₹5.46L cr + Capital ₹0.78L cr · ~$381B</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Fiscal Deficit (New Borrowings)</div>
+      <div class="kpi-value def">₹16.13L cr</div>
+      <div class="kpi-note">4.9% of GDP · Down from 5.6% in FY2023-24</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Total Expenditure</div>
+      <div class="kpi-value out">₹48.21L cr</div>
+      <div class="kpi-note">14.7% of GDP · +8.5% vs FY2023-24 · ~$574B USD</div>
+    </div>
+  </div>
+</div>
+<div class="stripe"></div>
+
+<!-- MAIN TWO-COL -->
+<div class="section-label">Budget breakdown</div>
+
+<div class="two-col">
+
+  <!-- LEFT: REVENUES -->
+  <div class="col-pad">
+    <div class="panel-head">
+      <h2>Revenue by Source</h2>
+      <span>Max = ₹11.87L cr (Income Tax) · Net receipts ₹32.07L cr</span>
+    </div>
+    <div id="rec"></div>
+
+    <!-- DEFICIT -->
+    <div class="deficit-row" id="def-row" style="opacity:0">
+      <div class="bar-label">Borrowings (Fiscal Deficit)<small>Market loans, small savings, provident funds, external assistance</small></div>
+      <div class="bar-track">
+        <div class="bar-fill" data-pct="100" style="width:0%;background:var(--red-mid)"></div>
+      </div>
+      <div class="bar-val">₹16.13<small>L cr · 4.9% GDP</small></div>
+    </div>
+
+    <div class="total-row">
+      <div class="bar-label">Total Resources Available</div>
+      <div class="bar-track" style="background:transparent"></div>
+      <div class="bar-val">₹48.21<small>L cr</small></div>
+    </div>
+
+    <div class="method-note">
+      <strong>Gross vs. Net Tax Revenue:</strong> India's Gross Tax Revenue (GTR) is budgeted at ₹38.40L cr, but ₹12.47L cr of this is devolved to state governments under the constitutional revenue-sharing formula (currently 41% of the divisible pool). The Centre's Net Tax Revenue of ₹25.83L cr is what actually flows into the Union Budget for central government spending. Revenue figures shown here are the Centre's net receipts. The actual FY2024-25 direct tax collection was ₹25.87L cr (CBDT provisional) — roughly in line with estimates. Fiscal year runs April 1–March 31; 1 Lakh Crore (L cr) = ₹100,000 crore ≈ $12B at ~₹84/$.
+    </div>
+  </div>
+
+  <!-- RIGHT: OUTLAYS -->
+  <div class="col-divider">
+    <div class="panel-head">
+      <h2>Expenditure by Function</h2>
+      <span>Max = ₹11.63L cr (Interest Payments) · Total ₹48.21L cr</span>
+    </div>
+    <div id="out"></div>
+
+    <div class="total-row">
+      <div class="bar-label">Total Expenditure</div>
+      <div class="bar-track" style="background:transparent"></div>
+      <div class="bar-val">₹48.21<small>L cr</small></div>
+    </div>
+
+    <div class="method-note">
+      <strong>Capital vs. Revenue Split:</strong> Of the ₹48.21L cr total, ₹11.11L cr (23%) is capital expenditure — spending on assets like roads, rail, and digital infrastructure — and ₹37.09L cr (77%) is revenue expenditure covering salaries, pensions, subsidies, interest, and grants. The landmark ₹11.11L cr capex figure (popularly quoted as "₹11,11,111 crore") represents 3.4% of GDP and is part of a sustained multi-year effort to build India's physical infrastructure. This excludes ₹1.5L cr in interest-free capital loans to states, which flows through state budgets. The central government's own spending is only ~35% of consolidated general government spending; state governments account for the rest.
+    </div>
+  </div>
+
+</div>
+
+<!-- CALLOUTS -->
+<div class="section-label" style="margin-top:32px">Context & explanations</div>
+<div class="callouts" style="margin-top:16px">
+
+  <div class="callout">
+    <span class="callout-icon">💸</span>
+    <h3>Interest Payments: India's Largest Single Expenditure</h3>
+    <p>At ₹11.63L cr, interest payments on government debt are India's single biggest budget line — 24% of all central government expenditure and 37% of revenue receipts. Every rupee borrowed today adds to this burden, which has nearly doubled in a decade as the debt stock swelled, particularly during the COVID-19 pandemic. India's central government outstanding liabilities are estimated at 56.8% of GDP in FY2024-25. The Fiscal Responsibility and Budget Management (FRBM) Act targets reducing this ratio over time, and the fiscal deficit is being deliberately compressed — from 9.2% of GDP in FY2020-21 (COVID peak) to 4.9% in FY2024-25 — to slow the accumulation of new debt.</p>
+    <span class="tag tag-red">Interest: 24% of all spending · 37% of revenue receipts</span>
+  </div>
+
+  <div class="callout">
+    <span class="callout-icon">🛣️</span>
+    <h3>Infrastructure Push: ₹11.11L cr Capex — Record 3.4% of GDP</h3>
+    <p>Capital expenditure of ₹11,11,111 crore (a distinctive symbolic figure) marks a third consecutive year of double-digit capex growth and is triple the level of FY2019-20. The bulk goes to roads (Ministry of Road Transport & Highways: ₹2.78L cr) and railways (₹2.55L cr), making them the second and third largest ministry allocations after defence. The government is funding 25,000 km of road construction annually, the world's largest rail expansion, new airports, and digital infrastructure. An additional ₹1.5L cr in interest-free 50-year loans to states further amplifies infrastructure investment at the sub-national level. Research shows each ₹1 of public capex generates ₹2.5–3 in GDP over five years.</p>
+    <span class="tag tag-saffron">Capex: ₹11.11L cr · 3.4% GDP · Triple FY2019-20 level</span>
+  </div>
+
+  <div class="callout">
+    <span class="callout-icon">🛡️</span>
+    <h3>Defence: ₹6.22L cr — Largest Ministry Allocation for Second Year</h3>
+    <p>The Ministry of Defence received ₹6.22L cr, the highest allocation of any central ministry at 13% of total expenditure. The budget reflects India's determination to modernise the armed forces — around 27% goes to capital outlay for weapons and platforms, while ~53% covers revenue (salaries and operations) and 20% defence pensions. India is now the world's third-largest military spender in absolute terms. Under the "Aatmanirbhar Bharat" (self-reliant India) defence initiative, a growing share of procurement is reserved for domestic industry — a ring-fenced domestic procurement budget (iDEX) now sits at ₹1,48,000 crore. India is simultaneously managing border tensions with both China and Pakistan, driving sustained modernisation.</p>
+    <span class="tag tag-indigo">Defence: ₹6.22L cr · 13% of budget · ~2% of GDP</span>
+  </div>
+
+  <div class="callout">
+    <span class="callout-icon">🌾</span>
+    <h3>Subsidies: ₹4.38L cr — Food & Fertiliser Dominate</h3>
+    <p>India's subsidy bill of ₹4.38L cr (9.1% of total spending) covers food, fertiliser, and other schemes. The food subsidy of ₹2.05L cr funds the National Food Security Act, providing 5 kg of free grain monthly to 800 million beneficiaries — the world's largest food security scheme, extended free of cost until 2028. Fertiliser subsidies (₹1.64L cr) keep agricultural input costs low for 140 million farm households. Both have been declining as a share of GDP since the COVID surge, reflecting gradual fiscal consolidation. PM-KISAN transfers ₹6,000/year directly to ~110 million farmers, adding ₹0.20L cr to rural transfers. MGNREGS employment guarantee received ₹0.86L cr, unchanged from last year.</p>
+    <span class="tag tag-green">Food subsidy: ₹2.05L cr · Free grain to 800M people</span>
+  </div>
+
+  <div class="callout">
+    <span class="callout-icon">📊</span>
+    <h3>Income Tax Now Bigger Than Corporate Tax</h3>
+    <p>For the first time in recent memory, personal income tax (PIT) collections (₹11.87L cr budgeted; ₹12.90L cr actual per CBDT) have overtaken corporate tax (₹10.20L cr budgeted; ₹12.40L cr actual). PIT now accounts for ~31% of Gross Tax Revenue vs. ~27% for corporate tax. This reflects the 2019 corporate tax rate cut (from 30% to 22%) which permanently reduced the corporate share, and rapid formalisation of the economy bringing more salaried workers into the tax net. GST (Central component: ₹9.11L cr) continues its strong post-pandemic recovery. At ₹38.40L cr, India's Gross Tax Revenue-to-GDP ratio is approximately 11.7% — well below the OECD average of ~34%, indicating substantial scope for future revenue expansion as formalisation deepens.</p>
+    <span class="tag tag-saffron">PIT overtakes corporate tax · Tax-to-GDP: 11.7%</span>
+  </div>
+
+  <div class="callout">
+    <span class="callout-icon">🏥</span>
+    <h3>Health &amp; Education: Low Shares Reflect India's Federal Structure</h3>
+    <p>Health (₹0.90L cr) and Education (₹1.25L cr) together account for just 4.4% of the Union Budget, which seems remarkably low for a country of 1.4 billion people. This is misleading: India is a federal republic where health and education are primarily state subjects. State governments spend approximately 3–4× as much as the Centre on each. India's combined (centre + state) public health spending is around 2.1% of GDP, and education around 4.6% of GDP — closer to peer country averages when both tiers are counted. The Union Budget's Ayushman Bharat health insurance program alone covers 550 million people. Union health spending is focused on national programs like National Health Mission, AIIMS hospitals, and vaccines.</p>
+    <span class="tag tag-green">State governments spend 3–4× more than Centre on health/education</span>
+  </div>
+
+</div>
+
+<!-- FOOTNOTE -->
+<div class="footnote">
+  <p>
+    <strong>Primary sources:</strong> Ministry of Finance India — Union Budget 2024-25 documents: Budget at a Glance, Receipt Budget (July 2024), Expenditure Budget, Budget Speech by Finance Minister Nirmala Sitharaman (July 23, 2024); PIB — Highlights of the Union Budget 2024-25 (July 23, 2024); PRS Legislative Research — Union Budget Analysis 2024-25 (August 2024, updated); PRS — Union Budget Analysis 2025-26 (provides FY2024-25 revised estimates); CBDT — Direct Tax Collections FY2024-25 Provisional: ₹25.87L cr gross (ClearTax reporting, May 2025); EY India — Union Budget 2024-25: Accelerating Fiscal Consolidation; Centre for Budget and Governance Accountability (CBGA) — Revisiting the Priorities: Analysis of Union Budget 2024-25 (July 2024); PIB — A Record over Rs 6.81 lakh crore allocated for MoD in Union Budget 2025-26 (cites FY2024-25 BE figures); Statista — Indian Budget 2024-25 chart.
+  </p>
+  <p>
+    <strong>Methodology &amp; caveats:</strong> India's fiscal year runs April 1–March 31; FY2024-25 = Apr 2024–Mar 2025. The budget was presented twice: Interim Budget (February 1, 2024) and Full Budget (July 23, 2024, after Modi government's re-election). Figures shown are Budget Estimates (BE) from the July 2024 full budget unless noted. 1 Lakh Crore (L cr) = ₹100,000 crore = ₹1 trillion = ~$12B at ₹84/$. GDP reference: ₹327.7L cr nominal (MoF estimate at 10.5% nominal growth). Revenue figures are the Centre's net receipts after state devolution of ₹12.47L cr; Gross Tax Revenue of ₹38.40L cr is shown separately in notes. Actual CBDT direct tax collection of ₹25.87L cr (provisional FY2024-25) exceeded BE target of ₹22.07L cr. Defence ₹6.22L cr includes all four demand heads: MoD civil, defence services revenue, capital outlay, and defence pensions (₹1.41L cr). Interest payments of ₹11.63L cr are on the central government's internal and external debt only; total consolidated government (centre + state) interest is higher. Subsidies shown are central government explicit subsidies; implicit subsidies through state electricity boards and other cross-subsidies are additional. Revised Estimate (RE) for FY2024-25 fiscal deficit: 4.8% of GDP per FM speech at 2025-26 budget.
+  </p>
+</div>
+
+<script>
+// All values in "L cr" (Lakh Crore) × 100 = displayed in 100s of crore for scaling
+// Using actual L cr values scaled to integers for bar proportions
+const MAX_REC = 1187; // Income Tax (₹11.87L cr), scaled ×100
+const MAX_OUT = 1163; // Interest Payments (₹11.63L cr), scaled ×100
+
+const receipts = [
+  {
+    group: "Direct Taxes (Centre's Net Share)",
+    items: [
+      { label: "Personal Income Tax",    sub: "Progressive 5–30% + surcharge; actual FY25 ~₹12.90L cr (CBDT provisional)",   val: 1187, gdp: 3.6, cls: "c-pit" },
+      { label: "Corporate Tax",          sub: "22% effective rate (25% for smaller cos); actual FY25 ~₹12.40L cr",             val: 1020, gdp: 3.1, cls: "c-corp" },
+    ]
+  },
+  {
+    group: "Indirect Taxes (Central Share)",
+    items: [
+      { label: "GST — Central (CGST)",   sub: "Centre's share of the 18%/12%/5% GST; states get equal SGST share",             val:  911, gdp: 2.8, cls: "c-gst" },
+      { label: "Customs Duties",         sub: "Import tariffs; reduced on gold, mobiles; raised on some green-tech items",      val:  205, gdp: 0.6, cls: "c-cust" },
+      { label: "Excise & Other Taxes",   sub: "Petrol/diesel excise (outside GST), tobacco, STT, equalisation levy",           val:  185, gdp: 0.6, cls: "c-exc" },
+    ]
+  },
+  {
+    group: "Non-Tax & Capital Receipts",
+    items: [
+      { label: "Non-Tax Revenue",        sub: "RBI record ₹2.11L cr dividend, PSU dividends, fees, spectrum proceeds",         val:  546, gdp: 1.7, cls: "c-ntax" },
+    ]
+  },
+];
+
+const outlays = [
+  {
+    group: "Debt Service",
+    items: [
+      { label: "Interest Payments",      sub: "On ₹185L cr central govt debt; largest single expenditure line",                val: 1163, gdp: 3.5, cls: "c-int" },
+    ]
+  },
+  {
+    group: "Defence",
+    items: [
+      { label: "National Defence",       sub: "MoD: Revenue ₹3.29L cr + Capital ₹1.72L cr + Pensions ₹1.41L cr + Civil",     val:  622, gdp: 1.9, cls: "c-def" },
+    ]
+  },
+  {
+    group: "Infrastructure (Capital)",
+    items: [
+      { label: "Road Transport & Highways", sub: "NHAI, Bharatmala highways, rural roads PMGSY — 2nd largest ministry",       val:  278, gdp: 0.8, cls: "c-road" },
+      { label: "Railways",               sub: "Capital outlay on new lines, rolling stock, electrification, Vande Bharat",     val:  255, gdp: 0.8, cls: "c-rail" },
+    ]
+  },
+  {
+    group: "Social & Welfare",
+    items: [
+      { label: "Subsidies (Food + Fertiliser)", sub: "Free grain for 800M (₹2.05L cr) + fertiliser (₹1.64L cr) + others",   val:  438, gdp: 1.3, cls: "c-sub" },
+      { label: "Rural Development",     sub: "MGNREGS ₹0.86L cr, PMAY-Gramin, PM-KISAN, Jal Jeevan Mission",                val:  177, gdp: 0.5, cls: "c-rur" },
+      { label: "Agriculture & Allied",  sub: "ICAR research, PM-Kisan (₹0.20L cr), crop insurance, irrigation",               val:  152, gdp: 0.5, cls: "c-agr" },
+      { label: "Education",             sub: "School education (₹0.73L cr), higher education (₹0.47L cr incl. IITs)",         val:  125, gdp: 0.4, cls: "c-edu" },
+      { label: "Health & Family Welfare", sub: "National Health Mission, Ayushman Bharat, AIIMS, immunisation",               val:   90, gdp: 0.3, cls: "c-hlth" },
+    ]
+  },
+  {
+    group: "Transfers & Administration",
+    items: [
+      { label: "Pensions (Civil & Other)", sub: "Central government civilian retirees; defence pensions above in MoD",        val:  234, gdp: 0.7, cls: "c-pen" },
+      { label: "Other Ministries & Transfers", sub: "Urban dev, energy, comms, science, state loans, UT transfers, admin",   val: 1285, gdp: 3.9, cls: "c-oth" },
+    ]
+  },
+];
+
+function buildSection(data, containerId, maxVal, animClass, delay0) {
+  const container = document.getElementById(containerId);
+  let delay = delay0;
+  data.forEach(group => {
+    const glbl = document.createElement('div');
+    glbl.className = 'group-label';
+    glbl.textContent = group.group;
+    container.appendChild(glbl);
+    group.items.forEach(item => {
+      const pct = Math.min((item.val / maxVal) * 100, 100).toFixed(2);
+      const row = document.createElement('div');
+      row.className = `bar-row${animClass ? ' ' + animClass : ''}`;
+      row.style.animationDelay = delay + 'ms';
+      // Convert back: val/100 = L cr value
+      const lcr = (item.val / 100).toFixed(2);
+      row.innerHTML = `
+        <div class="bar-label">${item.label}<small>${item.sub}</small></div>
+        <div class="bar-track">
+          <div class="bar-fill ${item.cls}" data-pct="${pct}" style="width:0%"></div>
+        </div>
+        <div class="bar-val">₹${lcr}<small>L cr · ${item.gdp}% GDP</small></div>
+      `;
+      container.appendChild(row);
+      delay += 50;
+    });
+  });
+}
+
+buildSection(receipts, 'rec', MAX_REC, '',           80);
+buildSection(outlays,  'out', MAX_OUT, 'right-anim', 200);
+
+// Animate deficit row
+setTimeout(() => {
+  const dr = document.getElementById('def-row');
+  dr.style.transition = 'opacity 0.4s ease 0.5s';
+  dr.style.opacity = '1';
+  const fill = dr.querySelector('.bar-fill');
+  fill.style.transition = 'width 0.95s cubic-bezier(0.16,1,0.3,1) 0.6s';
+  fill.style.width = fill.dataset.pct + '%';
+}, 100);
+
+// Animate all bars
+setTimeout(() => {
+  document.querySelectorAll('.bar-fill[data-pct]').forEach(el => {
+    el.style.width = el.dataset.pct + '%';
+  });
+}, 150);
+</script>
+</body>
+</html>

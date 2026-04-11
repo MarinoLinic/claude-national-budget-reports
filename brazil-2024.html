@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brazil Government Budget 2024 — Detailed</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --paper:   #f7f3ee;
+  --white:   #ffffff;
+  --ink:     #18140f;
+  --muted:   #7c766e;
+  --rule:    #ddd7ce;
+  --red:     #b8291f;
+  --red-mid: #d94f3d;
+  --red-lt:  #f0d5d2;
+  --blue:    #1c3f6e;
+  --blue-mid:#2e5fa3;
+  --blue-lt: #ccd8ed;
+  --teal:    #1a5f5a;
+  --teal-lt: #c8e0de;
+  --gold:    #8a6800;
+  --gold-lt: #ede3c0;
+  --olive:   #5a6a1a;
+  --olive-lt:#dde3c0;
+  --grey:    #4a4640;
+  --grey-lt: #e2ddd8;
+  --green:   #1a6b2a;
+  --green-lt:#c8e5cc;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  background: var(--paper);
+  font-family: 'Barlow', sans-serif;
+  color: var(--ink);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* ── MASTHEAD ── */
+.masthead {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: stretch;
+  overflow: hidden;
+}
+.masthead-left {
+  padding: 44px 52px 40px;
+  border-right: 1px solid #333;
+}
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+.flag {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  flex-shrink: 0;
+  position: relative;
+  width: 36px;
+  height: 24px;
+  border-radius: 2px;
+  overflow: hidden;
+}
+.flag-brazil {
+  width: 36px;
+  height: 24px;
+  background: #009c3b;
+  position: relative;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.flag-brazil::before {
+  content: '';
+  width: 0;
+  height: 0;
+  border-left: 18px solid transparent;
+  border-right: 18px solid transparent;
+  border-top: 12px solid #fedf00;
+  position: absolute;
+  top: 0;
+}
+.flag-brazil::after {
+  content: '';
+  width: 0;
+  height: 0;
+  border-left: 18px solid transparent;
+  border-right: 18px solid transparent;
+  border-bottom: 12px solid #fedf00;
+  position: absolute;
+  bottom: 0;
+}
+.flag-circle {
+  width: 14px;
+  height: 14px;
+  background: #002776;
+  border-radius: 50%;
+  position: relative;
+  z-index: 2;
+}
+.eyebrow-text {
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #888;
+  font-weight: 500;
+}
+.masthead h1 {
+  font-family: 'Libre Baskerville', serif;
+  font-size: clamp(2rem, 3.5vw, 3.2rem);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  max-width: 560px;
+}
+.masthead h1 em {
+  font-style: italic;
+  color: #b0a898;
+}
+.masthead-sub {
+  margin-top: 12px;
+  font-size: 12px;
+  color: #777;
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.masthead-right {
+  padding: 44px 52px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 22px;
+  min-width: 240px;
+}
+.kpi { }
+.kpi-label {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #666;
+  font-weight: 500;
+  margin-bottom: 3px;
+}
+.kpi-value {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  line-height: 1;
+}
+.kpi-value.rec  { color: #5a9de0; }
+.kpi-value.def  { color: #e06050; }
+.kpi-value.out  { color: var(--paper); }
+.kpi-note {
+  font-size: 10px;
+  color: #666;
+  font-weight: 300;
+  margin-top: 2px;
+}
+
+/* ── COLOUR STRIPE — Brazilian flag colours ── */
+.stripe {
+  height: 5px;
+  background: linear-gradient(90deg,
+    #009c3b 0% 30%,
+    #fedf00 30% 50%,
+    #002776 50% 70%,
+    var(--red) 70% 85%,
+    var(--grey) 85% 100%);
+}
+
+/* ── SECTION LABEL ── */
+.section-label {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-weight: 600;
+  color: var(--muted);
+  padding: 28px 52px 0;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+}
+
+/* ── LAYOUT WRAPPERS ── */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  padding: 0 52px;
+}
+.col-divider {
+  border-left: 1px solid var(--rule);
+  padding-left: 40px;
+}
+.col-pad {
+  padding-right: 40px;
+}
+
+/* ── PANEL HEADING ── */
+.panel-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 20px 0 14px;
+  border-bottom: 2px solid var(--ink);
+  margin-bottom: 4px;
+}
+.panel-head h2 {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+.panel-head span {
+  font-size: 10px;
+  color: var(--muted);
+  font-weight: 400;
+}
+
+/* ── BAR ROWS ── */
+.bar-group {
+  margin-bottom: 2px;
+}
+.group-label {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  font-weight: 600;
+  margin: 16px 0 6px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--rule);
+}
+.bar-row {
+  display: grid;
+  grid-template-columns: 200px 1fr 70px;
+  align-items: center;
+  gap: 10px;
+  padding: 3px 0;
+  opacity: 0;
+  transform: translateX(-8px);
+  animation: slideIn 0.35s ease forwards;
+}
+.bar-row.right-anim {
+  transform: translateX(8px);
+}
+@keyframes slideIn {
+  to { opacity: 1; transform: translateX(0); }
+}
+.bar-label {
+  font-size: 12px;
+  color: var(--ink);
+  line-height: 1.3;
+  font-weight: 400;
+}
+.bar-label small {
+  display: block;
+  font-size: 10px;
+  color: var(--muted);
+  font-weight: 300;
+  margin-top: 1px;
+}
+.bar-track {
+  height: 18px;
+  background: var(--rule);
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+}
+.bar-fill {
+  height: 100%;
+  width: 0%;
+  border-radius: 2px;
+  transition: width 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+/* receipt colours */
+.c-pit     { background: var(--blue); }
+.c-corp    { background: #3d75c0; }
+.c-cofins  { background: var(--blue-mid); }
+.c-iof     { background: #5590d4; }
+.c-ipi     { background: #6a9ece; }
+.c-soc     { background: var(--teal); }
+.c-other   { background: #7090b8; }
+.c-def     { background: var(--red); }
+.c-oil     { background: var(--olive); }
+.c-concess { background: #7a8a2a; }
+/* outlay colours */
+.c-oldage   { background: var(--red); }
+.c-rpps     { background: #c04a3a; }
+.c-surv     { background: #c86050; }
+.c-dis      { background: #d07060; }
+.c-health   { background: var(--gold); }
+.c-educ     { background: #a07a00; }
+.c-bolsa    { background: var(--green); }
+.c-debt     { background: var(--grey); }
+.c-def2     { background: var(--grey); opacity:0.75; }
+.c-admin    { background: #888078; }
+.c-infra    { background: #6a6460; }
+.c-unemp    { background: #9a9488; }
+.c-bpc      { background: #b0a898; }
+
+.bar-val {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--ink);
+  text-align: right;
+  white-space: nowrap;
+}
+.bar-val small {
+  display: block;
+  font-size: 9px;
+  color: var(--muted);
+  font-weight: 400;
+}
+
+/* ── DEFICIT BRIDGE ── */
+.deficit-row {
+  background: #fff8f7;
+  border: 1px solid #f0ccc8;
+  border-radius: 3px;
+  padding: 10px 14px;
+  margin: 10px 0 4px;
+  display: grid;
+  grid-template-columns: 200px 1fr 70px;
+  gap: 10px;
+  align-items: center;
+}
+.deficit-row .bar-label { color: var(--red); font-weight: 500; }
+.deficit-row .bar-fill { background: var(--red-mid); }
+.deficit-row .bar-val { color: var(--red); }
+
+/* ── CALLOUT BOXES ── */
+.callouts {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1px;
+  background: var(--rule);
+  margin: 0 52px;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.callout {
+  background: var(--white);
+  padding: 18px 20px;
+}
+.callout-icon {
+  font-size: 18px;
+  margin-bottom: 8px;
+  display: block;
+}
+.callout h3 {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.callout p {
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.6;
+  font-weight: 300;
+}
+.callout .tag {
+  display: inline-block;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: 2px;
+  margin-top: 8px;
+}
+.tag-red   { background: var(--red-lt);   color: var(--red);  }
+.tag-blue  { background: var(--blue-lt);  color: var(--blue); }
+.tag-gold  { background: var(--gold-lt);  color: var(--gold); }
+.tag-teal  { background: var(--teal-lt);  color: var(--teal); }
+.tag-green { background: var(--green-lt); color: var(--green);}
+.tag-grey  { background: var(--grey-lt);  color: var(--grey); }
+
+/* ── FOOTNOTE ── */
+.footnote {
+  padding: 24px 52px 40px;
+  border-top: 1px solid var(--rule);
+  margin: 28px 0 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.footnote p {
+  font-size: 10px;
+  color: var(--muted);
+  line-height: 1.7;
+  font-weight: 300;
+}
+.footnote strong { font-weight: 600; color: var(--ink); }
+
+/* ── TOTAL ROW ── */
+.total-row {
+  display: grid;
+  grid-template-columns: 200px 1fr 70px;
+  gap: 10px;
+  align-items: center;
+  padding: 8px 0 4px;
+  border-top: 2px solid var(--ink);
+  margin-top: 6px;
+}
+.total-row .bar-label { font-weight: 600; font-size: 12px; }
+.total-row .bar-val   { font-weight: 700; font-size: 12px; }
+
+/* ── METHODOLOGY NOTE ── */
+.method-note {
+  background: var(--ink);
+  color: #ccc;
+  font-size: 10.5px;
+  line-height: 1.7;
+  padding: 14px 20px;
+  border-radius: 3px;
+  margin: 8px 0 0;
+  font-weight: 300;
+}
+.method-note strong { color: var(--paper); font-weight: 600; }
+
+@media (max-width: 900px) {
+  .two-col { grid-template-columns: 1fr; padding: 0 20px; }
+  .col-divider { border-left: none; border-top: 1px solid var(--rule); padding-left: 0; padding-top: 28px; margin-top: 28px; }
+  .col-pad { padding-right: 0; }
+  .masthead { grid-template-columns: 1fr; }
+  .masthead-right { border-top: 1px solid #333; padding-top: 24px; flex-direction: row; flex-wrap: wrap; gap: 24px; }
+  .masthead-left { padding: 32px 20px 28px; }
+  .section-label { padding: 20px 20px 0; }
+  .callouts { grid-template-columns: 1fr; margin: 0 20px; }
+  .footnote { grid-template-columns: 1fr; padding: 20px 20px 32px; }
+  .bar-row { grid-template-columns: 140px 1fr 60px; }
+  .deficit-row { grid-template-columns: 140px 1fr 60px; }
+  .total-row { grid-template-columns: 140px 1fr 60px; }
+}
+</style>
+</head>
+<body>
+
+<!-- MASTHEAD -->
+<div class="masthead">
+  <div class="masthead-left">
+    <div class="eyebrow">
+      <div class="flag-brazil">
+        <div class="flag-circle"></div>
+      </div>
+      <span class="eyebrow-text">Federative Republic of Brazil · República Federativa do Brasil</span>
+    </div>
+    <h1>Government Budget<br><em>Fiscal Year 2024</em></h1>
+    <div class="masthead-sub">Receipts, Outlays & Deficit · Federal Government (União) · Sources: STN, Receita Federal, Banco Central do Brasil</div>
+  </div>
+  <div class="masthead-right">
+    <div class="kpi">
+      <div class="kpi-label">Total Federal Receipts (2024)</div>
+      <div class="kpi-value rec">R$2.71T</div>
+      <div class="kpi-note">~26.4% of GDP · record high (real +9.6% vs 2023)</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Nominal Budget Deficit (2024)</div>
+      <div class="kpi-value def">R$~928B</div>
+      <div class="kpi-note">~8.5% of GDP · incl. debt interest of ~R$855B</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Total Primary Outlays (2024)</div>
+      <div class="kpi-value out">R$~2.84T</div>
+      <div class="kpi-note">~27.7% of GDP · mandatory spending dominates</div>
+    </div>
+  </div>
+</div>
+<div class="stripe"></div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!--  RECEIPTS + OUTLAYS TWO-COL                           -->
+<!-- ══════════════════════════════════════════════════════ -->
+<div class="section-label">Budget breakdown</div>
+
+<div class="two-col">
+
+  <!-- ── LEFT: RECEIPTS ── -->
+  <div class="col-pad">
+    <div class="panel-head">
+      <h2>Receipts by Source</h2>
+      <span>Max = R$700B (Income Tax) · Total R$2.71T</span>
+    </div>
+
+    <div id="rec"></div>
+
+    <!-- DEFICIT -->
+    <div class="deficit-row" id="def-row" style="opacity:0">
+      <div class="bar-label">Deficit Financing<small>Government bonds (Tesouro Direto) + borrowing</small></div>
+      <div class="bar-track">
+        <div class="bar-fill" data-pct="55" style="width:0%;background:var(--red-mid)"></div>
+      </div>
+      <div class="bar-val">R$~130B<small>~1.2% GDP primary</small></div>
+    </div>
+
+    <div class="total-row">
+      <div class="bar-label">Total Resources Available</div>
+      <div class="bar-track" style="background:transparent"></div>
+      <div class="bar-val">R$2.84T</div>
+    </div>
+
+    <div class="method-note" style="margin-top:16px">
+      <strong>Note on social contributions:</strong> Employees contribute 7.5–14% of gross salary to INSS (RGPS) on a progressive basis. Employers pay 20% of payroll (general regime) to the INSS. The 2019 pension reform raised minimum retirement ages to 65 (men) and 62 (women). PIS/COFINS — payroll-linked social contributions — are Brazil's largest indirect tax stream and fund social programmes outside the pension system.
+    </div>
+  </div>
+
+  <!-- ── RIGHT: OUTLAYS ── -->
+  <div class="col-divider">
+    <div class="panel-head">
+      <h2>Outlays by Function</h2>
+      <span>Max = R$870B (INSS pensions) · Total R$2.84T</span>
+    </div>
+
+    <div id="out"></div>
+
+    <div class="total-row">
+      <div class="bar-label">Total Primary Expenditure</div>
+      <div class="bar-track" style="background:transparent"></div>
+      <div class="bar-val">R$2.84T</div>
+    </div>
+
+    <div class="method-note" style="margin-top:16px">
+      <strong>Note on debt interest:</strong> Brazil's nominal deficit (~8.5% GDP) is dramatically larger than its primary deficit (~1.2% GDP) because interest payments on the ~R$7.1 trillion public debt consumed approximately R$855 billion in 2024 — equivalent to ~7.3% of GDP. The Selic benchmark rate averaged ~10.5% in 2024, making debt servicing Brazil's largest single financial commitment.
+    </div>
+  </div>
+
+</div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!--  CALLOUT BOXES                                         -->
+<!-- ══════════════════════════════════════════════════════ -->
+<div class="section-label" style="margin-top:32px">Context & explanations</div>
+<div class="callouts" style="margin-top:16px">
+
+  <div class="callout">
+    <span class="callout-icon">👴</span>
+    <h3>Pensions Dominate Federal Spending</h3>
+    <p>The INSS (RGPS) pays out roughly R$870B annually to over 40 million active beneficiaries — the single largest line in the federal budget at ~8.5% of GDP. The 2019 pension reform (Bolsonaro/Guedes) raised minimum retirement ages and tightened contribution rules to slow the growth of this expenditure, projecting R$800B in 10-year savings. Civil servant pensions (RPPS) add another ~R$120B.</p>
+    <span class="tag tag-red">Pension total: ~9.7% GDP</span>
+  </div>
+
+  <div class="callout">
+    <span class="callout-icon">💸</span>
+    <h3>Interest Payments: A Crushing Burden</h3>
+    <p>Brazil's Selic policy rate — at 10.5% through much of 2024 — generates enormous interest costs on ~R$7.1 trillion in public debt. Nominal interest payments of ~R$855B (7.3% of GDP) dwarf those of any comparably-sized economy. The gap between the primary deficit (~1.2% GDP) and nominal deficit (~8.5% GDP) is almost entirely explained by debt servicing. Market concerns about fiscal slippage pushed the Selic back above 12% by year-end.</p>
+    <span class="tag tag-grey">Debt interest: ~7.3% GDP</span>
+  </div>
+
+  <div class="callout">
+    <span class="callout-icon">🌱</span>
+    <h3>Bolsa Família — World's Largest Cash Transfer</h3>
+    <p>Bolsa Família was relaunched by Lula in 2023 with expanded benefits, serving over 21 million families (~80 million individuals, ~40% of Brazil's population). Average transfer ~R$672/month. The programme costs ~R$168B annually (1.6% of GDP) and includes supplements of R$150/child under 6 and R$50/pregnant woman. Despite its scale, it is far smaller than the pension system and targeted at Brazil's poorest.</p>
+    <span class="tag tag-green">Bolsa Família: ~1.6% GDP</span>
+  </div>
+
+  <div class="callout">
+    <span class="callout-icon">🏥</span>
+    <h3>SUS — Universal Healthcare Under Pressure</h3>
+    <p>Brazil's Sistema Único de Saúde (SUS) guarantees free universal healthcare to 215 million people. Federal health spending is constitutionally mandated at a minimum percentage of net revenue. Spending reached approximately R$210B (2.0% of GDP) in 2024, supplemented by state and municipal contributions. The SUS faces chronic underfunding relative to demand, particularly post-pandemic, driving debate about increasing the federal minimum allocation.</p>
+    <span class="tag tag-gold">Federal health: ~2.0% GDP</span>
+  </div>
+
+  <div class="callout">
+    <span class="callout-icon">🧾</span>
+    <h3>Record Tax Revenue — Still Not Enough</h3>
+    <p>Federal tax collection hit R$2.709 trillion in 2024 — a historical record representing real growth of 9.6%. Growth was driven by economic expansion (GDP +3.1%), PIS/COFINS from fuel taxation reinstatement, and aggressive enforcement. Despite record revenues, mandatory spending grew faster. Brazil's tax burden (~33% of GDP) is the highest in Latin America and comparable to many European countries, yet large deficits persist due to structural spending commitments.</p>
+    <span class="tag tag-blue">Tax revenue record: R$2.71T</span>
+  </div>
+
+  <div class="callout">
+    <span class="callout-icon">⚖️</span>
+    <h3>New Fiscal Framework — Zero Primary Target</h3>
+    <p>Lula's 2023 fiscal framework replaced Temer's spending ceiling with a rule limiting real spending growth to 70% of real revenue growth, capped at 2.5% p.a. The primary deficit target for 2024 was zero (±0.25% GDP tolerance). The actual primary deficit came in at ~1.2% GDP — a miss. This triggered market concern, BRL depreciation to ~R$6/USD, and prompted late-year spending freeze announcements of R$15B by Minister Haddad.</p>
+    <span class="tag tag-red">Primary deficit: ~1.2% GDP (target: 0%)</span>
+  </div>
+
+</div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!--  FOOTNOTE                                              -->
+<!-- ══════════════════════════════════════════════════════ -->
+<div class="footnote">
+  <p>
+    <strong>Primary sources:</strong> Receita Federal do Brasil — "Arrecadação de Receitas Federais 2024" (Jan 2025); Secretaria do Tesouro Nacional (STN) — Resultado do Tesouro Nacional 2024; Banco Central do Brasil — Nota para a Imprensa: Política Fiscal; INSS / Ministério da Previdência Social — Boletim Estatístico da Previdência Social (BEPS) Dec 2024; Ministério da Saúde — Relatório de Execução Orçamentária 2024; Ministério da Educação budget execution 2024; IMF Article IV Consultation Brazil 2024; World Bank Brazil Fiscal Note 2024; NATO-equivalent SIPRI defence data.
+  </p>
+  <p>
+    <strong>Methodology:</strong> Revenue figures are 2024 actuals from Receita Federal (R$2.709T total gross). Outlay figures are 2024 federal primary expenditure estimates reconciled from STN and ministry execution data. Currency: Brazilian Real (BRL / R$). Exchange rate reference: ~R$5.15–6.00/USD across 2024 (significant depreciation in H2). GDP reference: ~R$10.9 trillion (2024 estimate). Primary deficit excludes interest payments; nominal deficit includes ~R$855B in interest. All figures are federal government (União) only; consolidated public sector (including states and municipalities) shows a larger total.
+  </p>
+</div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!--  DATA & RENDERING                                       -->
+<!-- ══════════════════════════════════════════════════════ -->
+<script>
+// MAX values for scaling (BRL billions)
+const MAX_REC = 700;   // Income Tax (IRPF+IRPJ combined)
+const MAX_OUT = 870;   // INSS/RGPS pensions
+
+// ── RECEIPTS (2024 actuals, R$ billions) ───────────────────────────────────
+const receipts = [
+  {
+    group: "Income & Corporate Taxes",
+    items: [
+      { label: "Income Tax (IRPF + IRPJ)",  sub: "Personal 7.5–27.5% · Corporate ~34% CSLL+IRPJ", val: 700, gdp: 6.4, cls: "c-pit" },
+      { label: "PIS / COFINS",              sub: "Social contribution on revenue · 1.65%+7.6% (lucro real)", val: 430, gdp: 3.9, cls: "c-cofins" },
+    ]
+  },
+  {
+    group: "Indirect & Consumption Taxes",
+    items: [
+      { label: "IPI (Industrialised Products)", sub: "Federal manufacturing tax · reduced post-2022", val: 75, gdp: 0.7, cls: "c-ipi" },
+      { label: "IOF (Financial Operations)", sub: "Tax on credit, insurance, FX transactions",      val: 60, gdp: 0.6, cls: "c-iof" },
+      { label: "CIDE & other federal levies", sub: "Fuel CIDE, import duties (II), other",           val: 110, gdp: 1.0, cls: "c-other" },
+    ]
+  },
+  {
+    group: "Social Contributions",
+    items: [
+      { label: "INSS Contributions (RGPS)",  sub: "Employee 7.5–14% + Employer 20% of payroll",    val: 620, gdp: 5.7, cls: "c-soc" },
+    ]
+  },
+  {
+    group: "Non-Tax Receipts",
+    items: [
+      { label: "Oil & Gas Royalties (Petrobras)", sub: "Pre-sal dividends, royalties, special participation", val: 160, gdp: 1.5, cls: "c-oil" },
+      { label: "Concessions, fees & other",   sub: "User fees, asset sales, intergovernmental transfers",   val: 554, gdp: 5.1, cls: "c-concess" },
+    ]
+  },
+];
+
+// ── OUTLAYS (2024 primary federal expenditure, R$ billions) ──────────────
+const outlays = [
+  {
+    group: "Social Security & Transfers",
+    items: [
+      { label: "INSS Pensions (RGPS)",        sub: "40.4M beneficiaries · old-age, disability, survivors", val: 870, gdp: 8.0, cls: "c-oldage" },
+      { label: "Civil Servant Pensions (RPPS)",sub: "Federal servants retired from União regime",           val: 120, gdp: 1.1, cls: "c-rpps" },
+      { label: "BPC (Disability & Elderly Aid)",sub: "Non-contrib. benefit for low-income disabled & 65+",  val: 90,  gdp: 0.8, cls: "c-bpc" },
+      { label: "Bolsa Família",               sub: "21M+ families · avg R$672/month + child supplements",   val: 168, gdp: 1.5, cls: "c-bolsa" },
+      { label: "Unemployment Insurance (SD)",  sub: "Seguro-desemprego: ~4–5 months of last salary",        val: 62,  gdp: 0.6, cls: "c-unemp" },
+    ]
+  },
+  {
+    group: "Core Public Services",
+    items: [
+      { label: "Healthcare (SUS)",            sub: "Federal share of universal health system (SUS)",        val: 210, gdp: 1.9, cls: "c-health" },
+      { label: "Education (MEC)",             sub: "Universities, FUNDEB transfers, technical schools",     val: 190, gdp: 1.7, cls: "c-educ" },
+      { label: "Infrastructure & PAC",        sub: "Roads, rail, sanitation, Prog. de Aceleração do Crescimento", val: 110, gdp: 1.0, cls: "c-infra" },
+      { label: "Defence (MD)",                sub: "Armed Forces personnel, equipment · ~1.0% GDP",          val: 115, gdp: 1.1, cls: "c-def2" },
+      { label: "Public Admin & Personnel",    sub: "Active civil servant salaries, government operations",   val: 290, gdp: 2.7, cls: "c-admin" },
+      { label: "Other Primary Expenditure",   sub: "Science, agriculture, environment, justice, other",      val: 615, gdp: 5.6, cls: "c-other" },
+    ]
+  },
+];
+
+// ── BUILD BARS ──────────────────────────────────────────────────────────────
+function buildSection(data, containerId, maxVal, animClass, delay0) {
+  const container = document.getElementById(containerId);
+  let delay = delay0;
+  data.forEach(group => {
+    const glabel = document.createElement('div');
+    glabel.className = 'group-label';
+    glabel.textContent = group.group;
+    container.appendChild(glabel);
+
+    group.items.forEach(item => {
+      const pct = Math.min((item.val / maxVal) * 100, 100).toFixed(2);
+      const row = document.createElement('div');
+      row.className = `bar-row${animClass ? ' ' + animClass : ''}`;
+      row.style.animationDelay = delay + 'ms';
+      row.innerHTML = `
+        <div class="bar-label">${item.label}<small>${item.sub}</small></div>
+        <div class="bar-track">
+          <div class="bar-fill ${item.cls}" data-pct="${pct}" style="width:0%"></div>
+        </div>
+        <div class="bar-val">R$${item.val}B<small>${item.gdp}% GDP</small></div>
+      `;
+      container.appendChild(row);
+      delay += 55;
+    });
+  });
+}
+
+buildSection(receipts, 'rec', MAX_REC, '',           80);
+buildSection(outlays,  'out', MAX_OUT, 'right-anim', 200);
+
+// animate deficit row
+setTimeout(() => {
+  const dr = document.getElementById('def-row');
+  dr.style.transition = 'opacity 0.4s ease 0.5s';
+  dr.style.opacity = '1';
+  dr.querySelector('.bar-fill').style.width = '55%';
+  dr.querySelector('.bar-fill').style.transition = 'width 0.9s cubic-bezier(0.16,1,0.3,1) 0.6s';
+}, 100);
+
+// animate all bars
+setTimeout(() => {
+  document.querySelectorAll('.bar-fill[data-pct]').forEach(el => {
+    el.style.width = el.dataset.pct + '%';
+  });
+}, 150);
+</script>
+</body>
+</html>

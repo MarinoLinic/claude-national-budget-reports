@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spain Government Budget 2024</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --paper:    #f5f1ec;
+  --white:    #ffffff;
+  --ink:      #14110d;
+  --muted:    #7a736b;
+  --rule:     #ddd8d0;
+  --red:      #c60b1e;
+  --red-mid:  #d83030;
+  --red-lt:   #f0d0d4;
+  --yellow:   #f1bf00;
+  --yellow-lt:#f8eecc;
+  --navy:     #00235a;
+  --navy-mid: #1a3e90;
+  --navy-lt:  #ccd4ec;
+  --teal:     #0a5a50;
+  --teal-lt:  #beddd8;
+  --gold:     #8a5c00;
+  --gold-lt:  #f0e0b8;
+  --olive:    #4a6015;
+  --olive-lt: #dce4c0;
+  --slate:    #3a5870;
+  --slate-lt: #c8d8e4;
+  --purple:   #5a1878;
+  --purple-lt:#e0cce8;
+  --grey:     #484440;
+  --grey-lt:  #e2ddd8;
+  --amber:    #8a4000;
+  --amber-lt: #f0dcc0;
+  --azure:    #2a6ab8;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  background: var(--paper);
+  font-family: 'Barlow', sans-serif;
+  color: var(--ink);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* ── MASTHEAD ── */
+.masthead {
+  background: var(--ink);
+  color: var(--paper);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: stretch;
+  overflow: hidden;
+}
+.masthead-left { padding: 44px 52px 40px; border-right: 1px solid #2a2620; }
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+/* Spanish flag — red/yellow/red horizontal stripes */
+.flag-es {
+  width: 50px;
+  height: 30px;
+  border-radius: 2px;
+  overflow: hidden;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+}
+.flag-es .r1 { background: #c60b1e; flex: 1; }
+.flag-es .y  { background: #f1bf00; flex: 2; }
+.flag-es .r2 { background: #c60b1e; flex: 1; }
+.eyebrow-text {
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #888;
+  font-weight: 500;
+}
+.masthead h1 {
+  font-family: 'Libre Baskerville', serif;
+  font-size: clamp(2rem, 3.5vw, 3.1rem);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  max-width: 560px;
+}
+.masthead h1 em { font-style: italic; color: #b0a898; }
+.masthead-sub {
+  margin-top: 12px;
+  font-size: 12px;
+  color: #777;
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.masthead-right {
+  padding: 44px 52px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 20px;
+  min-width: 270px;
+}
+.kpi-label {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #666;
+  font-weight: 500;
+  margin-bottom: 3px;
+}
+.kpi-value {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 2.1rem;
+  font-weight: 700;
+  line-height: 1;
+}
+.kpi-value.rec  { color: #5a9de0; }
+.kpi-value.def  { color: #e06050; }
+.kpi-value.out  { color: var(--paper); }
+.kpi-value.dbt  { color: #e0a050; }
+.kpi-note { font-size: 10px; color: #666; font-weight: 300; margin-top: 2px; }
+
+/* ── STRIPE — Spanish flag colours ── */
+.stripe {
+  height: 5px;
+  background: linear-gradient(90deg,
+    #c60b1e 0% 25%,
+    #f1bf00 25% 50%,
+    #c60b1e 50% 75%,
+    #f1bf00 75% 100%);
+}
+
+/* ── SECTION LABEL ── */
+.section-label {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-weight: 600;
+  color: var(--muted);
+  padding: 28px 52px 0;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+}
+
+/* ── LAYOUT ── */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 0 52px;
+}
+.col-pad  { padding-right: 40px; }
+.col-divider { border-left: 1px solid var(--rule); padding-left: 40px; }
+
+/* ── PANEL HEAD ── */
+.panel-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 20px 0 14px;
+  border-bottom: 2px solid var(--ink);
+  margin-bottom: 4px;
+}
+.panel-head h2 {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 1rem;
+  font-weight: 700;
+}
+.panel-head span { font-size: 10px; color: var(--muted); }
+
+/* ── BAR ROWS ── */
+.group-label {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  font-weight: 600;
+  margin: 16px 0 6px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--rule);
+}
+.bar-row {
+  display: grid;
+  grid-template-columns: 200px 1fr 62px;
+  align-items: center;
+  gap: 10px;
+  padding: 3px 0;
+  opacity: 0;
+  transform: translateX(-8px);
+  animation: slideIn 0.35s ease forwards;
+}
+.bar-row.right-anim { transform: translateX(8px); }
+@keyframes slideIn { to { opacity:1; transform:translateX(0); } }
+.bar-label { font-size: 12px; color: var(--ink); line-height: 1.3; font-weight: 400; }
+.bar-label small { display:block; font-size:10px; color:var(--muted); font-weight:300; margin-top:1px; }
+.bar-track {
+  height: 18px;
+  background: var(--rule);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.bar-fill {
+  height: 100%;
+  width: 0%;
+  border-radius: 2px;
+  transition: width 0.95s cubic-bezier(0.16,1,0.3,1);
+}
+.bar-val { font-size: 11px; color: var(--ink); font-weight: 500; text-align: right; }
+.bar-val small { display:block; font-size:9px; color:var(--muted); font-weight:300; }
+
+/* Revenue colours */
+.c-ssc   { background: var(--slate); }
+.c-irpf  { background: var(--red); }
+.c-iva   { background: #b05000; }
+.c-is    { background: var(--teal); }
+.c-exc   { background: var(--amber); }
+.c-eu    { background: var(--olive); }
+.c-other { background: var(--grey); }
+
+/* Expenditure colours */
+.c-pens  { background: var(--slate); }
+.c-hlth  { background: var(--red); }
+.c-soc   { background: #5a7ab8; }
+.c-int   { background: #8a2820; }
+.c-gen   { background: #4a6080; }
+.c-edu   { background: var(--azure); }
+.c-def   { background: var(--gold); }
+.c-trans { background: var(--olive); }
+.c-flood { background: #9a4040; }
+.c-misc2 { background: var(--grey); }
+
+/* ── TOTAL / DEFICIT ROW ── */
+.total-row {
+  display: grid;
+  grid-template-columns: 200px 1fr 62px;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0 4px;
+  border-top: 1.5px solid var(--ink);
+  margin-top: 10px;
+}
+.total-row .bar-label { font-weight: 600; font-size: 13px; }
+.total-row .bar-val   { font-weight: 700; font-size: 13px; }
+
+.deficit-row {
+  display: grid;
+  grid-template-columns: 200px 1fr 62px;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 0 16px;
+  opacity: 0;
+}
+.deficit-row .bar-label { font-size: 12px; font-style: italic; color: var(--muted); }
+.deficit-row .bar-val   { font-size: 11px; color: #c02828; font-weight: 600; text-align: right; }
+.deficit-fill { background: #c02828; }
+
+.method-note {
+  font-size: 10px;
+  color: var(--muted);
+  line-height: 1.5;
+  border-top: 1px solid var(--rule);
+  padding-top: 10px;
+  margin-top: 10px;
+}
+
+/* ── CALLOUTS ── */
+.callouts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 16px 52px 32px;
+}
+.callout {
+  background: var(--white);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  padding: 20px 22px 18px;
+}
+.callout-icon { font-size: 1.4rem; display: block; margin-bottom: 8px; }
+.callout h3 {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 0.88rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+.callout p { font-size: 12px; color: #3a3630; line-height: 1.6; }
+.tag {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 2px;
+}
+.tag-red    { background: var(--red-lt);    color: var(--red); }
+.tag-yellow { background: var(--yellow-lt); color: #7a5000; }
+.tag-navy   { background: var(--navy-lt);   color: var(--navy); }
+.tag-teal   { background: var(--teal-lt);   color: var(--teal); }
+.tag-gold   { background: var(--gold-lt);   color: var(--gold); }
+.tag-slate  { background: var(--slate-lt);  color: var(--slate); }
+.tag-grey   { background: var(--grey-lt);   color: var(--grey); }
+.tag-olive  { background: var(--olive-lt);  color: var(--olive); }
+.tag-amber  { background: var(--amber-lt);  color: var(--amber); }
+
+/* ── FOOTNOTE ── */
+.footnote {
+  padding: 20px 52px 36px;
+  border-top: 1px solid var(--rule);
+  font-size: 10px;
+  color: var(--muted);
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!--  MASTHEAD                                              -->
+<!-- ══════════════════════════════════════════════════════ -->
+<div class="masthead">
+  <div class="masthead-left">
+    <div class="eyebrow">
+      <div class="flag-es">
+        <div class="r1"></div>
+        <div class="y"></div>
+        <div class="r2"></div>
+      </div>
+      <div class="eyebrow-text">Kingdom of Spain · Reino de España</div>
+    </div>
+    <h1>General Government<br>Budget <em>2024</em></h1>
+    <div class="masthead-sub">Revenue, Expenditure &amp; Key Fiscal Aggregates · Euros (€)</div>
+  </div>
+  <div class="masthead-right">
+    <div>
+      <div class="kpi-label">Total Revenue</div>
+      <div class="kpi-value rec">€652B</div>
+      <div class="kpi-note">40.9% of GDP · led by social contributions &amp; IRPF</div>
+    </div>
+    <div>
+      <div class="kpi-label">Total Expenditure</div>
+      <div class="kpi-value out">€703B</div>
+      <div class="kpi-note">44.1% of GDP · incl. €6.4B Valencia flood one-offs</div>
+    </div>
+    <div>
+      <div class="kpi-label">Deficit</div>
+      <div class="kpi-value def">−3.2% GDP</div>
+      <div class="kpi-note">−€51B · down from −3.5% in 2023</div>
+    </div>
+    <div>
+      <div class="kpi-label">Public Debt</div>
+      <div class="kpi-value dbt">101.6%</div>
+      <div class="kpi-note">~€1,620B · down 3.5 pp from 2023 · first &lt;105% since 2017</div>
+    </div>
+  </div>
+</div>
+
+<div class="stripe"></div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!--  MAIN BARS                                             -->
+<!-- ══════════════════════════════════════════════════════ -->
+<div class="section-label">Revenue &amp; Expenditure by Function</div>
+
+<div class="two-col">
+
+  <!-- ── LEFT: RECEIPTS ── -->
+  <div class="col-pad">
+    <div class="panel-head">
+      <h2>Revenue by Source</h2>
+      <span>Max = €223B (Social Contributions) · Total €652B</span>
+    </div>
+    <div id="rec"></div>
+    <div class="total-row">
+      <div class="bar-label">Total Revenue</div>
+      <div class="bar-track" style="background:transparent"></div>
+      <div class="bar-val">€652B</div>
+    </div>
+    <div class="method-note" style="margin-top:14px">
+      Spain's revenue base was dampened in 2024 by lingering <strong>VAT reductions on food and electricity</strong> introduced in 2022 to fight the energy crisis, which were only gradually reversed during the year. Full reversal in January 2025 will add ~0.3% of GDP to revenues. Social contributions are Spain's single largest revenue source, consistent with its Bismarckian social insurance model. Revenue grew by ~7% in 2024, driven by strong employment (+600,000 new contributors to Social Security) and 8.5% pension revaluation boosting IRPF receipts. All figures are general government consolidated across all levels (Estado, CC.AA., Ayuntamientos, Seguridad Social).
+    </div>
+  </div>
+
+  <!-- ── RIGHT: OUTLAYS ── -->
+  <div class="col-divider">
+    <div class="panel-head">
+      <h2>Expenditure by Function (COFOG)</h2>
+      <span>Max = €220B (Pensions, ESSPROS) · Total €703B</span>
+    </div>
+    <div id="out"></div>
+    <div class="total-row">
+      <div class="bar-label">Total Expenditure</div>
+      <div class="bar-track" style="background:transparent"></div>
+      <div class="bar-val">€703B</div>
+    </div>
+    <div class="deficit-row" id="def-row">
+      <div class="bar-label">General Government Deficit</div>
+      <div class="bar-track">
+        <div class="bar-fill deficit-fill" data-pct="23.2" style="width:0%"></div>
+      </div>
+      <div class="bar-val" style="color:#c02828">−€51B</div>
+    </div>
+    <div class="method-note">
+      Public pensions dominate Spanish expenditure at ~13.8% of GDP (ESSPROS full definition), consistent with the Eurostat pension map showing Spain at 9.7% for old-age pensions only. The 2024 deficit includes ~€6.4B in one-off court ruling impacts (0.4% GDP) and ~€6.4B for Valencia flood emergency spending (0.4% GDP). Excluding these one-offs, the underlying deficit would have been closer to ~2.4% of GDP. Spain's four-tier government structure (Estado, 17 Comunidades Autónomas, Diputaciones, Ayuntamientos) means health and education are primarily a regional competence, though nationally funded.
+    </div>
+  </div>
+
+</div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!--  CALLOUT BOXES                                         -->
+<!-- ══════════════════════════════════════════════════════ -->
+<div class="section-label" style="margin-top:32px">Context &amp; explanations</div>
+<div class="callouts" style="margin-top:16px">
+
+  <div class="callout">
+    <span class="callout-icon">👴</span>
+    <h3>Pensions: ~13.8% of GDP — Europe's Fastest-Growing Burden</h3>
+    <p>Spain spent approximately €220 billion on public pensions in 2024 (~13.8% of GDP under the full ESSPROS definition), with old-age pensions alone at 9.7% of GDP per the Eurostat pension map. Contributory pensions were revalued by 3.8% in January 2024 to protect purchasing power. Social Security's pension deficit reached roughly 4% of GDP in 2024, with the state budget transferring tens of billions to plug the gap. The 2021–2023 pension reform repealed the unpopular sustainability factor and re-linked revaluations to CPI, guaranteeing real purchasing power but significantly worsening long-run fiscal projections. Spain's EU Ageing Report forecasts pension spending rising to 16%+ of GDP by 2050 — the steepest increase of any eurozone country.</p>
+    <span class="tag tag-slate">Pensions: 9.7% GDP old-age (Eurostat map) · ~13.8% ESSPROS total</span>
+  </div>
+
+  <div class="callout">
+    <span class="callout-icon">🌊</span>
+    <h3>Valencia Floods: €6.4B One-Off Costs Added to Deficit</h3>
+    <p>On 29 October 2024, catastrophic flash floods (the DANA storm system) struck the Valencia region, killing over 220 people and causing an estimated €10+ billion in damage. The immediate government response — emergency aid, reconstruction grants, compensation payments, and public infrastructure repair — added approximately €6.4 billion (0.4% of GDP) to the 2024 general government deficit. This was the costliest natural disaster in Spain's modern history. European Commission forecasters noted this impact explicitly. The tragedy also exposed weaknesses in Spain's civil protection and early-warning systems, triggering political controversy and legal investigations into the delayed regional alert response.</p>
+    <span class="tag tag-red">Valencia DANA floods: ~€6.4B one-off cost · 0.4% GDP deficit impact</span>
+  </div>
+
+  <div class="callout">
+    <span class="callout-icon">⚖️</span>
+    <h3>Court Rulings: Another €8B in One-Off Expenditure</h3>
+    <p>Spain's 2024 deficit was further impacted by approximately €11.3 billion in court-ordered payments to the general government, of which around €8 billion (0.5% of GDP) was non-recurring. The most significant were rulings on pension supplements for fathers (the "complemento de maternidad"), which the Constitutional Court ruled discriminatory for fathers of large families who were excluded from a benefit previously available only to women. Payments to affected pensioners going back years created a large one-off expenditure spike. These one-offs, combined with flood spending, account for nearly 1% of GDP in exceptional 2024 costs that will not recur fully in 2025.</p>
+    <span class="tag tag-amber">Court rulings: ~€8B non-recurring · 0.5% GDP · pension supplements</span>
+  </div>
+
+  <div class="callout">
+    <span class="callout-icon">📉</span>
+    <h3>Debt Below 102%: Fastest Decline in Eurozone</h3>
+    <p>Spain's public debt fell from 105.1% of GDP at end-2023 to 101.6% in 2024 — a reduction of 3.5 percentage points, the joint-largest single-year debt decline in the eurozone (alongside Ireland's 3.5 pp drop). This sharp improvement was driven primarily by strong nominal GDP growth of 6.4% (real 3.5% + 2.9% deflator), which outpaced the cost of new borrowing. The deficit of 3.2% would otherwise push debt higher, but the denominator effect of fast GDP growth dominated. Spain's debt is targeted below 100% of GDP by 2026 on current trajectories — a milestone not seen since 2019. Despite this progress, at ~€1.62 trillion, the debt pile remains one of Europe's largest in absolute terms.</p>
+    <span class="tag tag-teal">Debt: 101.6% GDP · −3.5 pp in 2024 · fastest drop in eurozone</span>
+  </div>
+
+  <div class="callout">
+    <span class="callout-icon">☀️</span>
+    <h3>Tourism Windfall: Record 94M Visitors, 14% of GDP</h3>
+    <p>Spain welcomed approximately 94 million international tourists in 2024 — a new all-time record — generating over €120 billion in receipts. Tourism accounts for roughly 12–14% of GDP and is the primary engine behind Spain's remarkable economic outperformance vs. the eurozone average (3.5% real GDP growth vs. 0.8% EA average). The tourist boom boosted VAT revenues, employment in hospitality, and social contributions across services. Spain's status as the world's second-most-visited country (behind France) provides a structural revenue advantage, though it also fuels housing cost pressures and growing political backlash in cities like Barcelona, Madrid, and the Canary Islands.</p>
+    <span class="tag tag-yellow">Tourism: ~94M visitors · €120B+ receipts · 12–14% of GDP</span>
+  </div>
+
+  <div class="callout">
+    <span class="callout-icon">🏛️</span>
+    <h3>No Budget for Three Years: Governing Without Approval</h3>
+    <p>Spain operated in 2024 — as in 2023 and 2022 — without an approved national budget, after the minority Sánchez government's 2023 budget was rejected in Congress. Under Spanish law (Art. 134 of the Constitution), if no new budget is approved, the previous year's budget is automatically extended (prorrogado). This means the 2021 budget was the last formally approved, creating a structural disconnect between actual spending (which has grown substantially through supplementary credit laws and Decree-laws) and parliamentary authorisation. The Supreme Audit Office (Tribunal de Cuentas) and fiscal watchdog AIReF have both flagged the risks of this prolonged budgetary paralysis for fiscal transparency and multi-year planning.</p>
+    <span class="tag tag-grey">No approved budget 2022–2024 · 2021 budget auto-extended · AIReF warning</span>
+  </div>
+
+</div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!--  FOOTNOTE                                              -->
+<!-- ══════════════════════════════════════════════════════ -->
+<div class="footnote">
+  <p>
+    <strong>Primary sources:</strong> INE (Instituto Nacional de Estadística) — Annual National Accounts of Spain 2024, Benchmark Revision 2022–2024 (September 2025); Eurostat — Government Finance Statistics, EDP Notification October 2025 (confirmed 3.2% deficit, 101.6% debt/GDP); OECD — Government at a Glance 2025, Spain Country Note (June 2025); CaixaBank Research — "Lower budget deficit in 2025 in Spain" (June 2025); Banco de España — "Spanish public debt in 2024" (Economic Bulletin, July 2025); European Commission — Economic Forecast for Spain (Autumn 2025); BBVA Research — "Spain: Public Pensions" (2024); European Commission — 2024 Ageing Report, Spain Country Fiche.
+  </p>
+  <p>
+    <strong>Methodology:</strong> Headline fiscal aggregates: GDP €1,594.3B (INE, Sep 2025 benchmark); Revenue €652B (40.9% GDP), Expenditure €703B (44.1% GDP), Deficit −€51B (−3.2% GDP) from Eurostat EDP October 2025 and CaixaBank 2025 Annual Progress Report; Debt ~€1,620B (~101.6% GDP) from Eurostat EDP October 2025. All figures are general government consolidated across all four tiers: Estado (central), CC.AA. (17 autonomous communities), Diputaciones/Consejos, and Ayuntamientos, plus Seguridad Social. Revenue breakdown follows OECD Revenue Statistics 2024 structure scaled to 2024: social contributions ~14% GDP, IRPF ~9.4% GDP, IVA ~6.5% GDP (reduced by food/energy VAT cuts), IS ~3.0% GDP, excise ~3.3% GDP. <strong>Pension expenditure: ~€220B (~13.8% of GDP ESSPROS)</strong> — full ESSPROS definition includes contributory old-age, survivors', disability and early retirement pensions. The Eurostat pension map shows Spain at 9.7% (old-age only); the broader ESSPROS figure of ~13.8% is consistent with CaixaBank's "social transfers around 17% of GDP, the bulk public pensions around 14.0%." Interest: 2.4% GDP per CaixaBank 2025 report. Healthcare: ~7.6% GDP per Eurostat COFOG. Defence: ~1.4% GDP (planned increase toward 2.0%). Valencia flood one-offs: ~0.4% GDP (~€6.4B). Court ruling one-offs: ~0.5% GDP (~€8B). Currency: Euro (€). Spain is a eurozone member.
+  </p>
+</div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!--  DATA & RENDERING                                       -->
+<!-- ══════════════════════════════════════════════════════ -->
+<script>
+const MAX_REC = 223;  // Social contributions — largest revenue source
+const MAX_OUT = 220;  // Pensions (ESSPROS) — largest expenditure
+
+// ── RECEIPTS ────────────────────────────────────────────────────────
+// Total: €652B = 40.9% of GDP (€1,594.3B)
+const receipts = [
+  {
+    group: "Social Contributions (Cotizaciones Sociales)",
+    items: [
+      {
+        label: "Social Security Contributions",
+        sub: "Empresa ~23.6% + trabajador ~6.35% of salary · Seguridad Social (TGSS) · 20M+ contributors",
+        val: 223, gdp: 14.0, cls: "c-ssc"
+      },
+    ]
+  },
+  {
+    group: "Direct Taxes",
+    items: [
+      {
+        label: "IRPF (Personal Income Tax)",
+        sub: "Progressive 19–47% (incl. CC.AA. supplement) · pensions revalued 3.8% boosted receipts",
+        val: 150, gdp: 9.4, cls: "c-irpf"
+      },
+      {
+        label: "IS (Corporate Income Tax)",
+        sub: "25% general · 15% startups · 30% banks/energy · Dec 2024: new 15% global minimum",
+        val: 48, gdp: 3.0, cls: "c-is"
+      },
+    ]
+  },
+  {
+    group: "Indirect Taxes",
+    items: [
+      {
+        label: "IVA (Value Added Tax)",
+        sub: "Standard 21% · reduced 10% (hospitality) · 4% super-reduced (staples) · depressed by 2022–24 cuts",
+        val: 104, gdp: 6.5, cls: "c-iva"
+      },
+      {
+        label: "Impuestos Especiales (Excise)",
+        sub: "Fuel, tobacco, alcohol, electricity (returned to normal July 2024), gas",
+        val: 53, gdp: 3.3, cls: "c-exc"
+      },
+    ]
+  },
+  {
+    group: "EU Transfers &amp; Other Revenue",
+    items: [
+      {
+        label: "EU Funds (NGEU, ESIF, FEAGA)",
+        sub: "Recovery Plan (RRF/PRTR) grants, structural/cohesion funds, agricultural (FEAGA)",
+        val: 30, gdp: 1.9, cls: "c-eu"
+      },
+      {
+        label: "Other Revenue",
+        sub: "Fees, dividends from SOEs (Bankia wind-down), property income, fiscal fines, other taxes",
+        val: 44, gdp: 2.8, cls: "c-other"
+      },
+    ]
+  },
+];
+
+// ── OUTLAYS (COFOG) ──────────────────────────────────────────────────
+// Total: €703B = 44.1% of GDP
+const outlays = [
+  {
+    group: "Pensions (ESSPROS — all public schemes)",
+    items: [
+      {
+        label: "Public Pensions (ESSPROS total)",
+        sub: "Contributory old-age, survivors', disability + civil servant + non-contrib. · 3.8% revaluation 2024",
+        val: 220, gdp: 13.8, cls: "c-pens"
+      },
+    ]
+  },
+  {
+    group: "Health",
+    items: [
+      {
+        label: "Healthcare (SNS — Sistema Nacional de Salud)",
+        sub: "Universal free-at-use · funded &amp; managed by 17 CC.AA. · hospitals, GPs, pharmaceuticals",
+        val: 121, gdp: 7.6, cls: "c-hlth"
+      },
+    ]
+  },
+  {
+    group: "General Public Services",
+    items: [
+      {
+        label: "General Public Services &amp; Admin",
+        sub: "Administración General del Estado, CC.AA., Ayuntamientos · excl. debt service",
+        val: 100, gdp: 6.3, cls: "c-gen"
+      },
+    ]
+  },
+  {
+    group: "Social Protection (excl. pensions)",
+    items: [
+      {
+        label: "Other Social Protection",
+        sub: "Unemployment (SEPE), disability, family (Ingreso Mínimo Vital), housing, social exclusion",
+        val: 51, gdp: 3.2, cls: "c-soc"
+      },
+    ]
+  },
+  {
+    group: "Debt Service",
+    items: [
+      {
+        label: "Interest on Public Debt",
+        sub: "~2.4% GDP · €38B · rising slowly as pre-2022 cheap debt matures · avg life 8 years",
+        val: 38, gdp: 2.4, cls: "c-int"
+      },
+    ]
+  },
+  {
+    group: "Education",
+    items: [
+      {
+        label: "Education (Educación)",
+        sub: "Universidades, Institutos, primaria · principally CC.AA. competence · tuition free state ed.",
+        val: 67, gdp: 4.2, cls: "c-edu"
+      },
+    ]
+  },
+  {
+    group: "Defence &amp; Security",
+    items: [
+      {
+        label: "Defence (Defensa)",
+        sub: "~1.4% GDP · well below NATO 2% · announced increase toward 2% by 2025–26",
+        val: 22, gdp: 1.4, cls: "c-def"
+      },
+      {
+        label: "Public Order &amp; Safety",
+        sub: "Policía Nacional, Guardia Civil, Mossos, Ertzaintza, courts, prisons · ~1.8% GDP",
+        val: 29, gdp: 1.8, cls: "c-misc2"
+      },
+    ]
+  },
+  {
+    group: "Economic Affairs &amp; Infrastructure",
+    items: [
+      {
+        label: "Transport &amp; Infrastructure",
+        sub: "ADIF/Renfe rail, SEITT roads, port authorities · co-financed by EU structural funds",
+        val: 22, gdp: 1.4, cls: "c-trans"
+      },
+      {
+        label: "One-Off: Valencia Floods + Court Rulings",
+        sub: "~€6.4B DANA emergency spending + ~€8B court ruling one-offs (pension supplement for fathers)",
+        val: 14, gdp: 0.9, cls: "c-flood"
+      },
+      {
+        label: "Economic Affairs, Housing &amp; Other",
+        sub: "Industry, energy transition, agriculture (FEAGA), environment, R&amp;D, culture, housing",
+        val: 19, gdp: 1.2, cls: "c-misc2"
+      },
+    ]
+  },
+];
+
+// ── BUILD BARS ───────────────────────────────────────────────────────
+function buildSection(data, containerId, maxVal, animClass, delay0) {
+  const container = document.getElementById(containerId);
+  let delay = delay0;
+  data.forEach(group => {
+    const glbl = document.createElement('div');
+    glbl.className = 'group-label';
+    glbl.textContent = group.group;
+    container.appendChild(glbl);
+    group.items.forEach(item => {
+      const pct = Math.min((item.val / maxVal) * 100, 100).toFixed(2);
+      const row = document.createElement('div');
+      row.className = `bar-row${animClass ? ' ' + animClass : ''}`;
+      row.style.animationDelay = delay + 'ms';
+      row.innerHTML = `
+        <div class="bar-label">${item.label}<small>${item.sub}</small></div>
+        <div class="bar-track">
+          <div class="bar-fill ${item.cls}" data-pct="${pct}" style="width:0%"></div>
+        </div>
+        <div class="bar-val">€${item.val}B<small>${item.gdp}% GDP</small></div>
+      `;
+      container.appendChild(row);
+      delay += 55;
+    });
+  });
+}
+
+buildSection(receipts, 'rec', MAX_REC, '',           80);
+buildSection(outlays,  'out', MAX_OUT, 'right-anim', 200);
+
+// Animate deficit row
+setTimeout(() => {
+  const dr = document.getElementById('def-row');
+  dr.style.transition = 'opacity 0.4s ease 0.5s';
+  dr.style.opacity = '1';
+  const fill = dr.querySelector('.bar-fill');
+  fill.style.transition = 'width 0.95s cubic-bezier(0.16,1,0.3,1) 0.6s';
+  fill.style.width = fill.dataset.pct + '%';
+}, 100);
+
+// Animate all bars
+setTimeout(() => {
+  document.querySelectorAll('.bar-fill[data-pct]').forEach(el => {
+    el.style.width = el.dataset.pct + '%';
+  });
+}, 150);
+</script>
+</body>
+</html>
