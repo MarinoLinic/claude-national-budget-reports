@@ -301,30 +301,6 @@
 					linear-gradient(to right, transparent 42%, var(--red) 42%, var(--red) 58%, transparent 58%);
 			}
 
-			.flag-croatia {
-				display: flex;
-				flex-direction: column;
-				gap: 2px;
-				flex-shrink: 0;
-			}
-			.flag-croatia span {
-				display: block;
-				width: 28px;
-				height: 6px;
-				border-radius: 1px;
-			}
-			.flag-croatia .r {
-				background: #c8102e;
-			}
-			.flag-croatia .w {
-				background: #e8e4de;
-				border: 1px solid #ddd;
-				height: 5px;
-			}
-			.flag-croatia .b {
-				background: #003da5;
-			}
-
 			.flag-cn {
 				width: 34px;
 				height: 22px;
@@ -339,6 +315,24 @@
 				line-height: 1;
 				letter-spacing: -1px;
 				color: #ffde00;
+			}
+
+			.flag-jp {
+				width: 32px;
+				height: 22px;
+				background: #ffffff;
+				border-radius: 2px;
+				flex-shrink: 0;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				border: 1px solid #ddd;
+			}
+			.flag-jp .disc {
+				width: 12px;
+				height: 12px;
+				background: #bc002d;
+				border-radius: 50%;
 			}
 
 			.flag-dk {
@@ -417,6 +411,30 @@
 				background: #e0e6f8;
 			}
 
+			.flag-croatia {
+				display: flex;
+				flex-direction: column;
+				gap: 2px;
+				flex-shrink: 0;
+			}
+			.flag-croatia span {
+				display: block;
+				width: 28px;
+				height: 6px;
+				border-radius: 1px;
+			}
+			.flag-croatia .r {
+				background: #c8102e;
+			}
+			.flag-croatia .w {
+				background: #e8e4de;
+				border: 1px solid #ddd;
+				height: 5px;
+			}
+			.flag-croatia .b {
+				background: #003da5;
+			}
+
 			.flag-ru {
 				display: flex;
 				flex-direction: column;
@@ -441,22 +459,182 @@
 				background: #c8102e;
 			}
 
-			.flag-jp {
+			.flag-de {
 				width: 32px;
 				height: 22px;
-				background: #f0ece8;
 				border-radius: 2px;
+				overflow: hidden;
 				flex-shrink: 0;
+				display: flex;
+				flex-direction: column;
+			}
+			.flag-de span {
+				flex: 1;
+			}
+			.flag-de .b {
+				background: #000;
+			}
+			.flag-de .r {
+				background: #dd0000;
+			}
+			.flag-de .g {
+				background: #ffce00;
+			}
+
+			.flag-br {
+				width: 32px;
+				height: 22px;
+				background: #009c3b;
+				position: relative;
+				border-radius: 2px;
 				display: flex;
 				align-items: center;
 				justify-content: center;
-				border: 1px solid #c8c4c0;
+				flex-shrink: 0;
+				overflow: hidden;
 			}
-			.flag-jp .disc {
-				width: 12px;
-				height: 12px;
-				background: #bc002d;
+			.flag-br::before {
+				content: '';
+				border-left: 16px solid transparent;
+				border-right: 16px solid transparent;
+				border-top: 11px solid #fedf00;
+				position: absolute;
+				top: 0;
+			}
+			.flag-br::after {
+				content: '';
+				border-left: 16px solid transparent;
+				border-right: 16px solid transparent;
+				border-bottom: 11px solid #fedf00;
+				position: absolute;
+				bottom: 0;
+			}
+			.flag-br .circle {
+				width: 10px;
+				height: 10px;
+				background: #002776;
 				border-radius: 50%;
+				position: relative;
+				z-index: 2;
+			}
+
+			.flag-in {
+				width: 32px;
+				height: 22px;
+				border-radius: 2px;
+				overflow: hidden;
+				flex-shrink: 0;
+				display: flex;
+				flex-direction: column;
+				border: 1px solid #ddd;
+			}
+			.flag-in span {
+				flex: 1;
+			}
+			.flag-in .s {
+				background: #ff9933;
+			}
+			.flag-in .w {
+				background: #ffffff;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			.flag-in .w::after {
+				content: '';
+				width: 6px;
+				height: 6px;
+				border-radius: 50%;
+				border: 1px solid #000080;
+			}
+			.flag-in .g {
+				background: #138808;
+			}
+
+			.flag-it {
+				width: 32px;
+				height: 22px;
+				border-radius: 2px;
+				overflow: hidden;
+				flex-shrink: 0;
+				display: flex;
+			}
+			.flag-it .g {
+				background: #009246;
+				flex: 1;
+			}
+			.flag-it .w {
+				background: #f0f0f0;
+				flex: 1;
+			}
+			.flag-it .r {
+				background: #ce2b37;
+				flex: 1;
+			}
+
+			.flag-pl {
+				width: 32px;
+				height: 22px;
+				border-radius: 2px;
+				overflow: hidden;
+				flex-shrink: 0;
+				display: flex;
+				flex-direction: column;
+				border: 1px solid #ddd;
+			}
+			.flag-pl .w {
+				background: #f0ece6;
+				flex: 1;
+			}
+			.flag-pl .r {
+				background: #c0101e;
+				flex: 1;
+			}
+
+			.flag-za {
+				display: flex;
+				flex-direction: column;
+				gap: 2px;
+				flex-shrink: 0;
+			}
+			.flag-za span {
+				display: block;
+				width: 32px;
+				border-radius: 1px;
+			}
+			.flag-za .r {
+				background: #007a4d;
+				height: 6px;
+			}
+			.flag-za .g {
+				background: #ffb612;
+				height: 4px;
+			}
+			.flag-za .b {
+				background: #002395;
+				height: 6px;
+			}
+
+			.flag-es {
+				width: 32px;
+				height: 22px;
+				border-radius: 2px;
+				overflow: hidden;
+				flex-shrink: 0;
+				display: flex;
+				flex-direction: column;
+			}
+			.flag-es .r1 {
+				background: #c60b1e;
+				flex: 1;
+			}
+			.flag-es .y {
+				background: #f1bf00;
+				flex: 2;
+			}
+			.flag-es .r2 {
+				background: #c60b1e;
+				flex: 1;
 			}
 
 			/* ── INTERACTIVE MAP ── */
@@ -568,11 +746,11 @@
 			<div class="masthead-right">
 				<div class="kpi">
 					<div class="kpi-label">Tracked Economies</div>
-					<div class="kpi-value">8</div>
+					<div class="kpi-value">15</div>
 				</div>
 				<div class="kpi">
 					<div class="kpi-label">Total Outlays Tracked</div>
-					<div class="kpi-value" style="color: #8a9bb0">~$13.7T</div>
+					<div class="kpi-value" style="color: #8a9bb0">~$19.8T</div>
 				</div>
 			</div>
 		</div>
@@ -745,6 +923,150 @@
 						<span class="tag tag-red">Deficit: 1.7%</span>
 					</div>
 				</a>
+
+				<!-- GERMANY CARD -->
+				<a href="germany-2024.html" class="report-card" style="animation-delay: 400ms">
+					<div class="card-header">
+						<div class="card-title">
+							<h2>Germany</h2>
+							<p>Fiscal Year 2024</p>
+						</div>
+						<div class="flag-de"><span class="b"></span><span class="r"></span><span class="g"></span></div>
+					</div>
+					<p class="card-desc">
+						General Government (Gesamtstaat) overview. Features the Schuldenbremse debt brake, massive statutory pension
+						transfers, and defense spending.
+					</p>
+					<div class="card-tags">
+						<span class="tag tag-navy">Outlays: €2,132B (50.2% GDP)</span>
+						<span class="tag tag-red">Deficit: 2.8%</span>
+					</div>
+				</a>
+
+				<!-- BRAZIL CARD -->
+				<a href="brazil-2024.html" class="report-card" style="animation-delay: 450ms">
+					<div class="card-header">
+						<div class="card-title">
+							<h2>Brazil</h2>
+							<p>Fiscal Year 2024</p>
+						</div>
+						<div class="flag-br"><div class="circle"></div></div>
+					</div>
+					<p class="card-desc">
+						Federal Government (União) breakdown. Explores the crushing debt interest burden, Bolsa Família, and record
+						tax revenues under the new fiscal framework.
+					</p>
+					<div class="card-tags">
+						<span class="tag tag-navy">Outlays: R$2.84T (27.7% GDP)</span>
+						<span class="tag tag-red">Deficit: 8.5% (Nominal)</span>
+					</div>
+				</a>
+
+				<!-- INDIA CARD -->
+				<a href="india-2024.html" class="report-card" style="animation-delay: 500ms">
+					<div class="card-header">
+						<div class="card-title">
+							<h2>India</h2>
+							<p>Fiscal Year 2024–25</p>
+						</div>
+						<div class="flag-in"><span class="s"></span><span class="w"></span><span class="g"></span></div>
+					</div>
+					<p class="card-desc">
+						Union Budget focusing on the historic ₹11.11L cr infrastructure capex push, massive interest payments, and
+						the rise of personal income tax.
+					</p>
+					<div class="card-tags">
+						<span class="tag tag-navy">Outlays: ₹48.21L cr (14.7% GDP)</span>
+						<span class="tag tag-red">Deficit: 4.9%</span>
+					</div>
+				</a>
+
+				<!-- ITALY CARD -->
+				<a href="italy-2024.html" class="report-card" style="animation-delay: 550ms">
+					<div class="card-header">
+						<div class="card-title">
+							<h2>Italy</h2>
+							<p>Fiscal Year 2024</p>
+						</div>
+						<div class="flag-it">
+							<div class="g"></div>
+							<div class="w"></div>
+							<div class="r"></div>
+						</div>
+					</div>
+					<p class="card-desc">
+						General Government analysis. Highlights the eurozone's heaviest pension burden, the fading Superbonus fiscal
+						shock, and massive debt servicing.
+					</p>
+					<div class="card-tags">
+						<span class="tag tag-navy">Outlays: €1,183B (53.8% GDP)</span>
+						<span class="tag tag-red">Deficit: 3.4%</span>
+					</div>
+				</a>
+
+				<!-- POLAND CARD -->
+				<a href="poland-2024.html" class="report-card" style="animation-delay: 600ms">
+					<div class="card-header">
+						<div class="card-title">
+							<h2>Poland</h2>
+							<p>Fiscal Year 2024</p>
+						</div>
+						<div class="flag-pl">
+							<div class="w"></div>
+							<div class="r"></div>
+						</div>
+					</div>
+					<p class="card-desc">
+						Highlights the defence spending surge to 4.1% of GDP (NATO's highest), off-budget funds, generous family
+						benefits, and VAT shortfalls.
+					</p>
+					<div class="card-tags">
+						<span class="tag tag-navy">Outlays: PLN 1,796B (49.4% GDP)</span>
+						<span class="tag tag-red">Deficit: 6.5%</span>
+					</div>
+				</a>
+
+				<!-- SOUTH AFRICA CARD -->
+				<a href="southafrica-2024.html" class="report-card" style="animation-delay: 650ms">
+					<div class="card-header">
+						<div class="card-title">
+							<h2>South Africa</h2>
+							<p>Fiscal Year 2024/25</p>
+						</div>
+						<div class="flag-za"><span class="r"></span><span class="g"></span><span class="b"></span></div>
+					</div>
+					<p class="card-desc">
+						Consolidated budget showing 28 million social grant recipients, debt service exceeding health spending, and
+						the fuel levy shock.
+					</p>
+					<div class="card-tags">
+						<span class="tag tag-navy">Outlays: R2,370B (32.0% GDP)</span>
+						<span class="tag tag-red">Deficit: ~5.0%</span>
+					</div>
+				</a>
+
+				<!-- SPAIN CARD -->
+				<a href="spain-2024.html" class="report-card" style="animation-delay: 700ms">
+					<div class="card-header">
+						<div class="card-title">
+							<h2>Spain</h2>
+							<p>Fiscal Year 2024</p>
+						</div>
+						<div class="flag-es">
+							<div class="r1"></div>
+							<div class="y"></div>
+							<div class="r2"></div>
+						</div>
+					</div>
+					<p class="card-desc">
+						Details the fast-declining debt ratio, booming tourism receipts, and one-off deficit hits from the Valencia
+						floods and court rulings.
+					</p>
+					<div class="card-tags">
+						<span class="tag tag-navy">Outlays: €703B (44.1% GDP)</span>
+						<span class="tag tag-red">Deficit: 3.2%</span>
+					</div>
+				</a>
 			</div>
 
 			<div class="section-label">Global Fiscal Map</div>
@@ -775,6 +1097,13 @@
 				300: { name: 'Greece', url: 'greece-2024.html' },
 				191: { name: 'Croatia', url: 'croatia-2024.html' },
 				643: { name: 'Russia', url: 'russia-2024.html' },
+				276: { name: 'Germany', url: 'germany-2024.html' },
+				'076': { name: 'Brazil', url: 'brazil-2024.html' },
+				356: { name: 'India', url: 'india-2024.html' },
+				380: { name: 'Italy', url: 'italy-2024.html' },
+				616: { name: 'Poland', url: 'poland-2024.html' },
+				710: { name: 'South Africa', url: 'southafrica-2024.html' },
+				724: { name: 'Spain', url: 'spain-2024.html' },
 			}
 
 			const width = 960
