@@ -1,16 +1,51 @@
-# React + Vite
+# Adding a New Country
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The app is fully data-driven. The homepage cards, interactive map, country page, and "Tracked Economies" counter are all generated automatically from the JS data files. **No JSX, CSS, or component changes are needed.**
 
-Currently, two official plugins are available:
+## What to do
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Add a new country object to one of the data files in `src/data/`:
 
-## React Compiler
+- `countries.js` — first batch (USA, UK, China, Japan, Denmark)
+- `countriesB.js` — second batch
+- `countriesC.js` — third batch
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Pick whichever file makes sense (or create a `countriesD.js` and import/spread it into the `countries` array in `countries.js`).
 
-## Expanding the ESLint configuration
+## Country object shape
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Use any existing country as a template. The required fields are:
+
+| Field | Purpose |
+|-------|---------|
+| `id` | URL slug, e.g. `"france"` → route `/:id` |
+| `name` | Display name |
+| `officialName` | Full name shown in the country page eyebrow |
+| `flagCode` | ISO 3166-1 alpha-2 lowercase, e.g. `"fr"` — used for flag images via flagcdn.com |
+| `isoNumeric` | ISO 3166-1 numeric code, e.g. `250` — used to highlight the country on the D3 world map |
+| `fiscalYear` | e.g. `"Fiscal Year 2024"` |
+| `fiscalPeriod` | e.g. `"Jan 1 – Dec 31, 2024"` |
+| `currency` | `{ symbol, code, prefix, suffix }` and optional `divisor` |
+| `gdpNote` | GDP context string |
+| `sourceNote` | Shown below the masthead title |
+| `kpis` | `{ receipts, outlays, balance, debt? }` — each with `label`, `value`, `note`; `balance` also has `type: "deficit" \| "surplus"` |
+| `indexCard` | `{ description, tags: [{ text, color }] }` — used on the homepage card |
+| `receipts` | `{ panelNote, groups: [...], methodNote? }` |
+| `outlays` | `{ panelNote, groups: [...], totalLabel, totalValue, methodNote? }` |
+| `deficitFinancing` | (optional) `{ label, sub, value, gdpNote, pct }` |
+| `surplusInfo` | (optional) `{ value, pct }` |
+| `totalLabel` / `totalValue` | Receipts + deficit financing total |
+| `callouts` | `[{ icon, title, text, tag? }]` — context cards |
+| `footnotes` | `{ sources, methodology }` |
+
+## What happens automatically
+
+- **Homepage card** — rendered from `indexCard` via `Home.jsx`
+- **"Tracked Economies" count** — uses `countries.length`
+- **World map highlight** — uses `isoNumeric` via `WorldMap.jsx`
+- **Country detail page** — rendered from all other fields via `Country.jsx`
+- **Flags** — fetched from `https://flagcdn.com/w80/{flagCode}.png`
+
+## Only exception
+
+The **"Total Outlays Tracked"** value on the homepage (`~$19.8T`) is currently hardcoded in `Home.jsx`. Update it manually if desired.
